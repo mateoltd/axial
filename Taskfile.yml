@@ -90,7 +90,7 @@ tasks:
     desc: run frontend-only dev server
     aliases: [dev-web, web]
     cmds:
-      - corepack pnpm --dir {{.FRONTEND_DIR}} run dev
+      - ./dev dev-web
 
   rust:fetch:
     desc: prefetch Rust dependencies
@@ -160,13 +160,13 @@ tasks:
     desc: run the Rust desktop shell
     aliases: [dev, dev-desktop, desktop:dev]
     cmds:
-      - cargo run --locked -p croopor-desktop
+      - ./dev dev
 
   dev:windows:
     desc: run the Windows desktop shell from linux/wsl
     aliases: [dev-windows, desktop:dev:windows]
     cmds:
-      - cargo run --locked -p croopor-desktop --target {{.WINDOWS_TARGET}}
+      - ./dev dev --target windows
 
   build:
     desc: build the desktop app in release mode
