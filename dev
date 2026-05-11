@@ -305,17 +305,17 @@ run_desktop_dev() {
   local frontend_pid=""
   cleanup_desktop_dev() {
     if [ -n "$frontend_pid" ] && kill -0 "$frontend_pid" >/dev/null 2>&1; then
-      kill "$frontend_pid" >/dev/null 2>&1 || true
+      kill -- "-$frontend_pid" >/dev/null 2>&1 || kill "$frontend_pid" >/dev/null 2>&1 || true
       wait "$frontend_pid" >/dev/null 2>&1 || true
     fi
   }
 
   trap cleanup_desktop_dev EXIT
-  (
-    export PORT=3000
-    export CROOPOR_WEB_API_BASE="${CROOPOR_WEB_API_BASE:-http://127.0.0.1:43430}"
-    run_frontend run dev:desktop
-  ) &
+  if command -v setsid >/dev/null 2>&1; then
+    setsid env PORT=3000 CROOPOR_WEB_API_BASE="${CROOPOR_WEB_API_BASE:-http://127.0.0.1:43430}" pnpm --dir "$ROOT/frontend" run dev:desktop &
+  else
+    env PORT=3000 CROOPOR_WEB_API_BASE="${CROOPOR_WEB_API_BASE:-http://127.0.0.1:43430}" pnpm --dir "$ROOT/frontend" run dev:desktop &
+  fi
   frontend_pid=$!
 
   wait_for_frontend_dev_server "$frontend_pid"

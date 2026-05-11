@@ -86,6 +86,7 @@ tasks:
   frontend:serve:
     desc: run frontend-only dev server
     aliases: [dev-web, web]
+    platforms: [linux, darwin]
     cmds:
       - ./dev dev-web
 
@@ -156,12 +157,14 @@ tasks:
   rust:desktop:
     desc: run the Rust desktop shell
     aliases: [dev, dev-desktop, desktop:dev]
+    platforms: [linux, darwin]
     cmds:
       - ./dev dev
 
   dev:windows:
     desc: run the Windows desktop shell from linux/wsl
     aliases: [dev-windows, desktop:dev:windows]
+    platforms: [linux, darwin]
     cmds:
       - ./dev dev --target windows
 
