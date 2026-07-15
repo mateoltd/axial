@@ -355,3 +355,17 @@ export async function windowSetResizeBackground(dark: boolean): Promise<boolean>
   await tauri.core.invoke('window_set_resize_background', { dark });
   return true;
 }
+
+export async function windowSetDecorations(enabled: boolean): Promise<boolean> {
+  const tauri = getTauriBinding();
+  if (!tauri?.core) return false;
+  await tauri.core.invoke('window_set_decorations', { enabled });
+  return true;
+}
+
+export async function windowSetShadow(enabled: boolean): Promise<boolean> {
+  const tauri = getTauriBinding();
+  if (!tauri?.core) return false;
+  await tauri.core.invoke('window_set_shadow', { enabled });
+  return true;
+}

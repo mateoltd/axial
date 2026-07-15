@@ -19,6 +19,7 @@ import {
 import { devMode } from './store';
 import { useShortcuts } from './hooks/use-shortcuts';
 import { reportRenderError } from './error-reporting';
+import { ResizeDiagnostics } from './ui/ResizeDiagnostics';
 
 type DevLabViewComponent = (typeof import('./views/dev-lab/DevLabView'))['DevLabView'];
 type CommandPaletteComponent = (typeof import('./ui/CommandPalette'))['CommandPalette'];
@@ -251,6 +252,7 @@ function AppContent(): JSX.Element {
       <ToastHost />
       {commandPaletteOpen.value && <LazyCommandPalette />}
       <BootSplash />
+      <ResizeDiagnostics />
     </>
   );
 }

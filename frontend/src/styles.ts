@@ -18,6 +18,7 @@ import './ui/context-menu.css';
 import './ui/command-palette.css';
 import './ui/dialog.css';
 import './ui/toast.css';
+import './ui/resize-diagnostics.css';
 import './ui/player-head.css';
 import './views/onboarding/onboarding.css';
 import './views/settings/accent.css';

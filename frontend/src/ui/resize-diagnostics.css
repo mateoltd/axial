@@ -1,0 +1,162 @@
+.cp-resize-lab,
+.cp-resize-lab-tab {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 3000;
+  color: var(--text);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.cp-resize-lab {
+  width: 340px;
+  max-height: calc(100vh - 24px);
+  padding: 10px;
+  border-radius: var(--r-md);
+  overflow: auto;
+}
+
+.cp-resize-lab-tab {
+  height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--r-sm);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.cp-resize-lab-head,
+.cp-resize-lab-actions,
+.cp-resize-lab-control {
+  display: flex;
+  align-items: center;
+}
+
+.cp-resize-lab-head {
+  justify-content: space-between;
+  padding: 2px 2px 9px;
+}
+
+.cp-resize-lab-head > span,
+.cp-resize-lab-control > span:first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.cp-resize-lab-head strong {
+  font-size: 13px;
+}
+
+.cp-resize-lab-head small,
+.cp-resize-lab-control small {
+  color: var(--text-mute);
+  font-size: 10.5px;
+}
+
+.cp-resize-lab-head button {
+  border: 0;
+  padding: 5px 7px;
+  border-radius: var(--r-xs);
+  color: var(--text-dim);
+  background: transparent;
+  cursor: pointer;
+}
+
+.cp-resize-lab-head button:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.cp-resize-lab-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  padding: 5px;
+  border-radius: var(--r-sm);
+  background: color-mix(in oklab, var(--bg) 55%, var(--surface));
+}
+
+.cp-resize-lab-metrics span {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 3px 5px;
+  color: var(--text-mute);
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.cp-resize-lab-metrics b {
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.cp-resize-lab-controls {
+  display: grid;
+  gap: 1px;
+  margin-top: 8px;
+}
+
+.cp-resize-lab-control {
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 40px;
+  padding: 4px 6px;
+}
+
+.cp-resize-lab-control strong {
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.cp-resize-lab-control[data-disabled='true'] {
+  opacity: 0.42;
+}
+
+.cp-resize-lab-error {
+  margin-top: 7px;
+  padding: 7px;
+  border-radius: var(--r-xs);
+  color: color-mix(in oklab, var(--err) 72%, var(--text));
+  background: color-mix(in oklab, var(--err) 12%, var(--surface));
+  font-size: 10.5px;
+}
+
+.cp-resize-lab-actions {
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+html[data-resize-scrollbar-gutter='true'] .cp-view {
+  scrollbar-gutter: stable;
+}
+
+html[data-resize-forced-scrollbar='true'] .cp-view {
+  overflow-y: scroll;
+}
+
+html[data-resize-disable-motion='true'] *,
+html[data-resize-disable-motion='true'] *::before,
+html[data-resize-disable-motion='true'] *::after {
+  scroll-behavior: auto !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+html[data-resize-disable-effects='true'] *,
+html[data-resize-disable-effects='true'] *::before,
+html[data-resize-disable-effects='true'] *::after {
+  box-shadow: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+html[data-resize-contain-view='true'] .cp-view {
+  contain: strict;
+}
+
+html[data-resize-square-content='true'] .cp-view {
+  border-radius: 0;
+}

@@ -96,7 +96,9 @@ async fn run() -> Result<(), Box<dyn std::error::Error>> {
             commands::window_close,
             commands::window_is_maximized,
             commands::window_start_dragging,
-            commands::window_set_resize_background
+            commands::window_set_resize_background,
+            commands::window_set_decorations,
+            commands::window_set_shadow
         ])
         .on_window_event(move |window, event| {
             if let WindowEvent::CloseRequested { api, .. } = event {

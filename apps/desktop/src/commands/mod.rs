@@ -308,6 +308,22 @@ pub fn window_set_resize_background(app: AppHandle, dark: bool) -> Result<(), St
 }
 
 #[tauri::command]
+pub fn window_set_decorations(app: AppHandle, enabled: bool) -> Result<(), String> {
+    let window = app
+        .get_webview_window("main")
+        .ok_or_else(|| "main window missing".to_string())?;
+    window.set_decorations(enabled).map_err(|e| e.to_string())
+}
+
+#[tauri::command]
+pub fn window_set_shadow(app: AppHandle, enabled: bool) -> Result<(), String> {
+    let window = app
+        .get_webview_window("main")
+        .ok_or_else(|| "main window missing".to_string())?;
+    window.set_shadow(enabled).map_err(|e| e.to_string())
+}
+
+#[tauri::command]
 pub async fn start_install_events(
     app: AppHandle,
     state: State<'_, AppState>,
