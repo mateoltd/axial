@@ -45,10 +45,15 @@ or ambiguous repeated managed hashes fail closed. Project records retain their
 Modrinth namespace; no speculative cross-provider project merge is performed.
 
 4. Per-instance provenance manifest.
-Each instance has a strict v2 `axial.content.json` manifest, owned by
-`core/content`, recording every launcher-managed entry. Every file-owning entry
-has a canonical lowercase SHA-512 digest and an exact positive byte size;
-Modpack provenance is the sole pathless, no-file exception. SHA-1 is retained
+Each instance has a strict v3 `axial.content.json` manifest, owned by
+`core/content`, recording every launcher-managed entry. Schemas v1 and v2 are
+unsupported and have no compatibility reader. Every file-owning entry has a
+typed managed filename, a canonical lowercase SHA-512 digest, and an exact
+positive byte size; Modpack provenance is the sole pathless, no-file exception
+and represents that state by omitting the optional filename directly, never by
+serializing an empty-string sentinel. Provider metadata enters through checked
+constructors, while identified pack files remain typed pending entries until
+authenticated positive sizes allow one atomic batch transition. SHA-1 is retained
 only as transient upstream download evidence and is never manifest authority.
 The filesystem stays the truth for current file presence, while the manifest
 retains durable identity and ownership. Reading instance content never rewrites
