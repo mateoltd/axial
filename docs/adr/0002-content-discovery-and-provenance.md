@@ -22,36 +22,38 @@ policy (dependency and conflict decisions) on the backend per `CONVENTIONS.md`.
 Add a content discovery subsystem built on four durable choices.
 
 1. Dedicated `core/content` crate.
-Provider clients, the canonical model, canonicalization, and the install
-pipeline live in a new `core/content` crate that depends on `core/minecraft` for
-verified downloads and integrity. This keeps `core/minecraft` focused on the game
-runtime and gives content a clear API boundary.
+The Modrinth-backed service, provider-neutral model, resolution engine, and
+install pipeline live in `core/content`, which depends on `core/minecraft` for
+verified downloads and integrity. This keeps `core/minecraft` focused on the
+game runtime and gives content a clear API boundary.
 
-2. Provider abstraction with a canonical model.
-A `ContentProvider` trait (search, detail, versions, identify) feeds a
-`ProviderRegistry` that merges and canonicalizes results into `CanonicalContent`.
-Modrinth is the first and, for now, only implementation: it is the only content
-source with a fully public API. CurseForge requires a partner key and carries
-redistribution restrictions, so it is out until we choose to key it. The
-abstraction is multi-provider from day one so adding a second source is a plug-in,
-not a rewrite.
+2. Direct service with a provider-neutral model.
+`ContentService` owns one shared HTTP client and directly maps Modrinth search,
+detail, version, hash-identity, and metadata endpoints into provider-neutral
+domain records. Modrinth is the only supported source: CurseForge requires a
+partner key and carries redistribution restrictions. We do not retain a trait,
+registry, merge pass, or per-record source list for a provider that does not
+exist. Canonical IDs remain explicitly namespaced, and the service rejects every
+namespace except `modrinth:` before making a request. A future second source must
+justify and introduce the abstraction its real behavior requires.
 
-3. Hash-based canonicalization for dedupe.
-A file's `sha512` is its universal identity. Identical files across providers and
-managed pack contents collapse to one canonical file, and Modrinth's
+3. Hash-based provider identification.
+An authenticated file's `sha512` identifies its exact bytes. Modrinth's
 `version_file/{hash}` endpoint resolves provider-described pack files back to a
-project and version. Project-level cross-provider merging (by project id, then
-shared source URL) is best-effort and strengthened later; nothing in Phase 1
-depends on it.
+project and version before the launcher records ownership. Duplicate destinations
+or ambiguous repeated managed hashes fail closed. Project records retain their
+Modrinth namespace; no speculative cross-provider project merge is performed.
 
 4. Per-instance provenance manifest.
-Each instance gains an `axial.content.json` manifest, owned by `core/content`,
-recording every launcher-managed entry (canonical id, provider, project/version
-ids, kind, filename, hashes, size, dependencies, enabled state, and install
-time). The filesystem stays the truth for current file presence, while the
-manifest remains the durable identity and ownership record. Reading instance
-content never rewrites provenance or adopts files that appeared outside a
-launcher-owned install transaction.
+Each instance has a strict v2 `axial.content.json` manifest, owned by
+`core/content`, recording every launcher-managed entry. Every file-owning entry
+has a canonical lowercase SHA-512 digest and an exact positive byte size;
+Modpack provenance is the sole pathless, no-file exception. SHA-1 is retained
+only as transient upstream download evidence and is never manifest authority.
+The filesystem stays the truth for current file presence, while the manifest
+retains durable identity and ownership. Reading instance content never rewrites
+provenance or adopts files that appeared outside a launcher-owned install
+transaction.
 
 Supporting choices:
 - Content installs are a new kind on the existing install queue, reusing verified
@@ -60,8 +62,8 @@ Supporting choices:
 - Dependency and conflict resolution produce a backend-authored `ResolutionPlan`
   view-model (to install, deps added, conflicts with suggested resolution,
   removals). The frontend renders and confirms it; it does not author policy.
-- Installs are staged then atomically renamed, and the manifest is updated
-  transactionally, so failures roll back cleanly.
+- Installs stage and verify files before promotion, then update provenance as
+  part of the managed install flow.
 
 Scope for the first release:
 - Data packs are deferred. Vanilla data packs are per-world, which does not fit
@@ -85,7 +87,7 @@ Tradeoffs:
   ownership record; explicit managed operations handle changes.
 - Hand-dropped files remain local and unmanaged. Axial does not infer ownership,
   updates, compatibility, or removal authority from their hashes.
-- Single-provider reality means cross-provider canonicalization is unexercised
-  until a second source exists, so that path stays best-effort.
-- Cherry-pick fails closed for files the provider cannot identify, because Axial
-  cannot promise provenance, updates, compatibility, or managed removal for them.
+- Supporting another source requires a deliberate model and service design once
+  its actual identity, authentication, and redistribution constraints are known.
+- Provider-unidentified pack files remain unmanaged rather than being assigned
+  invented provenance, update, compatibility, or removal authority.
