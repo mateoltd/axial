@@ -209,6 +209,35 @@ fn skin_png_validator_rejects_invalid_dimensions() {
 }
 
 #[test]
+fn skin_png_validator_rejects_bytes_after_iend() {
+    let mut bytes = test_skin_png(SKIN_WIDTH, SKIN_HEIGHT);
+    bytes.extend_from_slice(b"trailing data");
+
+    assert_eq!(
+        validate_skin_png(&bytes),
+        Err(SkinPngValidationError::InvalidPng)
+    );
+}
+
+#[test]
+fn skin_png_validator_ignores_compressed_text_and_profile_chunks() {
+    let bytes = test_skin_png_with_compressed_ancillary_chunks();
+
+    assert!(bytes.len() <= SKIN_PNG_MAX_BYTES);
+    assert_eq!(validate_skin_png(&bytes), Ok(()));
+}
+
+#[test]
+fn skin_png_validator_enforces_the_decoder_allocation_budget() {
+    let bytes = test_skin_png(SKIN_WIDTH, SKIN_HEIGHT);
+
+    assert_eq!(
+        validate_skin_png_with_budget(&bytes, 0),
+        Err(SkinPngValidationError::InvalidPng)
+    );
+}
+
+#[test]
 fn skin_png_validator_accepts_the_maximum_bounded_input() {
     let bytes = test_skin_png_with_exact_len(SKIN_PNG_MAX_BYTES);
 

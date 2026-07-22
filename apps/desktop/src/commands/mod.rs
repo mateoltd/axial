@@ -11,6 +11,7 @@ use axial_api::application::{
 use axial_api::state::{AppState, LaunchEvent};
 use serde::Serialize;
 use std::future::Future;
+use std::sync::Arc;
 use std::time::{Duration, Instant};
 use tauri::webview::Color;
 use tauri::{
@@ -158,26 +159,33 @@ fn microsoft_sign_in_cancelled() -> NativeMicrosoftSignIn {
 }
 
 #[tauri::command]
-pub async fn pick_skin_file(app: AppHandle) -> Result<Option<NativeSkinFile>, String> {
+pub async fn pick_skin_file(
+    app: AppHandle,
+    state: State<'_, AppState>,
+) -> Result<Option<NativeSkinFile>, String> {
     let (selected_tx, selected_rx) = tokio::sync::oneshot::channel();
+    let root_session = Arc::clone(state.root_session());
     app.dialog()
         .file()
         .add_filter("PNG skin", &["png"])
         .pick_file(move |selected| {
-            let _ = selected_tx.send(selected);
+            let admission = selected
+                .map(|selected| {
+                    selected
+                        .into_path()
+                        .map_err(|_| "Native skin picker returned an invalid file.".to_string())
+                        .and_then(|path| NativeSkinFileAdmission::admit(&root_session, path))
+                })
+                .transpose();
+            let _ = selected_tx.send(admission);
         });
     let selected = selected_rx
         .await
         .map_err(|_| "Native skin picker stopped before returning a selection.".to_string())?;
-    let Some(selected) = selected else {
+    let Some(admission) = selected? else {
         return Ok(None);
     };
-    let path = selected
-        .into_path()
-        .map_err(|_| "Native skin picker returned an invalid file.".to_string())?;
-    tauri::async_runtime::spawn_blocking(move || {
-        NativeSkinFileAdmission::open(path).and_then(NativeSkinFileAdmission::read)
-    })
+    tauri::async_runtime::spawn_blocking(move || admission.read())
         .await
         .map_err(|_| "Could not read skin file.".to_string())?
         .map(Some)

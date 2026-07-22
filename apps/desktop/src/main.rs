@@ -143,6 +143,7 @@ async fn run() -> Result<(), Box<dyn std::error::Error>> {
                 WindowEvent::DragDrop(event) => native_skin::handle_native_skin_drag(
                     window,
                     close_event_desktop.native_skin_drop().clone(),
+                    Arc::clone(close_event_state.root_session()),
                     event,
                 ),
                 WindowEvent::CloseRequested { api, .. } => {

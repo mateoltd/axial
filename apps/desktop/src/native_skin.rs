@@ -1,12 +1,13 @@
 use axial_api::application::skin::{
     SKIN_PNG_MAX_BYTES, SkinPngValidationError, validate_skin_png,
 };
+use axial_config::AppRootSession;
+use axial_fs::{FileCapability, FileRevision, LeafName};
 use serde::Serialize;
-use std::fs::{File, Metadata, OpenOptions};
 use std::io::Read as _;
 use std::path::{Path, PathBuf};
 use std::sync::{Arc, Mutex};
-use std::time::{Duration, Instant, SystemTime};
+use std::time::{Duration, Instant};
 use tauri::dpi::PhysicalPosition;
 use tauri::{DragDropEvent, Emitter, WebviewWindow};
 use tokio::sync::{OwnedSemaphorePermit, Semaphore};
@@ -26,30 +27,8 @@ pub(crate) struct NativeSkinFile {
 
 pub(crate) struct NativeSkinFileAdmission {
     name: String,
-    file: File,
-    revision: NativeSkinFileRevision,
-}
-
-#[derive(Clone, Copy, Eq, PartialEq)]
-struct NativeSkinFileRevision {
-    len: u64,
-    modified: Option<SystemTime>,
-    #[cfg(unix)]
-    device: u64,
-    #[cfg(unix)]
-    inode: u64,
-    #[cfg(unix)]
-    modified_seconds: i64,
-    #[cfg(unix)]
-    modified_nanoseconds: i64,
-    #[cfg(windows)]
-    volume_serial_number: Option<u32>,
-    #[cfg(windows)]
-    file_index: Option<u64>,
-    #[cfg(windows)]
-    last_write_time: u64,
-    #[cfg(windows)]
-    file_size: u64,
+    file: FileCapability,
+    revision: FileRevision,
 }
 
 #[derive(Clone)]
@@ -144,14 +123,6 @@ impl NativeSkinDropCoordinator {
             .ok()
     }
 
-    fn generation_is_current(&self, generation: u64) -> bool {
-        self.shared
-            .lock()
-            .expect(SKIN_DROP_LOCK_INVARIANT)
-            .generation
-            == generation
-    }
-
     fn publish(
         &self,
         generation: u64,
@@ -213,6 +184,7 @@ fn advance_generation(state: &mut NativeSkinDropState) {
 pub(crate) fn handle_native_skin_drag(
     window: &WebviewWindow,
     coordinator: NativeSkinDropCoordinator,
+    root_session: Arc<AppRootSession>,
     event: &DragDropEvent,
 ) {
     match event {
@@ -261,40 +233,28 @@ pub(crate) fn handle_native_skin_drag(
                         );
                         return;
                     };
-                    let window = window.clone();
-                    tauri::async_runtime::spawn(async move {
-                        let admission = tauri::async_runtime::spawn_blocking(move || {
-                            let result = NativeSkinFileAdmission::open(path);
-                            drop(admission_permit);
-                            result
-                        })
-                        .await
-                        .map_err(|_| "Could not read dropped skin file.".to_string())
-                        .and_then(|result| result);
-                        if !coordinator.generation_is_current(generation) {
-                            return;
-                        }
-                        let (token, error) = match admission {
-                            Ok(admission) => (coordinator.publish(generation, admission), None),
-                            Err(error) => (None, Some(error)),
-                        };
-                        if let Some(token) = token.as_ref() {
-                            let expiry_coordinator = coordinator.clone();
-                            let expiry_token = token.clone();
-                            tauri::async_runtime::spawn(async move {
-                                tokio::time::sleep(SKIN_DROP_TOKEN_TTL).await;
-                                expiry_coordinator.expire(&expiry_token);
-                            });
-                        }
-                        emit_drag(
-                            &window,
-                            NativeSkinDragType::Drop,
-                            token.is_some(),
-                            token,
-                            position,
-                            error.as_deref(),
-                        );
-                    });
+                    let admission = NativeSkinFileAdmission::admit(&root_session, path);
+                    drop(admission_permit);
+                    let (token, error) = match admission {
+                        Ok(admission) => (coordinator.publish(generation, admission), None),
+                        Err(error) => (None, Some(error)),
+                    };
+                    if let Some(token) = token.as_ref() {
+                        let expiry_coordinator = coordinator.clone();
+                        let expiry_token = token.clone();
+                        tauri::async_runtime::spawn(async move {
+                            tokio::time::sleep(SKIN_DROP_TOKEN_TTL).await;
+                            expiry_coordinator.expire(&expiry_token);
+                        });
+                    }
+                    emit_drag(
+                        window,
+                        NativeSkinDragType::Drop,
+                        token.is_some(),
+                        token,
+                        position,
+                        error.as_deref(),
+                    );
                 }
             }
         }
@@ -369,62 +329,96 @@ fn skin_drop_selection(paths: &[PathBuf]) -> NativeSkinDropSelection {
 }
 
 impl NativeSkinFileAdmission {
-    pub(crate) fn open(path: PathBuf) -> Result<Self, String> {
+    pub(crate) fn admit(root_session: &AppRootSession, path: PathBuf) -> Result<Self, String> {
+        if !path.is_absolute() {
+            return Err("Could not read skin file.".to_string());
+        }
         if !has_png_extension(&path) {
             return Err("Choose a PNG skin file.".to_string());
         }
-        let file = open_native_skin_file(&path)
+        let parent = path
+            .parent()
+            .filter(|parent| parent.is_absolute())
+            .ok_or_else(|| "Could not read skin file.".to_string())?;
+        let file_name = path
+            .file_name()
+            .ok_or_else(|| "Could not read skin file.".to_string())?;
+        let leaf = LeafName::new(file_name.to_os_string())
             .map_err(|_| "Could not read skin file.".to_string())?;
-        let metadata = file
-            .metadata()
+        let parent = root_session
+            .admit_absolute_directory(parent)
             .map_err(|_| "Could not read skin file.".to_string())?;
-        if !metadata.is_file() {
-            return Err("Choose a PNG skin file.".to_string());
-        }
-        if metadata.len() > SKIN_FILE_MAX_BYTES {
+        let file = parent
+            .open_file(&leaf)
+            .map_err(|_| "Could not read skin file.".to_string())?;
+        let revision = file
+            .revision()
+            .map_err(|_| "Could not read skin file.".to_string())?;
+        if revision.size() > SKIN_FILE_MAX_BYTES {
             return Err("Skin file is too large; choose a PNG under 256 KiB.".to_string());
         }
-        let name = path
-            .file_name()
-            .and_then(|name| name.to_str())
+        let name = leaf
+            .as_os_str()
+            .to_str()
             .filter(|name| !name.trim().is_empty())
             .unwrap_or("skin.png")
             .to_string();
         Ok(Self {
             name,
             file,
-            revision: NativeSkinFileRevision::capture(&metadata),
+            revision,
         })
     }
 
-    pub(crate) fn read(mut self) -> Result<NativeSkinFile, String> {
-        self.validate_revision()?;
-        let mut bytes = Vec::with_capacity(self.revision.len as usize);
-        self.file
-            .by_ref()
-            .take(SKIN_FILE_MAX_BYTES + 1)
-            .read_to_end(&mut bytes)
-            .map_err(|_| "Could not read skin file.".to_string())?;
-        if bytes.len() as u64 > SKIN_FILE_MAX_BYTES {
-            return Err("Skin file is too large; choose a PNG under 256 KiB.".to_string());
+    pub(crate) fn read(self) -> Result<NativeSkinFile, String> {
+        let Self {
+            name,
+            file,
+            revision,
+        } = self;
+        let expected_size = usize::try_from(revision.size())
+            .map_err(|_| "Skin file is too large; choose a PNG under 256 KiB.".to_string())?;
+        let mut reader = match file.into_revision_reader(revision, SKIN_FILE_MAX_BYTES) {
+            Ok(reader) => reader,
+            Err(failure) => {
+                let error = native_skin_read_error(failure.error());
+                let (_, file, revision, _) = failure.into_parts();
+                drop((file, revision));
+                return Err(error);
+            }
+        };
+        let mut bytes = Vec::with_capacity(expected_size);
+        if let Err(error) = reader.read_to_end(&mut bytes) {
+            let error = native_skin_read_error(&error);
+            let (file, revision) = reader.cancel();
+            drop((file, revision));
+            return Err(error);
         }
-        self.validate_revision()?;
-        validate_skin_png(&bytes).map_err(native_skin_validation_error)?;
-        Ok(NativeSkinFile {
-            name: self.name,
-            bytes,
-        })
-    }
-
-    fn validate_revision(&self) -> Result<(), String> {
-        let current = self
-            .file
-            .metadata()
-            .map_err(|_| "Could not read skin file.".to_string())?;
-        if NativeSkinFileRevision::capture(&current) != self.revision {
+        match reader.finish() {
+            Ok(file) => drop(file),
+            Err(failure) => {
+                let error = native_skin_read_error(failure.error());
+                let (file, revision) = failure.into_reader().cancel();
+                drop((file, revision));
+                return Err(error);
+            }
+        }
+        if bytes.len() != expected_size {
             return Err("Skin file changed while it was being read. Choose it again.".to_string());
         }
-        Ok(())
+        validate_skin_png(&bytes).map_err(native_skin_validation_error)?;
+        Ok(NativeSkinFile { name, bytes })
+    }
+}
+
+fn native_skin_read_error(error: &std::io::Error) -> String {
+    if matches!(
+        error.kind(),
+        std::io::ErrorKind::InvalidData | std::io::ErrorKind::UnexpectedEof
+    ) {
+        "Skin file changed while it was being read. Choose it again.".to_string()
+    } else {
+        "Could not read skin file.".to_string()
     }
 }
 
@@ -440,189 +434,6 @@ fn native_skin_validation_error(error: SkinPngValidationError) -> String {
     }
 }
 
-impl NativeSkinFileRevision {
-    fn capture(metadata: &Metadata) -> Self {
-        #[cfg(unix)]
-        use std::os::unix::fs::MetadataExt as _;
-        #[cfg(windows)]
-        use std::os::windows::fs::MetadataExt as _;
-
-        Self {
-            len: metadata.len(),
-            modified: metadata.modified().ok(),
-            #[cfg(unix)]
-            device: metadata.dev(),
-            #[cfg(unix)]
-            inode: metadata.ino(),
-            #[cfg(unix)]
-            modified_seconds: metadata.mtime(),
-            #[cfg(unix)]
-            modified_nanoseconds: metadata.mtime_nsec(),
-            #[cfg(windows)]
-            volume_serial_number: metadata.volume_serial_number(),
-            #[cfg(windows)]
-            file_index: metadata.file_index(),
-            #[cfg(windows)]
-            last_write_time: metadata.last_write_time(),
-            #[cfg(windows)]
-            file_size: metadata.file_size(),
-        }
-    }
-}
-
-fn open_native_skin_file(path: &Path) -> std::io::Result<File> {
-    if !path.is_absolute() {
-        return Err(std::io::Error::new(
-            std::io::ErrorKind::InvalidInput,
-            "native skin path is not absolute",
-        ));
-    }
-    open_native_skin_file_platform(path)
-}
-
-#[cfg(unix)]
-fn open_native_skin_file_platform(path: &Path) -> std::io::Result<File> {
-    use std::os::unix::fs::OpenOptionsExt as _;
-
-    let mut options = OpenOptions::new();
-    options.read(true);
-    options.custom_flags(libc::O_CLOEXEC | libc::O_NOFOLLOW | libc::O_NONBLOCK);
-    options.open(path)
-}
-
-#[cfg(windows)]
-fn open_native_skin_file_platform(path: &Path) -> std::io::Result<File> {
-    use std::mem::{MaybeUninit, size_of};
-    use std::os::windows::fs::OpenOptionsExt as _;
-    use std::os::windows::io::AsRawHandle as _;
-    use windows_sys::Win32::Storage::FileSystem::{
-        FILE_ATTRIBUTE_DIRECTORY, FILE_ATTRIBUTE_OFFLINE, FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS,
-        FILE_ATTRIBUTE_RECALL_ON_OPEN, FILE_ATTRIBUTE_REPARSE_POINT, FILE_BASIC_INFO,
-        FILE_FLAG_OPEN_NO_RECALL, FILE_FLAG_OPEN_REPARSE_POINT, FILE_FLAG_SEQUENTIAL_SCAN,
-        FILE_NAME_OPENED, FILE_STANDARD_INFO, FILE_TYPE_DISK, FileBasicInfo, FileStandardInfo,
-        GetFileInformationByHandleEx, GetFileType, VOLUME_NAME_GUID,
-    };
-
-    if !windows_path_has_local_disk_prefix(path) {
-        return Err(std::io::Error::new(
-            std::io::ErrorKind::InvalidInput,
-            "native skin path is not a local disk path",
-        ));
-    }
-    let mut options = OpenOptions::new();
-    options.read(true).custom_flags(
-        FILE_FLAG_OPEN_REPARSE_POINT | FILE_FLAG_OPEN_NO_RECALL | FILE_FLAG_SEQUENTIAL_SCAN,
-    );
-    let file = options.open(path)?;
-    let handle = file.as_raw_handle();
-
-    if unsafe { GetFileType(handle) } != FILE_TYPE_DISK {
-        return Err(std::io::Error::new(
-            std::io::ErrorKind::InvalidData,
-            "native skin is not a disk file",
-        ));
-    }
-
-    let mut basic = MaybeUninit::<FILE_BASIC_INFO>::uninit();
-    let basic_ok = unsafe {
-        GetFileInformationByHandleEx(
-            handle,
-            FileBasicInfo,
-            basic.as_mut_ptr().cast(),
-            size_of::<FILE_BASIC_INFO>() as u32,
-        )
-    };
-    if basic_ok == 0 {
-        return Err(std::io::Error::last_os_error());
-    }
-    let basic = unsafe { basic.assume_init() };
-
-    let mut standard = MaybeUninit::<FILE_STANDARD_INFO>::uninit();
-    let standard_ok = unsafe {
-        GetFileInformationByHandleEx(
-            handle,
-            FileStandardInfo,
-            standard.as_mut_ptr().cast(),
-            size_of::<FILE_STANDARD_INFO>() as u32,
-        )
-    };
-    if standard_ok == 0 {
-        return Err(std::io::Error::last_os_error());
-    }
-    let standard = unsafe { standard.assume_init() };
-
-    if basic.FileAttributes
-        & (FILE_ATTRIBUTE_REPARSE_POINT
-            | FILE_ATTRIBUTE_DIRECTORY
-            | FILE_ATTRIBUTE_OFFLINE
-            | FILE_ATTRIBUTE_RECALL_ON_OPEN
-            | FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS)
-        != 0
-        || standard.Directory != 0
-    {
-        return Err(std::io::Error::new(
-            std::io::ErrorKind::InvalidData,
-            "native skin is not an exact regular file",
-        ));
-    }
-
-    require_local_volume_path(handle, FILE_NAME_OPENED | VOLUME_NAME_GUID)?;
-    Ok(file)
-}
-
-#[cfg(windows)]
-fn windows_path_has_local_disk_prefix(path: &Path) -> bool {
-    use std::path::{Component, Prefix};
-
-    path.is_absolute()
-        && matches!(
-            path.components().next(),
-            Some(Component::Prefix(prefix))
-                if matches!(prefix.kind(), Prefix::Disk(_) | Prefix::VerbatimDisk(_))
-        )
-}
-
-#[cfg(windows)]
-fn require_local_volume_path(
-    handle: std::os::windows::io::RawHandle,
-    flags: u32,
-) -> std::io::Result<()> {
-    use windows_sys::Win32::Storage::FileSystem::GetFinalPathNameByHandleW;
-
-    let required = unsafe { GetFinalPathNameByHandleW(handle, std::ptr::null_mut(), 0, flags) };
-    if required == 0 {
-        return Err(std::io::Error::last_os_error());
-    }
-    let mut path = vec![0_u16; required as usize];
-    let written = unsafe {
-        GetFinalPathNameByHandleW(handle, path.as_mut_ptr(), path.len() as u32, flags)
-    };
-    if written == 0 || written as usize >= path.len() {
-        return Err(if written == 0 {
-            std::io::Error::last_os_error()
-        } else {
-            std::io::Error::new(
-                std::io::ErrorKind::InvalidData,
-                "native skin volume path changed while queried",
-            )
-        });
-    }
-    let path = String::from_utf16(&path[..written as usize]).map_err(|_| {
-        std::io::Error::new(
-            std::io::ErrorKind::InvalidData,
-            "native skin volume path is malformed",
-        )
-    })?;
-    if !path.starts_with(r"\\?\Volume{") {
-        return Err(std::io::Error::new(
-            std::io::ErrorKind::InvalidData,
-            "native skin is not on a local volume",
-        ));
-    }
-
-    Ok(())
-}
-
 fn has_png_extension(path: &Path) -> bool {
     path.extension()
         .and_then(|extension| extension.to_str())
@@ -632,6 +443,7 @@ fn has_png_extension(path: &Path) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use axial_config::AppPaths;
     use std::fs;
     use std::time::{SystemTime, UNIX_EPOCH};
 
@@ -646,6 +458,11 @@ mod tests {
         ));
         fs::create_dir_all(&dir).expect("test dir");
         dir
+    }
+
+    fn test_root_session(root: &Path) -> Arc<AppRootSession> {
+        let paths = AppPaths::from_root(root.to_path_buf()).expect("test app paths");
+        Arc::new(paths.open_root_session().expect("test root session"))
     }
 
     fn test_skin_png(width: u32, height: u32) -> Vec<u8> {
@@ -667,15 +484,17 @@ mod tests {
         let path = dir.join("player.png");
         let original = test_skin_png(64, 64);
         fs::write(&path, &original).expect("write original png");
-        let admission = NativeSkinFileAdmission::open(path.clone()).expect("admit skin");
+        let root_session = test_root_session(&dir);
+        let admission =
+            NativeSkinFileAdmission::admit(&root_session, path.clone()).expect("admit skin");
         fs::write(&path, b"replacement").expect("replace png bytes");
 
         assert_eq!(
             admission.read(),
             Err("Skin file changed while it was being read. Choose it again.".to_string())
         );
-        fs::remove_file(path).expect("cleanup file");
-        fs::remove_dir(dir).expect("cleanup dir");
+        drop(root_session);
+        fs::remove_dir_all(dir).expect("cleanup dir");
     }
 
     #[test]
@@ -684,12 +503,13 @@ mod tests {
         let path = dir.join("player.png");
         let png = test_skin_png(64, 64);
         fs::write(&path, &png).expect("write png");
+        let root_session = test_root_session(&dir);
         let coordinator = NativeSkinDropCoordinator::new();
         let generation = coordinator.begin_drop();
         let token = coordinator
             .publish(
                 generation,
-                NativeSkinFileAdmission::open(path.clone()).expect("admit skin"),
+                NativeSkinFileAdmission::admit(&root_session, path.clone()).expect("admit skin"),
             )
             .expect("publish token");
 
@@ -705,8 +525,9 @@ mod tests {
             coordinator.consume(&token),
             Err("Dropped skin file is no longer available.".to_string())
         );
-        fs::remove_file(path).expect("cleanup file");
-        fs::remove_dir(dir).expect("cleanup dir");
+        drop(coordinator);
+        drop(root_session);
+        fs::remove_dir_all(dir).expect("cleanup dir");
     }
 
     #[test]
@@ -715,12 +536,13 @@ mod tests {
         let path = dir.join("player.png");
         let png = test_skin_png(64, 64);
         fs::write(&path, &png).expect("write png");
+        let root_session = test_root_session(&dir);
         let coordinator = NativeSkinDropCoordinator::new();
         let generation = coordinator.begin_drop();
         let token = coordinator
             .publish(
                 generation,
-                NativeSkinFileAdmission::open(path.clone()).expect("admit skin"),
+                NativeSkinFileAdmission::admit(&root_session, path.clone()).expect("admit skin"),
             )
             .expect("publish token");
 
@@ -731,8 +553,9 @@ mod tests {
             coordinator.consume(&token).expect("consume token").bytes,
             png
         );
-        fs::remove_file(path).expect("cleanup file");
-        fs::remove_dir(dir).expect("cleanup dir");
+        drop(coordinator);
+        drop(root_session);
+        fs::remove_dir_all(dir).expect("cleanup dir");
     }
 
     #[test]
@@ -740,90 +563,28 @@ mod tests {
         let dir = test_dir("token-new-drop");
         let path = dir.join("player.png");
         fs::write(&path, test_skin_png(64, 64)).expect("write png");
+        let root_session = test_root_session(&dir);
         let coordinator = NativeSkinDropCoordinator::new();
         let generation = coordinator.begin_drop();
         let token = coordinator
             .publish(
                 generation,
-                NativeSkinFileAdmission::open(path.clone()).expect("admit skin"),
+                NativeSkinFileAdmission::admit(&root_session, path.clone()).expect("admit skin"),
             )
             .expect("publish token");
 
         coordinator.begin_drop();
-        assert!(NativeSkinFileAdmission::open(dir.join("missing.png")).is_err());
+        assert!(
+            NativeSkinFileAdmission::admit(&root_session, dir.join("missing.png")).is_err()
+        );
 
         assert_eq!(
             coordinator.consume(&token),
             Err("Dropped skin file is no longer available.".to_string())
         );
-        fs::remove_file(path).expect("cleanup file");
-        fs::remove_dir(dir).expect("cleanup dir");
-    }
-
-    #[test]
-    fn native_skin_admission_rejects_relative_paths_before_open() {
-        assert_eq!(
-            open_native_skin_file(Path::new("relative.png"))
-                .expect_err("relative path should fail")
-                .kind(),
-            std::io::ErrorKind::InvalidInput
-        );
-    }
-
-    #[cfg(windows)]
-    #[test]
-    fn native_skin_admission_rejects_windows_character_devices() {
-        let dir = test_dir("windows-device");
-
-        assert!(NativeSkinFileAdmission::open(dir.join("NUL.png")).is_err());
-
-        fs::remove_dir(dir).expect("cleanup dir");
-    }
-
-    #[cfg(windows)]
-    #[test]
-    fn windows_native_skin_paths_reject_unc_and_device_namespaces() {
-        assert!(windows_path_has_local_disk_prefix(Path::new(
-            r"C:\Users\Axial\skin.png"
-        )));
-        assert!(windows_path_has_local_disk_prefix(Path::new(
-            r"\\?\C:\Users\Axial\skin.png"
-        )));
-        assert!(!windows_path_has_local_disk_prefix(Path::new(
-            r"\\server\share\skin.png"
-        )));
-        assert!(!windows_path_has_local_disk_prefix(Path::new(
-            r"\\?\UNC\server\share\skin.png"
-        )));
-        assert!(!windows_path_has_local_disk_prefix(Path::new(
-            r"\\.\pipe\skin.png"
-        )));
-    }
-
-    #[cfg(unix)]
-    #[test]
-    fn native_skin_admission_rejects_symlinks_and_fifos() {
-        use std::ffi::CString;
-        use std::os::unix::ffi::OsStrExt as _;
-        use std::os::unix::fs::symlink;
-
-        let dir = test_dir("special-files");
-        let target = dir.join("target.png");
-        let symlink_path = dir.join("symlink.png");
-        let fifo_path = dir.join("fifo.png");
-        fs::write(&target, test_skin_png(64, 64)).expect("write target");
-        symlink(&target, &symlink_path).expect("create symlink");
-        let fifo_native = CString::new(fifo_path.as_os_str().as_bytes()).expect("fifo path");
-        let result = unsafe { libc::mkfifo(fifo_native.as_ptr(), 0o600) };
-        assert_eq!(result, 0, "create fifo: {}", std::io::Error::last_os_error());
-
-        assert!(NativeSkinFileAdmission::open(symlink_path.clone()).is_err());
-        assert!(NativeSkinFileAdmission::open(fifo_path.clone()).is_err());
-
-        fs::remove_file(symlink_path).expect("cleanup symlink");
-        fs::remove_file(fifo_path).expect("cleanup fifo");
-        fs::remove_file(target).expect("cleanup target");
-        fs::remove_dir(dir).expect("cleanup dir");
+        drop(coordinator);
+        drop(root_session);
+        fs::remove_dir_all(dir).expect("cleanup dir");
     }
 
     #[test]
@@ -831,12 +592,13 @@ mod tests {
         let dir = test_dir("expired-token");
         let path = dir.join("player.png");
         fs::write(&path, test_skin_png(64, 64)).expect("write png");
+        let root_session = test_root_session(&dir);
         let coordinator = NativeSkinDropCoordinator::new();
         let generation = coordinator.begin_drop();
         let token = coordinator
             .publish(
                 generation,
-                NativeSkinFileAdmission::open(path.clone()).expect("admit skin"),
+                NativeSkinFileAdmission::admit(&root_session, path.clone()).expect("admit skin"),
             )
             .expect("publish token");
         coordinator
@@ -856,24 +618,27 @@ mod tests {
             coordinator.consume(&token),
             Err("Dropped skin file is no longer available.".to_string())
         );
-        fs::remove_file(path).expect("cleanup file");
-        fs::remove_dir(dir).expect("cleanup dir");
+        drop(coordinator);
+        drop(root_session);
+        fs::remove_dir_all(dir).expect("cleanup dir");
     }
 
     #[test]
     fn native_skin_read_rejects_non_png_content_and_oversized_input() {
         let dir = test_dir("validation");
+        let root_session = test_root_session(&dir);
         let invalid = dir.join("invalid.png");
         fs::write(&invalid, b"not a png").expect("write invalid file");
         assert_eq!(
-            NativeSkinFileAdmission::open(invalid.clone()).and_then(NativeSkinFileAdmission::read),
+            NativeSkinFileAdmission::admit(&root_session, invalid.clone())
+                .and_then(NativeSkinFileAdmission::read),
             Err("Choose a valid PNG skin file.".to_string())
         );
 
         let malformed = dir.join("malformed.png");
         fs::write(&malformed, b"\x89PNG\r\n\x1a\nmalformed").expect("write malformed png");
         assert_eq!(
-            NativeSkinFileAdmission::open(malformed.clone())
+            NativeSkinFileAdmission::admit(&root_session, malformed.clone())
                 .and_then(NativeSkinFileAdmission::read),
             Err("Choose a valid PNG skin file.".to_string())
         );
@@ -881,7 +646,7 @@ mod tests {
         let bad_dimensions = dir.join("bad-dimensions.png");
         fs::write(&bad_dimensions, test_skin_png(32, 32)).expect("write bad dimensions png");
         assert_eq!(
-            NativeSkinFileAdmission::open(bad_dimensions.clone())
+            NativeSkinFileAdmission::admit(&root_session, bad_dimensions.clone())
                 .and_then(NativeSkinFileAdmission::read),
             Err("Skin image must be 64x64 or 64x32.".to_string())
         );
@@ -890,15 +655,12 @@ mod tests {
         fs::write(&oversized, vec![0; (SKIN_FILE_MAX_BYTES + 1) as usize])
             .expect("write oversized file");
         assert_eq!(
-            NativeSkinFileAdmission::open(oversized.clone())
+            NativeSkinFileAdmission::admit(&root_session, oversized.clone())
                 .and_then(NativeSkinFileAdmission::read),
             Err("Skin file is too large; choose a PNG under 256 KiB.".to_string())
         );
 
-        fs::remove_file(invalid).expect("cleanup invalid file");
-        fs::remove_file(malformed).expect("cleanup malformed file");
-        fs::remove_file(bad_dimensions).expect("cleanup bad dimensions file");
-        fs::remove_file(oversized).expect("cleanup oversized file");
-        fs::remove_dir(dir).expect("cleanup dir");
+        drop(root_session);
+        fs::remove_dir_all(dir).expect("cleanup dir");
     }
 }
