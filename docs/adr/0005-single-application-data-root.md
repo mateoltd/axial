@@ -30,10 +30,16 @@ desktop identity, while an unpaired root is invalid.
 `core/config::AppPaths` keeps the root private and derives immutable purpose paths
 for every managed store, cache, journal, report, staging area, and content root.
 Consumers receive only the exact leaf or directory they own; performance rules
-receive `performance/`, while terminal reset receives a dedicated capability that
-encapsulates the deletion target and resolved-ancestry check. The managed runtime
-cache receives only `runtimes/`. There is no generic root getter, relative fallback,
-root-discovery canonicalization, legacy-root read, or migration.
+receive `performance/`, while `AppRootSession` retains the startup-captured physical
+root, process-image proof, and process lease. Terminal reset preflights that proof,
+proves any configured existing library physically outside the root from retained
+native ancestry identities, drains the sole filesystem authority after application
+quiescence, clears anchored root children, and releases the real retained lease
+receipt before relaunch. The session returns a bounded error and retains exact drain
+or clear failure authority for a same-intent retry; terminal settlement and clear
+revalidate the lease, root identity, and process image before mutation. The managed
+runtime cache receives only `runtimes/`. There is no generic root getter, relative
+fallback, root-discovery canonicalization, legacy-root read, or migration.
 Windows accepts disk and UNC roots in normal or extended-length form, while
 device and opaque verbatim namespaces are rejected.
 
