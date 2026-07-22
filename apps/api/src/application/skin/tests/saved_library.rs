@@ -189,6 +189,40 @@ async fn skin_normalize_rejects_malformed_png_with_bounded_error() {
     );
 }
 
+#[test]
+fn skin_png_validator_rejects_signature_bearing_malformed_png() {
+    let mut bytes = PNG_SIGNATURE.to_vec();
+    bytes.extend_from_slice(b"malformed");
+
+    assert_eq!(
+        validate_skin_png(&bytes),
+        Err(SkinPngValidationError::InvalidPng)
+    );
+}
+
+#[test]
+fn skin_png_validator_rejects_invalid_dimensions() {
+    assert_eq!(
+        validate_skin_png(&test_skin_png(32, 32)),
+        Err(SkinPngValidationError::InvalidDimensions)
+    );
+}
+
+#[test]
+fn skin_png_validator_accepts_the_maximum_bounded_input() {
+    let bytes = test_skin_png_with_exact_len(SKIN_PNG_MAX_BYTES);
+
+    assert_eq!(bytes.len(), SKIN_PNG_MAX_BYTES);
+    assert_eq!(validate_skin_png(&bytes), Ok(()));
+
+    let mut oversized = bytes;
+    oversized.push(0);
+    assert_eq!(
+        validate_skin_png(&oversized),
+        Err(SkinPngValidationError::TooLarge)
+    );
+}
+
 #[tokio::test]
 async fn skin_normalize_rejects_oversized_body() {
     let error = normalize_skin_body(vec![0; SKIN_UPLOAD_MAX_BYTES + 1])

@@ -7,6 +7,8 @@ mod profile_media;
 mod provider;
 mod saved;
 
+pub use image::{SKIN_PNG_MAX_BYTES, SkinPngValidationError, validate_skin_png};
+
 pub(crate) use saved::{
     clear_all_pending_saved_skin_applies, clear_pending_saved_skin_apply_for_login_id,
 };
@@ -100,7 +102,7 @@ pub(crate) use profile_change::{
 #[cfg(test)]
 pub(crate) use profile_media::{SkinLookupResponse, SkinProfileResponse};
 
-const SKIN_UPLOAD_MAX_BYTES: usize = 256 * 1024;
+const SKIN_UPLOAD_MAX_BYTES: usize = SKIN_PNG_MAX_BYTES;
 
 #[cfg(test)]
 mod tests {
@@ -1200,6 +1202,27 @@ mod tests {
     fn test_skin_png(width: u32, height: u32) -> Vec<u8> {
         let rgba = test_skin_rgba(width, height);
         encode_test_png(width, height, &rgba)
+    }
+
+    fn test_skin_png_with_exact_len(target_len: usize) -> Vec<u8> {
+        let rgba = test_skin_rgba(SKIN_WIDTH, SKIN_HEIGHT);
+        let baseline = encode_test_png(SKIN_WIDTH, SKIN_HEIGHT, &rgba);
+        let padding_len = target_len
+            .checked_sub(baseline.len() + 12)
+            .expect("target leaves room for one ancillary chunk");
+        let mut bytes = Vec::new();
+        {
+            let mut encoder = png::Encoder::new(&mut bytes, SKIN_WIDTH, SKIN_HEIGHT);
+            encoder.set_color(png::ColorType::Rgba);
+            encoder.set_depth(png::BitDepth::Eight);
+            let mut writer = encoder.write_header().expect("write png header");
+            writer.write_image_data(&rgba).expect("write png pixels");
+            writer
+                .write_chunk(png::chunk::ChunkType(*b"raNd"), &vec![0; padding_len])
+                .expect("write padding chunk");
+        }
+        assert_eq!(bytes.len(), target_len);
+        bytes
     }
 
     fn test_skin_png_with_seed(width: u32, height: u32, seed: u8) -> Vec<u8> {

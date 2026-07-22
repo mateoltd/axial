@@ -120,3 +120,36 @@ test("native skin drag uses one expiring Rust-owned admission token", async () =
   assert.doesNotMatch(native, /paths:\s*string\[\]/);
   assert.doesNotMatch(hook, /\.paths|Path|isPngPath/);
 });
+
+test("Application fully decodes bounded skin PNGs before native bytes cross to the renderer", async () => {
+  const [nativeSkin, skinModule, skinImage, skinTests] = await Promise.all([
+    read("apps/desktop/src/native_skin.rs"),
+    read("apps/api/src/application/skin.rs"),
+    read("apps/api/src/application/skin/image.rs"),
+    read("apps/api/src/application/skin/tests/saved_library.rs"),
+  ]);
+
+  assert.match(
+    skinModule,
+    /pub use image::\{SKIN_PNG_MAX_BYTES, SkinPngValidationError, validate_skin_png\}/,
+  );
+  assert.match(skinImage, /pub const SKIN_PNG_MAX_BYTES: usize = 256 \* 1024/);
+  assert.match(skinImage, /pub fn validate_skin_png/);
+  assert.match(
+    skinImage,
+    /info\.width != SKIN_WIDTH[\s\S]*LEGACY_SKIN_HEIGHT \| SKIN_HEIGHT/,
+  );
+  assert.match(skinImage, /info\.animation_control\.is_some\(\)/);
+  assert.match(skinImage, /reader[\s\S]*\.finish\(\)/);
+  assert.match(nativeSkin, /validate_skin_png\(&bytes\)/);
+  assert.doesNotMatch(nativeSkin, /bytes\.starts_with\(PNG_SIGNATURE\)/);
+  assert.match(
+    skinTests,
+    /skin_png_validator_rejects_signature_bearing_malformed_png/,
+  );
+  assert.match(skinTests, /skin_png_validator_rejects_invalid_dimensions/);
+  assert.match(
+    skinTests,
+    /skin_png_validator_accepts_the_maximum_bounded_input/,
+  );
+});

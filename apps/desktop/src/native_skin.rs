@@ -1,3 +1,6 @@
+use axial_api::application::skin::{
+    SKIN_PNG_MAX_BYTES, SkinPngValidationError, validate_skin_png,
+};
 use serde::Serialize;
 use std::fs::{File, Metadata, OpenOptions};
 use std::io::Read as _;
@@ -9,9 +12,8 @@ use tauri::{DragDropEvent, Emitter, WebviewWindow};
 use tokio::sync::{OwnedSemaphorePermit, Semaphore};
 use uuid::Uuid;
 
-const SKIN_FILE_MAX_BYTES: u64 = 256 * 1024;
+const SKIN_FILE_MAX_BYTES: u64 = SKIN_PNG_MAX_BYTES as u64;
 const SKIN_DROP_TOKEN_TTL: Duration = Duration::from_secs(30);
-const PNG_SIGNATURE: &[u8] = b"\x89PNG\r\n\x1a\n";
 const NATIVE_SKIN_DRAG_EVENT: &str = "axial:desktop:skin-drag";
 const SKIN_DROP_LOCK_INVARIANT: &str =
     "desktop skin-drop lock poisoned; native file authority may be inconsistent";
@@ -326,6 +328,10 @@ fn emit_drag(
         Some("Skin file is too large; choose a PNG under 256 KiB.") => {
             Some("Skin file is too large; choose a PNG under 256 KiB.")
         }
+        Some("Choose a valid PNG skin file.") => Some("Choose a valid PNG skin file."),
+        Some("Skin image must be 64x64 or 64x32.") => {
+            Some("Skin image must be 64x64 or 64x32.")
+        }
         Some("Drop one PNG skin file.") => Some("Drop one PNG skin file."),
         Some("Another skin file is still being checked.") => {
             Some("Another skin file is still being checked.")
@@ -403,9 +409,7 @@ impl NativeSkinFileAdmission {
             return Err("Skin file is too large; choose a PNG under 256 KiB.".to_string());
         }
         self.validate_revision()?;
-        if !bytes.starts_with(PNG_SIGNATURE) {
-            return Err("Choose a PNG skin file.".to_string());
-        }
+        validate_skin_png(&bytes).map_err(native_skin_validation_error)?;
         Ok(NativeSkinFile {
             name: self.name,
             bytes,
@@ -421,6 +425,18 @@ impl NativeSkinFileAdmission {
             return Err("Skin file changed while it was being read. Choose it again.".to_string());
         }
         Ok(())
+    }
+}
+
+fn native_skin_validation_error(error: SkinPngValidationError) -> String {
+    match error {
+        SkinPngValidationError::TooLarge => {
+            "Skin file is too large; choose a PNG under 256 KiB.".to_string()
+        }
+        SkinPngValidationError::InvalidPng => "Choose a valid PNG skin file.".to_string(),
+        SkinPngValidationError::InvalidDimensions => {
+            "Skin image must be 64x64 or 64x32.".to_string()
+        }
     }
 }
 
@@ -632,17 +648,27 @@ mod tests {
         dir
     }
 
+    fn test_skin_png(width: u32, height: u32) -> Vec<u8> {
+        let pixels = vec![255; (width * height * 4) as usize];
+        let mut bytes = Vec::new();
+        {
+            let mut encoder = png::Encoder::new(&mut bytes, width, height);
+            encoder.set_color(png::ColorType::Rgba);
+            encoder.set_depth(png::BitDepth::Eight);
+            let mut writer = encoder.write_header().expect("write png header");
+            writer.write_image_data(&pixels).expect("write png pixels");
+        }
+        bytes
+    }
+
     #[test]
     fn native_skin_read_uses_the_admitted_file_revision() {
         let dir = test_dir("revision");
         let path = dir.join("player.png");
-        let mut original = PNG_SIGNATURE.to_vec();
-        original.extend_from_slice(b"original");
+        let original = test_skin_png(64, 64);
         fs::write(&path, &original).expect("write original png");
         let admission = NativeSkinFileAdmission::open(path.clone()).expect("admit skin");
-        let mut replacement = PNG_SIGNATURE.to_vec();
-        replacement.extend_from_slice(b"replacement");
-        fs::write(&path, replacement).expect("replace png bytes");
+        fs::write(&path, b"replacement").expect("replace png bytes");
 
         assert_eq!(
             admission.read(),
@@ -656,7 +682,8 @@ mod tests {
     fn skin_drop_token_is_one_shot_and_forgery_does_not_consume_it() {
         let dir = test_dir("token");
         let path = dir.join("player.png");
-        fs::write(&path, PNG_SIGNATURE).expect("write png");
+        let png = test_skin_png(64, 64);
+        fs::write(&path, &png).expect("write png");
         let coordinator = NativeSkinDropCoordinator::new();
         let generation = coordinator.begin_drop();
         let token = coordinator
@@ -672,7 +699,7 @@ mod tests {
         );
         assert_eq!(
             coordinator.consume(&token).expect("consume token").bytes,
-            PNG_SIGNATURE
+            png
         );
         assert_eq!(
             coordinator.consume(&token),
@@ -686,7 +713,8 @@ mod tests {
     fn enter_and_leave_do_not_cancel_an_issued_skin_drop_token() {
         let dir = test_dir("token-drag-lifecycle");
         let path = dir.join("player.png");
-        fs::write(&path, PNG_SIGNATURE).expect("write png");
+        let png = test_skin_png(64, 64);
+        fs::write(&path, &png).expect("write png");
         let coordinator = NativeSkinDropCoordinator::new();
         let generation = coordinator.begin_drop();
         let token = coordinator
@@ -701,7 +729,7 @@ mod tests {
 
         assert_eq!(
             coordinator.consume(&token).expect("consume token").bytes,
-            PNG_SIGNATURE
+            png
         );
         fs::remove_file(path).expect("cleanup file");
         fs::remove_dir(dir).expect("cleanup dir");
@@ -711,7 +739,7 @@ mod tests {
     fn newer_failed_drop_revokes_the_previous_skin_drop_token() {
         let dir = test_dir("token-new-drop");
         let path = dir.join("player.png");
-        fs::write(&path, PNG_SIGNATURE).expect("write png");
+        fs::write(&path, test_skin_png(64, 64)).expect("write png");
         let coordinator = NativeSkinDropCoordinator::new();
         let generation = coordinator.begin_drop();
         let token = coordinator
@@ -783,7 +811,7 @@ mod tests {
         let target = dir.join("target.png");
         let symlink_path = dir.join("symlink.png");
         let fifo_path = dir.join("fifo.png");
-        fs::write(&target, PNG_SIGNATURE).expect("write target");
+        fs::write(&target, test_skin_png(64, 64)).expect("write target");
         symlink(&target, &symlink_path).expect("create symlink");
         let fifo_native = CString::new(fifo_path.as_os_str().as_bytes()).expect("fifo path");
         let result = unsafe { libc::mkfifo(fifo_native.as_ptr(), 0o600) };
@@ -802,7 +830,7 @@ mod tests {
     fn expired_skin_drop_token_is_rejected_and_removed() {
         let dir = test_dir("expired-token");
         let path = dir.join("player.png");
-        fs::write(&path, PNG_SIGNATURE).expect("write png");
+        fs::write(&path, test_skin_png(64, 64)).expect("write png");
         let coordinator = NativeSkinDropCoordinator::new();
         let generation = coordinator.begin_drop();
         let token = coordinator
@@ -839,7 +867,23 @@ mod tests {
         fs::write(&invalid, b"not a png").expect("write invalid file");
         assert_eq!(
             NativeSkinFileAdmission::open(invalid.clone()).and_then(NativeSkinFileAdmission::read),
-            Err("Choose a PNG skin file.".to_string())
+            Err("Choose a valid PNG skin file.".to_string())
+        );
+
+        let malformed = dir.join("malformed.png");
+        fs::write(&malformed, b"\x89PNG\r\n\x1a\nmalformed").expect("write malformed png");
+        assert_eq!(
+            NativeSkinFileAdmission::open(malformed.clone())
+                .and_then(NativeSkinFileAdmission::read),
+            Err("Choose a valid PNG skin file.".to_string())
+        );
+
+        let bad_dimensions = dir.join("bad-dimensions.png");
+        fs::write(&bad_dimensions, test_skin_png(32, 32)).expect("write bad dimensions png");
+        assert_eq!(
+            NativeSkinFileAdmission::open(bad_dimensions.clone())
+                .and_then(NativeSkinFileAdmission::read),
+            Err("Skin image must be 64x64 or 64x32.".to_string())
         );
 
         let oversized = dir.join("oversized.png");
@@ -852,6 +896,8 @@ mod tests {
         );
 
         fs::remove_file(invalid).expect("cleanup invalid file");
+        fs::remove_file(malformed).expect("cleanup malformed file");
+        fs::remove_file(bad_dimensions).expect("cleanup bad dimensions file");
         fs::remove_file(oversized).expect("cleanup oversized file");
         fs::remove_dir(dir).expect("cleanup dir");
     }

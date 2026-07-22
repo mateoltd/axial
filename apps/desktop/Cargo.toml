@@ -26,3 +26,6 @@ axial-performance = { path = "../../core/performance" }
 
 [target.'cfg(windows)'.dependencies]
 windows-sys = { version = "0.61.2", features = ["Win32_Foundation", "Win32_Storage_FileSystem"] }
+
+[dev-dependencies]
+png.workspace = true
