@@ -148,6 +148,10 @@ impl RecoveryPhase {
                 | Self::RemoveCommitted
         )
     }
+
+    pub(crate) fn owns_park(self) -> bool {
+        !matches!(self, Self::RemovePrepared)
+    }
 }
 
 #[cfg(test)]
@@ -787,6 +791,11 @@ fn validate_recovery_advance(previous: Option<&RecoveryFrame>, next: &RecoveryFr
                             Some(_)
                         )
                         | (
+                            RecoveryPhase::ReplacePrepared,
+                            RecoveryPhase::RemovePrepared,
+                            Some(_)
+                        )
+                        | (
                             RecoveryPhase::PublishPrepared,
                             RecoveryPhase::RemoveCommitted,
                             _
@@ -853,7 +862,7 @@ fn footprint_keys(record: &RecoveryRecord) -> Vec<String> {
         &record.destination_parent,
         &recovery_stage_leaf(record.operation_id),
     )];
-    if record.old.is_some() {
+    if record.old.is_some() && record.phase.owns_park() {
         footprint.push(coordinate_key(
             &record.destination_parent,
             &recovery_park_leaf(record.operation_id),
