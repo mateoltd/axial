@@ -22,7 +22,7 @@ The shared task owner retains accepted writes across dropped HTTP waiters and jo
 
 Feature and route tests cover default wire shape, durable reopen, competing/stale revisions, null versus omission, invalid/corrupt data preservation, flag visibility/reset, inheritance, importer rejection, atomic account rollback, onboarding failure, dropped HTTP waiters, shutdown admission and committed consent. Rustfmt completed on owned Rust files.
 
-Focused short-name regressions use persisted Microsoft account metadata to cover reads, unrelated preference writes, reopening settings, both mode switches, rejected short offline edits and removal of the last online account. These new cases await integration-owner Cargo execution.
+Focused short-name regressions use persisted Microsoft account metadata to cover reads, unrelated preference writes, reopening settings, both mode switches, rejected short offline edits and removal of the last online account. Integrated checkpoints and remaining runtime gaps are recorded in [integration status](integration.md).
 
 Shared Cargo execution belongs to the integration owner. Requested focused commands:
 
@@ -31,4 +31,12 @@ cargo test -p axial-app settings:: -- --nocapture
 cargo test -p axial-api routes::config::tests -- --nocapture
 ```
 
-Status: implementation handed off; shared test results and real retained-UI acceptance are still required before integrated parity is claimed.
+## Instance settings while Playing
+
+Legacy allows Rename and next-launch settings edits while a game runs. The rewrite's exclusive directory admission incorrectly refused those enabled controls. The instance owner now accepts a narrow loan from the current Running session: its weak preparation reference yields an exact retained instance lease/pin, held through the existing metadata revision-CAS write. Terminal history never owns the preparation. Fresh physical binding and immutable launch target are verified; startup recency or earlier metadata edits may have advanced the row without changing that binding.
+
+Starting, stopping, dead, unresolved or closing sessions cannot lend admission. Pending content/Performance/setup effects, different metadata/exclusion owners, changed physical binding, retargeting and stale revisions still refuse. Ordinary callers retain exclusive admission. Running command inputs stay captured; changes apply to the next launch. No new table, journal or general mutation coordinator.
+
+The actual fixture-process HTTP journey first fails at Playing Rename with HTTP 409 Busy (`playing-metadata-red.log`), then passes Rename, memory edit, stale/retarget/delete refusal, unchanged running-process memory, clean Stop, reopen and a second launch with the new memory (`playing-metadata-green-final.log`). Thirty matching app metadata tests pass, including five new loan/binding/pending-effect guards (`playing-metadata-guards.log`). The initial green attempt reached Stop but failed its output assertion because the correct redactor removed a raw JVM flag; the fixture now emits only the parsed numeric memory value. Redaction is unchanged (`playing-metadata-green.log`).
+
+Full two-thread verification passes 889 app and 128 API tests, with six ignores in each, plus 88 desktop tests (`playing-metadata-consumers.log`, `playing-metadata-desktop-final.log`). Independent review and scoped formatting/whitespace checks pass. This is actual fixture-process and persistence evidence, not native gameplay or new interface acceptance. The existing UI is unchanged.
