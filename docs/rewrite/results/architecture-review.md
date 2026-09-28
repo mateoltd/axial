@@ -10,6 +10,8 @@ No changed-scope naming, nesting or pass-through layer warranted style-only chur
 
 The user subsequently moved active development to `main`. Normal-merge integration preserves existing history; its only conflict concerned an obsolete glyph removed by an earlier icon refactor. Resolved product source matches checkpoint `297dcabc`, and frontend generation remains `405e7595e802`. CI includes `main`, local caches stay excluded, and candidate packaging remains manual-only. Main integration passes 454 frontend tests, 73 delivery checks and 304-file semantic lint. One initial filesystem-watch timeout passed isolated/full reruns unchanged; retain that uncertainty in the integration ledger.
 
+Follow-up main CI failed on Rustls advisory RUSTSEC-2026-0285. The correction updates only the locked dependency from 0.23.44 to patched 0.23.45, retaining the empty exception policy and all verification gates. Local policy reports zero advisories/exceptions; 10 policy contracts and 804 app / 116 API / 86 desktop tests pass. The desktop retry followed scoped, leased incremental-cache cleanup after disk exhaustion; no profiles or evidence were deleted. No new wrapper, configuration or product-code change. Corrected stale branch, schedule and acceptance summaries in the integration ledger; existing quality rules need no addition.
+
 ## Findings and corrections
 
 | Finding | Correction | Preserved boundary |
