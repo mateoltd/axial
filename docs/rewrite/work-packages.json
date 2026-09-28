@@ -1,0 +1,1748 @@
+{
+  "schema_version": 1,
+  "status": "implementation-in-progress",
+  "baseline_commit": "2bda9b42c29d02828dd5a2b91d9cf8c8a431ffb0",
+  "target_scope": "all-existing-non-Guardian-parity",
+  "path_basis": "Replacement paths on feat/clean-rewrite, with the preserved baseline under legacy/. Frontend views retain their existing paths and interface; changes adapt contracts/state only unless a specific polish improvement is separately justified.",
+  "status_semantics": "Package acceptance remains planned until integrated evidence satisfies every criterion. Source implementation and current verification are tracked in results/integration.md and feature reports; a planned acceptance status does not mean source work has not started.",
+  "dependency_semantics": {
+    "start_after": "Each listed producer publishes the reviewed required public/private interface or fixture subset for initial work (contract-ready), not its complete implementation. Later branches obtain their producer interfaces before development; finish_after still requires complete integration.",
+    "finish_after": "Completion requires actual integrated producer/consumer behavior, not fixtures alone."
+  },
+  "shared_ownership": "Shared registrations, schema order, generated output and lockfiles are integrated by their declared owner. See delivery.md.",
+  "packages": [
+    {
+      "name": "public-contracts",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/public.rs",
+        "frontend/src/generated/",
+        "acceptance/contracts/"
+      ],
+      "start_after": [
+        "composition-build"
+      ],
+      "finish_after": [
+        "composition-build"
+      ],
+      "acceptance": [
+        "Rust serialization and generated TypeScript agree on tagged unions, optional fields, explicit nulls and numeric bounds.",
+        "Only sanitized public DTOs are exported; install, launch, account and update contracts retain distinct lifecycles."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "composition-build",
+      "status": "planned",
+      "owned_paths": [
+        "Cargo.toml",
+        "Cargo.lock",
+        "toolchain.json",
+        "Taskfile.yml",
+        "core/app/Cargo.toml",
+        "apps/api/Cargo.toml",
+        "apps/desktop/Cargo.toml",
+        "frontend/package.json",
+        "frontend/pnpm-lock.yaml",
+        "core/app/src/lib.rs",
+        "apps/api/src/lib.rs",
+        "apps/api/src/main.rs",
+        "apps/api/src/routes/mod.rs"
+      ],
+      "start_after": [],
+      "finish_after": [],
+      "acceptance": [
+        "Replacement builds with isolated application identity and data root.",
+        "A minimal build skeleton exists before public contract compilation. One owner integrates registrations/dependency changes as feature contracts arrive; no global service locator."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "scenario-fixtures",
+      "status": "planned",
+      "owned_paths": [
+        "acceptance/fixtures/",
+        "acceptance/support/"
+      ],
+      "start_after": [],
+      "finish_after": [],
+      "acceptance": [
+        "Fixed provider payloads and profile trees have provenance and independently reviewed expected outcomes.",
+        "Fake Java exposes controlled output, stall, exit and descendants; fixture secrets are synthetic and filesystem canaries detect unrelated mutation."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "metadata-storage",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/storage/"
+      ],
+      "start_after": [
+        "public-contracts"
+      ],
+      "finish_after": [
+        "composition-build"
+      ],
+      "acceptance": [
+        "Settings and feature-local metadata persist with relational constraints and bounded transactions.",
+        "Storage experiment proves recovery behavior and reduces custom persistence ownership; corruption preserves files and closes unsafe mutation."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "managed-files",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/files/"
+      ],
+      "start_after": [
+        "public-contracts",
+        "scenario-fixtures"
+      ],
+      "finish_after": [
+        "composition-build",
+        "scenario-fixtures"
+      ],
+      "acceptance": [
+        "Scoped roots reject escaping paths, unsafe links, collisions and replacement identities.",
+        "Staging/publication/delete primitives retain explicit obligations across cancellation and crash; existing external libraries remain supported."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "library-lifecycle",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/library.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "managed-files",
+        "task-lifetimes",
+        "metadata-storage",
+        "settings"
+      ],
+      "finish_after": [
+        "managed-files",
+        "task-lifetimes",
+        "metadata-storage",
+        "settings"
+      ],
+      "acceptance": [
+        "Current and retiring root generations are explicit; operations, guards and receipts retain exact pins across async work and settlement.",
+        "Library selection and reset exclude new incompatible work and wait for retained generations; source/root replacement and active-work races never mint stale authority."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "provider-io",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/network/"
+      ],
+      "start_after": [
+        "public-contracts",
+        "scenario-fixtures"
+      ],
+      "finish_after": [
+        "composition-build",
+        "scenario-fixtures"
+      ],
+      "acceptance": [
+        "Shared download client enforces permitted origins, redirect policy, timeouts, response and decompression limits.",
+        "Checksum policy follows provider evidence, handles sources without hashes explicitly, and never publishes partial bytes."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "task-lifetimes",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/tasks/"
+      ],
+      "start_after": [
+        "public-contracts",
+        "scenario-fixtures"
+      ],
+      "finish_after": [
+        "composition-build",
+        "scenario-fixtures"
+      ],
+      "acceptance": [
+        "Accepted work survives caller cancellation and joins at shutdown.",
+        "Per-target and shared-artifact exclusion, lock order, bounded work and revisioned snapshots prevent conflicting effects without a generic durable journal."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "api-transport",
+      "status": "planned",
+      "owned_paths": [
+        "apps/api/src/transport.rs",
+        "apps/api/src/events.rs",
+        "frontend/src/api.ts",
+        "frontend/src/backend/"
+      ],
+      "start_after": [
+        "public-contracts",
+        "task-lifetimes"
+      ],
+      "finish_after": [
+        "composition-build",
+        "task-lifetimes"
+      ],
+      "acceptance": [
+        "Capability/origin rejection runs before effects; media and fresh stream tickets remain narrowly scoped.",
+        "Atomic snapshot/subscription, stale revision rejection and reconnect converge without resubmitting mutations in browser/transport integration. Desktop-shell supplies initial packaged WebView proof and artifact-delivery supplies the full installed matrix."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "desktop-shell",
+      "status": "planned",
+      "owned_paths": [
+        "apps/desktop/src/main.rs",
+        "apps/desktop/src/window.rs",
+        "apps/desktop/src/lifecycle.rs",
+        "apps/desktop/src/bootstrap.rs",
+        "apps/desktop/capabilities/",
+        "apps/desktop/tauri.conf.json"
+      ],
+      "start_after": [
+        "public-contracts",
+        "api-transport",
+        "task-lifetimes"
+      ],
+      "finish_after": [
+        "composition-build",
+        "api-transport",
+        "task-lifetimes"
+      ],
+      "acceptance": [
+        "Existing platform chrome, bootstrap, opener and close/restart behavior remain available with confined native authority.",
+        "Initial installed shell proves authenticated JSON/media/SSE, navigation/CSP and active-work shutdown on the development host; artifact-delivery owns the complete installed-platform matrix before transport retirement."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "ui-composition",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/App.tsx",
+        "frontend/src/main.tsx",
+        "frontend/src/bootstrap.ts",
+        "frontend/src/store.ts",
+        "frontend/src/actions.ts",
+        "frontend/src/ui-state.ts",
+        "frontend/src/state.ts",
+        "frontend/src/native.ts",
+        "frontend/src/styles.ts",
+        "frontend/src/shell/",
+        "frontend/src/ui/",
+        "frontend/src/base.css",
+        "frontend/src/views/views.css",
+        "frontend/src/views/instance/instance.css",
+        "frontend/src/views/settings/settings.css",
+        "frontend/src/views/settings/accent.css"
+      ],
+      "start_after": [
+        "public-contracts",
+        "api-transport",
+        "desktop-shell"
+      ],
+      "finish_after": [
+        "api-transport",
+        "desktop-shell"
+      ],
+      "acceptance": [
+        "Existing primitives, design tokens, route restoration, overlays, focus and error/loading boundaries remain.",
+        "Feature clients share one authoritative domain snapshot each and root registration/CSS order has one owner."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "settings",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/settings/",
+        "apps/api/src/routes/config.rs",
+        "apps/api/src/routes/flags.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "metadata-storage"
+      ],
+      "finish_after": [
+        "metadata-storage"
+      ],
+      "acceptance": [
+        "Non-Guardian config fields, feature overrides, effective defaults and per-instance inheritance preserve behavior.",
+        "Invalid patches and stale concurrent edits fail explicitly; corrupt persisted data is preserved."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "instances",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/instances/directory.rs",
+        "core/app/src/instances/create.rs",
+        "core/app/src/instances/model.rs",
+        "core/app/src/instances/setup.rs",
+        "apps/api/src/routes/instances.rs",
+        "apps/api/src/routes/setup.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "metadata-storage",
+        "managed-files",
+        "task-lifetimes",
+        "settings",
+        "library-lifecycle"
+      ],
+      "finish_after": [
+        "metadata-storage",
+        "managed-files",
+        "task-lifetimes",
+        "settings",
+        "library-lifecycle"
+      ],
+      "acceptance": [
+        "Create/list/edit/restart retain identity, settings and library selection; missing external library is handled explicitly.",
+        "Accepted mutations survive dropped callers, reject conflicting lifecycle work and never infer ownership from display names."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "instance-deletion",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/instances/delete.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "instances",
+        "managed-files"
+      ],
+      "finish_after": [
+        "instances",
+        "managed-files"
+      ],
+      "acceptance": [
+        "Keep-files and delete-files are distinct explicit intents with correct source preservation.",
+        "Precommit failure restores or preserves state; postcommit cleanup remains tracked; restart and replacement-identity cases cannot delete unrelated data."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "instance-duplication",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/instances/duplicate.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "instances",
+        "managed-files"
+      ],
+      "finish_after": [
+        "instances",
+        "managed-files"
+      ],
+      "acceptance": [
+        "Duplicate copies required user data and overrides to a fresh identity without mutating the source.",
+        "Partial copy, cancellation, naming collision and metadata commit failures leave no falsely usable destination."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "java-discovery",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/runtime/discovery.rs",
+        "core/app/src/runtime/probe.rs",
+        "core/app/src/runtime/model.rs",
+        "apps/api/src/routes/java.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "managed-files",
+        "task-lifetimes",
+        "library-lifecycle"
+      ],
+      "finish_after": [
+        "managed-files",
+        "task-lifetimes",
+        "library-lifecycle"
+      ],
+      "acceptance": [
+        "Managed/system/custom Java discovery preserves compatible version and architecture selection.",
+        "Missing, incompatible, replaced and hanging executables yield bounded typed outcomes without hidden override changes."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "java-installation",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/runtime/install.rs",
+        "core/app/src/runtime/manifest.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "java-discovery",
+        "provider-io",
+        "managed-files"
+      ],
+      "finish_after": [
+        "java-discovery",
+        "provider-io",
+        "managed-files"
+      ],
+      "acceptance": [
+        "Ordinary managed Java provisioning and reuse verify the installed runtime.",
+        "Concurrent install, checksum failure and cancellation before/after publication preserve ready state and explicit settlement."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "version-catalog",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/catalog/",
+        "apps/api/src/routes/versions.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "provider-io",
+        "managed-files"
+      ],
+      "finish_after": [
+        "provider-io",
+        "managed-files"
+      ],
+      "acceptance": [
+        "Current version families, classification, ordering, inheritance and installed loader labels match reviewed baseline fixtures.",
+        "Stale/empty/malformed catalogs remain distinguishable; provider identifiers are not parsed in the UI."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "installer-primitives",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/install/artifacts.rs",
+        "core/app/src/install/profile.rs",
+        "core/app/src/install/processors.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "provider-io",
+        "managed-files",
+        "task-lifetimes",
+        "library-lifecycle"
+      ],
+      "finish_after": [
+        "provider-io",
+        "managed-files",
+        "task-lifetimes",
+        "library-lifecycle"
+      ],
+      "acceptance": [
+        "Shared profile composition, archive extraction and installer processor execution cover each retained loader strategy.",
+        "Traversal, output mismatch, processor cancellation and descendant cleanup have explicit verified outcomes."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "vanilla-installation",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/install/vanilla.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "version-catalog",
+        "installer-primitives"
+      ],
+      "finish_after": [
+        "version-catalog",
+        "installer-primitives"
+      ],
+      "acceptance": [
+        "Vanilla manifests, assets, libraries, natives and client artifacts form a verified runnable installation.",
+        "Interrupted publication and retry never expose partially installed versions as ready."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "install-queue",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/install/queue.rs",
+        "core/app/src/install/model.rs",
+        "apps/api/src/routes/install.rs",
+        "apps/api/src/routes/loaders.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "metadata-storage",
+        "task-lifetimes",
+        "vanilla-installation",
+        "api-transport"
+      ],
+      "finish_after": [
+        "metadata-storage",
+        "task-lifetimes",
+        "vanilla-installation",
+        "api-transport",
+        "fabric-loader",
+        "quilt-loader",
+        "forge-loader",
+        "neoforge-loader"
+      ],
+      "acceptance": [
+        "An early checkpoint queues real Vanilla installation; full completion waits for all four retained loaders through the public queue and event/status routes.",
+        "Queue ordering, remove/retry, hydration, progress and terminal states remain consistent across all views.",
+        "Repeated intent, cancellation, restart, dropped streams and stale events cannot duplicate work or falsely terminalize an install."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "fabric-loader",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/loaders/fabric.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "version-catalog",
+        "installer-primitives",
+        "vanilla-installation"
+      ],
+      "finish_after": [
+        "version-catalog",
+        "installer-primitives",
+        "vanilla-installation"
+      ],
+      "acceptance": [
+        "Supported-version/build listing and exact Fabric installation preserve historical and current profile shapes.",
+        "Representative retained compatibility cases install and launch; unsupported or incomplete catalog rows remain unavailable."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "quilt-loader",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/loaders/quilt.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "version-catalog",
+        "installer-primitives",
+        "vanilla-installation"
+      ],
+      "finish_after": [
+        "version-catalog",
+        "installer-primitives",
+        "vanilla-installation"
+      ],
+      "acceptance": [
+        "Quilt mapping, game/build stability and exact profiles preserve supported versions.",
+        "Checksumless upstream cases and incompatible Java/library combinations have explicit handling and runnable fixtures."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "forge-loader",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/loaders/forge.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "version-catalog",
+        "installer-primitives",
+        "vanilla-installation"
+      ],
+      "finish_after": [
+        "version-catalog",
+        "installer-primitives",
+        "vanilla-installation"
+      ],
+      "acceptance": [
+        "Earliest archive overlays, legacy FML installers and modern processor installations remain supported as characterized.",
+        "Promotions/build identity, failed processors and base/child publication boundaries pass; no silent historical-version cut."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "neoforge-loader",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/loaders/neoforge.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "version-catalog",
+        "installer-primitives",
+        "vanilla-installation"
+      ],
+      "finish_after": [
+        "version-catalog",
+        "installer-primitives",
+        "vanilla-installation"
+      ],
+      "acceptance": [
+        "Numbering eras, supported Minecraft mapping, beta-only targets and exact installer profiles are preserved.",
+        "Processor/output verification and failed publication leave no false readiness."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "launch-planning",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/launch/plan.rs",
+        "core/app/src/launch/readiness.rs",
+        "core/app/src/launch/model.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "version-catalog",
+        "java-discovery",
+        "settings",
+        "installer-primitives"
+      ],
+      "finish_after": [
+        "version-catalog",
+        "java-discovery",
+        "settings",
+        "installer-primitives"
+      ],
+      "acceptance": [
+        "Private command construction preserves version inheritance, authentication placeholders, memory/window/JVM and loader behavior.",
+        "Hard readiness and reserved/invalid argument checks block with safe errors; planning does not silently repair, strip overrides or spawn."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "game-sessions",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/launch/session.rs",
+        "core/app/src/launch/process.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "launch-planning",
+        "task-lifetimes",
+        "instances",
+        "java-installation",
+        "install-queue",
+        "api-transport"
+      ],
+      "finish_after": [
+        "launch-planning",
+        "task-lifetimes",
+        "instances",
+        "java-installation",
+        "install-queue",
+        "api-transport"
+      ],
+      "acceptance": [
+        "One owned session per instance supports start, running, stop, exit, restart and accurate retained public state.",
+        "Caller loss, stop races, shutdown and failure reap owned process descendants and reject stale attempt completions.",
+        "Low-level session admission accepts only validated private preparation inputs, never caller-authored commands; launch-coordination owns the public launch route."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "launch-diagnostics",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/launch/logs.rs",
+        "core/app/src/launch/outcome.rs",
+        "core/app/src/launch/reports.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "game-sessions"
+      ],
+      "finish_after": [
+        "game-sessions"
+      ],
+      "acceptance": [
+        "Live/historical logs and non-Guardian crash reports retain useful classified outcomes and bounded redacted output.",
+        "Large/non-newline output, early exit, output-drain races and stale attempts cannot leak secrets or leave a false running state."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "launch-coordination",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/launch/prepare.rs",
+        "core/app/src/launch/coordinator.rs",
+        "apps/api/src/routes/launch.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "game-sessions",
+        "offline-accounts",
+        "settings",
+        "install-queue",
+        "launch-diagnostics"
+      ],
+      "finish_after": [
+        "game-sessions",
+        "offline-accounts",
+        "microsoft-auth",
+        "profile-media",
+        "performance-mutation",
+        "settings",
+        "install-queue",
+        "launch-diagnostics"
+      ],
+      "acceptance": [
+        "An early checkpoint launches a real offline/Vanilla-mode instance through real account selection, settings, runtime, install and session owners; optional feature branches are not required to reach this checkpoint.",
+        "Full completion wires captured online identity, queued profile flush, retained Performance preparation, update/mutation exclusion and every failure outcome before spawn; private launch inputs cannot be forged by API callers.",
+        "Public launch routes call this coordinator. Each later online/profile/Performance branch requires its producer's reviewed private interface before development; those branches do not block the early offline checkpoint."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "offline-accounts",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/accounts/directory.rs",
+        "core/app/src/accounts/selection.rs",
+        "core/app/src/accounts/model.rs",
+        "apps/api/src/routes/accounts.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "metadata-storage",
+        "settings"
+      ],
+      "finish_after": [
+        "metadata-storage",
+        "settings"
+      ],
+      "acceptance": [
+        "Create/rename/select/remove preserve offline identity, selected launch mode and restart behavior.",
+        "Concurrent selection/removal has one coherent revisioned account snapshot."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "credential-store",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/accounts/credential_store.rs",
+        "core/app/src/accounts/credentials.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "metadata-storage",
+        "task-lifetimes"
+      ],
+      "finish_after": [
+        "metadata-storage",
+        "task-lifetimes"
+      ],
+      "acceptance": [
+        "Production credentials remain in the OS keyring with explicit durable save/delete acknowledgement.",
+        "Ambiguous writes, unavailable keyring, interrupted refresh and logout cannot silently fall back to plaintext or resurrect removed tokens."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "microsoft-auth",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/accounts/microsoft.rs",
+        "core/app/src/accounts/session.rs",
+        "apps/api/src/routes/auth.rs",
+        "apps/desktop/src/auth.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "offline-accounts",
+        "credential-store",
+        "provider-io",
+        "desktop-shell"
+      ],
+      "finish_after": [
+        "offline-accounts",
+        "credential-store",
+        "provider-io",
+        "desktop-shell"
+      ],
+      "acceptance": [
+        "Sign-in/cancel, ownership/profile checks, refresh rotation, selection, sync and logout preserve account-bound behavior.",
+        "Callback/state/redirect validation and provider completion fences pass account-switch, logout and relogin races."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "content-catalog",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/content/provider.rs",
+        "core/app/src/content/catalog.rs",
+        "core/app/src/content/model.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "provider-io"
+      ],
+      "finish_after": [
+        "provider-io"
+      ],
+      "acceptance": [
+        "Modrinth search/detail/gallery/versions/hash-identification preserve mods, packs, shaders and resource-pack queries.",
+        "Filters, pagination, provider errors and cached/fresh results preserve exact identities and bounded input."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "content-resolution",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/content/resolve.rs",
+        "core/app/src/content/compatibility.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "content-catalog",
+        "version-catalog"
+      ],
+      "finish_after": [
+        "content-catalog",
+        "version-catalog"
+      ],
+      "acceptance": [
+        "Targeted dependency plans preserve pins, required/optional dependencies, incompatibilities, cycles and user conflict decisions.",
+        "Expired or changed target plans are revalidated before install; no silent incompatible installation."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "content-mutation",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/content/install.rs",
+        "core/app/src/content/provenance.rs",
+        "apps/api/src/routes/content.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "content-resolution",
+        "instances",
+        "managed-files",
+        "task-lifetimes",
+        "metadata-storage"
+      ],
+      "finish_after": [
+        "content-resolution",
+        "instances",
+        "managed-files",
+        "task-lifetimes",
+        "metadata-storage"
+      ],
+      "acceptance": [
+        "Install/update/uninstall retain exact file provenance and protect manually changed/unknown files.",
+        "Interrupted multi-file mutations compensate or preserve explicit unresolved obligations; metadata never invents atomic filesystem success."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "modpacks",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/content/packs.rs",
+        "core/app/src/instances/from_pack.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "content-mutation",
+        "fabric-loader",
+        "quilt-loader",
+        "forge-loader",
+        "neoforge-loader",
+        "install-queue"
+      ],
+      "finish_after": [
+        "content-mutation",
+        "fabric-loader",
+        "quilt-loader",
+        "forge-loader",
+        "neoforge-loader",
+        "install-queue"
+      ],
+      "acceptance": [
+        "Both create-from-pack and selected-files import preserve loader declarations, client exclusions and override precedence.",
+        "Hostile archive paths, missing files, collisions and interrupted pack installation preserve existing instances and explicit recovery."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "media-admission",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/media/",
+        "apps/desktop/src/native_skin.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "managed-files",
+        "task-lifetimes",
+        "desktop-shell"
+      ],
+      "finish_after": [
+        "managed-files",
+        "task-lifetimes",
+        "desktop-shell"
+      ],
+      "acceptance": [
+        "Legacy/current skin and cape formats normalize with bounded image decoding.",
+        "Upload/drop identity, expiry, reuse, replacement and malformed/oversized image rejection are verified."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "skin-library",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/skins/library.rs",
+        "core/app/src/skins/store.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "media-admission",
+        "metadata-storage"
+      ],
+      "finish_after": [
+        "media-admission",
+        "metadata-storage"
+      ],
+      "acceptance": [
+        "Save/upload/edit/replace/delete/download/default deduplication preserve texture identity and metadata.",
+        "Publication/index failures preserve valid skins; replacement/removal informs pending changes without losing another account's choice."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "profile-media",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/skins/lookup.rs",
+        "core/app/src/skins/delivery.rs",
+        "core/app/src/skins/pending.rs",
+        "core/app/src/skins/profile_change.rs",
+        "apps/api/src/routes/skin.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "skin-library",
+        "microsoft-auth",
+        "provider-io"
+      ],
+      "finish_after": [
+        "skin-library",
+        "microsoft-auth",
+        "provider-io"
+      ],
+      "acceptance": [
+        "Lookup, heads, skins/capes, apply/reset, debounce, cancel and launch/shutdown flush preserve per-account intent.",
+        "Superseded completions and partial provider success have explicit outcomes; arbitrary texture URL fetches are rejected."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "mod-files",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/resources/mods.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "instances",
+        "managed-files",
+        "content-mutation"
+      ],
+      "finish_after": [
+        "instances",
+        "managed-files",
+        "content-mutation"
+      ],
+      "acceptance": [
+        "Mod listing, enable/disable, delete and provenance updates preserve current resource behavior.",
+        "Portable-name collisions, active-session conflict and externally replaced files are rejected without unrelated changes."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "world-files",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/resources/worlds.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "instances",
+        "managed-files"
+      ],
+      "finish_after": [
+        "instances",
+        "managed-files"
+      ],
+      "acceptance": [
+        "World inventory/rename/delete/backup and existing folder/import affordances preserve expected data.",
+        "Mutation during unsafe lifecycle, backup publication failure and replaced paths preserve original worlds."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "screenshot-files",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/resources/screenshots.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "instances",
+        "managed-files"
+      ],
+      "finish_after": [
+        "instances",
+        "managed-files"
+      ],
+      "acceptance": [
+        "Screenshot inventory/media/rename/delete retain byte content and canonical identity.",
+        "Collision, replaced file, missing file and media authorization cases have bounded safe outcomes."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "performance-plans",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/performance/rules.rs",
+        "core/app/src/performance/plan.rs",
+        "core/app/src/performance/health.rs",
+        "core/app/src/performance/model.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "content-resolution",
+        "settings",
+        "instances"
+      ],
+      "finish_after": [
+        "content-resolution",
+        "settings",
+        "instances"
+      ],
+      "acceptance": [
+        "Modes, inheritance, rules validation/refresh, declarative fallback, complete plans and health preserve non-Guardian semantics.",
+        "Untrusted rules or incomplete plans cannot become authorized managed mutations."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "performance-mutation",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/performance/mutation.rs",
+        "core/app/src/performance/rollback.rs",
+        "apps/api/src/routes/performance.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "performance-plans",
+        "content-mutation",
+        "task-lifetimes",
+        "managed-files"
+      ],
+      "finish_after": [
+        "performance-plans",
+        "content-mutation",
+        "task-lifetimes",
+        "managed-files"
+      ],
+      "acceptance": [
+        "Explicit apply/reapply/remove/rollback and snapshot selection retain ownership, exclusion and verified outcomes.",
+        "Compensation/restart retains indeterminate effects; Guardian supervision is replaced by mandatory domain admission, not bypassed."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "benchmarks",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/performance/benchmarks.rs",
+        "core/app/src/performance/qualification.rs",
+        "core/app/src/performance/proofs.rs",
+        "apps/api/src/routes/benchmarks.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "performance-mutation",
+        "game-sessions",
+        "launch-diagnostics",
+        "launch-coordination"
+      ],
+      "finish_after": [
+        "performance-mutation",
+        "game-sessions",
+        "launch-diagnostics",
+        "launch-coordination"
+      ],
+      "acceptance": [
+        "Benchmark launches, matrices, suite drivers, stop/resume, qualification and non-Guardian reports remain.",
+        "Corrupt or future data is preserved and unavailable, not automatically quarantined; removed Guardian evidence cannot fake proof completeness."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "legacy-import",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/import/",
+        "apps/api/src/routes/import.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "metadata-storage",
+        "managed-files",
+        "instances",
+        "offline-accounts",
+        "skin-library",
+        "content-mutation",
+        "performance-mutation",
+        "personalization",
+        "library-lifecycle"
+      ],
+      "finish_after": [
+        "metadata-storage",
+        "managed-files",
+        "instances",
+        "offline-accounts",
+        "skin-library",
+        "content-mutation",
+        "performance-mutation",
+        "personalization",
+        "library-lifecycle"
+      ],
+      "acceptance": [
+        "Read-only inventory and idempotent staging/promotion import preserve supported settings, identities, user files and meaningful non-Guardian state.",
+        "Old profile/keyring stay unchanged; crashes between filesystem and metadata commit are recoverable; unsupported data is explicit and preserved.",
+        "Unsettled or unconvertible affected instances remain unavailable with exact obligations preserved; mutable external payload trees are copied independently rather than shared with the baseline."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "library-ui",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/views/home/",
+        "frontend/src/views/instances/"
+      ],
+      "start_after": [
+        "public-contracts",
+        "ui-composition",
+        "instances",
+        "instance-deletion",
+        "instance-duplication",
+        "install-queue",
+        "game-sessions"
+      ],
+      "finish_after": [
+        "instances",
+        "instance-deletion",
+        "instance-duplication",
+        "install-queue",
+        "game-sessions"
+      ],
+      "acceptance": [
+        "Recent/featured library, grid/list, filtering, context/bulk actions and status indicators retain current UX.",
+        "Navigation, empty/error/loading states and deletion confirmation work through real APIs and keyboard controls."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "create-ui",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/views/create/",
+        "frontend/src/instance-create.ts",
+        "frontend/src/create-presenters.ts"
+      ],
+      "start_after": [
+        "public-contracts",
+        "ui-composition",
+        "instances",
+        "install-queue",
+        "fabric-loader",
+        "quilt-loader",
+        "forge-loader",
+        "neoforge-loader",
+        "modpacks"
+      ],
+      "finish_after": [
+        "instances",
+        "install-queue",
+        "fabric-loader",
+        "quilt-loader",
+        "forge-loader",
+        "neoforge-loader",
+        "modpacks"
+      ],
+      "acceptance": [
+        "Two-step overlay preserves source/channel/build/version selection, identity and effective defaults.",
+        "Discover staging and pack handoff preserve target choices, conflict/skipped-item explanation and post-create navigation."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "downloads-ui",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/views/downloads/",
+        "frontend/src/machines/downloads.ts",
+        "frontend/src/machines/download-view-models.ts",
+        "frontend/src/loaders/",
+        "frontend/src/instance-install-status.ts"
+      ],
+      "start_after": [
+        "public-contracts",
+        "ui-composition",
+        "install-queue",
+        "api-transport"
+      ],
+      "finish_after": [
+        "install-queue",
+        "api-transport"
+      ],
+      "acceptance": [
+        "One active-download projection powers queue/progress/failure/retry/removal across views.",
+        "Reload/reconnect and stale terminal events converge without duplicated downloads or local failure-policy inference."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "session-ui",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/launch.ts",
+        "frontend/src/launch-notice-tracker.ts",
+        "frontend/src/views/instance/InstanceDetailView.tsx",
+        "frontend/src/views/instance/components/launch.tsx",
+        "frontend/src/views/instance/tabs/LogsPane.tsx",
+        "frontend/src/views/instance/logs.ts",
+        "frontend/src/views/instance/components/log-line.tsx",
+        "frontend/src/views/instance/instance-actions.ts",
+        "frontend/src/views/instance/instance-menu.ts"
+      ],
+      "start_after": [
+        "public-contracts",
+        "ui-composition",
+        "game-sessions",
+        "launch-diagnostics",
+        "downloads-ui",
+        "launch-coordination"
+      ],
+      "finish_after": [
+        "game-sessions",
+        "launch-diagnostics",
+        "downloads-ui",
+        "launch-coordination"
+      ],
+      "acceptance": [
+        "Play/install/blocked/running/stop controls, elapsed state and latest/historical logs preserve operation behavior.",
+        "Stale events, startup failure, natural exit and stop show backend-authored state with actionable safe errors."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "accounts-ui",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/views/accounts/AccountSwitcher.tsx",
+        "frontend/src/views/accounts/AccountSwitcherHost.tsx",
+        "frontend/src/views/accounts/useMicrosoftSignIn.ts",
+        "frontend/src/machines/accounts.ts",
+        "frontend/src/views/accounts/auth.ts"
+      ],
+      "start_after": [
+        "public-contracts",
+        "ui-composition",
+        "offline-accounts",
+        "microsoft-auth"
+      ],
+      "finish_after": [
+        "offline-accounts",
+        "microsoft-auth"
+      ],
+      "acceptance": [
+        "Popover/modal account switcher, offline commands and Microsoft flows preserve selected identity and allowed actions.",
+        "Busy/error/cancel behavior survives rapid switching and failed refresh without stale profile updates."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "skins-ui",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/views/accounts/AccountsView.tsx",
+        "frontend/src/views/accounts/CapePicker.tsx",
+        "frontend/src/views/accounts/LazySkinThreePreview.tsx",
+        "frontend/src/views/accounts/SavedSkinCapeSection.tsx",
+        "frontend/src/views/accounts/SavedSkinDefaultStrip.tsx",
+        "frontend/src/views/accounts/SavedSkinFileInputs.tsx",
+        "frontend/src/views/accounts/SavedSkinLibrary.tsx",
+        "frontend/src/views/accounts/SavedSkinLibraryGrid.tsx",
+        "frontend/src/views/accounts/SkinEditDialog.tsx",
+        "frontend/src/views/accounts/SkinFinder.tsx",
+        "frontend/src/views/accounts/SkinSnapshotImg.tsx",
+        "frontend/src/views/accounts/SkinStage.tsx",
+        "frontend/src/views/accounts/SkinThreePreview.tsx",
+        "frontend/src/views/accounts/SkinTiles.tsx",
+        "frontend/src/views/accounts/SkinUploadDialog.tsx",
+        "frontend/src/views/accounts/accounts.css",
+        "frontend/src/views/accounts/api.ts",
+        "frontend/src/views/accounts/saved-skin-menu.ts",
+        "frontend/src/views/accounts/skin-model.ts",
+        "frontend/src/views/accounts/skin-snapshot.ts",
+        "frontend/src/views/accounts/skin-textures.ts",
+        "frontend/src/views/accounts/skin-three-loader.ts",
+        "frontend/src/views/accounts/types.ts",
+        "frontend/src/views/accounts/use-saved-skin-edit-replacement-drop.ts",
+        "frontend/src/views/accounts/use-saved-skin-edit-workflow.ts",
+        "frontend/src/views/accounts/use-saved-skin-lookup-workflow.ts",
+        "frontend/src/views/accounts/use-saved-skin-native-drag-drop.ts",
+        "frontend/src/views/accounts/use-saved-skin-upload-drop.ts",
+        "frontend/src/views/accounts/use-saved-skin-upload-workflow.ts",
+        "frontend/src/machines/skin-wardrobe.ts",
+        "frontend/src/player-skin.ts",
+        "frontend/src/default-skins.ts"
+      ],
+      "start_after": [
+        "public-contracts",
+        "ui-composition",
+        "skin-library",
+        "profile-media",
+        "accounts-ui"
+      ],
+      "finish_after": [
+        "skin-library",
+        "profile-media",
+        "accounts-ui"
+      ],
+      "acceptance": [
+        "Adapt existing wardrobe components in place; retain stage, defaults, saved skins, lookup, upload/edit/capes, queued apply and cancel.",
+        "Per-account selection, save-before-apply, preview-only tile clicks and bounded/offscreen rendering remain observable."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "discover-ui",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/views/discover/",
+        "frontend/src/machines/discover-search.ts",
+        "frontend/src/content.ts",
+        "frontend/src/content-activity.ts"
+      ],
+      "start_after": [
+        "public-contracts",
+        "ui-composition",
+        "content-catalog",
+        "content-resolution",
+        "content-mutation",
+        "modpacks",
+        "create-ui"
+      ],
+      "finish_after": [
+        "content-catalog",
+        "content-resolution",
+        "content-mutation",
+        "modpacks",
+        "create-ui"
+      ],
+      "acceptance": [
+        "Filters/pagination/detail/versions/gallery, target bar, tray and modpack picker retain workflows.",
+        "Real backend checks target changes, conflict decisions, install/update/uninstall completion and navigation continuity."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "resource-ui",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/views/instance/tabs/ModsPane.tsx",
+        "frontend/src/views/instance/tabs/WorldsPane.tsx",
+        "frontend/src/views/instance/tabs/ScreenshotsPane.tsx",
+        "frontend/src/views/instance/resources.ts",
+        "frontend/src/views/instance/bulk-actions.ts",
+        "frontend/src/views/instance/mod-actions.ts",
+        "frontend/src/views/instance/mod-provenance-cache.ts",
+        "frontend/src/views/instance/world-actions.ts",
+        "frontend/src/views/instance/screenshot-actions.ts",
+        "frontend/src/views/instance/components/resource-bits.tsx",
+        "frontend/src/views/instance/components/screenshot-lightbox.tsx"
+      ],
+      "start_after": [
+        "public-contracts",
+        "ui-composition",
+        "mod-files",
+        "world-files",
+        "screenshot-files",
+        "session-ui"
+      ],
+      "finish_after": [
+        "mod-files",
+        "world-files",
+        "screenshot-files",
+        "session-ui"
+      ],
+      "acceptance": [
+        "Resource tabs, counts, filters, lightbox, selection/context/bulk actions and folder affordances retain current behavior.",
+        "Destructive actions retain explicit intent, busy refusal and failure state; shared instance resource registration has one integration owner."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "personalization",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/theme.ts",
+        "frontend/src/sound.ts",
+        "frontend/src/music.ts",
+        "frontend/src/shortcuts.ts",
+        "frontend/src/preferences/",
+        "core/app/src/music/",
+        "apps/api/src/routes/music.rs",
+        "frontend/src/profile-transfer.ts"
+      ],
+      "start_after": [
+        "public-contracts",
+        "settings",
+        "provider-io",
+        "managed-files",
+        "task-lifetimes"
+      ],
+      "finish_after": [
+        "settings",
+        "provider-io",
+        "managed-files",
+        "task-lifetimes"
+      ],
+      "acceptance": [
+        "Theme/accent, sound/slider/button behavior, music controls/cache, shortcuts and route preferences persist as intended.",
+        "Audio/media errors degrade without blocking bootstrap; no duplicate listeners/download flights or secret output.",
+        "Provide a minimal versioned preference export/import bridge that can run in the predecessor UI origin without redesign; verify retained preferences round-trip into the new application identity."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "settings-ui",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/views/settings/SettingsView.tsx",
+        "frontend/src/views/settings/AppearanceSection.tsx",
+        "frontend/src/views/settings/AudioSection.tsx",
+        "frontend/src/views/settings/LaunchingSection.tsx",
+        "frontend/src/views/settings/ShortcutsSection.tsx",
+        "frontend/src/views/instance/tabs/SettingsPane.tsx",
+        "frontend/src/views/onboarding/",
+        "frontend/src/views/settings/AccentEditor.tsx",
+        "frontend/src/views/settings/ColorField.tsx"
+      ],
+      "start_after": [
+        "public-contracts",
+        "ui-composition",
+        "settings",
+        "java-discovery",
+        "accounts-ui",
+        "personalization"
+      ],
+      "finish_after": [
+        "settings",
+        "java-discovery",
+        "accounts-ui",
+        "personalization"
+      ],
+      "acceptance": [
+        "Onboarding and global/instance settings preserve autosave, inheritance/reset, appearance/audio/shortcut and runtime controls.",
+        "Guardian-only settings disappear while every unrelated preference remains; invalid input and save failures remain actionable."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "performance-ui",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/views/settings/PerformanceSection.tsx",
+        "frontend/src/views/settings/PerformanceLabBenchmarkMatrix.tsx",
+        "frontend/src/views/settings/PerformanceLabCard.tsx",
+        "frontend/src/views/settings/PerformanceLabFormat.ts",
+        "frontend/src/views/settings/PerformanceLabProofHistory.tsx",
+        "frontend/src/views/settings/PerformanceLabQualificationPreview.tsx",
+        "frontend/src/views/settings/PerformanceLabSuiteDrivers.tsx",
+        "frontend/src/views/settings/PerformanceLabTypes.ts",
+        "frontend/src/views/instance/performance-mode.ts"
+      ],
+      "start_after": [
+        "public-contracts",
+        "ui-composition",
+        "performance-plans",
+        "performance-mutation",
+        "benchmarks",
+        "settings-ui"
+      ],
+      "finish_after": [
+        "performance-plans",
+        "performance-mutation",
+        "benchmarks",
+        "settings-ui"
+      ],
+      "acceptance": [
+        "Reuse existing Performance Lab components in place; retain current modes, health, benchmarks, drivers, qualification and non-Guardian history.",
+        "Mixed DTO changes preserve action availability and safe errors; do not invent user buttons for internal APIs without baseline evidence."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "updater",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/update/",
+        "apps/api/src/routes/update.rs",
+        "apps/desktop/src/update.rs",
+        "frontend/src/updater.ts",
+        "frontend/src/views/settings/AboutSettingsSection.tsx"
+      ],
+      "start_after": [
+        "public-contracts",
+        "desktop-shell",
+        "task-lifetimes",
+        "provider-io",
+        "managed-files"
+      ],
+      "finish_after": [
+        "desktop-shell",
+        "task-lifetimes",
+        "provider-io",
+        "managed-files"
+      ],
+      "acceptance": [
+        "Check/download/verify/stage/apply/restart and unsupported/busy/failure states preserve in-app behavior.",
+        "Corrupt or untrusted payloads cannot apply; installed updates preserve data and do not overlap active mutations."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "telemetry",
+      "status": "planned",
+      "owned_paths": [
+        "core/app/src/telemetry/",
+        "apps/api/src/routes/telemetry.rs",
+        "frontend/src/error-reporting.ts"
+      ],
+      "start_after": [
+        "public-contracts",
+        "settings",
+        "provider-io"
+      ],
+      "finish_after": [
+        "settings",
+        "provider-io"
+      ],
+      "acceptance": [
+        "Consent, bounded closed events and frontend error reporting preserve non-Guardian behavior.",
+        "Disabled consent suppresses egress including error paths; public/telemetry outputs never include sensitive source data."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "developer-tools",
+      "status": "planned",
+      "owned_paths": [
+        "frontend/src/views/dev-lab/",
+        "frontend/src/views/settings/AdvancedSettingsSection.tsx",
+        "frontend/src/flags.ts",
+        "core/app/src/developer/",
+        "apps/desktop/src/reset.rs"
+      ],
+      "start_after": [
+        "public-contracts",
+        "ui-composition",
+        "settings",
+        "desktop-shell",
+        "benchmarks"
+      ],
+      "finish_after": [
+        "settings",
+        "desktop-shell",
+        "benchmarks"
+      ],
+      "acceptance": [
+        "Flags, inspectors/playground, bounded command inspection and development reset retain their existing gating.",
+        "Release omits developer-only capabilities; reset uses an isolated development root and settles active work."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "discord-presence",
+      "status": "planned",
+      "owned_paths": [
+        "apps/desktop/src/discord_presence/"
+      ],
+      "start_after": [
+        "public-contracts",
+        "desktop-shell",
+        "game-sessions",
+        "settings"
+      ],
+      "finish_after": [
+        "desktop-shell",
+        "game-sessions",
+        "settings"
+      ],
+      "acceptance": [
+        "Configured integration publishes current sanitized presence and obeys the user setting.",
+        "Missing configuration, Discord absence and reconnect do not block launches or leak account/server data."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "artifact-delivery",
+      "status": "planned",
+      "owned_paths": [
+        ".github/workflows/",
+        "scripts/release/",
+        "apps/desktop/platform/",
+        "acceptance/native/"
+      ],
+      "start_after": [
+        "public-contracts"
+      ],
+      "finish_after": [
+        "composition-build",
+        "desktop-shell",
+        "updater"
+      ],
+      "acceptance": [
+        "Linux x86_64, Windows x86_64, macOS x86_64 and arm64 artifacts install/start and perform a basic journey.",
+        "Version/tag/changelog, required artifacts, publisher authenticity, installed update and clean-machine native acceptance are evidenced without claiming unavailable signing authority."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "parity-integration",
+      "status": "planned",
+      "owned_paths": [
+        "acceptance/journeys/",
+        "acceptance/comparison/",
+        "acceptance/evidence/"
+      ],
+      "start_after": [
+        "public-contracts",
+        "scenario-fixtures"
+      ],
+      "finish_after": [
+        "public-contracts",
+        "composition-build",
+        "scenario-fixtures",
+        "metadata-storage",
+        "managed-files",
+        "provider-io",
+        "task-lifetimes",
+        "api-transport",
+        "desktop-shell",
+        "ui-composition",
+        "settings",
+        "instances",
+        "instance-deletion",
+        "instance-duplication",
+        "java-discovery",
+        "java-installation",
+        "version-catalog",
+        "installer-primitives",
+        "vanilla-installation",
+        "install-queue",
+        "fabric-loader",
+        "quilt-loader",
+        "forge-loader",
+        "neoforge-loader",
+        "launch-planning",
+        "game-sessions",
+        "launch-diagnostics",
+        "offline-accounts",
+        "credential-store",
+        "microsoft-auth",
+        "content-catalog",
+        "content-resolution",
+        "content-mutation",
+        "modpacks",
+        "media-admission",
+        "skin-library",
+        "profile-media",
+        "mod-files",
+        "world-files",
+        "screenshot-files",
+        "performance-plans",
+        "performance-mutation",
+        "benchmarks",
+        "library-ui",
+        "create-ui",
+        "downloads-ui",
+        "session-ui",
+        "accounts-ui",
+        "skins-ui",
+        "discover-ui",
+        "resource-ui",
+        "personalization",
+        "settings-ui",
+        "performance-ui",
+        "updater",
+        "telemetry",
+        "developer-tools",
+        "discord-presence",
+        "launch-coordination",
+        "library-lifecycle"
+      ],
+      "acceptance": [
+        "Every retained API, UI, native, persisted and background coverage row has passing applicable real-dependency evidence.",
+        "Independent comparison detects wrong identities, reordered terminal state, lost persistence, missing features and unsafe file effects; full matrix has no unexplained differences."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "cutover-readiness",
+      "status": "planned",
+      "owned_paths": [
+        "docs/rewrite/results/",
+        "acceptance/cutover/"
+      ],
+      "start_after": [
+        "public-contracts"
+      ],
+      "finish_after": [
+        "parity-integration",
+        "legacy-import",
+        "artifact-delivery"
+      ],
+      "acceptance": [
+        "Repeated import and installed update rehearsals preserve old data and the full retained feature matrix.",
+        "Candidate rollback/rescue procedure, known limits and source-to-artifact evidence are complete before any separately authorized publication."
+      ],
+      "evidence": []
+    }
+  ]
+}
