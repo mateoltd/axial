@@ -2,6 +2,14 @@
 
 Status: bounded historical reports, suites, drivers, per-instance Performance commands and global rules refresh history integrated. Current verification checkpoints are in [integration evidence](integration.md); earlier authenticated report/suite/driver import/read/retry/restart journeys remain in `.rewrite-logs/suites-api-current.log`. Full profile cutover remains unavailable.
 
+## Global install history without current instances
+
+Metadata import now optionally preserves supported `InstallVersion` history even when the source registry is empty. It reuses strict original-journal decoding and the install-history store, never creates a placeholder instance, and does not relax unresolved-effect blockers. Unsupported history leaves ordinary accounts/settings import available without a history-completion claim.
+
+The existing metadata receipt's nullable v3 proof binds source identity, sorted unique record IDs and exact stored payloads. Reads verify the entire bounded snapshot, including records beyond the requested page; later independent imports neither join nor invalidate it. `global_install_history_count` is omitted for uncompleted history and zero only for a verified empty snapshot. Authenticated `GET /api/v1/import/metadata/{id}/install-history` resolves that receipt without requiring a source preview or current instance.
+
+Explicit replay can complete a migrated NULL-proof receipt while preserving original receipt revisions and all later destination account/settings edits. Already completed evidence is verified, never silently repaired. The existing settings transaction verifies the final receipt after its last settings write, so ignored/rewritten receipt rows and late history corruption roll back together. Nine focused owner groups pass after a meaningful late-write failure; final **932 app / 131 API / 88 desktop / 480 frontend** passes and qualified failure evidence are tracked in [integration evidence](integration.md). No queue, readiness, launch, cleanup or full-cutover authority follows from these records.
+
 ## Ordinary profile preservation
 
 The source registry's `last_instance_id` is distinct from the browser's saved route. First publication of that exact selected instance may fill an empty destination selection within the existing live-publication transaction. Existing destination choices win; completed replay never restores a later changed or cleared selection. No launch timestamp or revision is fabricated. Source-readmitted recovery uses the original fingerprint and reserved destination identity; ignored completion writes cannot acknowledge publication.
