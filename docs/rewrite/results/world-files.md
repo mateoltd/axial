@@ -1,6 +1,6 @@
 # World resources
 
-Status: ordinary backup and rename have real-interface evidence; full resource parity remains incomplete.
+Status: ordinary backup, rename and deletion/restart have real-interface evidence; full resource parity remains incomplete.
 
 Production ownership is `core/app/src/resources/{worlds,service}.rs`, with registered-instance authority and retained accepted work. Legacy source remains untouched.
 
@@ -13,3 +13,5 @@ The real Worlds view lists the fixture. Back up creates exactly one directory un
 During a real Fabric launch at Playing, Back up is refused with the in-use cause and no second backup. Stop returns Ready; durable settlement and report acknowledgement are present, with no remaining game child or content batch and healthy SQLite. The API then exits0 normally (`world-playing-refusal.png`, `resource-ui-settlement.log`, `resource-ui-runtime.log`).
 
 Normal reopen on the queued-Resume source and frontend generation `6fcbb7ed8ef3` retains the renamed 177-byte world in the real Worlds view. All renamed-tree/backup/image hashes and unrelated mod/configuration canaries match (`world-restart.png`, `resource-restart-files.log`). That API also exits0 normally. This proves launcher/file behavior, not gameplay, native folder opening, deletion, interrupted backup or every world failure/restart case.
+
+On checkpoint `0037c3b4`, the rebuilt API and unchanged browser UI back up that same synthetic world again, then explicitly delete only its save directory. The view reports deletion and zero worlds. Both backups retain exact original bytes, while all unrelated mod/config/screenshot canaries pass. Normal shutdown exits0; a fresh server reopens the same profile and the UI still shows zero worlds and the Ready instance. Both backup files match the older retained backup, SQLite is healthy and no active installation/content/launch obligation remains. The second server also exits0 normally. Logs and exact scope are in `.rewrite-logs/world-resource-acceptance.md` and `world-delete-*`. This closes ordinary deletion/restart, not interrupted publication, gameplay or native opening. The deleted fixture remains recoverable from either backup; no in-app undo is claimed.
