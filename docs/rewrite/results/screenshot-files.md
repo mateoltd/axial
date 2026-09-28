@@ -1,6 +1,6 @@
 # Screenshot files
 
-Status: implementation in progress; not integrated or parity verified.
+Status: implementation integrated; bounded real-interface evidence below, not full parity verified.
 
 Owned source: `core/app/src/resources/screenshots.rs`.
 
@@ -40,7 +40,8 @@ Focused command for the sole shared build owner:
 
 ## Evidence
 
-No Cargo or build commands have been run by this package owner. The initial
-wire assertions are source only until the integration owner runs them.
-Runtime and UI parity must remain open until the real scoped filesystem,
-registered instance, HTTP media and resource UI consumers pass together.
+The latest shared checkpoint `42b2d598` passes 829 app / 117 API tests and hosted application/delivery checks. This includes resource owners and adapters, not every runtime screenshot journey.
+
+The generated resource acceptance profile uses a disposable copy of the repository's 512-by-512 icon as `axial-disposable-2026-09-28.png` in instance `d6926227-f5e6-47a3-a736-f6c1cef14435`. The real Screenshots view lists 10,113 bytes and decodes the image in its lightbox. Rename updates both disk and the open lightbox to `axial-renamed-disposable-2026-09-28.png`, preserving SHA256 `88c17d7e98353f93809c2e0c68649823945b521f3cec25f46f9950833221ed7f`. A PNG-to-JPG draft shows the type-preservation error and disables Rename; cancellation leaves no JPG or other file effect. Evidence: `.rewrite-logs/screenshot-lightbox.png`, `resource-ui-files.log`, `resource-fixture-before.sha256`. This is an image fixture, not a game-captured screenshot.
+
+Normal restart retains the renamed screenshot and exact bytes (`resource-restart-files.log`). Nested prompt inspection reproduced an inherited shared-modal issue: both prompt and lightbox claimed modal accessibility, and Escape closed both. The final correction uses the existing dialog owner to suspend the lightbox and cancel/restore focus without layout changes. On generation `660aaf2f2c4c`, real browser accessibility exposes only the foreground prompt, the input receives focus, Tab/Shift+Tab wrap inside it, and Escape preserves the lightbox and returns focus to Rename. Cancel preserves the type-validation behavior; a separate Escape closes the lightbox and returns to its View button. Evidence: `modal-dialog-browser.md`, `modal-dialog-focus.png`, `modal-dialog-escape.png`. Both acceptance API runs exit0 normally. Deletion, native folder opening and interrupted-publication acceptance remain open.
