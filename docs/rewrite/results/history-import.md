@@ -1,6 +1,16 @@
 # Terminal history import assessment
 
-Status: bounded terminal reports, suites, drivers, per-instance Performance commands and global rules refresh history integrated. Current application 787/API 105/desktop 79/frontend 427 tests pass (`rules-retry-` logs under `.rewrite-logs/`); earlier authenticated report/suite/driver import/read/retry/restart journeys remain in `.rewrite-logs/suites-api-current.log`. Full profile cutover remains unavailable.
+Status: bounded historical reports, suites, drivers, per-instance Performance commands and global rules refresh history integrated. Current verification checkpoints are in [integration evidence](integration.md); earlier authenticated report/suite/driver import/read/retry/restart journeys remain in `.rewrite-logs/suites-api-current.log`. Full profile cutover remains unavailable.
+
+## Queued restart handoff preservation
+
+An exact legacy `interrupted` driver with error `driver automatic resume queued after restart` may be retained as immutable history in an independently copied instance. All existing source schema, time, count, run/report relationships, bounded input and source/destination verification still apply. Malformed or active-session records remain refused. The source record, original error and retained-obligation preview are unchanged; `cutover_available` remains false.
+
+This is not terminal-process evidence: the [legacy driver owner](../../../legacy/apps/api/src/state/benchmark_suite_drivers.rs) clears `active_session_id` in `admit_loaded_driver` while queuing replay, and `apply_driver_transition` retains the handoff obligation. Separate verified copying does not establish predecessor settlement.
+
+The existing benchmark owner refuses queued historical continuation before shared-suite projection caching, exact command admission, existing-successor replay and persisted successor-link validation. No request, launch intent, scheduler, table, wire field or inferred settlement is added. Compatible nonqueued history retains its existing explicit Resume behavior. Automatic-resume/settlement parity remains open; preserving otherwise valid source evidence is not a full-cutover claim.
+
+Regression coverage exercises exact import/retry/reopen, both shared-suite driver orders, canonical all-pending and mixed plans, refused mutations, zero execution records and corrupted successor links. Independent source review found no remaining issue; see the integration ledger for executed checks.
 
 ## Integrated slice
 
@@ -77,7 +87,7 @@ Validation follows the original schema and recorded time, not today's exact matr
 
 Passing checks cover immutable retries, conflicting/missing evidence, transaction rollback across all owners and instance visibility, ready/published restart readmission, exact selected-instance binding, unchanged source bytes/mtime/fingerprint, existing HTTP reads and refused mutations. Actual server reopen creates no launch intents or sessions and retains NULL driver requests. Frontend source/test typing and 369 tests pass (`suites-frontend-current.log`), including historical read-only rows and unchanged ordinary Resume. Independent architecture and adversarial source reviews found no remaining blocker in this bounded slice. Native migration interaction is still unverified.
 
-Nonterminal runs/drivers, legacy automatic-resume handoff markers, running/degraded report snapshots, unknown reports without terminal evidence, missing/orphan/conflicting references, lossy stage-bound conversions, and malformed/unsafe/oversized/unsupported/source-changed records remain preserved and blocking. Terminal history does not by itself establish full history parity or cutover readiness.
+Nonterminal runs/drivers, running/degraded report snapshots, unknown reports without terminal evidence, missing/orphan/conflicting references, lossy stage-bound conversions, and malformed/unsafe/oversized/unsupported/source-changed records remain preserved and blocking. Exact queued handoff snapshots have the history-only path above, not execution authority. Historical preservation does not by itself establish full history parity or cutover readiness.
 
 ## Terminal Performance commands
 
