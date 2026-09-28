@@ -1,6 +1,20 @@
 # Terminal history import assessment
 
-Status: bounded historical reports, suites, drivers, per-instance Performance commands and global rules refresh history integrated. Current verification checkpoints are in [integration evidence](integration.md); earlier authenticated report/suite/driver import/read/retry/restart journeys remain in `.rewrite-logs/suites-api-current.log`. Full profile cutover remains unavailable.
+Status: bounded historical reports, including terminal reports for deleted source instances, suites, drivers, per-instance Performance commands and global rules refresh history integrated. Current verification checkpoints are in [integration evidence](integration.md); earlier authenticated report/suite/driver import/read/retry/restart journeys remain in `.rewrite-logs/suites-api-current.log`. Full profile cutover remains unavailable.
+
+## Terminal reports after source-instance deletion
+
+Legacy instance deletion removes registry membership but does not remove launch reports; its report reads are global. Import now preserves those supported terminal reports in the existing report store and list/detail routes. Absence is established from the captured original schema-3 registry, not the selected instance or an empty projection of unsupported data. Raw duplicate fields, missing required registry fields, invalid identities and membership disagreement cannot authorize archival conversion.
+
+Archived records retain source-scoped report IDs, neutral evidence and exact historical comparisons, including pruned baseline references. Their non-UUID `archived-<source identity>-<legacy instance ID>` identifies history only: no placeholder instance, live session, launch, queue or process authority is created. Surviving instances retain their reserved UUID mapping. A shared immutable archived batch joins ordinary instance publication, so importing a survivor before or after metadata yields identical report evidence.
+
+Metadata import also preserves these reports with zero surviving instances. Its existing receipt gains a nullable v4 snapshot proof and optional `archived_launch_report_count`: omitted means unavailable/uncompleted; zero means a verified empty snapshot. The proof binds source, sorted unique report IDs and exact payload bytes, capped at 1,024 records / 64 MiB and a 128-KiB proof. Later independent imports do not join that snapshot. Both replay and verification cap actual persisted bytes before allocation, not merely canonical prepared bytes.
+
+Explicit completion of an older NULL-proof receipt preserves later destination settings/accounts and original receipt revisions. Completed replay verifies rather than repairing missing or changed history. Final receipt verification follows the last settings write; instance publication/recovery also rereads report evidence after its final creation write. Ignored writes and late trigger corruption roll back without acknowledging publication.
+
+Composed HTTP regressions initially fail with zero preserved reports, then pass both publication orders, zero-instance import, source-free reads/reopen/replay, unchanged source bytes/mtime and refused live controls. Frontend tests initially expose missing validation, then verify optional count decoding through actual POST/status responses. Owner tests cover immutable proofs, archived/live separation, rollback/recovery and the inclusive actual-byte limit; current counts are in [integration evidence](integration.md). No UI layout or control changed. This is HTTP/owner/decoder evidence, not new native migration acceptance.
+
+Unrelated live nonterminal reports, archived suites/drivers, Running journals and unsettled file/process effects still block ordinary instance import. Metadata's independent report preservation does not waive those obligations. Missing-target Performance/content histories and full profile cutover remain separate.
 
 ## Global install history without current instances
 
@@ -60,7 +74,7 @@ Legacy reports also contain `running` and `degraded` snapshots. Those are not te
 
 | Source evidence | Schema-4 mapping |
 | --- | --- |
-| Session and instance IDs | Source-scoped report ID and the verified reserved destination UUID, published atomically with instance completion |
+| Session and instance IDs | Source-scoped report ID; surviving source instances use the reserved destination UUID, while archived reports use the non-executable historical identity described above |
 | Version, timestamps, scenario, device, resource budget | Preserve validated values; these structures already align |
 | Exit code, boot duration, neutral crash and stage evidence | Preserve without inferring new process facts |
 | Structured outcome | Preserve kind/reason; map `WatchdogKilled` to `StartupStalled` and retain the original reason as historical evidence |
@@ -77,7 +91,7 @@ Reject contradictory report outcome, structured kind, and reason. Use the replac
 
 [Instance import](../../../core/app/src/instances/import.rs) durably records `(source_id, legacy_id, fingerprint) -> instance_id` with the ordinary creation reservation. Prepared history is rebound to that actual reserved UUID outside the final transaction; a retry must not use its newly prepared candidate UUID. Report rows, live registry publication, and creation completion commit together after exact source and payload verification. Never substitute a selected instance or match by name/version.
 
-[Instance preparation](../../../core/app/src/import/prepare.rs) permits the retained-history blocker only when the exact converter validates every retained history obligation; each instance carries only its own reports. This avoids requiring a separately completed mapping before history can publish. Retained obligations remain visible and cutover stays unavailable. Unsupported history is not blanket-waived and still blocks import.
+[Instance preparation](../../../core/app/src/import/prepare.rs) permits the retained-history blocker only when the exact converter validates every retained history obligation; each instance carries its own mapped reports plus the shared archived report batch. This avoids requiring a separately completed mapping or metadata receipt before history can publish. Retained obligations remain visible and cutover stays unavailable. Unsupported history is not blanket-waived and still blocks import.
 
 ## Persistence and comparison fidelity
 
