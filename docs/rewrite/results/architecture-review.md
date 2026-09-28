@@ -16,6 +16,10 @@ Latest changed scope: queued benchmark-history preservation and the Linux fixtur
 
 ## Findings and corrections
 
+Current Mods review caught a substantive ownership violation before integration: a proposed resource-owned native transaction retained in-process cleanup but bypassed the durable `content_batches` fence. A crash while parking a file or provenance manifest would have lost that obligation on reopen. The implementation is being moved through the existing content owner; no second journal or recovery framework is approved. Ordinary managed Mods UI acceptance passes on the preceding committed binary, not this unfinished fix. Existing one-owner/recovery rules already cover the finding.
+
+The separate CI launch failure now has safe stage diagnostics, not a speculative retry fix. Closed launch error variants and IO kind/numeric code distinguish validation, spawn and containment without exposing paths, arguments or provider details. The failing test uses a subscriber scoped to its own runtime threads, preserving four workers and its original body/assertions. Focused local execution passes; Linux cause and confirmation remain pending. No public contract or UI change.
+
 | Finding | Correction | Preserved boundary |
 | --- | --- | --- |
 | Diagnostic report failure retained already-settled session effects; abrupt launcher exit could lose the only terminal facts. | Persist bounded, typed observed facts in one nullable column of the existing accepted intent before attempting the report. | Publish only after exact child/tree/output and native cleanup, or verified no-child cleanup. No second journal, recovery framework or acknowledgement flag. |
