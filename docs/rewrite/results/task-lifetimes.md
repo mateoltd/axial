@@ -1,6 +1,6 @@
 # Task lifetimes and exclusion
 
-Status: implementation ready for serialized integration verification. This report does not claim installed runtime parity.
+Status: integrated on `main`; current consumer evidence is in [integration status](integration.md). This report does not claim installed runtime parity.
 
 `core/app/src/tasks/` owns cooperative cancellation, bounded accepted work, retained target/artifact admission, and in-memory revisioned projections. Feature code still owns durable state, process settlement, publication decisions, and domain outcomes.
 
@@ -16,14 +16,18 @@ Status: implementation ready for serialized integration verification. This repor
 - Worker panic retains resources and leaves an unsettled record. A supervisor drop caused by runtime interruption now does the same, including work whose supervisor was never polled, and resolves its waiter as `TaskJoinError::Interrupted`. Shutdown cannot issue a receipt while records remain unsettled. Composition must retain the owner while such obligations exist; disposing the final owner is not proof of settlement. Resource destructors must not panic.
 - `Projection` publishes a revision and full snapshot under one lock, rejects stale revisions, and permits one terminal publication per incarnation. Subscriptions rebase to the latest snapshot; they do not replay mutations or provide durable recovery.
 
-## Evidence and handoff
+## Evidence
 
-There are 25 focused tests covering cancellation before subscription, accepted work surviving dropped waiters, capacity and close admission, shutdown settlement and timeout, worker panic, polled and unpolled runtime interruption, shared readers versus exclusive writers, all-or-none multikey conflicts, clone retention, exact key/owner coverage, invalid and unbounded requests, snapshot rebasing, and stale/terminal revisions. Barrier-coordinated threads exercise simultaneous reader/writer admission, admission versus close, and competing terminal publications. Shared lease cancellation tests retain an escaped receipt after task settlement and verify writer refusal until that receipt drops.
+The original 25-test owner suite covers cancellation before subscription, accepted work surviving dropped waiters, capacity and close admission, shutdown settlement and timeout, worker panic, polled and unpolled runtime interruption, shared readers versus exclusive writers, all-or-none multikey conflicts, clone retention, exact key/owner coverage, invalid and unbounded requests, snapshot rebasing, and stale/terminal revisions. Barrier-coordinated threads exercise simultaneous reader/writer admission, admission versus close, and competing terminal publications. Shared lease cancellation tests retain an escaped receipt after task settlement and verify writer refusal until that receipt drops.
 
-The serialized integration owner should run:
+The focused verification command remains:
 
 ```sh
 cargo test -p axial-app tasks:: --lib
 ```
 
-Direct `rustfmt --edition 2024` completed for the changed task sources. This worker has not run Cargo, builds, or tests, as shared verification belongs to integration. No new dependency, manifest edit, registration, wire export, legacy mutation, or production-profile effect is required. Installation/launch consumer verification must confirm that both use the same `Exclusions` composition, exact library identity and artifact key, and retain guards through real publication or process/output settlement.
+At checkpoint `913dbd9f`, full verification passes 876 app and 127 API tests, with six ignores in each (`import-preservation-consumers.log`), plus hosted Linux application/delivery verification. Installation and launch consume the shared exclusion composition and retain domain-owned guards; these counts include consumer tests, not additional independent evidence for each claim.
+
+Installation additionally joins its queue-owned observers before profile preservation. Its current-thread regression reproduced an unpolled observer retaining the root after TaskOwner completion; the fix passes immediate reopen, cancelled/concurrent drain and late-registration refusal (`queue-observer-{red,green,suite}.log`). TaskOwner idleness alone never establishes that all feature-owned observers or escaped receipts have settled.
+
+Actual Unix subprocess journeys preserve unknown launches and descendants across launcher loss and two reopens, restore exact exclusions, refuse replay/mutations and allow preserve-only shutdown. Observed settlement also survives optional report failure. These tests use fixture Java, not native gameplay or Windows containment. Unknown historical work remains fenced; preserving it on Quit is not adopting or settling its process/native effects.

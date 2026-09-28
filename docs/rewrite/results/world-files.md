@@ -4,6 +4,8 @@ Status: ordinary backup and rename have real-interface evidence; full resource p
 
 Production ownership is `core/app/src/resources/{worlds,service}.rs`, with registered-instance authority and retained accepted work. Legacy source remains untouched.
 
+The 2026-09-28 scheduling correction moves the existing backup body into an awaited blocking worker. Its current-thread regression first fails because the copy blocks the async worker, then passes alongside worker-panic retention and existing backup/rename/delete coverage (`world-backup-scheduling-{red,green}.log`). Dropping the request waiter leaves the exact task, instance exclusion and generation pin retained; shutdown waits until the real copy settles. Source/canary bytes and exactly one backup are checked. Copy limits, native receipts and unresolved-effect retention are unchanged. This is production-owner filesystem/scheduling evidence, not new native-interface or hard-crash acceptance.
+
 On checkpoint `42b2d598`, the generated `/private/tmp/axial-report-parity-V1RoWt/profile` contains a clearly named disposable world-folder fixture in Fabric instance `d6926227-f5e6-47a3-a736-f6c1cef14435`. It has two text files totaling 177 bytes, including a nested canary, and is explicitly not a playable Minecraft world.
 
 The real Worlds view lists the fixture. Back up creates exactly one directory under `backups/worlds`; Rename changes only the original save-directory name. Independent SHA256 checks match both original file proofs in the renamed tree and backup. Old save name is absent, and unrelated Sodium/configuration canaries remain identical. Evidence: `.rewrite-logs/resource-fixture-before.sha256`, `resource-ui-files.log`, `world-renamed.png`.
