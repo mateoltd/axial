@@ -2,6 +2,12 @@
 
 Status: bounded historical reports, suites, drivers, per-instance Performance commands and global rules refresh history integrated. Current verification checkpoints are in [integration evidence](integration.md); earlier authenticated report/suite/driver import/read/retry/restart journeys remain in `.rewrite-logs/suites-api-current.log`. Full profile cutover remains unavailable.
 
+## Ordinary profile preservation
+
+The source registry's `last_instance_id` is distinct from the browser's saved route. First publication of that exact selected instance may fill an empty destination selection within the existing live-publication transaction. Existing destination choices win; completed replay never restores a later changed or cleared selection. No launch timestamp or revision is fabricated. Source-readmitted recovery uses the original fingerprint and reserved destination identity; ignored completion writes cannot acknowledge publication.
+
+Legacy startup writes `state/persisted-state-rejection-streaks.json` even with no rejected records. Its only consumer supplies discretionary Guardian repair eligibility, while accepted effects are separately journaled. A valid strict v1 snapshot therefore no longer blocks ordinary import. Original raw bytes must meet the legacy 32-KiB/eight-entry, canonical identity, sorted unique entry and startup-count bounds. Capture, fingerprinting and source revalidation still include the record; no eligibility or filesystem authority is imported. Invalid snapshots, unsafe files, unknown state and accepted-effect journals retain their blockers. Known-good activation snapshots are a separate existing excluded cache; their bytes do not grant destination launch authority.
+
 ## Queued restart handoff preservation
 
 An exact legacy `interrupted` driver with error `driver automatic resume queued after restart` may be retained as immutable history in an independently copied instance. All existing source schema, time, count, run/report relationships, bounded input and source/destination verification still apply. Malformed or active-session records remain refused. The source record, original error and retained-obligation preview are unchanged; `cutover_available` remains false.
