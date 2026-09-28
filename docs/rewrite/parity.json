@@ -1,0 +1,2120 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "2bda9b42c29d02828dd5a2b91d9cf8c8a431ffb0",
+  "scope": "All existing non-Guardian behavior. Current UI preserved; only separately justified specific polish.",
+  "evidence_status": "Baseline source mapped; implementation and focused checks in progress. Full runtime parity remains unverified; see results/integration.md.",
+  "source_basis": "All source fields identify baseline files relative to legacy/. They are evidence references, not claims that the replacement implements those paths.",
+  "route_manifest": "legacy/apps/api/src/routes/route-manifest.tsv",
+  "artifact_architectures": [
+    "linux-x86_64",
+    "windows-x86_64",
+    "macos-x86_64",
+    "macos-arm64"
+  ],
+  "open_characterization": [
+    "Exact retained Minecraft/build compatibility matrix",
+    "Minimum supported OS/WebView versions",
+    "Legacy profile/schema fixtures and browser-local preference export",
+    "External authentication and platform keyring availability",
+    "Current UI versus internal Performance action entrypoints"
+  ],
+  "behaviors": [
+    {
+      "name": "startup",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "instances",
+        "settings",
+        "settings-ui",
+        "ui-composition"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Start, complete/retry onboarding and restart",
+        "expect": "Required records gate readiness; optional hydration can degrade; no overwrite of rejected data.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "settings",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "settings",
+        "settings-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Read/edit config and reset instance overrides",
+        "expect": "Effective values, autosave and inheritance persist; invalid/stale patches preserve committed values.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "feature-flags",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "settings",
+        "developer-tools"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "List/change flags and restart",
+        "expect": "Defaults/overrides, stale-key pruning and release gating remain.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "accounts",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "offline-accounts",
+        "accounts-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Create/rename/select/remove identities",
+        "expect": "One coherent selected account, deterministic offline identity and persistence; selection/removal races cannot resurrect deleted identities.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "authentication",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "credential-store",
+        "microsoft-auth",
+        "accounts-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Sign in/cancel/refresh/sync/logout and restart",
+        "expect": "Correct ownership/profile and secure refresh persistence; redirect/state and account-switch/logout races produce safe outcomes.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "content-discovery",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "content-catalog",
+        "discover-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Search/filter/page/open detail/gallery/versions",
+        "expect": "Exact project/version identities and target context for every existing Modrinth content kind; bounded provider errors.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "content-planning",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "content-resolution",
+        "create-ui",
+        "discover-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Resolve target/dependencies and choose conflicts",
+        "expect": "Pins, required/optional/incompatible dependencies, cycles and user choices preserved; changed targets revalidate.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "content-mutation",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "content-mutation",
+        "mod-files",
+        "discover-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Install/update/toggle/uninstall content",
+        "expect": "Exact provenance and file effects; interrupted batches preserve manual edits and explicit recovery obligations.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "modpacks",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "modpacks",
+        "create-ui",
+        "discover-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Create from pack and import selected pack files",
+        "expect": "All retained loaders, client exclusions and override precedence; path/collision/partial-install failures preserve prior data.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "installation",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "vanilla-installation",
+        "install-queue",
+        "fabric-loader",
+        "quilt-loader",
+        "forge-loader",
+        "neoforge-loader",
+        "downloads-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Enqueue/install/remove/retry and observe progress",
+        "expect": "Correct queue, exact verified artifacts and terminal readiness; cancellation/restart/reconnect never report half-installed success.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "instances",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "instances",
+        "instance-deletion",
+        "instance-duplication",
+        "library-ui",
+        "library-lifecycle"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "List/edit/duplicate/delete with keep-files and delete-files",
+        "expect": "Stable identities, source preservation, external-library support and explicit mutation; failures retain recoverable registry/file state.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "instance-creation",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "instances",
+        "create-ui",
+        "fabric-loader",
+        "quilt-loader",
+        "forge-loader",
+        "neoforge-loader"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Select version/build/details and create instance",
+        "expect": "Two-step modal and exact supported source/build/defaults remain; no silent loader/version cut.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "resource-inventory",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "mod-files",
+        "world-files",
+        "screenshot-files",
+        "launch-diagnostics",
+        "resource-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Read consolidated resources and open folder",
+        "expect": "Current counts/names/metadata and exact native folder targeting; missing/replaced paths fail safely.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "mod-files",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "mod-files",
+        "resource-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "List/enable/disable/delete mods",
+        "expect": "Exact targeted file/provenance changes with portable collision, active-session and replacement checks.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "world-files",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "world-files",
+        "resource-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "List/rename/delete/backup and use existing folder/import affordances",
+        "expect": "World and backup bytes retained; interrupted backup/copy, collisions and unsafe lifecycle preserve originals.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "screenshots",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "screenshot-files",
+        "resource-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "List/view/lightbox/rename/delete screenshots",
+        "expect": "Gallery/sort/context/bulk behavior and unchanged media bytes; invalid/replaced/missing files yield safe errors.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "logs",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "launch-diagnostics",
+        "session-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Read current/historical logs and stream output",
+        "expect": "Latest default, retained history and bounded redaction; huge/unbroken output and stale attempts stay contained.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "java-runtime",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "java-discovery",
+        "java-installation",
+        "settings-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Discover/select/provision/reuse Java",
+        "expect": "Managed/system/custom runtimes retain supported major/architecture semantics; missing/replaced/hanging executables have actionable outcomes.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "launch",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "launch-planning",
+        "game-sessions",
+        "launch-diagnostics",
+        "session-ui",
+        "microsoft-auth",
+        "profile-media",
+        "performance-plans",
+        "performance-mutation",
+        "launch-coordination"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Launch/observe/stop/exit/reopen/relaunch",
+        "expect": "Correct private command, effective profile/performance, owned process tree and accurate terminal state; no hidden Guardian relaunch.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "launch-validation",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "launch-planning",
+        "developer-tools"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Inspect factual preflight and bounded command diagnostics",
+        "expect": "Mandatory readiness/JVM/runtime checks retained; public diagnostics cannot expose private commands or credentials.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "launch-reports",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "launch-diagnostics",
+        "benchmarks"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "List/read outcome and proof history",
+        "expect": "Useful non-Guardian metrics and redacted reports persist; absent Guardian evidence never fabricates completeness.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "benchmarks",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "benchmarks",
+        "performance-ui",
+        "developer-tools"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Run matrices/suites/drivers, stop/resume and qualify",
+        "expect": "Existing non-Guardian developer workflow/history remains; malformed records cannot drive mutation or autonomous quarantine.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "performance",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "performance-plans",
+        "performance-mutation",
+        "performance-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Select mode/plan/health/rules and apply/reapply/remove/rollback at existing entrypoints",
+        "expect": "Plans, exact graph ownership/snapshots, compensation and restart remain; Guardian supervision becomes mandatory domain checks.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "music",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "personalization"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Play/control music and inspect cache/status",
+        "expect": "Music defaults/cache behavior remain; failed downloads cannot block core startup.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "saved-skins",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "skin-library",
+        "profile-media",
+        "skins-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Normalize/save/edit/replace/delete/download/queue/cancel/flush skins",
+        "expect": "Deduplication, preview-before-commit, save-before-apply and per-account state remain; failed publication and stale applies preserve correct choice.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "profile-skins-capes",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "profile-media",
+        "skins-ui",
+        "microsoft-auth"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Lookup/read/apply/reset profile skin and cape",
+        "expect": "Authentic head/preview and account-bound remote operations; stale identity or partial remote success is explicit.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "telemetry",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "telemetry",
+        "settings-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Report allowed errors/events and toggle consent",
+        "expect": "Closed non-Guardian vocabulary and redaction; disabled consent suppresses all egress including error paths.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "transport",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "api-transport",
+        "desktop-shell"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Bootstrap/request/media/subscribe/reconnect",
+        "expect": "Scoped capabilities/origins/tickets and revision convergence; stale credentials/revisions never authorize effects.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "updates",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "updater",
+        "artifact-delivery"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Check/download/verify/stage/apply/restart installed copies",
+        "expect": "In-app workflow and platform selection retained; corruption, untrusted payload and active work block apply; user data persists.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "versions",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "version-catalog",
+        "create-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "List/classify/order/select versions",
+        "expect": "Current release/snapshot/prerelease/legacy families and installed-loader labels remain; unknown data is explicit.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "navigation-presentation",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "ui-composition",
+        "library-ui",
+        "session-ui"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Navigate/back/forward/scroll/open overlays/use keyboard",
+        "expect": "Existing layout/tokens/components/interactions preserved; focus/scroll survive async loading and user interaction.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "personalization",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "personalization",
+        "settings-ui",
+        "ui-composition"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Edit/use theme/accent/sounds/shortcuts/preferences and restart",
+        "expect": "Existing customization persists; browser-local export/import is verified for the new application identity.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "native-shell",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "desktop-shell",
+        "artifact-delivery",
+        "developer-tools",
+        "library-lifecycle"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Use installed chrome/opener/close/restart/dev reset",
+        "expect": "Existing platform affordances and profile/lifecycle boundaries preserved; unsafe navigation and incomplete shutdown remain explicit.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "native-media",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "media-admission",
+        "skins-ui",
+        "desktop-shell"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Use native image selection/drop",
+        "expect": "Bounded admitted identity and current UI behavior; expired/reused/replaced or malformed selection cannot read arbitrary files.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "discord",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "discord-presence"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Observe configured presence across launch/stop/settings",
+        "expect": "Sanitized presence follows current session; absent Discord/reconnect cannot block launch.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "developer-tools",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "developer-tools",
+        "benchmarks"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Use lab, flags, inspectors and existing diagnostics",
+        "expect": "Existing unrelated developer workflows remain gated; release builds cannot gain developer authority.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    },
+    {
+      "name": "data-import",
+      "disposition": "retain",
+      "status": "inventoried-not-verified",
+      "packages": [
+        "legacy-import",
+        "cutover-readiness",
+        "library-lifecycle",
+        "personalization"
+      ],
+      "scenario": {
+        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
+        "action": "Preview/import/repeat baseline profiles then launch",
+        "expect": "User files, supported preferences, identities and meaningful non-Guardian state retain parity. Browser preferences round-trip through the predecessor-origin bridge. Old metadata/keyring and mutable payload trees stay independent. Unresolved effects keep affected instances unavailable; crash recovery is idempotent.",
+        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
+        "baseline_characterization": "pending"
+      },
+      "evidence": []
+    }
+  ],
+  "routes": [
+    {
+      "method": "GET",
+      "route": "/api/v1/accounts",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/accounts.rs",
+      "behavior": "accounts",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/v1/accounts/{account_id}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/accounts.rs",
+      "behavior": "accounts",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "PATCH",
+      "route": "/api/v1/accounts/{account_id}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/accounts.rs",
+      "behavior": "accounts",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/accounts/{account_id}/select",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/accounts.rs",
+      "behavior": "accounts",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/accounts/offline",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/accounts.rs",
+      "behavior": "accounts",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/auth/logout",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/auth.rs",
+      "behavior": "authentication",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/auth/profile/sync",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/auth.rs",
+      "behavior": "authentication",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/auth/refresh",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/auth.rs",
+      "behavior": "authentication",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/auth/status",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/auth.rs",
+      "behavior": "authentication",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/config",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/config.rs",
+      "behavior": "settings",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/v1/config",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/config.rs",
+      "behavior": "settings",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/content/compatibility",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/content.rs",
+      "behavior": "content-planning",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/content/install",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/content.rs",
+      "behavior": "content-mutation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/content/item",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/content.rs",
+      "behavior": "content-discovery",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/content/modpack/files",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/content.rs",
+      "behavior": "modpacks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/content/modpack/install",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/content.rs",
+      "behavior": "modpacks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/content/modpack/target",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/content.rs",
+      "behavior": "modpacks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/content/plan",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/content.rs",
+      "behavior": "content-planning",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/content/search",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/content.rs",
+      "behavior": "content-discovery",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/flags",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/flags.rs",
+      "behavior": "feature-flags",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/v1/flags/{key}",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/flags.rs",
+      "behavior": "feature-flags",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/install/{id}/events",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/install.rs",
+      "behavior": "installation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/install/{id}/status",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/install.rs",
+      "behavior": "installation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/install/queue",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/install.rs",
+      "behavior": "installation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/install/queue",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/install.rs",
+      "behavior": "installation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/v1/install/queue/{id}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/install.rs",
+      "behavior": "installation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/install/queue/retry",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/install.rs",
+      "behavior": "installation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "instances",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/instances",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "instances",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/v1/instances/{id}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "instances",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances/{id}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "instances",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/v1/instances/{id}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "instances",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances/{id}/content",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/content.rs",
+      "behavior": "content-mutation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/instances/{id}/content/uninstall",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/content.rs",
+      "behavior": "content-mutation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances/{id}/content/updates",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/content.rs",
+      "behavior": "content-mutation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/instances/{id}/duplicate",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "instances",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances/{id}/logs",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "logs",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances/{id}/logs/{name}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "logs",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances/{id}/mods",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "mod-files",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/v1/instances/{id}/mods/{name}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "mod-files",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/v1/instances/{id}/mods/{name}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "mod-files",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/instances/{id}/open-folder",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "resource-inventory",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances/{id}/resources",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "resource-inventory",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances/{id}/screenshots",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "screenshots",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/v1/instances/{id}/screenshots/{name}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "screenshots",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/v1/instances/{id}/screenshots/{name}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "screenshots",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances/{id}/screenshots/{name}/file",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "screenshots",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances/{id}/worlds",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "world-files",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/v1/instances/{id}/worlds/{name}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "world-files",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/v1/instances/{id}/worlds/{name}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "world-files",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/instances/{id}/worlds/{name}/backup",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "world-files",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances/create-view",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "instance-creation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/instances/create-view/loader-builds",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "instance-creation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/instances/modpack",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "modpacks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/instances/setup",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "content-planning",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/instances/setup/plan",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/instances.rs",
+      "behavior": "content-planning",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/java",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/java.rs",
+      "behavior": "java-runtime",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/launch",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "launch",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/launch/{id}/command",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "launch-validation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/launch/{id}/events",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "launch",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/launch/{id}/kill",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "launch",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/launch/{id}/status",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "launch",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/launch/benchmark",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/launch/benchmark/matrix",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/launch/benchmark/qualification/family-c-1-12-2/{suite_id}",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/launch/benchmark/qualification/family-c-1-12-2/preview",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/launch/benchmark/suite",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/launch/benchmark/suite/driver",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/launch/benchmark/suite/drivers",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/launch/benchmark/suite/drivers/{id}",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/launch/benchmark/suite/drivers/{id}/resume",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/launch/benchmark/suite/drivers/{id}/stop",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/launch/benchmark/suite/tick",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/launch/benchmark/suites/{id}",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/launch/preflight/{instance_id}",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "launch-validation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/launch/reports",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "launch-reports",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/launch/reports/{id}",
+      "audience": "developer-diagnostic",
+      "source": "apps/api/src/routes/launch/mod.rs",
+      "behavior": "launch-reports",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/loaders/install/{id}/events",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/loaders.rs",
+      "behavior": "installation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/music/status",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/music.rs",
+      "behavior": "music",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/music/track",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/music.rs",
+      "behavior": "music",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/onboarding/complete",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/setup.rs",
+      "behavior": "startup",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/performance/health",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/performance.rs",
+      "behavior": "performance",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/performance/install",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/performance.rs",
+      "behavior": "performance",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/performance/instances/{instance_id}/operation",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/performance.rs",
+      "behavior": "performance",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/performance/operations/{id}",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/performance.rs",
+      "behavior": "performance",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/performance/plan",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/performance.rs",
+      "behavior": "performance",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/performance/rollback",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/performance.rs",
+      "behavior": "performance",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/performance/rules/refresh",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/performance.rs",
+      "behavior": "performance",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/performance/status",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/performance.rs",
+      "behavior": "performance",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/setup/init",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/setup.rs",
+      "behavior": "startup",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/skin/cape/file",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "profile-skins-capes",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/skin/cape/reset",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "profile-skins-capes",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/skin/head",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "profile-skins-capes",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/skin/lookup",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "profile-skins-capes",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/skin/lookup/cape",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "profile-skins-capes",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/skin/lookup/file",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "profile-skins-capes",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/skin/lookup/head",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "profile-skins-capes",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/skin/profile",
+      "audience": "internal-runtime",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "profile-skins-capes",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/skin/profile/file",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "profile-skins-capes",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/skin/profile/reset",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "profile-skins-capes",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/skins",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/skins",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/v1/skins/{texture_key}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/v1/skins/{texture_key}",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/skins/{texture_key}/apply",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/skins/{texture_key}/file",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/v1/skins/{texture_key}/texture",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/skins/flush",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/skins/from-profile",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/skins/from-username",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/skins/normalize",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/v1/skins/pending",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/skin.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/status",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/status.rs",
+      "behavior": "startup",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/system",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/system.rs",
+      "behavior": "startup",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/telemetry/frontend-error",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/telemetry.rs",
+      "behavior": "telemetry",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/transport/bootstrap",
+      "audience": "transport-internal",
+      "source": "apps/api/src/routes/mod.rs",
+      "behavior": "transport",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/transport/tickets",
+      "audience": "transport-internal",
+      "source": "apps/api/src/routes/mod.rs",
+      "behavior": "transport",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/update",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/update.rs",
+      "behavior": "updates",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/update/apply",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/update.rs",
+      "behavior": "updates",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "POST",
+      "route": "/api/v1/update/download",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/update.rs",
+      "behavior": "updates",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/update/flow",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/update.rs",
+      "behavior": "updates",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "method": "GET",
+      "route": "/api/v1/versions",
+      "audience": "product-ui",
+      "source": "apps/api/src/routes/versions.rs",
+      "behavior": "versions",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    }
+  ],
+  "surfaces": [
+    {
+      "kind": "ui-route",
+      "name": "home",
+      "source": "frontend/src/ui-state.ts",
+      "behavior": "instances",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui-route",
+      "name": "instances",
+      "source": "frontend/src/ui-state.ts",
+      "behavior": "instances",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui-route",
+      "name": "instance",
+      "source": "frontend/src/ui-state.ts",
+      "behavior": "resource-inventory",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui-route",
+      "name": "discover",
+      "source": "frontend/src/ui-state.ts",
+      "behavior": "content-discovery",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui-route",
+      "name": "content",
+      "source": "frontend/src/ui-state.ts",
+      "behavior": "content-discovery",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui-route",
+      "name": "downloads",
+      "source": "frontend/src/ui-state.ts",
+      "behavior": "installation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui-route",
+      "name": "accounts",
+      "source": "frontend/src/ui-state.ts",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui-route",
+      "name": "settings",
+      "source": "frontend/src/ui-state.ts",
+      "behavior": "settings",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui-route",
+      "name": "dev-lab",
+      "source": "frontend/src/ui-state.ts",
+      "behavior": "developer-tools",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "overlay",
+      "name": "create and content handoff",
+      "source": "frontend/src/views/create/CreateView.tsx",
+      "behavior": "instance-creation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "overlay",
+      "name": "onboarding",
+      "source": "frontend/src/views/onboarding/Onboarding.tsx",
+      "behavior": "startup",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "overlay",
+      "name": "account switcher popover/modal",
+      "source": "frontend/src/views/accounts/AccountSwitcherHost.tsx",
+      "behavior": "accounts",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui",
+      "name": "navigation scroll focus and shell",
+      "source": "frontend/src/ui-state.ts",
+      "behavior": "navigation-presentation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui",
+      "name": "command palette and shortcuts",
+      "source": "frontend/src/ui/CommandPalette.tsx",
+      "behavior": "personalization",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui",
+      "name": "theme accents sound music",
+      "source": "frontend/src/state.ts",
+      "behavior": "personalization",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui",
+      "name": "skin stage snapshots defaults queued state",
+      "source": "frontend/src/views/accounts/AccountsView.tsx",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "ui",
+      "name": "resource context bulk actions and lightbox",
+      "source": "frontend/src/views/instance/InstanceDetailView.tsx",
+      "behavior": "resource-inventory",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "native",
+      "name": "chrome opener close restart reset",
+      "source": "apps/desktop/src/commands/mod.rs",
+      "behavior": "native-shell",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "native",
+      "name": "sign-in window",
+      "source": "apps/desktop/src/commands/mod.rs",
+      "behavior": "authentication",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "native",
+      "name": "skin picker/drop",
+      "source": "apps/desktop/src/native_skin.rs",
+      "behavior": "native-media",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "native",
+      "name": "Discord presence",
+      "source": "docs/DISCORD-RPC.md",
+      "behavior": "discord",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "persisted",
+      "name": "config and instance registry",
+      "source": "core/config/src/lib.rs",
+      "behavior": "instances",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "persisted",
+      "name": "keyring credentials",
+      "source": "apps/api/src/state/auth_persistence.rs",
+      "behavior": "authentication",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "persisted",
+      "name": "skin metadata and media",
+      "source": "apps/api/src/state/skins.rs",
+      "behavior": "saved-skins",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "persisted",
+      "name": "content ownership manifest",
+      "source": "core/content/src/manifest.rs",
+      "behavior": "content-mutation",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "persisted",
+      "name": "Performance graph rollback and pending effects",
+      "source": "core/performance/src/state/mod.rs",
+      "behavior": "performance",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "persisted",
+      "name": "benchmark and proof history",
+      "source": "apps/api/src/state/benchmark_suites.rs",
+      "behavior": "benchmarks",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "persisted",
+      "name": "UI local storage and snapshots",
+      "source": "frontend/src/state.ts",
+      "behavior": "personalization",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "persisted",
+      "name": "external-library selection and lifecycle",
+      "source": "apps/api/src/state/managed_library.rs",
+      "behavior": "instances",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "background",
+      "name": "bootstrap hydration and update check",
+      "source": "frontend/src/bootstrap.ts",
+      "behavior": "startup",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "background",
+      "name": "rule refresh and queued Performance work",
+      "source": "apps/api/src/app.rs",
+      "behavior": "performance",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "lifecycle",
+      "name": "accepted work and shutdown drain",
+      "source": "apps/api/src/state/lifecycle.rs",
+      "behavior": "launch",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "lifecycle",
+      "name": "pending skin launch/shutdown flush",
+      "source": "apps/api/src/application/skin/profile_change.rs",
+      "behavior": "profile-skins-capes",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    },
+    {
+      "kind": "delivery",
+      "name": "release architectures and updater assets",
+      "source": ".github/workflows/release.yml",
+      "behavior": "updates",
+      "disposition": "retain-behavior",
+      "verification": "not-run"
+    }
+  ],
+  "deferred": [
+    {
+      "name": "guardian-modes-and-policy",
+      "reason": "Guardian deferred; mandatory feature readiness and neutral actions remain.",
+      "mixed_behaviors": [
+        "settings",
+        "launch-validation",
+        "performance"
+      ]
+    },
+    {
+      "name": "autonomous-repair-and-relaunch",
+      "reason": "Remove Guardian-selected reconstruction, fallback/relaunch and escalation. Normal provisioning and accepted-transaction settlement remain.",
+      "mixed_behaviors": [
+        "installation",
+        "launch",
+        "performance"
+      ]
+    },
+    {
+      "name": "guardian-suppression-memory",
+      "reason": "No automatic intervention loop; domain retry/idempotency remain.",
+      "mixed_behaviors": [
+        "installation",
+        "launch"
+      ]
+    },
+    {
+      "name": "guardian-idle-integrity",
+      "reason": "Remove discretionary background integrity/repair; retain prerequisite validation and Performance health.",
+      "mixed_behaviors": [
+        "startup",
+        "launch-validation",
+        "performance"
+      ]
+    },
+    {
+      "name": "guardian-quarantine-policy",
+      "reason": "Remove automatic corrupt-record quarantine; retain transaction-specific compensation and cleanup.",
+      "mixed_behaviors": [
+        "startup",
+        "performance",
+        "benchmarks"
+      ]
+    },
+    {
+      "name": "guardian-evidence-and-copy",
+      "reason": "Remove only Guardian-specific fields/claims/events while preserving reports and presentation-only palette logic.",
+      "mixed_behaviors": [
+        "launch-reports",
+        "benchmarks",
+        "telemetry",
+        "navigation-presentation"
+      ]
+    }
+  ]
+}

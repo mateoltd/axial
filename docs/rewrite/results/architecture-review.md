@@ -1,0 +1,43 @@
+# Architecture review
+
+Updated 2026-09-28. Changed-scope evidence, not a parity or release certificate. Earlier checkpoints remain in [integration evidence](integration.md), [Forge findings](forge-loader.md) and [NeoForge findings](neoforge-processors.md).
+
+## Scope and ownership
+
+Read AGENTS.md, conventions, ADR 7, delivery/integration evidence and active ownership. This review covers observed launch settlement, report failure, restart projection and benchmark consumers. Root owns shared migration registration, verification and this record. Implementation/review workers stopped at the usage limit; root completed unfinished tests and final source review. That final source is not independently reviewed.
+
+No changed-scope naming, nesting or pass-through layer warranted style-only churn. UI layout, public contracts, legacy source and retained profiles are unchanged. This record is compacted instead of duplicating the historical integration ledger.
+
+The user subsequently moved active development to `main`. Normal-merge integration preserves existing history; its only conflict concerned an obsolete glyph removed by an earlier icon refactor. Resolved product source matches checkpoint `297dcabc`, and frontend generation remains `405e7595e802`. CI includes `main`, local caches stay excluded, and candidate packaging remains manual-only. Main integration passes 454 frontend tests, 73 delivery checks and 304-file semantic lint. One initial filesystem-watch timeout passed isolated/full reruns unchanged; retain that uncertainty in the integration ledger.
+
+## Findings and corrections
+
+| Finding | Correction | Preserved boundary |
+| --- | --- | --- |
+| Diagnostic report failure retained already-settled session effects; abrupt launcher exit could lose the only terminal facts. | Persist bounded, typed observed facts in one nullable column of the existing accepted intent before attempting the report. | Publish only after exact child/tree/output and native cleanup, or verified no-child cleanup. No second journal, recovery framework or acknowledgement flag. |
+| Successful SQL alone could misrepresent publication. | Compare immutable accepted payload/state, require exactly one affected row, and verify exact readback atomically. | Aborted, ignored and post-update-altered writes cannot release ownership. Exact retries are immutable; conflicts retain the owner. `terminal_ack` still means an actual matching report was acknowledged. |
+| In-memory acceptance could masquerade as durable settlement. | Return whether observation was actually persisted; without durable proof, report failure still retains the session. | No false durability from an in-memory owner. Typed publication failures remain diagnosable without raw payloads or credentials. |
+| Draft validation used the installed-loader decoder for every version, blocking Vanilla settlement. | Validate the existing portable version shape; apply the canonical loader codec only to reserved loader IDs. | No free-text report sanitizer or relaxed loader identity check. Focused execution reproduced the defect before correction. |
+| Acceptance compared re-serialized JSON with valid stored pending bytes, breaking the mapped-before-preparation restart journey. | Decode and compare the captured typed record, then compare-and-swap the exact persisted bytes in the same transaction. | Encoding order does not change intent identity; changed content/state, missing rows and failed readback still refuse. |
+| Benchmarks could retain a live-session claim or advance without the missing measurement. | Reconcile the exact existing launch intent; return `Unavailable`, clearing only a proven-ended driver's active claim. | No fabricated report, qualification, run advancement, retry launch or historical mutation. |
+
+Proof binds the exact accepted payload and actual prepared version, captures settlement time once, and derives outcome through the existing classifier. Report acknowledgement also requires exact observation concordance. The bounded recovery index skips supported owner-published history; null, invalid JSON and unsupported envelope versions remain on the strict recovery path. As with existing acknowledged history, this trusts atomic owner publication, not arbitrary later database modification. Exact status reads revalidate stored proof, including supported envelopes with invalid contents.
+
+## Validation
+
+Logs are under `.rewrite-logs/`.
+
+- Six focused settlement/benchmark tests pass (`observed-settlement-green-final.log`): report failure/reopen/replay, immutable proof, contradictory report refusal, unsupported/noncanonical evidence, database fault rollback/retry, and no false in-memory durability.
+- **106 launch tests pass**, one existing ignore (`observed-settlement-launch.log`). The native-conflict regression confirms zero observation before exact cleanup and one afterward; watchdog fixtures use real accepted intents.
+- The real API subprocess journey passes (`observed-settlement-api-crash.log`): downloaded fixture Java/game, observed output, explicit Stop, both exact process IDs gone, native directory removed, refused report writes, abrupt launcher exit74, then ordinary reopen. Same accepted bytes/session/proof survive; report count and report acknowledgement remain zero; replay starts no new process; fresh admission and normal shutdown succeed. This is process-lifecycle evidence, not gameplay or surviving-process adoption.
+- Initial focused execution failed on Vanilla validation; the remaining synthetic no-child test was terminated after diagnosis (`observed-settlement-focused.log`). One intermediate compile failed from misplaced test setup and was corrected (`observed-settlement-green.log`). No production guard or behavioral assertion was weakened.
+- The first broad API run passed 115 and failed the existing pending-mapping restart journey (`observed-settlement-app-api.log`). After correcting typed-versus-byte comparison, that complete process/restart/report-loss journey passes unchanged (`observed-settlement-benchmark-green.log`).
+- Full **804 application / 116 API / 86 desktop tests pass**, five/two app/API ignores (`observed-settlement-app-api-final.log`, `observed-settlement-desktop.log`). The additional API ignore is the crash helper exercised by its passing parent. Scoped formatting passes (`observed-settlement-format.log`). Frontend source and its earlier 454-test checkpoint are unchanged; no new package/native UI acceptance is claimed.
+
+## Unresolved handoffs
+
+Root retains full-parity work and runtime/platform acceptance. This slice does **not** repair preserved old intent `3ce61942-4c5b-4cdb-a899-70e0f545fa64`, whose report and observation were never persisted. Its fixture remains untouched. It neither adopts a surviving process nor recovers a crash before observation publication. PID absence and elapsed time do not establish settlement. Different-boot recovery needs verified boot identity plus exact native-cleanup handling; same-boot recovery needs process authority surviving launcher loss.
+
+Other open evidence: interrupted native Reset confirmation provenance/Preserve-files UI, OAuth/game-window acceptance, remaining content/pack failure/restart journeys, developer-UI benchmark continuation, queued-handoff cutover, four installed architectures and trusted signed-update inputs. Normal debug Reset and retained Quilt queue recovery have earlier evidence, not new acceptance here. Three sampled Quilt Meta/Maven hash disagreements remain strict integrity refusals, not proof every release fails. See the integration ledger and its named runtime records.
+
+Existing AGENTS.md rules cover completion ownership, typed contracts, exact durable-write acknowledgement and uncertain mutations. No duplicate quality rule added; the active working branch is now documented there. The full-parity goal remains active. The scheduled review targets `main`, preserving its pre-existing paused status. No deployment or release publication.
