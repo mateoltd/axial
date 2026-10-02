@@ -10,7 +10,7 @@ A rewrite that retains all non-Guardian behavior still includes substantive cont
 
 ## Decision
 
-The user selected branch `feat/clean-rewrite`, with the preserved baseline under `legacy/` and replacement code at the root. Use a distinct development application identity and data root. Keep Rust, Tokio, Preact/Signals, Tauri, and the browser development workflow. Carry proven leaf algorithms and UI components through behavioral checks. Avoid a simultaneous redesign of the interface.
+The rewrite began on `feat/clean-rewrite`, with the preserved baseline under `legacy/` and replacement code at the root. Development now continues directly on `main`, as authorized by the user, preserving every commit; the earlier branch remains a recovery checkpoint. Use a distinct development application identity and data root. Keep Rust, Tokio, Preact/Signals, Tauri, and the browser development workflow. Carry proven leaf algorithms and UI components through behavioral checks. Avoid a simultaneous redesign of the interface.
 
 The user explicitly requires UI preservation. Adapt existing clients and state bindings in place; retain layout, CSS, visual assets, component APIs, navigation and interaction semantics. Do not move view directories just to match the backend organization. Small polish is separate from architecture work and requires a concrete observed problem plus focused before/after validation.
 

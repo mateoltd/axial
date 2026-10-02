@@ -1,6 +1,6 @@
 # NeoForge loader
 
-Status: implemented boundary and focused tests; integration and runtime parity remain unverified.
+Status: NeoForge21.1.252 / Minecraft1.21.1 has recorded real install, startup, launcher Stop, clean restart and relaunch acceptance. Fresh derived reconstruction also passes its composed check. See `.rewrite-logs/neoforge-runtime-acceptance.md` and [integration evidence](integration.md). This is not all-era, native-gameplay or later-source acceptance. The original boundary handoff below is historical.
 
 The feature module is `core/app/src/loaders/neoforge.rs`. It delegates to the retained `axial-minecraft` leaf instead of duplicating provider parsing, authenticated installer binding, processor execution, or publication. No legacy files were changed by this package.
 
@@ -24,13 +24,13 @@ Required shared changes: register `loaders::neoforge`, add the already agreed `a
 
 The shared owner has now exposed the requested pure parser functions. Static readback confirms the wrapper signatures match. The existing development dependency enables the retained `test-support` feature for the isolated managed-library install rejection test.
 
-## Processor compatibility inspection
+## Historical processor compatibility inspection
 
 Compared the retained `loaders/forge_installer.rs`, `loaders/bound_processors.rs`, and `loaders/strategies/common.rs` against their legacy counterparts with `cmp`; each returned exit status 0. The shared processor path was preserved byte for byte.
 
 NeoForge continues to accept an empty client workload or a runnable client workload with authenticated output contracts. The existing `UnsupportedMissingOutputs` disposition applies when at least one client processor has an empty output map. That baseline limitation produces an explicit invalid-profile failure before child install effects. Missing terminal sizes do not create a blanket rejection: the retained runtime execution verifies observed output bytes. No additional numbering-era, beta, processor, or version policy cutoff was introduced.
 
-## Verification
+## Original verification handoff
 
 Authored eight application tests covering both numbering eras, beta-only/mixed target stability, exact beta selection, artifact/profile identity, absent-target behavior, wrong-component install against an isolated scoped library with no publication/progress, invalid/foreign selection rejection before provider I/O, and withholding terminal callback events while preserving intermediate progress. Ran `rustfmt --edition 2024 core/app/src/loaders/neoforge.rs` and the focused `git diff --check`; both completed successfully. No Cargo or shared build command was run by this package owner.
 
