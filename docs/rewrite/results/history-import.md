@@ -74,6 +74,12 @@ Vanilla and loader history also retain the original exact `Failed`/`Failed` reco
 
 The source reservation's Drop writes this record before releasing foreground cleanup. It proves only that this attempt did not cross worker hand-off, not profile idleness or settlement of other effects. Extra publication/progress steps, generic worker failures, contradictory terminal evidence and malformed recorded times refuse. The existing global receipt/read/replay flow preserves both Vanilla and loader cases without a new schema, route or execution owner. Current verification is recorded in [integration evidence](integration.md).
 
+### Terminal interruption observations
+
+Optional metadata history also preserves the original singleton `InstallVersion` worker-interruption shape: `Failed`/`Failed`, `install_worker_interrupted`, one exact error step without a declared changed target or metrics, and the original interruption diagnostic/Retry-memory grammar. Current loader early-interruption reachability is evidenced; Vanilla coverage establishes the original writer/reader contract, not a current worker-return journey.
+
+The existing source validator distinguishes readable global observations from ordinary-import-safe records. Stored reads and optional global metadata preparation can retain the observation; ordinary construction and instance batch binding reject it before the support ledger can waive `UnsettledOperation`. Preserving or reading it does not settle file/process obligations, create execution state, or unblock the affected instance. Existing schema, source binding, exact bytes, completion proofs and batch limits are unchanged. Actual HTTP verifies ordinary import refusal before and after metadata completion, lost-response recovery, replay/reopen, excluded Guardian fields and unchanged source canaries. Nonterminal and other interrupted shapes remain unsupported, not relabelled as settled.
+
 ## Ordinary profile preservation
 
 The source registry's `last_instance_id` is distinct from the browser's saved route. First publication of that exact selected instance may fill an empty destination selection within the existing live-publication transaction. Existing destination choices win; completed replay never restores a later changed or cleared selection. No launch timestamp or revision is fabricated. Source-readmitted recovery uses the original fingerprint and reserved destination identity; ignored completion writes cannot acknowledge publication.
