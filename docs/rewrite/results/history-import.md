@@ -68,6 +68,12 @@ The existing metadata receipt's nullable v3 proof binds source identity, sorted 
 
 Explicit replay can complete a migrated NULL-proof receipt while preserving original receipt revisions and all later destination account/settings edits. Already completed evidence is verified, never silently repaired. The existing settings transaction verifies the final receipt after its last settings write, so ignored/rewritten receipt rows and late history corruption roll back together. Nine focused owner groups pass after a meaningful late-write failure; final **932 app / 131 API / 88 desktop / 480 frontend** passes and qualified failure evidence are tracked in [integration evidence](integration.md). No queue, readiness, launch, cleanup or full-cutover authority follows from these records.
 
+### Pre-worker install initialization failure
+
+Vanilla and loader history also retain the original exact `Failed`/`Failed` record with `failure_point=install_initialization_cancelled`. Admission requires one `install_progress_initializing` failure step, the original ordered facts, no changed target or metrics, and the original `download_interrupted`/`download_unavailable` Retry-memory grammar and recorded five-minute window. Those diagnostic annotations remain private source evidence and are omitted publicly; no Guardian behavior is restored. Existing identity, source-effect, completion-proof and readback owners remain unchanged.
+
+The source reservation's Drop writes this record before releasing foreground cleanup. It proves only that this attempt did not cross worker hand-off, not profile idleness or settlement of other effects. Extra publication/progress steps, generic worker failures, contradictory terminal evidence and malformed recorded times refuse. The existing global receipt/read/replay flow preserves both Vanilla and loader cases without a new schema, route or execution owner. Current verification is recorded in [integration evidence](integration.md).
+
 ## Ordinary profile preservation
 
 The source registry's `last_instance_id` is distinct from the browser's saved route. First publication of that exact selected instance may fill an empty destination selection within the existing live-publication transaction. Existing destination choices win; completed replay never restores a later changed or cleared selection. No launch timestamp or revision is fabricated. Source-readmitted recovery uses the original fingerprint and reserved destination identity; ignored completion writes cannot acknowledge publication.
