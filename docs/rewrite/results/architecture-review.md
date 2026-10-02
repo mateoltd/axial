@@ -26,6 +26,8 @@ Hosted [run37032409962](https://github.com/mateoltd/axial/actions/runs/370324099
 
 Metadata observations first reproduce reader/global-preparation refusal and missing HTTP count after ordinary POST422. Three focused owner/import checks and the actual lost-response/replay/reopen journey then pass, with ordinary import blocked before/after preservation, immutable source canaries and empty execution tables. Frozen combined consumers pass1,014 app,142 embedded API and88 desktop tests, six app/API ignores each (`worker-observation-{consumers-final,desktop-final}.log`). Scope formatting and generated-contract equality pass (`worker-observation-{format,wire-check}.log`).
 
+Hosted [run37036184707](https://github.com/mateoltd/axial/actions/runs/37036184707) passes exact integrated `cbcea749`; independent SHA/conclusion matches terminal watch. Unsigned macOS ARM64 packaging also passes with unchanged generation, not installed-interface acceptance.
+
 ## Unresolved handoffs
 
 Nonterminal records remain outside this slice: missing outcome and evolving immutable identity need a separate contract decision, not a parser allowance. Other interrupted shapes remain unsupported. Existing AGENTS ownership/contract rules cover these findings; no anecdotal rule is added.
@@ -34,6 +36,8 @@ Unsupported history and source-effect settlement remain separate. Changed-source
 
 Interrupted-Reset Preserve-files UI, OAuth/game-window journeys, remaining failure/restart cases, four installed architectures and trusted signed-update inputs remain open. Retained generated fixtures and unknown predecessor process intents are untouched. Never infer settlement from PID absence, age or best-effort progress.
 
-The fresh debug bundle opens/quits normally, then published v2 interruption waits with matching idle fingerprints and unchanged siblings. macOS dialog automation times out; explicit manual Preserve remains pending. The old handoff lacks its marker/intent/canaries. Neither establishes native Preserve acceptance (`native-current-interrupted-reset-acceptance.md`).
+The fresh debug bundle opened/quit normally, then published v2 interruption waited with matching idle fingerprints and unchanged siblings. macOS dialog automation timed out, and no manual choice arrived. Root verified/stopped only failed test PID64514 with SIGTERM; it exited143 with no successor. Intent, marker and synthetic files retain their waiting hashes, protected canaries pass, and the profile/keeper remain retained. This is test abortion, not native Preserve acceptance (`native-current-interrupted-reset-acceptance.md`); the earlier stale handoff also lacks acceptance evidence.
+
+The rebuilt bundle now uses fresh fixture `axial-scenario-qbkeu197`, keeper43579 and PID18922/session18631. Native automation reports the Mac locked; manual unlock is requested, with no UI input or acceptance inferred. Preserve this live process image until it closes before rebuilding again.
 
 The full-parity goal remains active. Architecture automation retains its existing paused status. No deployment, release publication or legacy/user-profile mutation.
