@@ -1,6 +1,6 @@
 # Terminal history import assessment
 
-Status: bounded historical reports, including terminal reports for deleted source instances, suites, drivers, per-instance Performance commands and global rules refresh history integrated. Current verification checkpoints are in [integration evidence](integration.md); earlier authenticated report/suite/driver import/read/retry/restart journeys remain in `.rewrite-logs/suites-api-current.log`. Full profile cutover remains unavailable.
+Status: bounded historical reports, including terminal reports for deleted source instances, suites, drivers, Performance commands including missing-target terminal records, and global rules refresh history integrated. Current verification checkpoints are in [integration evidence](integration.md); earlier authenticated report/suite/driver import/read/retry/restart journeys remain in `.rewrite-logs/suites-api-current.log`. Full profile cutover remains unavailable.
 
 ## Terminal reports after source-instance deletion
 
@@ -14,7 +14,7 @@ Explicit completion of an older NULL-proof receipt preserves later destination s
 
 Composed HTTP regressions initially fail with zero preserved reports, then pass both publication orders, zero-instance import, source-free reads/reopen/replay, unchanged source bytes/mtime and refused live controls. Frontend tests initially expose missing validation, then verify optional count decoding through actual POST/status responses. Owner tests cover immutable proofs, archived/live separation, rollback/recovery and the inclusive actual-byte limit; current counts are in [integration evidence](integration.md). No UI layout or control changed. This is HTTP/owner/decoder evidence, not new native migration acceptance.
 
-Unrelated live nonterminal reports, unsupported suites/drivers, Running journals and unsettled file/process effects still block ordinary instance import. Metadata's independent report preservation does not waive those obligations. Missing-target Performance/content histories and full profile cutover remain separate.
+Unrelated live nonterminal reports, unsupported suites/drivers, Running journals and unsettled file/process effects still block ordinary instance import. Metadata's independent report preservation does not waive those obligations. Missing-target content history and full profile cutover remain separate; supported archived Performance history is covered below.
 
 ## Benchmark history after source-instance deletion
 
@@ -41,6 +41,16 @@ Driver list/detail remain readable after restart. Missing suite/qualification an
 Absence is established from both captured flat history namespaces, not an empty decoder result. Case/normalization aliases, namespace or ancestor files, nested directories and unsafe entries prevent a benchmark-completion claim, including sources with no decoded rows. Independent accounts and reports may still import from an admitted source; hardlinked files refuse earlier during capture. Actual-byte bounds include provenance and shared later-parent reads; malformed persisted provenance refuses before decode or subtraction. Fresh database open separately refuses broken constraints.
 
 Owner, metadata and actual HTTP regressions reproduce the original loss before implementation. Tests cover both publication orders, source-free list/detail, missing-parent actions, replay/reopen, old-proof compatibility, later matching and conflicting parents, ignored/rewritten writes, exact source preservation and zero implicit execution. Independent review closed namespace-observability and byte-accounting findings. Current verification is in [integration evidence](integration.md); no new native acceptance or full cutover is claimed.
+
+## Performance history after source-instance deletion
+
+Legacy deletion leaves the global operation journal intact. Its Performance operation-by-ID read remains available without registry membership; the per-instance latest read requires a current instance. Supported terminal records now retain their original intent, prepared/effect evidence, outcome and recorded times under a source-scoped archived identity. The existing terminal converter remains the admission boundary: nonterminal, unsupported and unresolved effects are not relabeled as settled.
+
+The existing `performance_commands` historical state owns these records. Normal command and recovery identities remain UUID-only; archived history creates no instance, pending work, queue entry or execution authority. Shared immutable batches join ordinary survivor publication in either import order. Original schema-3 registry membership and an observable original journal namespace determine missing-target conversion, not an empty eligible projection.
+
+Metadata adds one nullable v6 proof and optional `archived_performance_operation_count`. Omission means uncompleted/unsupported; zero means a verified empty snapshot. Source, sorted unique operation IDs and exact stored bytes bind at most 128 records / 2 MiB with a 16-KiB proof. Bounded reads charge actual persisted bytes. Explicit old-receipt completion preserves later destination edits; completed replay verifies without repair. Final settings and instance-publication writes are followed by owner verification.
+
+Owner, metadata, actual HTTP and frontend regressions reproduce the gap before implementation. Verification and remaining limits are recorded in [integration evidence](integration.md). The adjacent replacement per-instance latest registry-gating mismatch remains a separate follow-up; source-free operation reads do not establish that endpoint's parity. Missing-target content history, other retained obligations and full cutover remain open. No UI layout or controls change.
 
 ## Global install history without current instances
 
