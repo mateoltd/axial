@@ -28,7 +28,19 @@ The existing 4,096-driver restore ceiling is now enforced transactionally for im
 
 The first owner/frontend regressions expose absent completion and invalid count acceptance. Independent review then identifies unreadable archived qualification and ordinary driver overflow; actual HTTP 503 and accepted-overflow regressions reproduce both before correction. Fifteen focused owner groups pass, including exact 64-MiB persisted-byte and inclusive 4,096-row checks. Composed HTTP coverage includes both publication orders, zero-instance and all-pending archives, incomplete qualification, source-free reads/replay/reopen, immutable source bytes/mtime and zero execution. Current broad results are in [integration evidence](integration.md); no new native acceptance is claimed.
 
-Driver-only records whose parent suite was pruned remain an explicit unsupported case: the source driver has no instance identity from which to prove target absence. Missing/contradictory reports, active drivers, unsupported source records and unresolved file/process obligations also retain their refusals. Full profile cutover remains unavailable.
+Active drivers, unsupported source records and unresolved file/process obligations retain their refusals. Full profile cutover remains unavailable.
+
+## Driver history after parent-suite pruning
+
+Legacy terminal drivers release their suite-retention claim; suite pruning can therefore leave a readable driver with no parent or report. Source validation checks that terminal inactive record independently, preserving its source-scoped suite/session references, sparse indices, counts and recorded times. It does not infer an instance, recreate a suite or synthesize a report. A queued restart handoff cannot use this exception: the source retains its parent claim for that obligation.
+
+The existing driver table gains one nullable private `detached_source` column. Only the explicit detached-import constructor may set it; required-parent and operational rows remain NULL. The existing metadata benchmark proof optionally binds sorted detached-driver indices, source and exact payloads. Empty indices retain the old serialized proof shape and v1 digest. Replay verifies exact provenance without repair; old NULL-proof completion still preserves later destination edits. No public DTO, table, route, scheduler or UI change is added.
+
+Driver list/detail remain readable after restart. Missing suite/qualification and Resume remain missing-parent refusals; no work is scheduled. A later independently admitted matching historical parent is checked without rewriting the driver or its original receipt. Parent-only publication refuses mode/source contradictions atomically. Any explicit continuation still requires the existing report, current-plan, instance and destination admission checks. Changed-source replay retains its fingerprint conflict; this slice adds no second snapshot-import protocol.
+
+Absence is established from both captured flat history namespaces, not an empty decoder result. Case/normalization aliases, namespace or ancestor files, nested directories and unsafe entries prevent a benchmark-completion claim, including sources with no decoded rows. Independent accounts and reports may still import from an admitted source; hardlinked files refuse earlier during capture. Actual-byte bounds include provenance and shared later-parent reads; malformed persisted provenance refuses before decode or subtraction. Fresh database open separately refuses broken constraints.
+
+Owner, metadata and actual HTTP regressions reproduce the original loss before implementation. Tests cover both publication orders, source-free list/detail, missing-parent actions, replay/reopen, old-proof compatibility, later matching and conflicting parents, ignored/rewritten writes, exact source preservation and zero implicit execution. Independent review closed namespace-observability and byte-accounting findings. Current verification is in [integration evidence](integration.md); no new native acceptance or full cutover is claimed.
 
 ## Global install history without current instances
 
@@ -147,7 +159,7 @@ Validation follows the original schema and recorded time, not today's exact matr
 
 Passing checks cover immutable retries, conflicting/missing evidence, transaction rollback across all owners and instance visibility, ready/published restart readmission, exact selected-instance binding, unchanged source bytes/mtime/fingerprint, existing HTTP reads and refused mutations. Actual server reopen creates no launch intents or sessions and retains NULL driver requests. Frontend source/test typing and 369 tests pass (`suites-frontend-current.log`), including historical read-only rows and unchanged ordinary Resume. Independent architecture and adversarial source reviews found no remaining blocker in this bounded slice. Native migration interaction is still unverified.
 
-Nonterminal runs/drivers, running/degraded report snapshots, unknown reports without terminal evidence, missing/orphan/conflicting references, lossy stage-bound conversions, and malformed/unsafe/oversized/unsupported/source-changed records remain preserved and blocking. Exact queued handoff snapshots have the history-only path above, not execution authority. Historical preservation does not by itself establish full history parity or cutover readiness.
+Nonterminal runs/drivers, running/degraded report snapshots, unknown reports without terminal evidence, unsupported missing/conflicting references, lossy stage-bound conversions, and malformed/unsafe/oversized/unsupported/source-changed records remain preserved and blocking. Valid detached terminal drivers have the independent history path above; exact queued handoff snapshots still require their supported parent and grant no execution authority. Historical preservation does not by itself establish full history parity or cutover readiness.
 
 ## Terminal Performance commands
 
