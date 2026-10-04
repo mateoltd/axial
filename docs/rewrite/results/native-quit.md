@@ -12,7 +12,7 @@ Independent review finds the pinned platform bypass: Tauri2.11.2 default Quit us
 
 The RED verifier checks accepted binding against the current target, not a frozen pre-Play target tuple. It proves accepted/unsettled metadata, not process liveness; separate UI/process observations supply Playing and the surviving child.
 
-## Narrow correction
+## Earlier menu-only correction
 
 The existing desktop entrypoint retains the default menu, replaces only its validated application-submenu Quit item with a normal menu command, and delegates that private ID to the existing close owner. Native text, position and Cmd-Q remain; the application's content UI is unchanged. No lifecycle state, process adoption, recovery owner, dependency or retry is added. Unexpected menu shape fails construction instead of silently retaining unsafe Quit.
 
@@ -30,4 +30,20 @@ Actual same-profile nativePID74032 reopens the same corrected bundle and visibly
 
 Dock Quit, other AppKit/OS termination requests, installed platforms, arbitrary active-process interruption and gameplay remain separate. Menu/Cmd-Q coverage must not be presented as protection for all native termination routes.
 
-Hosted [run37234309487](https://github.com/mateoltd/axial/actions/runs/37234309487) passes exact `ba05bca6`, both jobs, not the subsequent menu correction. Full parity remains active.
+Hosted [run37234309487](https://github.com/mateoltd/axial/actions/runs/37234309487) passes exact `ba05bca6`, both jobs. [Run37236422560](https://github.com/mateoltd/axial/actions/runs/37236422560) passes the menu-only correction `39389fd6`, not the following bridge. Full parity remains active.
+
+## Shared native termination bridge
+
+The menu-only adapter is now replaced by one macOS boundary shared by main and startup-error/reset event loops. After Tauri builds its application, a typed, zero-ivar subclass of the exact pinned Tao delegate adds the absent `applicationShouldTerminate:` method. The existing delegate object and inherited callbacks remain. Main-thread, selector and instance-size checks fail closed. Direct objc2 dependencies reuse already locked versions; no lifecycle state or recovery owner is added.
+
+The callback always cancels AppKit termination and queues the existing `ExitRequested` through `AppHandle::exit(0)`. Each loop retains its own close/preservation/decision rules. A weak main-thread route is retained only around `run_return`, then explicitly released before asynchronous joins or preservation, avoiding Tauri's failed-send process-exit fallback. Installation failure settles or preserves through the existing owner. The default menu, including its native alternate, is restored. [Apple's termination contract](https://developer.apple.com/documentation/appkit/nsapplication/terminate(_:)) explains why post-main cleanup cannot veto ordinary AppKit termination and why cancellation returns control to the main loop.
+
+Independent source reviews are clear;79 desktop tests and unsigned packaging pass (`native-termination-{desktop-green,package}.log`). The first compilation rejects an ambiguous `AsRef`, corrected without behavioral changes; this is not behavioral RED. Frontend remains `c3c685ff26c3`; executable SHA256 is `2d04dbcfa247c8b962b8e007cddb156fc772b31f62c25780cdddcf6cab65f191`. Existing tests cover lifecycle owners, not delegate-cache reseating; the actual default-menu journey supplies that boundary evidence.
+
+NativePID95497 restores the same profile. Ordinary copy2 Launch reaches Playing with Java97988, intent `0232ffb8-f6a2-42c8-97e8-d5a79124acae`, session `4e3ae336-c136-4e7a-947e-dc60842c0d3d`. Actual default Quit exposes `terminate:` and produces Busy instead of exiting; Cmd-Q also refuses. Both original processes remain alive and accepted/unacknowledged snapshots are identical. The actual native “Quit and Keep Windows” action separately shows Busy with Playing still visible. Ordinary Stop returns Ready/Idle; matching v4 stopped report, authenticated settlement and acknowledgement record boot4808ms, with Java absent. Fresh default Quit exits0, preserving the settled snapshot.
+
+Same-package nativePID99013 reopens visibly Ready/Idle with NativeParity, no new child/intent/report, identical settled proof/prior history/target binding and baseline native-entry identities. Cmd-Q exits0 and final proof/named-file snapshots match. All four test PIDs are absent. The verifier preserves11 prior intents/10 reports/4 drivers/suites, including the older unresolved copy3 receipt and its retained scratch; it does not claim whole-profile immutability or global scratch emptiness. Evidence uses the existing bounded read-only v2 verifier and `native-termination-*` snapshots/screenshots.
+
+A separate startup attempt PID98710 uses only `/private/tmp/axial-reset-current.YLMKr6/profile` and displays the interrupted-reset warning. Computer use cannot bind an application window. The process already exits1 with preservation logged at21:51:25.430701Z before attempted termination; no signal is delivered. All seven waiting/post-exit witnesses equal the prior preservation baseline. The exit trigger is unobserved, so this is not AppKit dispatch or deliberate Preserve-choice acceptance. Logs/snapshots are `native-termination-reset-*`; no reset/deletion or successor is observed.
+
+Dock selection times out; no Dock click is claimed. The bridge covers cancellable delegate requests by source, not proven OS logout/restart transactions. Always returning TerminateCancel can cancel the originating OS transaction even when Axial later exits. Force termination, power loss, startup-modal Quit, installed macOS x86_64 and other installed-platform gates remain open. No OS logout, deployment or release publication is performed.
