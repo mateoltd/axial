@@ -35,6 +35,20 @@ The JSON files are execution inventory, not a new runtime framework or a replace
 
 Only Guardian-specific diagnosis, autonomous repairs/relaunch, suppression memory, idle integrity automation, quarantine policy, modes, and evidence/copy for those actions are deferred. Ordinary interrupted-operation recovery and Performance transaction compensation remain required.
 
+## Current-profile external library
+
+Library selection remains private startup configuration, not a new picker. Start an isolated profile once, quit it, then author `library.json` beside its metadata database:
+
+```json
+{
+  "mode": "existing",
+  "library_id": "410c4b59-8354-4936-bbb4-07406e47f096",
+  "path": "/absolute/path/to/existing-library"
+}
+```
+
+Use a fresh nonnil UUID distinct from the profile identity and retain it for that selection. The path must already exist outside the application root. Changes take effect on the next startup, before recovery; they never import predecessor profiles or grant authority from a path alone. An absent file or `{"mode":"managed"}` selects Managed. Invalid, linked or oversized configuration refuses startup. An unavailable external directory stays unavailable without creating it or falling back; library reads and mutations refuse until its location is restored. Metadata, Java cache and profile media remain in the application root. Quit preserves unresolved work; Reset refuses durable pending instance intents.
+
 ## Decisions to prove early
 
 - Shared HTTP/SSE must pass the packaged WebView transport scenario before native domain event pumps are retired.
