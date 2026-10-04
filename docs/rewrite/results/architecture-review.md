@@ -34,7 +34,7 @@ Prior unchanged checks pass132 Performance/429 frontend (one Guardian TODO),73 d
 
 The first frontend run had two stale assertions; exact corrected route/create suites pass26 before the full passing rerun. Backend integration exposed three missed fixture constants and a private target literal; corrections use current initial DDL and the existing canonical fixture constructor. Initial compiler refusal for stale frontend authority and a later disk-full LLVM failure are tooling/integration failures, not behavioral RED. Disk space is now available; no cache/profile cleanup was needed. Compatibility-only tests were removed, not counted as retained coverage.
 
-Hosted [run37204487004](https://github.com/mateoltd/axial/actions/runs/37204487004) passes exact `93a000cb` (`fresh-scope-hosted-current.json`), not this later slice. The earlier `prepared_restart_preserves_effective_removal_and_requested_action` mutation fixture's `NoEffect(Busy)` remains unexplained. It has no install queue; stale lease-file existence alone is not the cause. A later pass is not a causal fix.
+Hosted [run37206386083](https://github.com/mateoltd/axial/actions/runs/37206386083) passes exact library slice `1b161d84`, including Linux app/API and lease diagnostic compilation, interface/contracts/policies and delivery checks (`external-library-hosted-{watch.log,current.json}`). Prior run37204487004 passes `93a000cb`. The earlier `prepared_restart_preserves_effective_removal_and_requested_action` mutation fixture's `NoEffect(Busy)` remains unexplained. It has no install queue; stale lease-file existence alone is not the cause. A later pass is not a causal fix.
 
 ## Unresolved handoffs
 
