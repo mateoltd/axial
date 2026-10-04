@@ -4,7 +4,7 @@ Updated 2026-10-04. Changed-scope review, not a parity or release certificate. H
 
 ## Scope and ownership
 
-Read AGENTS.md, conventions, ADR7, delivery, current evidence and work ownership. Development remains on `main`, preserving history. This intentionally breaking pre-release excludes predecessor-profile import/schema upgrades, not current-app persistence, accepted-operation recovery or older Minecraft/loaders. Root owns shared integration and serialized verification. Latest scope: `98058a01..7d549748` and the frozen Quilt provider correction/composed tests. Independent review is clear; no additional simplification, public rename or style churn is justified. The full-parity goal remains active.
+Read AGENTS.md, conventions, ADR7, delivery, current evidence and work ownership. Development remains on `main`, preserving history. This intentionally breaking pre-release excludes predecessor-profile import/schema upgrades, not current-app persistence, accepted-operation recovery or older Minecraft/loaders. Root owns shared integration and serialized verification. Latest scope: `98058a01..7fd3f9cf` and the frozen runtime empty-file correction/composed tests. Independent review is clear; no additional simplification, public rename or style churn is justified. The full-parity goal remains active.
 
 ## Findings and corrections
 
@@ -22,6 +22,7 @@ Read AGENTS.md, conventions, ADR7, delivery, current evidence and work ownership
 - **Separate deletion from preservation.** Reset checks the existing durable instance-intent owner before admission and again after quiescence. Failed admitted Reset can subsequently perform preserve-only Close, while active/successful Reset remains exclusive. No pending reset/deletion authority is minted by refusal. The recurring handoff/exit rule is consolidated into AGENTS.md.
 - **Diagnose without hiding refusal.** The unexplained Performance mutation restart fixture now reports only exact matching Linux lease holders and the prior lifecycle snapshot on Busy. No retries, sleeps or production lifetime changes; the previous hosted pass is not a causal fix.
 - **Correct provider proof at its owner.** Official Quilt Meta hashes the raw Maven checksum response instead of decoding it. The existing provider authenticates that bounded canonical sidecar before interpreting its JAR digest; unauthenticated/unavailable sidecars retain the original direct-artifact pair. Exact size/JAR checks, sealing, installation and reconstruction stay in their existing owners. No duplicate transport, persisted proof type, cache, recovery path or dependency is introduced.
+- **Represent exact empty content without relaxing transfers.** The authenticated runtime manifest may declare size0/SHA1(empty). Existing managed import materializes it directly; compressed bytes must remain positive and ordinary nonempty transfers retain their bounds. Full-tree verification, cache/rebuild, cancellation and Java floors stay with existing owners. No one-use abstraction or alternate provisioning owner is introduced.
 
 Compatibility-specific guidance is consolidated into the breaking-scope rule. No public rename or decorative architecture layer is added.
 
@@ -42,6 +43,10 @@ The first frontend run had two stale assertions; exact corrected route/create su
 Hosted [run37206386083](https://github.com/mateoltd/axial/actions/runs/37206386083) passes exact library slice `1b161d84`, including Linux app/API and lease diagnostic compilation, interface/contracts/policies and delivery checks (`external-library-hosted-{watch.log,current.json}`). Prior run37204487004 passes `93a000cb`. The earlier `prepared_restart_preserves_effective_removal_and_requested_action` mutation fixture's `NoEffect(Busy)` remains unexplained. It has no install queue; stale lease-file existence alone is not the cause. A later pass is not a causal fix.
 
 ## Unresolved handoffs
+
+Runtime checks pass980 leaf/768 app/105 API/79 desktop with independent review and real official runtime/Forge14.23.5.2860 install/startup/Stop/reopen evidence. Raw/compressed composed cases, wrong/missing evidence, tamper/rebuild and cancellation after actual materialization pass. No additional recurring rule is justified; [Forge evidence](forge-loader.md) records exact versions, Java override and helper qualifications. Hosted run37212491444 passes the earlier Quilt checkpoint, not later runtime edits.
+
+The retained `1b161d84` native bundle now passes offline onboarding, Vanilla1.20.1 creation/install/Launch/Logs/Stop and normal Quit exit0 with durable stopped acknowledgement and unchanged canary. Earlier blank/locked observations below are superseded as input blockers, not established renderer failures. Gameplay and current-source installed acceptance remain open. Assets3575/3575 stayed99% during publication; a native sample captures existing component-transaction work, not a confirmed deadlock or permission to remove safety.
 
 Final-account Offline and separately admitted external startup source gaps are corrected and independently reviewed. Real-owner instance publication interruption now has disconnected preservation/reconnection evidence separate from the authored Reset fixtures. Native acceptance remains separate. Future failure of the mutation restart fixture needs its exact Linux lease diagnostics, not a blind retry. No recurring new drift pattern warrants another AGENTS.md rule.
 
