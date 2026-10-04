@@ -1,0 +1,25 @@
+# Native sign-in
+
+2026-10-05. Bounded unsigned macOS ARM64 debug acceptance, not authenticated-provider, keyring or installed-release parity. Evidence is under `.rewrite-logs/`; only generated `/private/tmp/axial-native-current.YwnWYB/profile` is used. No credentials, callback code or Terms acceptance are supplied.
+
+## Open, cancel, retry and Quit
+
+The `0b252135` bundle (frontend `c3c685ff26c3`, executable SHA256 `2d04dbcfa247c8b962b8e007cddb156fc772b31f62c25780cdddcf6cab65f191`) opens as nativePID2465 with NativeParity/copy2 Ready. Actual Switch account → Sign in with Microsoft disables the account controls and opens a separate native window rendering Microsoft's empty “Sign in to Minecraft” form. Closing only that window eventually releases the controls without success or an error. Actual retry opens a fresh provider window, not an “already open” refusal.
+
+While the second window remains open, actual default application-menu Quit (`terminate:`) leaves it and the original process alive. Bringing the main window forward through the native Window menu, dismissing the account switcher and pressing Cmd-Q visibly produces “Close is blocked while installs, launches or other application work are active.” The provider window remains usable. Closing it releases the account controls again; ordinary Cmd-Q then exits0 and nativePID2465 is absent. No game is launched during this journey.
+
+The bounded read-only `native-auth-snapshot.mjs` compares hashes of account records/ownership and exact selection metadata, checks SQLite and hashes the bounded stable profile marker, and emits no credentials or raw provider payloads. Before/open/first-cancel/second-cancel/post-Quit snapshots match byte-for-byte. The existing launch-history verifier also preserves all12 intents/11 reports/4 drivers/4 suites, including the unresolved older copy3 evidence; all named file witnesses match. This is not whole-profile immutability or an independent OS-keyring audit. Native screenshots are `native-auth-{open,cancelled,retry-open,quit-refused,second-cancelled}.jpg`; the Busy toast is a live AX observation, not present in the saved screenshot.
+
+Cancellation on that `0b252135` bundle unnecessarily leaves account controls busy for minutes while the frontend reconciles readiness. A one-second active process sample records `InstallQueue::ready_version` → `ActivatedVersion::verify` → admitted file hashing (`native-auth-cancel-active-sample.txt`); the earlier idle sample does not diagnose this work. Inspection of that source finds that known no-effect cancellation follows the same full readiness refresh as a mutation, and one persistently blocked instance causes a second entire batch. The sample establishes verification during the delay, not its complete latency breakdown or permission to weaken mutation admission.
+
+## Focused corrections
+
+The existing account operation owner now keeps inexpensive config/accounts/auth reconciliation but skips instance readiness only for an explicit no-effect result with unchanged coherent revisions, the same live config object, and unchanged defined status/active-account online actions. Accountless snapshots are handled explicitly. Publishing an equivalent config object would abandon a pending readiness read, so the cancellation path retains its original object. Actual mutations, changed or unavailable inputs, malformed completion and lost replies retain ordinary readiness reconciliation. No backend verification, mutation admission, retry owner or safety boundary is removed.
+
+The existing native skin-error helper is reused for the audited Microsoft invoke boundary: safe string causes become Error for the bounded account notice; unexpected rejection shapes use fixed generic copy without coercion. DTO validation remains outside the catch. The account-service cancellation comment is corrected to describe explicit invalidation, not every native window close; a callback that already won is still owned through completion.
+
+Composed actual-source regressions first reproduce the two unnecessary-batch/config-fence defects, then pass40 focused cases (`account-cancel-readiness-{red,green}.log`). Native error regressions have separate meaningful RED42/44 and GREEN44/44, including unchanged skin tests (`native-auth-errors.VeKO1q/{red-boundary,green-final}.log`); its initial malformed fixture is not product RED. Full frontend passes482 with one Guardian TODO; types/semantic lint pass (`native-auth-frontend-{full,lint}.log`). Independent source and bounded evidence reviews are clear. Rebuilt native acceptance of these corrections remains pending.
+
+## Remaining gates
+
+Real authenticated sign-in, durable secure-store publication/refresh/reopen/logout, provider skin/cape actions, callback-versus-close races and authenticated cookie isolation remain unverified. An empty fresh form proves neither a successful authentication nor exhaustive isolation. Actual error presentation and installed-platform coverage are separate from composed boundary regressions. Native gameplay and the full non-Guardian parity goal remain open.
