@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "baseline_commit": "2bda9b42c29d02828dd5a2b91d9cf8c8a431ffb0",
-  "scope": "All existing non-Guardian behavior. Current UI preserved; only separately justified specific polish.",
+  "scope": "All existing non-Guardian behavior except predecessor-profile import, its preference-export bridge and old application schema upgrades. This pre-release is intentionally breaking. Current-app persistence/reopen and operation recovery, ordinary modpack/file imports, existing-library selection and supported older Minecraft/loader versions remain required. Preserve the current UI except the explicitly removed controls and separately justified specific polish.",
   "evidence_status": "Baseline source mapped; implementation and focused checks in progress. Full runtime parity remains unverified; see results/integration.md.",
   "source_basis": "All source fields identify baseline files relative to legacy/. They are evidence references, not claims that the replacement implements those paths.",
   "route_manifest": "legacy/apps/api/src/routes/route-manifest.tsv",
@@ -14,7 +14,6 @@
   "open_characterization": [
     "Exact retained Minecraft/build compatibility matrix",
     "Minimum supported OS/WebView versions",
-    "Legacy profile/schema fixtures and browser-local preference export",
     "External authentication and platform keyring availability",
     "Current UI versus internal Performance action entrypoints"
   ],
@@ -591,7 +590,7 @@
       "scenario": {
         "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
         "action": "Edit/use theme/accent/sounds/shortcuts/preferences and restart",
-        "expect": "Existing customization persists; browser-local export/import is verified for the new application identity.",
+        "expect": "Current-app customization persists across reload and restart in browser and native interfaces.",
         "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
         "baseline_characterization": "pending"
       },
@@ -662,25 +661,6 @@
         "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
         "action": "Use lab, flags, inspectors and existing diagnostics",
         "expect": "Existing unrelated developer workflows remain gated; release builds cannot gain developer authority.",
-        "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
-        "baseline_characterization": "pending"
-      },
-      "evidence": []
-    },
-    {
-      "name": "data-import",
-      "disposition": "retain",
-      "status": "inventoried-not-verified",
-      "packages": [
-        "legacy-import",
-        "cutover-readiness",
-        "library-lifecycle",
-        "personalization"
-      ],
-      "scenario": {
-        "setup": "Isolated baseline profile and reviewed provider/process fixtures; applicable platform and version recorded.",
-        "action": "Preview/import/repeat baseline profiles then launch",
-        "expect": "User files, supported preferences, identities and meaningful non-Guardian state retain parity. Browser preferences round-trip through the predecessor-origin bridge. Old metadata/keyring and mutable payload trees stay independent. Unresolved effects keep affected instances unavailable; crash recovery is idempotent.",
         "failure_and_restart": "Apply relevant boundary cases from parity.md. Capture rendered state, exact file effects, persistence and process outcome.",
         "baseline_characterization": "pending"
       },

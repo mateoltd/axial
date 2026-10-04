@@ -4,6 +4,8 @@ Status: implementation in progress on `main`, following the user-authorized hist
 
 The accepted scope is **all existing non-Guardian parity**. The earlier Vanilla/Fabric-only recommendation is superseded. Guardian is deferred; other removals need an explicit product decision. Implementation order never implies a feature cut.
 
+The user has explicitly removed old-profile/version compatibility from this pre-release scope. Start fresh; installing over an earlier app may break its data. Remove predecessor import, schema-upgrade compatibility, historical transfer/repair branches and their dedicated tests. Preserve new-app operation recovery and same-version persistence, ordinary file/modpack workflows, and supported Minecraft/loader versions. This decision supersedes earlier cutover/import requirements below and in historical evidence; it does not narrow the retained feature set. Restore the original loader-logo presentation rather than the later neutral glyphs.
+
 The existing UI is an explicit preservation constraint. Keep its layout, components, styling, navigation and interaction behavior. Frontend changes reconnect the current views to replacement contracts. A specific polish improvement must identify its problem, stay narrowly scoped and receive separate visual/behavior review; the rewrite is not authorization for a general redesign.
 
 Removing Guardian-only controls and copy follows the accepted Guardian deferral. Limit that change to the affected controls; it does not justify redesigning the surrounding screen.

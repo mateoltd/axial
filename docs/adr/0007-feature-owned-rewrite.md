@@ -2,6 +2,8 @@
 
 Status: accepted for implementation, originally prepared 2026-09-08. Accepted product scope: all non-Guardian parity. Technical choices below still require the indicated implementation evidence.
 
+Scope amendment: the user explicitly accepts a breaking pre-release with no predecessor-profile/version compatibility. Remove legacy import/upgrades and their dedicated archive/transfer/recovery code. Retain current-app accepted-operation recovery, persistence/reopen and all supported Minecraft/loader versions. Earlier cutover/compatibility requirements are superseded. Restore original loader logos; do not redesign the surrounding UI.
+
 ## Context
 
 The baseline already has useful Preact feature views, loader providers, version interpreters, Java runtime boundaries, and launch planning. Complexity concentrates where `Application`, `State`, `Execution`, Guardian, Performance, persistence, and transport ownership intersect. See [baseline architecture](../../legacy/docs/ARCHITECTURE.md), [replacement conventions](../CONVENTIONS.md), and [baseline route inventory](../../legacy/apps/api/src/routes/route-manifest.tsv).

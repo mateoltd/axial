@@ -2,6 +2,8 @@
 
 Status: implementation in progress on `main`; the user authorized history-preserving integration on 2026-09-28. Scope and evidence rules are in [README](README.md) and [parity requirements](parity.md). The [work package inventory](work-packages.json) is the machine-readable dependency and ownership list. [Current integration status](results/integration.md) records verified results and remaining gaps.
 
+Updated scope: this is an intentionally breaking pre-release with no predecessor-profile compatibility requirement. Remove old-app import/upgrades and their dedicated recovery/transfer machinery, without removing current-app accepted-operation recovery or Minecraft/loader version support. Restore original loader logos. Prefer direct cleanup and working-application acceptance over repeated investigation without a concrete next action.
+
 ## Working shape
 
 The user selected a new branch with the original project moved intact into `legacy/`. The replacement occupies the branch root and uses a separate application profile. Preserve the baseline at the recorded commit with separate fixtures and data. Do not create a second implementation inside the baseline runtime, dual-write old stores, or switch the user's installed application during development.
@@ -41,7 +43,7 @@ flowchart TD
     Vanilla --> Integrated[Continuously integrated application]
     Accounts & Loaders & Content & Performance & Native & UI --> Integrated
     Integrated --> Evidence[Full retained behavior and platform evidence]
-    Evidence --> Cutover[Verified import and release candidate]
+    Evidence --> Candidate[Verified fresh-profile release candidate]
 ```
 
 The package graph distinguishes `start_after` (contracts/fixtures available) from `finish_after` (real dependencies integrated). A UI or provider package may develop against reviewed wire fixtures after its start dependencies pass. It cannot be called complete before its actual producer and consumer integrate. Fixture-only output never satisfies feature parity.
@@ -91,7 +93,7 @@ Every implementation returns code, focused tests, a short behavioral rationale, 
 | Contract-ready | Actual exported types/examples compile, producer and consumer agree on null/omission and errors, fixtures have independent expected outcomes |
 | Feature-complete | Retained behavior passes focused domain and interface checks with real local dependencies; failure boundaries hold |
 | Integrated | Feature works in the continuously assembled app; shared state and cross-feature invalidation work; no unexplained semantic differences |
-| Release-ready | All retained coverage rows have evidence, four existing artifact architectures pass installed workflows, import/update interruption cases pass |
+| Release-ready | All retained coverage rows have evidence, four existing artifact architectures pass installed workflows, current-operation and update interruption cases pass |
 
 Offline vanilla is an early gate, not a narrowed release. Full loader, content, accounts/media, resource, Performance, personalization, developer and delivery parity remain release requirements. A partial feature may remain hidden while being integrated, but it cannot disappear from the inventory.
 
@@ -108,16 +110,10 @@ Shell completion supplies an initial packaged transport/lifecycle proof on the a
 - A failed shared-contract, persistence, or lifecycle gate pauses its dependent work. Unrelated ready work can continue.
 - Simplification is incomplete until the old replacement path and duplicated tests/DTOs are removed from the replacement checkout.
 
-## Cutover
+## Fresh-profile release
 
-Start with a new profile and optional read-only import preview. Existing baseline profiles remain unchanged. Preserve user files, offline identities, supported preferences, skin records, and relevant non-Guardian state according to the import manifest. Reauthentication is the default for Microsoft; credential transfer is not an implicit part of a file copy.
+Remove predecessor preview/import routes, native commands, UI controls, generated contracts, receipt schemas and compatibility-only archive/transfer paths. Consolidate incremental schema upgrades into the current fresh schema. Keep `legacy/` and Git history as reference; no predecessor runtime dependency remains.
 
-An unsupported imported instance stays preserved and visibly unavailable until its loader/runtime is supported; never relabel it Vanilla. Convert Performance-owned metadata and exact retained transaction obligations deliberately. Missing provenance or unresolved effects keep the affected instance unavailable until resolved; silently making it unmanaged does not satisfy non-Guardian parity and never authorizes cleanup of its files.
+Replace import-based test setup through the real current creation owners before deleting it. Preserve current install, launch, deletion, Content, Performance and benchmark crash/restart/compensation coverage. Keep ordinary skin/world/modpack/file workflows and current preferences. Existing-library mode still requires a separately admitted destination.
 
-Current in-flight install/delete/Performance effects must settle before the affected instance becomes available in the replacement. An unresolved record is reported and preserved with its exact obligations; reporting alone is not settlement. The importer does not replay old Guardian journals or guess authority from serialized paths. The personalization package owns the minimal browser-local preference export/import bridge. Its round trip is an import completion dependency. An omitted retained preference is a blocker unless the user explicitly accepts that difference.
-
-During coexistence, use separate mutable payload trees as well as separate metadata/keyring namespaces. Copy user-valued files into independent destinations and re-download replaceable managed caches. Do not use hard links or register the baseline's external-library tree as a shared writable replacement library. Existing-library mode remains supported with a separately admitted destination. If shared payload mutation is ever proposed, it needs a separately verified restoration strategy before old-profile rollback can be claimed.
-
-Rehearse repeated import, insufficient disk, malformed records, changed source, cancellation and process crash at staging/promotion/metadata boundaries. Rollback selects the untouched old binary/profile; any changes made after cutover need a rescue export and must not overwrite the old profile.
-
-Publish or replace a user installation only through a separate authorized release step after candidate validation. No such publication is part of this preparation.
+Validate a fresh profile end to end, the corrected original loader-logo presentation, retained non-Guardian features and installed updates. Old-profile conversion, old-version rollback/rescue and signed compatibility handoff are not completion gates. Signing, installed-platform evidence and separately authorized publication remain distinct requirements.

@@ -1,10 +1,12 @@
 # Parity requirements
 
-Status: source inventory and planned acceptance, not runtime verification. Baseline: `2bda9b42c29d02828dd5a2b91d9cf8c8a431ffb0`. The accepted target is all existing non-Guardian behavior.
+Status: source inventory and planned acceptance, not runtime verification. Baseline: `2bda9b42c29d02828dd5a2b91d9cf8c8a431ffb0`. The accepted target is all existing non-Guardian behavior with the explicit pre-release exclusions below.
+
+This pre-release is intentionally breaking. Predecessor-profile import, the predecessor preference-export bridge and old application schema upgrades are out of scope. Retain current-app persistence/reopen and recovery for its own accepted operations, ordinary modpack/file imports, existing-library selection, and supported older Minecraft and loader versions. Preserve `legacy/` as source reference and leave unrelated existing profiles and files untouched. Removing compatibility requirements supplies no implementation or runtime evidence.
 
 ## Inventory and evidence
 
-[parity.json](parity.json) maps the 122 current method/template pairs to behavior groups and also inventories UI, native, persistence and background surfaces. The source contains 85 product UI, 18 developer diagnostic, 17 internal runtime and 2 transport internal rows. A route being internal or developer-only does not authorize its removal.
+[parity.json](parity.json) maps the 122 baseline method/template pairs to behavior groups and also inventories UI, native, persistence and background surfaces. The baseline contains 85 product UI, 18 developer diagnostic, 17 internal runtime and 2 transport internal rows. A route being internal or developer-only does not authorize its removal.
 
 This inventory establishes source traceability. Runtime characterization must still determine exact successful behavior, known failures, advertised version/platform support, and existing gaps. Each group's evidence array is intentionally empty until checks run. A source link, planned test name, or route count cannot satisfy a passing behavior claim.
 
@@ -52,15 +54,15 @@ Start with existing runners, reviewed fixtures and a few concrete journey script
 
 Generated wire types eliminate duplication but do not replace runtime validation. A handwritten UI mock is for presentation development and cannot be the only server in a parity test. Mock coverage should derive from reviewed contract examples, with absent behavior failing visibly.
 
-Use semantic comparison across old/new runs on separate profile copies. Preserve relationships when normalizing IDs and timestamps. Do not erase event order, ownership identities, path relationships or terminal outcomes. A small comparator must demonstrably fail for a wrong loader, lost settings, stale success, changed user file or leaked synthetic token; targeted mutations are sufficient.
+Use semantic comparison across baseline and new-app runs with independently prepared isolated profiles. Preserve relationships when normalizing IDs and timestamps. Do not erase event order, ownership identities, path relationships or terminal outcomes. A small comparator must demonstrably fail for a wrong loader, lost settings, stale success, changed user file or leaked synthetic token; targeted mutations are sufficient.
 
-Apply bounded fuzzing/property tests to parsers and untrusted paths/media/archives. Concentrate interruption tests on filesystem/metadata publication, keyring changes, import, content/Performance batches, process shutdown and updater application. Avoid exhaustively multiplying unrelated UI theme choices with every provider failure.
+Apply bounded fuzzing/property tests to parsers and untrusted paths/media/archives. Concentrate interruption tests on filesystem/metadata publication, keyring changes, modpack/file import, content/Performance batches, process shutdown and updater application. Avoid exhaustively multiplying unrelated UI theme choices with every provider failure.
 
 ## Platform and version coverage
 
 Retain the existing artifact architectures from [release configuration](../../.github/workflows/release.yml): Linux x86_64, Windows x86_64, macOS x86_64 and macOS arm64. Record native host, OS build, artifact digest, toolchain and scenario outcome. Cross-compilation is build evidence only. Minimum OS and browser-engine claims remain unverified until characterized; do not invent broader support.
 
-Each loader family needs fixtures for its distinct installation algorithms and observed compatibility limits. Retain all three current Forge strategies. Pick representative version/build boundaries during baseline capture, then add exact failing/edge cases from existing tests and user profiles. Do not claim all possible version combinations were executed.
+Each loader family needs fixtures for its distinct installation algorithms and observed compatibility limits. Retain all three current Forge strategies and supported older Minecraft/loader versions. Pick representative version/build boundaries during baseline capture, then add exact failing/edge cases from existing tests and reviewed fixtures. Do not claim all possible version combinations were executed.
 
 Tauri's mock runtime does not execute native WebViews. Its current documentation distinguishes direct WebDriver availability from other tooling, so select and prove an automation path per OS rather than assuming one driver covers the entire matrix. [Tauri test documentation](https://v2.tauri.app/develop/tests/). Where automation is unavailable, require recorded manual/native-interface evidence; never silently treat a skipped row as passing.
 
@@ -76,7 +78,7 @@ Tauri's mock runtime does not execute native WebViews. Its current documentation
 | Accounts/skins | Refresh versus logout/switch/remove, keyring unavailable/ambiguous save, stale profile response, partial skin/cape success, superseded apply |
 | Content/Performance | Target drift, dependency cycles/pins, changed user file, interrupted batch, failed compensation, exact rollback snapshot |
 | Transport | Wrong origin/capability, server restart, stale subscription, broadcast lag, expired/reused ticket, UI reconnect after terminal |
-| Import/update | Repeated intent, unsupported legacy data, source changes, staging/promotion/commit crash, unsafe update artifact, active-work exclusion |
+| Modpack/file import and update | Repeated intent, unsupported input formats, source changes, staging/promotion/commit crash, unsafe update artifact, active-work exclusion |
 
 ## Interface parity
 
@@ -84,7 +86,7 @@ Preserve the product's current desktop design and primitives: creation overlay a
 
 UI preservation is an explicit user constraint, not merely a default. Do not redesign layouts, replace the component system or restyle screens as part of backend integration. A narrowly justified polish change has separate before/after evidence and review. Every other visible difference must be corrected before declaring the UI package complete.
 
-The approved feature difference is removal of Guardian-only controls/copy. Record those exact elements in the baseline comparison and preserve their surrounding interface; do not suppress entire screenshots or settings sections to hide the difference.
+Approved interface differences are removal of Guardian-only controls/copy and predecessor-profile import/export controls. Record those exact elements in the baseline comparison and preserve their surrounding interface; do not suppress entire screenshots or settings sections to hide the difference. Ordinary modpack/file import and current-app preference controls remain.
 
 Desktop and compact desktop widths, keyboard access, accessible control names, focus restoration and reduced-motion behavior are included. Existing animation behavior that contradicts an intended accessibility requirement is documented as a corrected baseline defect, not silently treated as retained behavior.
 
@@ -93,7 +95,7 @@ Desktop and compact desktop widths, keyboard access, accessible control names, f
 - During preparation: parse inventory and dependency data, reconcile source mappings, check links and ownership. Do not run application CI or tests.
 - During implementation: formatting/types plus the affected domain, transport and real-interface cases. Broaden to consumers when changing storage, transport, startup or shared contracts.
 - During integration: complete deterministic family journeys and failure cases against merged code; continuously keep the first vanilla journey passing.
-- Before release: all retained groups have applicable evidence, the full existing suite relevant to preserved behavior passes, and installed workflows/import/update pass on the artifact matrix.
+- Before release: all retained groups have applicable evidence, the full existing suite relevant to preserved behavior passes, and installed workflows, current-app recovery, ordinary modpack/file import and update pass on the artifact matrix.
 
 Capture command output and review the tail unless diagnosing a failure. Schedule Cargo/build writers according to existing leases. Broader or repeated checks need a changed dependency, failed check or unresolved concern; they do not run merely to increase counts.
 
@@ -101,6 +103,6 @@ Measure startup-ready latency, retained-instance launch preparation excluding pr
 
 ## Done
 
-Every retained inventory group has passing evidence from its actual implementation and relevant consumers, all intended differences are explicit, and all unsupported/unverified platform/version rows remain visible. Old data remains recoverable, unrelated files are preserved, public output is sanitized, and installed updates keep working. Guardian-only behavior is absent throughout settings, startup, background work, mixed DTOs and evidence claims.
+Every retained inventory group has passing evidence from its actual implementation and relevant consumers, all intended differences are explicit, and all unsupported/unverified platform/version rows remain visible. Current-app data and operation recovery work after reopen, unrelated files are preserved, public output is sanitized, and installed updates keep working. Guardian-only behavior and predecessor application compatibility paths are absent throughout settings, startup, background work, mixed DTOs and evidence claims.
 
 A release remains incomplete while any retained group is supported only by mocks, source assertions, unexecuted scenarios, a development build, or a compilation check for a different host.

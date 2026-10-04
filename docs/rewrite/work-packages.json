@@ -2,7 +2,8 @@
   "schema_version": 1,
   "status": "implementation-in-progress",
   "baseline_commit": "2bda9b42c29d02828dd5a2b91d9cf8c8a431ffb0",
-  "target_scope": "all-existing-non-Guardian-parity",
+  "target_scope": "all-existing-non-Guardian-parity-except-predecessor-profile-and-application-schema-compatibility",
+  "pre_release_scope": "This pre-release is intentionally breaking. Predecessor-profile import, its preference-export bridge and old application schema upgrades are out of scope. Current-app persistence/reopen, operation recovery, ordinary modpack/file imports, existing-library selection and supported older Minecraft/loader versions remain required.",
   "path_basis": "Replacement paths on main after history-preserving integration of feat/clean-rewrite, with the preserved baseline under legacy/. Frontend views retain their existing paths and interface; changes adapt contracts/state only unless a specific polish improvement is separately justified.",
   "status_semantics": "Package acceptance remains planned until integrated evidence satisfies every criterion. Source implementation and current verification are tracked in results/integration.md and feature reports; a planned acceptance status does not mean source work has not started.",
   "dependency_semantics": {
@@ -85,7 +86,7 @@
         "composition-build"
       ],
       "acceptance": [
-        "Settings and feature-local metadata persist with relational constraints and bounded transactions.",
+        "Fresh schema initialization and current-app reopen preserve settings and feature-local metadata with relational constraints and bounded transactions.",
         "Storage experiment proves recovery behavior and reduces custom persistence ownership; corruption preserves files and closes unsafe mutation."
       ],
       "evidence": []
@@ -131,7 +132,7 @@
       ],
       "acceptance": [
         "Current and retiring root generations are explicit; operations, guards and receipts retain exact pins across async work and settlement.",
-        "Library selection and reset exclude new incompatible work and wait for retained generations; source/root replacement and active-work races never mint stale authority."
+        "Existing-library selection and reset exclude new incompatible work and wait for retained generations; source/root replacement and active-work races never mint stale authority."
       ],
       "evidence": []
     },
@@ -1109,43 +1110,6 @@
       "evidence": []
     },
     {
-      "name": "legacy-import",
-      "status": "planned",
-      "owned_paths": [
-        "core/app/src/import/",
-        "apps/api/src/routes/import.rs"
-      ],
-      "start_after": [
-        "public-contracts",
-        "metadata-storage",
-        "managed-files",
-        "instances",
-        "offline-accounts",
-        "skin-library",
-        "content-mutation",
-        "performance-mutation",
-        "personalization",
-        "library-lifecycle"
-      ],
-      "finish_after": [
-        "metadata-storage",
-        "managed-files",
-        "instances",
-        "offline-accounts",
-        "skin-library",
-        "content-mutation",
-        "performance-mutation",
-        "personalization",
-        "library-lifecycle"
-      ],
-      "acceptance": [
-        "Read-only inventory and idempotent staging/promotion import preserve supported settings, identities, user files and meaningful non-Guardian state.",
-        "Old profile/keyring stay unchanged; crashes between filesystem and metadata commit are recoverable; unsupported data is explicit and preserved.",
-        "Unsettled or unconvertible affected instances remain unavailable with exact obligations preserved; mutable external payload trees are copied independently rather than shared with the baseline."
-      ],
-      "evidence": []
-    },
-    {
       "name": "library-ui",
       "status": "planned",
       "owned_paths": [
@@ -1426,8 +1390,7 @@
         "frontend/src/shortcuts.ts",
         "frontend/src/preferences/",
         "core/app/src/music/",
-        "apps/api/src/routes/music.rs",
-        "frontend/src/profile-transfer.ts"
+        "apps/api/src/routes/music.rs"
       ],
       "start_after": [
         "public-contracts",
@@ -1444,8 +1407,7 @@
       ],
       "acceptance": [
         "Theme/accent, sound/slider/button behavior, music controls/cache, shortcuts and route preferences persist as intended.",
-        "Audio/media errors degrade without blocking bootstrap; no duplicate listeners/download flights or secret output.",
-        "Provide a minimal versioned preference export/import bridge that can run in the predecessor UI origin without redesign; verify retained preferences round-trip into the new application identity."
+        "Audio/media errors degrade without blocking bootstrap; no duplicate listeners/download flights or secret output."
       ],
       "evidence": []
     },
@@ -1639,7 +1601,8 @@
       ],
       "acceptance": [
         "Linux x86_64, Windows x86_64, macOS x86_64 and arm64 artifacts install/start and perform a basic journey.",
-        "Version/tag/changelog, required artifacts, publisher authenticity, installed update and clean-machine native acceptance are evidenced without claiming unavailable signing authority."
+        "Version/tag/changelog, required artifacts, publisher authenticity, installed update and clean-machine native acceptance are evidenced without claiming unavailable signing authority.",
+        "Candidate source-to-artifact evidence, known limitations and recovery after an interrupted current-app update are recorded before any separately authorized publication."
       ],
       "evidence": []
     },
@@ -1720,27 +1683,6 @@
       "acceptance": [
         "Every retained API, UI, native, persisted and background coverage row has passing applicable real-dependency evidence.",
         "Independent comparison detects wrong identities, reordered terminal state, lost persistence, missing features and unsafe file effects; full matrix has no unexplained differences."
-      ],
-      "evidence": []
-    },
-    {
-      "name": "cutover-readiness",
-      "status": "planned",
-      "owned_paths": [
-        "docs/rewrite/results/",
-        "acceptance/cutover/"
-      ],
-      "start_after": [
-        "public-contracts"
-      ],
-      "finish_after": [
-        "parity-integration",
-        "legacy-import",
-        "artifact-delivery"
-      ],
-      "acceptance": [
-        "Repeated import and installed update rehearsals preserve old data and the full retained feature matrix.",
-        "Candidate rollback/rescue procedure, known limits and source-to-artifact evidence are complete before any separately authorized publication."
       ],
       "evidence": []
     }
