@@ -1,6 +1,6 @@
 # Native Quit
 
-2026-10-04. Bounded unsigned macOS ARM64 debug acceptance, not installed-release, gameplay or full termination coverage. Evidence is under `.rewrite-logs/`; only the generated `/private/tmp/axial-native-current.YwnWYB/profile` is used.
+2026-10-04. Bounded unsigned macOS ARM64 debug acceptance, not installed-release, gameplay or full termination coverage. Evidence is under `.rewrite-logs/`. Launch journeys use generated `/private/tmp/axial-native-current.YwnWYB/profile`; the separately documented reset attempt uses generated `/private/tmp/axial-reset-current.YLMKr6/profile`.
 
 ## Observed bypass
 
