@@ -67,6 +67,8 @@ The normal optimized, uninstrumented `adde5225` artifact passes Managed launch/S
 
 ## Unresolved handoffs
 
+The current-source `5c9fd5ce` optimized artifact now contains both filesystem simplifications and passes actual Managed Launch/Playing/Stop plus ordinary Quit/reopen/second Quit without password input. Independent review verifies the frozen nine-record baseline, exact prior reports/protected witnesses, ten terminal acknowledgements, full state equality and both exits0. No new abstraction, namespace churn or AGENTS.md rule follows. [Native evidence](performance-ui.md#current-source-optimized-native-verification) retains the single-run timing limits and refused game-surface discovery; authenticated, gameplay and installed parity remain open.
+
 Exact `477c7b62` additionally passes the historical restart fixture and all800 Linux application checks/five helper ignores through the serialized target lease. The dedicated disposable container has no test descendants and is explicitly stopped. No production lock change follows from these successful reruns; the original Busy failure remains unexplained. [Integration evidence](integration.md) records immutable input, tools and terminal cleanup.
 
 - Recovery/native owner: ordinary native Content add/update/disable/reopen is observed; other native journeys and the pre-Add protected-settings comparison remain open. Recorded complete publication does not recover rename-before-proof-CAS, arbitrary partial/unrecorded intervals, unavailable/overbudget proofs or unknown effects. Preserve the earlier failed/terminated evidence; full parity remains open.
