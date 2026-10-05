@@ -14,6 +14,7 @@ Root owns integration, shared verification, diagnostics and this record. The cur
 - The existing live-cleanup fixture injected its foreign canary before the newly required proof inventory, triggering an earlier refusal instead of its intended cleanup boundary. Move only noncancel injection to the existing pre-manifest hook after persisted proof/public moves; retain original-task lifetime, cleanup, witnesses and deadlines.
 - Fixed-range review (`657b8254...553ddc05`) found no Spec finding or Standards blocker. Its optional duplicate-fixture finding is addressed by one existing helper accepting the already-used replacement mode:18 fewer lines, unchanged production and assertions.
 - This review record had accumulated historical checkpoint prose already owned by feature reports. Keep only current findings, validation and handoffs here; historical evidence remains linked and recoverable in Git. No new AGENTS.md anecdote is warranted.
+- Native packaging retained stale inline configuration while its metadata reflected the corrected override. Track the procedural macro's existing environment input beside its single expansion; two lines, unchanged identity guard and no new configuration owner. Actual override-only refusal/startup controls and all82 desktop tests pass. No broader cache-mechanism claim or new architecture rule is warranted; [native gameplay evidence](native-gameplay.md) records the regression and isolated fresh-profile journey.
 
 ## Validation and limits
 
@@ -26,6 +27,8 @@ A four-test cached-binary group reproduces the Java timeout. Parent polling stay
 Separate complete application and Minecraft runs pass795/five ignores and1001/no ignores (`java-probe-pid-full-app-1.log`, `content-created-minecraft-standalone-full.log`). The application run has only the intentional51ms timeout, not a correlated3s failure. These standalone feature configurations do not certify the original combined command or resolve its intermittent failures. Horizon currently refuses SSH; no new Linux result is inferred.
 
 The preceding Content checkpoint passes46 focused Horizon/Linux checks and both hosted jobs at exact `b5f6ab46` ([run37301035959](https://github.com/mateoltd/axial/actions/runs/37301035959)). Those results do not validate the later extension. Source tests do not establish native UI, authentication, gameplay or installed-update acceptance.
+
+Both hosted jobs now pass at exact `f7c7d08f` ([run37316498486](https://github.com/mateoltd/axial/actions/runs/37316498486)), including the selected six-library configuration. This is not a diagnosis of earlier intermittent failures or certification of the later native context correction.
 
 ## Unresolved handoffs
 
