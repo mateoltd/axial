@@ -12,6 +12,8 @@ The follow-up reviews Performance restart ownership and Unix lease release after
 
 The current native Content acceptance uses the unchanged `4ba166c6` artifact and generated offline profile. Root owns UI/processes and records; a separate witness owner writes only ignored evidence tooling, reviewed independently. No production architecture or UI change follows from this successful journey.
 
+The next changed scope is tests-only: the existing post-move crash fixture covers deliberate omission and now an actual exit inside the proof-save callback. Its owner changes only that test; root owns serialized verification and evidence, with independent review. No recovery interface or production authority changes.
+
 ## Findings and corrections
 
 - Restoration extends the existing bounded checkpoint and exact receipt CAS. It reserves the complete future restored proof before effects, preserves immutable original/publication evidence, freezes fresh restoration evidence once and requires durable acknowledgement before private cleanup. Optional omission is not acknowledgement.
@@ -48,6 +50,8 @@ The bounded concurrent-spawn regression goes RED with exact NoEffect(Busy), then
 The unfiltered Linux six-library command exits0 with114 API/eight ignores,801 app/six ignores,217 filesystem,1026 Minecraft,134 Performance and8 Resource checks. Whole macOS app/filesystem selection exits0 with803/eight ignores and213 checks;82 desktop binary checks/one ignore also pass. Exact owned source hashes match, unchanged frontend generation verifies, formatting/diff checks pass, and the dedicated container is stopped after test descendants settle. [Integration evidence](integration.md) owns logs and remaining qualifications.
 
 Actual native Sodium Add0.5.11 → Update0.5.13 → Disable → normal Quit/reopen/second Quit passes with exact provider/payload/manifest/queue bindings, protected file witnesses and zero durable obligations. Independent witness review corrects provider-ID and SQL allocation bounds, distinguishes separately observed Finder metadata, and retains the missing pre-Add protected-settings projection as an explicit gap. Later steps compare the actual post-Add projection; final reopen requires full settings equality. No expected baseline is reconstructed retrospectively. [Native Content evidence](pack-files.md#current-native-add-update-disable-and-reopen) records the precise ordinary-journey scope, not crash or installed acceptance.
+
+Source inspection corrects the old crash fixture's timing premise: the test hook follows the persistence callback, so Omitted plus later exit is not pre-save loss. Reuse its witness closure at the actual callback boundary, asserting complete offered publication but unchanged saved evidence. Both phases, foreign/partial preservation controls and acknowledged-restoration control pass. Independent standards/safety/spec review is clear. [Boundary evidence](pack-files.md#unsaved-publication-boundary) qualifies this as characterization, not a rollback RED/GREEN or permission to refresh guards from matching bytes. Existing actual-boundary/retained-revision rules suffice; no additional AGENTS.md anecdote is added.
 
 ## Unresolved handoffs
 
