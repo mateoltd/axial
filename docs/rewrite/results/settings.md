@@ -1,6 +1,6 @@
 # Settings and feature flags
 
-Implemented the retained configuration fields, local flag overrides and onboarding completion in feature-owned storage and HTTP routes. Guardian fields are rejected. Library paths and telemetry identities remain absent from public configuration.
+Implemented the retained configuration fields, local flag overrides and onboarding completion in feature-owned storage and HTTP routes. Guardian fields are rejected. Library paths and telemetry identities remain absent from public configuration. Predecessor preference import is excluded from this breaking pre-release; current-app preferences still persist across reopen.
 
 ## Interfaces
 
@@ -8,7 +8,6 @@ Implemented the retained configuration fields, local flag overrides and onboardi
 - `ConfigRouteState::new(settings, accounts, telemetry, tasks)` verifies shared metadata and matching exporter policy. `config::router(state)` returns `Router<()>` with `GET/PUT /api/v1/config` and `POST /api/v1/onboarding/complete`.
 - `flags::router(settings, telemetry, tasks)` returns `Router<()>` with `GET /api/v1/flags` and `PUT /api/v1/flags/{key}`.
 - All writes require `expected_revision`. Configuration identity edits additionally require `expected_account_selection_revision`, obtained from `ConfigView.account_selection_revision`. Omitted preference fields remain unchanged; explicit null clears nullable preferences. Flag `enabled` must be present; null removes the override.
-- `prepare_legacy_import(value)` returns a validated preference/flag preview with a signal for excluded library metadata. It never imports old telemetry identity or grants destination authority. Import commit remains the import owner's responsibility.
 
 ## Behavior and boundaries
 
@@ -20,7 +19,7 @@ The shared task owner retains accepted writes across dropped HTTP waiters and jo
 
 ## Verification
 
-Feature and route tests cover default wire shape, durable reopen, competing/stale revisions, null versus omission, invalid/corrupt data preservation, flag visibility/reset, inheritance, importer rejection, atomic account rollback, onboarding failure, dropped HTTP waiters, shutdown admission and committed consent. Rustfmt completed on owned Rust files.
+Feature and route tests cover default wire shape, durable reopen, competing/stale revisions, null versus omission, invalid/corrupt data preservation, flag visibility/reset, inheritance, atomic account rollback, onboarding failure, dropped HTTP waiters, shutdown admission and committed consent. Rustfmt completed on owned Rust files.
 
 Focused short-name regressions use persisted Microsoft account metadata to cover reads, unrelated preference writes, reopening settings, both mode switches, rejected short offline edits and removal of the last online account. Integrated checkpoints and remaining runtime gaps are recorded in [integration status](integration.md).
 
