@@ -8,6 +8,8 @@ Read AGENTS.md, conventions, ADR7, delivery, work ownership and current integrat
 
 Root owns shared verification, filesystem adapter, credential adapter, account projection and documentation. Native transaction and Content files are frozen after separate ownership and read-only review; the Accounts owner supplies one denied-read composition fixture. Scope includes recorded replacement restoration, urgent noninteractive access, safe failure presentation and standard SecItem API access after `e31a70be`. No new journal, coordinator, configuration, wire schema/UI layout, folder layer or stable-contract rename.
 
+The follow-up reviews unchanged `477c7b62` Performance restart ownership, Unix lease release and credential cross-build acceptance. Independent read-only owners make no edits or builds; root alone runs the disposable Linux verification.
+
 ## Findings and corrections
 
 - Restoration extends the existing bounded checkpoint and exact receipt CAS. It reserves the complete future restored proof before effects, preserves immutable original/publication evidence, freezes fresh restoration evidence once and requires durable acknowledgement before private cleanup. Optional omission is not acknowledgement.
@@ -40,8 +42,11 @@ SecItem refactoring retains an actual native pre-refactor interoperability contr
 
 ## Unresolved handoffs
 
+Exact `477c7b62` additionally passes the historical restart fixture and all800 Linux application checks/five helper ignores through the serialized target lease. The dedicated disposable container has no test descendants and is explicitly stopped. No production lock change follows from these successful reruns; the original Busy failure remains unexplained. [Integration evidence](integration.md) records immutable input, tools and terminal cleanup.
+
 - Recovery/native owner: fresh native Content acceptance remains open. Recorded complete publication does not recover rename-before-proof-CAS, arbitrary partial/unrecorded intervals, unavailable/overbudget proofs or unknown effects. Preserve the earlier failed/terminated evidence; full parity remains open.
 - Diagnosis: the current first-receipt Minecraft timeout and older application Java-probe, Linux Busy, hosted abort and benchmark no-child failures remain distinct and unexplained. No correlated owned-child observation establishes a cause. Passing reruns are not diagnoses; [integration](integration.md) and [Content evidence](pack-files.md) retain their signatures.
+- Linux Busy experiment: no Performance-specific escaping pin is identified. Unix lease release closes its unique file descriptor without explicit unlock; CLOEXEC does not cover a fork-before-exec interval. Gate the real bounded-FD install fixture's pre-exec child during the settled Performance reopen, then release/reap it and retain a genuine pin as controls. This is an unrun, falsifiable mechanism test, not the historical cause or permission for a blind unlock/retry change.
 - Accounts: repeated usable native open/Close passes for the recorded no-sign candidate, but authenticated continuity remains unverified and old storage access is unavailable; the earlier Microsoft Request failure is unexplained. Standard SecItem now targets the existing file-based store without new provisioning. Data Protection is a separate unimplemented backend requiring authorized entitlements; synthetic persistence is not human-account or cross-build acceptance. Rotation, logout, skin/cape, cookie isolation and installed-release checks remain open. [Account evidence](native-auth.md) owns the boundaries; do not inspect or replay human secrets.
 - Native/delivery: actual game-window/world/save interaction, controlled latency, other native exit/folder journeys, four installed artifact architectures and trusted signed-update/restart evidence remain open. No deployment, release publication or legacy/user-profile mutation is authorized.
 
