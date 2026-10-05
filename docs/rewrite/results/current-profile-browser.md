@@ -50,6 +50,10 @@ Frontend generation `31f8bd5d56a5` builds and the locked API rebuild succeeds. E
 
 The pending two-copy removal dialog is cancelled before restart, retaining both selections and creating no deletion intent. Exact original/copy witnesses, four launch-report proof summaries, mode settings, saved-skin and screenshot witnesses remain unchanged after reopen; all3640 recorded game files and Sodium independently reverify. Four fixed current/archive log files retain exact size/hash/device/inode/modification-time witnesses throughout the read-only journey. Obligations remain0 and SQLite quick-check is OK. Evidence is `select-visible-focus-*` and `current-browser-logs-*` under `.rewrite-logs/`. This is browser acceptance, not native sign-in/gameplay, extraction or installed-release parity; affirmative multi-removal remains unverified.
 
+## Background music cache and controls
+
+Actual cold Play → Next → Pause, ordinary API exit0/reopen and cached Play → Next/wrap → Pause pass with both fixed MP3 cache files and restored off/5%/track0 preferences. Exact paused settings/cache witnesses survive PID82544→PID90836; unrelated settings, instance/game/content/report/skin/screenshot/log witnesses remain unchanged. The widget title proves only its observed non-paused state, not advancing or audible playback; independent full-file decoding is separate evidence. [Music evidence](system-music.md#actual-browser-cache-and-controls) owns the concrete phases, revision-aware comparison, decoder results and remaining native/volume/fade/suppression/interruption gates. The current API remains available; the Microsoft process/profile are untouched.
+
 ## Evidence and qualifications
 
 Logs are under `.rewrite-logs/`: `current-browser-{runtime,reopen-runtime}.log`, `current-browser-sodium-disabled-sha256.log`, the bounded `current-browser-inventory.mjs` reader, `current-browser-inventory-{sql,after-reopen-sql}.log`, and `current-browser-inventory-{before-reopen-final-summary,after-reopen-summary}.log`. Live browser AX observations and the initial Ready/enabled-mod screenshot establish those rendered states; no saved pathname is asserted for that initial screenshot.
