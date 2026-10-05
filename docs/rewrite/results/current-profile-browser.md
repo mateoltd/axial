@@ -1,0 +1,25 @@
+# Current-profile browser acceptance
+
+2026-10-05. Actual loopback API/browser workflow on macOS ARM64, not native gameplay, authentication or installed-release acceptance. Production API source is `849976bb`, executable SHA256 `f31b38644999eba1ac272a543155cfef04371bdfafe02f127b6d2ca1fdfbe299`, frontend generation `5dc3a4f5d61c`. Subsequent CI/fixture changes do not rebuild this executable. Only generated `/private/tmp/axial-browser-current.fAOlVA/profile` is used; the earlier fenced native profile and payload-only NeoForge fixture remain untouched.
+
+## Observed workflow
+
+Actual onboarding creates offline `BrowserParity`, chooses2GiB, keeps the existing theme, selects silent music, no telemetry and no Discord sharing, then finishes without another onboarding prompt. Actual Create selects Fabric/Minecraft1.20.1, names `CurrentFabricParity`, retains2GiB and disables automatic optimization. The production queue downloads/materializes Fabric0.19.5 and reaches Ready with ordinary Launch available. Instance identity is `2d159a1c-e511-4319-952e-b9b29e69fc46`.
+
+Actual instance-scoped Discover searches Sodium and opens its project. The project header advertises a newer global release, but target-bound Add installs the compatible `sodium-fabric-0.5.13+mc1.20.1.jar` (Modrinth version `OihdIimA`). Mods shows one enabled Sodium entry. Actual selected-mod Disable produces the `.jar.disabled` filename and Disabled state; actual Enable restores the original filename and Enabled state. The disabled/enabled bytes have identical SHA256 `688c26029ce69f0b1f7cf936866656ca6723228ac46c4aef5b5f793b1e6abd22`, and the final file matches the durable content entry's971552-byte size and SHA512. No deletion, game launch, provider-account mutation or UI/source change occurs.
+
+An independent bounded inventory reader verifies both Ready inventories:3630 Vanilla/3638 loader entries,3640 unique regular files,760421199 bytes, exact recorded size/SHA1 and canonical paths without symlinks. Before/after restart inventory records hash identically to `42d4ee876f9ac47b0d6618277be6c58a145bcc70493cdc6c0d28ecab28925161`; the independent reader rechecks every file and Sodium afterward. These are recorded game-file proofs, not an exhaustive runtime or whole-profile identity witness.
+
+With zero Content batches, no unfinished queue item, no launch intent and SQLite quick-check OK, exact API PID3739 receives ordinary SIGINT and its original session exits0. The same unchanged executable reopens the same profile as PID18329 on a new loopback port. Initial Starting hydration completes without intervention; real Home restores BrowserParity/one instance and real instance Mods restores Ready/Fabric0.19.5/Minecraft1.20.1/one enabled Sodium entry without reinstall or onboarding. The inventory summary matches byte-for-byte. The reopened API remains available for follow-up at this checkpoint; this is not native application-menu Quit/restart acceptance.
+
+Actual reopened Settings independently shows the instance and global maximum heap at2GiB, background music off, anonymous usage stats off and Discord activity off. The two original queue IDs remain terminal, Content batches/unfinished queue/launch intents remain0 and SQLite quick-check remains OK (`current-browser-after-reopen-state.log`).
+
+## Evidence and qualifications
+
+Logs are under `.rewrite-logs/`: `current-browser-{runtime,reopen-runtime}.log`, `current-browser-sodium-disabled-sha256.log`, the bounded `current-browser-inventory.mjs` reader, `current-browser-inventory-{sql,after-reopen-sql}.log`, and `current-browser-inventory-{before-reopen-final-summary,after-reopen-summary}.log`. Live browser AX observations and the Ready/enabled-mod screenshot establish the rendered states; no saved screenshot pathname is asserted.
+
+Initial inventory export inside a five-second synchronous SQLite child times out before verification; its partial query output is not a failed file proof. A subsequent bounds-parentheses correction precedes successful verification, not product RED. Direct CLI export to the retained log completes; both final reader executions verify all records/files. The runtime publication sample shows active authenticated import/write/hash work, not a publication stall or controlled latency measurement.
+
+To make room before installation, root inventories and removes only regenerable `axial-minecraft` package build/test output under the serialized Cargo lease:3.0GiB/790 files. API/native executable hashes remain unchanged and both processes remained live during that cleanup. Earlier API cleanup similarly removes regenerable package output. Profiles, evidence, legacy and unrelated installations are preserved; these outputs can be rebuilt.
+
+Fresh-profile native/content presentation, actual game-window/menu/world/save interaction, authenticated Microsoft/secure-store flows, arbitrary interrupted publication and the four installed-artifact/update matrix remain separate open gates. The full non-Guardian parity goal remains active.
