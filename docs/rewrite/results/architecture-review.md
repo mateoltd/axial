@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-07. Changed scope: benchmark continuation and Intel installed-package acceptance at unchanged `5d06ec9b` on `main`, following the recorded Linux packaging correction. This is not a release or full-parity certificate.
+Updated 2026-10-07. Changed scope: typed Forge qualification after `1ecf51cf` on `main`, plus the recorded benchmark continuation and Intel installed-package evidence at unchanged `5d06ec9b`. This is not a release or full-parity certificate.
 
 ## Ownership
 
@@ -12,10 +12,13 @@ Root owns integration, evidence, profiles and serialized builds. Independent Sta
 - No shipped preload/backend override, private bundler, codec implementation, new state owner, wrapper extension or speculative abstraction. Diagnostic controls stay private. Released tooling also produces a relative working icon link and0755 wrapper; do not manually patch the package.
 - No new redundant naming/layer or recurring pattern warrants another simplification or AGENTS.md rule. Existing ownership, real-boundary testing and evidence rules cover this slice.
 - Continue the original two-run suite through its existing Tick/intent/session/report owners, without a replacement driver or journal. Correct only the private witness's normalized-path sorting and require exact accepted/current bindings; do not refresh changed evidence or reinterpret labels as settlement.
+- Correct qualification's literal comparison of encoded installed-loader IDs through the existing typed decoder, projecting only Forge to its Minecraft coordinate. Keep selection/fallback at the qualification owner, with explicit non-Forge scenario refusal; no new parser, state, layer, schema or UI path. Existing typed-contract guidance covers this finding; no additional AGENTS.md rule is needed.
 
 ## Validation
 
-Earlier Linux source reviews: Standards has no documented violations/actionable smells; Spec has no source-scope/implementation findings. Its focused delivery/dependency/generation selection passes60/0 in0.97s. Current additions are private fixtures and acceptance documentation; independent evidence review corrects two overbroad summary phrases. Whitespace checks pass; installed acceptance remains incomplete.
+Earlier Linux source reviews: Standards has no documented violations/actionable smells; Spec has no source-scope/implementation findings. Its focused delivery/dependency/generation selection passes60/0 in0.97s. The subsequent benchmark/Intel slice adds private fixtures and acceptance documentation; independent evidence review corrects two overbroad summary phrases. Installed acceptance remains incomplete.
+
+[Typed Forge qualification](current-benchmarks.md#typed-forge-qualification-version) has meaningful version-specific RED/GREEN through actual report codecs and suite descriptors. Independent adversarial review is clear, including explicit non-Forge scenario precedence. Final serialized libraries pass828 application/118 API, zero failures/eight existing helper ignores each, with normal wrapper0; scoped formatting and whitespace checks pass. No native artifact rebuild or real-game positive qualification is inferred.
 
 [Benchmark continuation](current-benchmarks.md#completing-the-retained-two-run-suite) preserves all prior histories and protected files, plus the original intents, through real boot/Stop/completion/cold reopen/final normal exit. Independent helper/evidence review is clear; its initial refused fixture comparison is retained. [Intel installed evidence](native-auth.md#installed-intel-package-under-rosetta) uses the released pinned CLI, existing macOS overlay and a fresh isolated copy/profile, with no source, signing-policy, UI or extra runtime path. Logical preservation is not whole-profile identity; Rosetta is not physical Intel, and boot is not gameplay.
 

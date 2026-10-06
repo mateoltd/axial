@@ -2,6 +2,18 @@
 
 2026-10-04. Real same-driver Resume and completed-history reopen pass. This is current-app lifecycle evidence, not predecessor import, performance comparison, gameplay or installed-release acceptance.
 
+## Typed Forge qualification version
+
+2026-10-07, changes after `1ecf51cf`. A cold read of the genuine Forge1.12.2/14.23.5.2860 report `78450d4d-9455-48b0-a906-22fe95ee71e2` confirms both version fields contain the canonical installed-loader identity (`family-c-version-report.json`). Read and normal API shutdown preserve the isolated profile's logical database exactly (`family-c-version-{before,read,quit}.hash`).
+
+Three focused tests compose the real ReleaseValidation descriptors, report encode/decode and proof validation before calling the production qualifier. The original source fails both positive/version-precedence tests while the wrong-Minecraft/non-Forge control passes (`family-c-version-red.log`, two failures/one pass). The failure is specifically `proof_version_mismatch`; resource evidence remains explicitly absent and overall qualification incomplete.
+
+The existing qualification helper now uses the loader owner's bounded canonical decoder and public accessors to project only Forge identities to their Minecraft coordinate. Scenario precedence and absent/empty/unknown fallback remain intact; other loaders, versions and all comparison/resource/managed-file requirements retain their refusals. No report rewriting, parser, schema, coordinator, UI change or predecessor compatibility is added. Compilation catches two incorrect API access assumptions during implementation; the final implementation uses the already-public `loaders::api` decoder and identity accessors.
+
+Focused application qualification and actual HTTP preview checks pass four tests (`family-c-version-green.log`). Final scoped formatting and whitespace checks pass; independent adversarial source/evidence review is clear after adding the explicit Fabric-scenario/Forge-fallback refusal control. Serialized complete library checks pass828 application and118 API, zero failures and eight existing helper ignores each (`family-c-version-final.log`, normal wrapper exit0; child-process summaries excluded). This selects those consumers, not the retained decoder library's own unit tests or other platforms.
+
+Real-game clean-exit comparison, positive managed-file qualification and installed acceptance remain separate gates; these fixtures do not establish them. Earlier installed artifacts predate this production correction.
+
 ## Fractional comparison persistence
 
 2026-10-06, changes after `db0baf50`. Broader API verification twice catches a missing Managed comparison report after clean session settlement:117 pass/one failure/eight ignores. The existing session warning classifies report persistence as Invalid, not delayed response. A public file-backed report-store fixture minimizes this to a valid101ms Vanilla baseline and99ms Managed result, rejecting in0.01s. Both the valid baseline and exact readback boundary are exercised before failure.
