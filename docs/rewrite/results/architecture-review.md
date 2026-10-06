@@ -2,6 +2,8 @@
 
 Updated 2026-10-07. Changed scope: typed Forge qualification after `1ecf51cf` on `main`, plus the recorded benchmark continuation and Intel installed-package evidence at unchanged `5d06ec9b`. This is not a release or full-parity certificate.
 
+Latest review after `d18ea16a`: only integration evidence and private [Family C control](current-benchmarks.md#composed-family-c-qualification) changed; production code, UI and public contracts are unchanged. The executed control uses existing Duplicate/CAS/Tick/Apply/intent owners, protected-target admission and no mutation replay. Correct only the fixture's native-path count assumption; retain its failed history and verify the differently named duplicate independently. Ready qualification, genuine managed-file integrity and exact cold reopen pass, without real JVM/gameplay or completed-suite claims. The witness covers prior rows and registered instance trees, not every shared library payload. No additional abstraction, simplification or AGENTS.md rule is warranted.
+
 ## Ownership
 
 Root owns integration, evidence, profiles and serialized builds. Independent Standards/Spec reviewers inspect frozen source and evidence without operating profiles or builds. Preserve non-Guardian behavior, current UI, filesystem authority and current-app recovery; predecessor compatibility remains excluded.
@@ -19,6 +21,8 @@ Root owns integration, evidence, profiles and serialized builds. Independent Sta
 Earlier Linux source reviews: Standards has no documented violations/actionable smells; Spec has no source-scope/implementation findings. Its focused delivery/dependency/generation selection passes60/0 in0.97s. The subsequent benchmark/Intel slice adds private fixtures and acceptance documentation; independent evidence review corrects two overbroad summary phrases. Installed acceptance remains incomplete.
 
 [Typed Forge qualification](current-benchmarks.md#typed-forge-qualification-version) has meaningful version-specific RED/GREEN through actual report codecs and suite descriptors. Independent adversarial review is clear, including explicit non-Forge scenario precedence. Final serialized libraries pass828 application/118 API, zero failures/eight existing helper ignores each, with normal wrapper0; scoped formatting and whitespace checks pass. No native artifact rebuild or real-game positive qualification is inferred.
+
+Hosted [run37544936161](https://github.com/mateoltd/axial/actions/runs/37544936161) passes both jobs at exact `d18ea16a`, including explicit selection of all six retained core libraries. This is source verification, not installed-platform or full-parity acceptance. The latest documentation diff passes whitespace checks; no shared build or profile operation is needed for this review.
 
 [Benchmark continuation](current-benchmarks.md#completing-the-retained-two-run-suite) preserves all prior histories and protected files, plus the original intents, through real boot/Stop/completion/cold reopen/final normal exit. Independent helper/evidence review is clear; its initial refused fixture comparison is retained. [Intel installed evidence](native-auth.md#installed-intel-package-under-rosetta) uses the released pinned CLI, existing macOS overlay and a fresh isolated copy/profile, with no source, signing-policy, UI or extra runtime path. Logical preservation is not whole-profile identity; Rosetta is not physical Intel, and boot is not gameplay.
 
