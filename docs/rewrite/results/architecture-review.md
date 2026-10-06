@@ -23,7 +23,7 @@ With the selected generated folder absent after a stopped same-filesystem rename
 ## Unresolved handoffs
 
 - [Content recovery](pack-files.md): incomplete, unrecorded, partial, unsupported or overbudget proofs/effects remain preserving refusals; acknowledgement and exact retained revisions cannot be waived.
-- [Accounts/startup](native-auth.md): first-narrator Continue → Invalid session still lacks exact reproduction/cause. Native access reports the Mac locked. No-dialog containment is not repaired old credential access or authenticated continuity; distinct-build acceptance under the intended stable identity remains open.
+- [Accounts/startup](native-auth.md): first-narrator Continue → Invalid session still lacks exact reproduction/cause. Later native access succeeds, but the retained candidate displays a blank launcher despite backend Ready; ordinary Quit0 preserves the unlaunched probe. No-dialog containment is not repaired old credential access or authenticated continuity; distinct-build acceptance under the intended stable identity remains open.
 - [Performance](performance-ui.md), [benchmarks](current-benchmarks.md) and [integration](integration.md): controlled latency and real comparable/Managed qualification remain open. Historical Busy, probe timeout, hosted abort and no-child failures remain distinct and undiagnosed; passing reruns are not causes. Disk-observation validity remains source-qualified and unreproduced.
 - External-library launch/Stop/native switching, remaining failure/interruption matrices, real gameplay/world/save, four installed artifact architectures and trusted signed-update/restart inputs remain open. No deployment or publication follows.
 
