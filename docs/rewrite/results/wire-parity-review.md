@@ -1,5 +1,17 @@
 # Retained UI wire parity review
 
+## Verified read-contract corrections
+
+2026-10-06, changes after `db0baf50`. Three retained contracts have meaningful HTTP RED/GREEN checks:
+
+- Discover returns provider results when optional installed-content annotation is unreadable or its valid instance ID is absent. Malformed IDs still refuse. The corrupted-manifest fixture retains direct Content/plan refusal, one accepted install settling Failed, unchanged managed/user bytes and no unresolved effects. Only the existing annotation chain changes.
+- Individual resource lists scan their own subtree. A screenshots-directory symlink no longer blocks healthy mods/logs; screenshots and the aggregate resources endpoint still refuse, preserving the link and external canary. One private helper shares existing admission and final binding validation across five current reads; typed response arrays keep their wire shape.
+- Debug command inspection restores the placeholder-only `command` array and `command_redacted`, counting the executable as legacy did. The actual fixture child independently reports only its element count; complete HTTP-response equality is checked after ordinary shutdown. Final review catches a duplicate projection bypassing the existing4,096-placeholder cap; `b2c34db9` reuses that owner, retaining exact count and the separate release refusal. The admitted16,384-argument limit remains intact; command values are never exposed.
+
+Logs: `discovery-annotation-{red,green}.log`, `resource-list-isolation-{red,green}.log`, and `command-shape-{test-red,green}.log`. Initial wrapper misuse refuses before running the command test and is retained separately. The final owner-reuse follow-up passes all three existing projection tests, the actual composed journey and release API-library compilation (`command-owner-{focused,journey,release-check}.log`, normal0); the journey takes5.84s. Independent Standards/Spec reviews and scoped formatting are clear. These corrections do not change UI layout or establish native, authenticated or full parity. Broader verification is recorded in [integration](integration.md).
+
+## Initial review
+
 Date: 2026-09-26. Scope: current retained `frontend/src` consumers against the
 replacement `apps/api` route composition and desktop command registration.
 This was a source review, not a build, test run, browser exercise or installed

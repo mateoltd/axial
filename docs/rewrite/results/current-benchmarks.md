@@ -2,6 +2,14 @@
 
 2026-10-04. Real same-driver Resume and completed-history reopen pass. This is current-app lifecycle evidence, not predecessor import, performance comparison, gameplay or installed-release acceptance.
 
+## Fractional comparison persistence
+
+2026-10-06, changes after `db0baf50`. Broader API verification twice catches a missing Managed comparison report after clean session settlement:117 pass/one failure/eight ignores. The existing session warning classifies report persistence as Invalid, not delayed response. A public file-backed report-store fixture minimizes this to a valid101ms Vanilla baseline and99ms Managed result, rejecting in0.01s. Both the valid baseline and exact readback boundary are exercised before failure.
+
+A temporary bounded numeric probe shows JSON decoding of the derived percentage changes its binary representation by one bit: `13834968875091522712` becomes `13834968875091522711`. The pinned serde_json1.0.151 default parser loses this precision; exact canonical report validation correctly refuses. Enable its existing `float_roundtrip` feature at the workspace codec dependency, with no version/new dependency, schema, rounding, tolerance, retry or persistence-policy change. The same probe then preserves all bits and the store test passes improvement101/99, regression99/101 and unchanged101/101, including baseline binding, reopen and idempotent retry.
+
+Logs: `read-parity-api.log`, `read-parity-api-diagnostic.log`, `comparison-fractional-{red,diagnostic,diagnostic-green}.log`. An isolated composed rerun passed before the correction; it did not explain the broader failure. All temporary diagnostic output/runtime wrappers are removed from source. Independent Standards/Spec reviews are clear; final original composed and retained-library verification is recorded in [integration](integration.md). This fixes report precision, not the narrator error, real comparable performance, authenticated continuity or full parity.
+
 ## Lost first-run acknowledgement
 
 2026-10-06, unchanged production source at `41529878`, frozen API SHA256 `a2763a304ec3d4e1ff94b82ee66ecb5f9d3f44a967c4ed36445f2ae22b4e6e39`. The generated offline [Managed companion](performance-ui.md#prepared-remove-restart-continuation) is Ready: Fabric0.19.5/Minecraft1.20.1, Java17, global Managed/2048/512 and instance2048/0/inherited mode, automatic optimization off. Managed files remain absent after the prior Remove. Fresh suite404, no active sessions and the complete protected baseline are verified before admission; baseline/pre-admission SHA256 is `c6a3fe78…9628`.
