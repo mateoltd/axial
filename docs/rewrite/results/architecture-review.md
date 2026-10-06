@@ -52,8 +52,10 @@ The separately reviewed runtime witness pins that single ordering-only JSON repl
 
 ## Unresolved handoffs
 
+The [legacy home correction](forge-loader.md#legacy-game-directory-binding) closes the remaining before-entry lookup mismatch through the existing JVM-default owner: one admitted game-root property and an exact custom-override refusal, with no version dispatcher or extra downloader. Both composed command/override tests have meaningful REDs; independent review,136 launch/22 core checks and release compilation pass. Actual unchanged-input1.4.7 replay now observes boot4885ms, acknowledges Stop and preserves complete captured state through reopen/final and two normal API exits0. Four prior raw histories, five queues, all four current inventories and eight FML source/game files remain exact; no historical substitution or installation is admitted. Native menu/gameplay remain unobserved. A separate genuine current-app recorded-order recovery test fails at exact contract mismatch after publication and safe teardown; its core correction and queue integration remain in progress. No new recurring AGENTS rule is warranted.
+
 - [Accounts/startup](native-auth.md): narrator Continue → Invalid session and native visibility discrepancy remain undiagnosed. No-dialog containment is not authenticated distinct-build continuity under the intended stable signing identity.
-- [Forge](forge-loader.md): earliest-universal1.4.7 startup, other retained-era/failure matrices and actual gameplay remain open.
+- [Forge](forge-loader.md): current-app recorded-byte recovery, other retained-era/failure matrices and actual gameplay remain open; earliest-universal1.4.7 now has boot/Stop/reopen evidence.
 - [Performance](performance-ui.md), [benchmarks](current-benchmarks.md), [Content](pack-files.md) and [library lifecycle](library-lifecycle.md) retain qualification, interruption and recovery limits. Passing runtime reruns do not diagnose historical Busy, no-child, timeout or hosted failures.
 - [Integration](integration.md) owns remaining native switching, world/save, four installed architecture and trusted update/restart gates. Parallel fake-Java timeout sensitivity above remains unexplained. No deployment, publication, signing or credential-permission change follows.
 
