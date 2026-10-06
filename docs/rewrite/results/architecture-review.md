@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-06. Reviewed scope: earliest Forge startup diagnosis, the existing launch planner/argument validator and exact second-launch preservation. This is not a parity or release certificate.
+Updated 2026-10-06. Reviewed scope: earliest Forge startup diagnosis/planner correction, authenticated FML inputs and recovery constraints, exact continuation preservation and unlocked native paint controls. This is not a parity or release certificate.
 
 ## Ownership and constraints
 
@@ -16,11 +16,21 @@ The first parallel launch check has ten silent fake-Java probe timeouts before t
 
 The runtime replay reuses the existing intent/session/report owners. A separate bounded read-only continuation witness pins the exact first settlement, preserves its raw history/proof hashes and all four recorded inventories, and admits one fresh history pair plus existing best-effort recency. The original one-launch witness remains unchanged. Boot-positive Stop and settlement-only results have distinct verdicts; safe cleanup alone is not startup acceptance. A wrong-session control refuses at the actual history-binding boundary.
 
+The next1.4.7 attempt remains non-booting but settles and reopens exactly. Its separately reviewed bounded witness preserves both prior histories and a freshly captured first-instance tree, admitting only one exact Java CAS/new history/recency. Closed retained stack methods narrow failure to FML acquisition; the actual old HTTP source gives the same Java8 a301 body instead of the checksum-pinned library. Inspecting the real caller/artifact rules out the existing1.5.x/legacyfixer mirror path: this FML has no mirror-property reader. Keep the eventual correction in the existing installation/preparation owner, not a speculative flag, download coordinator or parallel journal. No production edit is made yet.
+
+All four declared library inputs now have exact HTTPS download witnesses, including refusal of a same-named but different ASM artifact. [The correction boundary](forge-loader.md#verified-fml-inputs-and-correction-boundary) separates immutable installation sources from process-writable copies. Review identifies a necessary current-app recovery constraint: adding inventory entries changes activation digests. Preserve settled historical verification; reconstruct interrupted operations against their recorded contract before ordinary repair. Do not turn this feature fix into a digest waiver, compatibility import or another recovery owner.
+
+Unlocked native controls distinguish complete unchanged Inspector paint from incomplete normal Startup paint. Focus changes the latter but does not complete it; a later hidden Inspector document has a finished animation and nonzero document timeline. One timing sample does not establish ongoing advancement. Neither hidden state nor a passing diagnostic artifact establishes a CSS, activation or normal-release fix. No animation/style workaround or new AGENTS rule follows from these differing observations.
+
 ## Validation
 
 Source `0d18318e` passes 126 serialized launch checks/one existing helper ignore and 118 API-library checks/eight ignores, normal wrapper 0. Exact manifest and reserved-property REDs fail 101 then pass; scoped formatting/diff checks and independent final review are clear. Release API compilation exits 0. These are selected consumers, not every target or installed artifact. [Forge evidence](forge-loader.md#current-source-runtime-failure-and-native-lookup-correction) owns commands, logs, frozen hashes and retained failures.
 
 The [real earliest-client replay](forge-loader.md#fixed-earliest-client-startup-and-preserved-continuation) observes boot in 3386ms/no owner failure classes, acknowledges one stopped report and restores exact tuple/Java 8/Ready on reopen. Both APIs join ordinary SIGINT 0; owned Java/APIs/listeners are absent. Complete captured settlement remains equal through final exit, with the first failed history, private protected state, exact recorded files and canaries preserved. Game-writable files are outside that installation proof. Native inventory lists Java but cannot bind its window, so menu/narrator/gameplay are unobserved.
+
+[Universal continuation](forge-loader.md#earliest-universal-startup-refusal-and-preserved-reopen) passes strict settled/reopened/final equality and two normal API exits0, with zero checked obligations and owned processes/listeners absent; its verdict remains settlement-only. The acquisition minimizer joins42/checksum refusal, not timeout. [Native controls](native-auth.md#unlocked-paint-comparison) join three menu Quits0 with unchanged logical empty-profile hashes. These runtime diagnostics change no production source and do not require another Cargo run; they do not close visual, gameplay or parity gates.
+
+The result-document diff from `db4daac0` passes independent Standards and Spec review with no remaining findings. Review removes an unsupported ongoing-timeline claim and closes the class-equality evidence gap with root's retained bounded comparison/exit0; it does not execute downloaded classes or establish the proposed fix. Scoped diff checks pass. No new recurring architecture rule is warranted.
 
 ## Unresolved handoffs
 
