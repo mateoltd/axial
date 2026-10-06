@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-06. Scope: recorded managed-file removal recovery after `f0f1bb01`, locally installed ARM64 Vanilla at `318e7ede`, Performance effect-intent recovery at `3f30c777`, and Linux AppImage at `c471e96d` on `main`. This is not a release or full-parity certificate.
+Updated 2026-10-06. Changed scope: the three pending Linux packaging/toolchain edits over `3757c6d1` on `main`, including the interrupted diagnostic build. Earlier feature evidence remains linked below. This is not a release or full-parity certificate.
 
 ## Ownership
 
@@ -29,16 +29,20 @@ Prior [exact recorded-metadata recovery](forge-loader.md#exact-recorded-metadata
 
 [Linux package inspection](linux-package.md) uses the existing target lease, ordinary bundle configuration and unchanged frontend verifier. Transfer-only AppleDouble correction introduces no product abstraction, verifier waiver or UI change. Real optimized build joins0 and404 extracted payload entries match staged bytes/types/modes/links; expected marker/RUNPATH transformations remain separately qualified. Exact container stop follows child/copy joins and retains inputs/evidence; its idle PID1 exit137 is not application settlement. Independent Standards, Spec and architecture reviews are clear. Existing fixture/evidence rules suffice, with no AGENTS.md addition. No installation, credential, trust or runtime workaround follows.
 
+The pending remedy stays at the packaging boundary: matching CLI2.12.0 pins in `toolchain.json`/release CI and media-framework inclusion in the existing Linux overlay. Runtime crates, application owners, frontend and UI remain unchanged; no host-library preload, rendering override, wrapper extension or private bundler fork is added. The original renderer abort, failed DMABUF control and diagnostic host-Wayland control remain failures/qualified observations, not installed acceptance. No redundant namespace, extra layer or recurring new pattern warrants a source simplification or AGENTS.md rule.
+
+The retained focused contract run passes60/0 in1.23s; whitespace checks pass. The newer-bundler-only build log reports one finished package, but interruption lost handle55943, so its final command exit is uncertified. Read-only inspection finds only container PID1, an unchanged raw executable (`aa604c3b…fc4ccfe`) and candidate `b4951892…209956`; the pending media overlay was not part of that build. No rebundled runtime, media or other-platform acceptance is inherited. Root retains both old/new packages and diagnostic profiles; [Linux evidence](linux-package.md) owns the detailed provenance. Separate Standards/Spec source and qualification reviews are clear; runtime evidence remains a handoff.
+
 ## Unresolved handoffs
 
 - [Accounts/startup](native-auth.md): the earlier Invalid session and paint failures remain undiagnosed despite later passing controls; Java-window access and authenticated distinct-build continuity remain open. No further password or permission experiment is required by this review.
 - [Forge](forge-loader.md): other retained-era recorded-byte/failure matrices and gameplay remain open.
 - [Performance](performance-ui.md), [benchmarks](current-benchmarks.md), [Content](pack-files.md) and [library lifecycle](library-lifecycle.md) retain their documented qualification/recovery limits. Passing retries do not diagnose historical Busy, no-child, timeout or hosted failures.
 - [Integration](integration.md) owns native switching, playable world/save, installed-platform and trusted update/restart gates. No deployment, publication, signing or credential-permission change follows.
-- [Linux package](linux-package.md) owns X11/media, absolute icon-link and wrapped-executable permission handoffs. Payload equality and host session presence do not prove an ordinary native launch or portable runtime.
+- [Linux package](linux-package.md) owns the pending upstream-bundler renderer retest, media-enabled package/playback verification, absolute icon-link and wrapped-executable permission handoffs. Confirm actual new payload/helper/source hashes and ordinary no-override behavior before integrating the remedy. Payload equality and host session presence do not prove an ordinary native launch or portable runtime.
 
 ## Prior reviews
 
 Detailed chronology remains in the linked feature reports and Git history: `git show f0f1bb01:docs/rewrite/results/architecture-review.md`. Read-contract/codec corrections remain in [wire parity](wire-parity-review.md) and [benchmark persistence](current-benchmarks.md).
 
-The full-parity goal remains active; this review neither replaces nor resets it.
+The full-parity goal is currently paused according to its authoritative status. This scheduled review neither resumes nor replaces it; completion still requires full non-Guardian parity.
