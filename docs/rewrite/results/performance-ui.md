@@ -2,6 +2,26 @@
 
 Status: scoped adaptation, isolated behavior checks and bounded browser/native mode, settlement and reopen checks pass. Native preparation/readiness latency, full Performance and installed desktop parity remain unverified.
 
+## Measured ordinary-read validation cost
+
+2026-10-06, source baseline `5f7f7cc2` and correction `f460df92`: one changed file, `core/minecraft/src/managed_fs.rs` (SHA256 `ade3d16df3045fe750bd920f5746a2e313b905c925fa5ee7eb003ab373e4affc`). The unchanged generated [external-library fixture](library-lifecycle.md#real-external-library-launch-and-report-reopen) has Vanilla1.20.1, offline ExternalParity and profile-owned Java17. No game or human credential action occurs during this timing comparison.
+
+The same frozen `readiness-timing.mjs` (SHA256 `92ab8a8d57bd50f6df0efc0f522387d9ea0a85c40b5fce7181611944f125df7a`) measures three sequential ordinary instance-detail GETs, including bounded body consumption, JSON parsing and strict Ready assertions. Account/config checks are outside timing. Its10-second budget is observational, not a product requirement; invalid/non-Ready responses are inconclusive, never a timing RED.
+
+| Optimized binary | Three Ready reads, milliseconds | Helper result |
+| --- | --- | --- |
+| Baseline | 10983.606, 10959.854, 10973.216 | Over budget, exit1 |
+| Changed | 8609.122, 8439.458, 8387.656 | Within budget, exit0 |
+| Restored exact baseline | 11250.099, 11182.038, 11193.329 | Over budget, exit1 |
+
+Baseline executable SHA256 is `e89cff84caed70ed65cc5b65c1e05f8c7fbb19b98bff28513ee537ee22aa63bc`; changed executable is `7d848245ebba897b46fa933403b0fca6b08780889bf53248b1bf9ac4364ddd20`. The old→changed→old sequence keeps the fixture, helper and request assertions fixed, with no overlapping owned APIs or builds/profiling during these reads. Median elapsed time is about23% lower than the first baseline; eight seconds is still substantial. This is one-host API evidence, not a native/launch/release benchmark or diagnosis of earlier pending intervals.
+
+A separate five-second native CPU sample during an earlier baseline read localizes work to installed-artifact verification and nested directory/absolute-binding validation. It does not account for the entire read. The existing batch owner now calls native directory revision primitives directly where they already validate retained ancestry, removing duplicate managed wrappers and one redundant initial leaf check. Every retained child still gets managed revalidation; final managed settlement/admission, exact-name refresh, leaf namespace/identity/revision, outer operation checks, hashes and the final inventory revision pass remain. No cache, public interface, coordinator or UI change is introduced. Independent safety and simplicity reviews find no concrete lost guarantee.
+
+The existing16 batch tests, inventory integrity test and10 preflight tests pass; ordinary reads stay fresh and artifact/publication/generation/waiter-loss refusals remain. The full retained Minecraft library passes1,012 tests (`readiness-minecraft-full.log`, exit0). Grouped-readiness behavior and the composed external install/Launch/Stop/reopen journey also pass (`readiness-{grouped-candidate,external-api-candidate}.log`); the latter uses fake Java, not real gameplay. Scoped Rust2024 formatting and whitespace checks pass. Evidence logs are `readiness-{release-timing,candidate-timing,baseline-return-timing}.log`, `readiness-release-sample.txt`, `readiness-{batch-baseline,batch-candidate,inventory-candidate,preflight-candidate}.log` and the two release-build logs. Debug and profiled timing runs are separate, not pooled with this comparison.
+
+Owned changed API47871 and restored-baseline48391 both exit0 on normal SIGINT and are absent; the unrelated API is untouched. The bounded final collector exits0 with empty errors, matching the complete retained snapshot SHA256 `84f90deeb9f1c7228869ea0148efe0d40cc27de905958534fd7a9c5ec03de8c9`, including recorded game/runtime files, canaries, logical metadata and game-written tree. `readiness-preservation-candidate-final.json` is a final-state comparison, not evidence that no transient state ever changed. Authentication, first-narrator Continue → Invalid session, native rendering/gameplay and full parity remain unresolved.
+
 ## Changes and retained behavior
 
 - `PerformanceSection.tsx` retains the existing settings sheet, Managed/Vanilla/Custom choices, copy, autosave, saving state and failure rollback. Only the Guardian mode and Guardian idle-integrity settings rows and their local state/imports were removed.
