@@ -19,7 +19,7 @@ The historical-order regression and ACK-before-Ready test have meaningful REDs a
 
 [Forge evidence](forge-loader.md#exact-recorded-metadata-recovery) owns commands, hashes, controls and qualifications. The correction covers earliest-Forge raw-byte reconstruction, not the public fixed-provider rebuild entrypoint, a complete cancellation/process-exit matrix or other-era serialization.
 
-The earlier [game-directory fix](forge-loader.md#legacy-game-directory-binding) has real1.4.7 boot/Stop/reopen evidence with exact preservation and joined exits. That frozen runtime predates this recovery slice; no new native or installed acceptance is claimed.
+The earlier [game-directory fix](forge-loader.md#legacy-game-directory-binding) has real1.4.7 boot/Stop/reopen evidence with exact preservation and joined exits. That frozen runtime predates this recovery slice; no new native or installed acceptance is claimed. A [fresh unlocked control](native-auth.md#fresh-unlocked-paint-control) now observes complete onboarding in both unchanged retained Startup/Inspector artifacts, two normal exits0 and exact empty-profile logical preservation. The earlier rendering failure is unreproduced, not fixed; no speculative UI change follows.
 
 ## Unresolved handoffs
 
