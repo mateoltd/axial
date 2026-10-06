@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-06. Latest changed-scope review from `95e2dca7` on `main`: actual nonempty Performance cycle and API reopen evidence. Earlier reviewed scopes remain below; they are not new verification. This is not a parity or release certificate. Detailed history belongs in [integration evidence](integration.md), [Content evidence](pack-files.md) and Git.
+Updated 2026-10-06. Latest changed-scope review from `757e8c4e` on `main`: no-launch qualification preview. Earlier reviewed scopes remain below; they are not new verification. This is not a parity or release certificate. Detailed history belongs in [integration evidence](integration.md), [Content evidence](pack-files.md) and Git.
 
 ## Scope and ownership
 
@@ -17,6 +17,8 @@ The next changed scope is tests-only: the existing post-move crash fixture cover
 The following native Performance scope changes only evidence. Root owns UI/processes and records; separate owners prepare a bounded before-mutation witness, review its reused settlement verifier and inspect the observed preparation delay read-only. No new product abstraction, configuration or UI control is introduced.
 
 ## Findings and corrections
+
+- The live qualification preview omitted the existing eight-run plan. Reuse its descriptor owner without intents/sessions/persistence; keep absent-suite serialization at the existing qualification response owner instead of a caller-side JSON overwrite. Preview-only missing reasons now match legacy, while actual-suite managed-install refusal remains unchanged. Actual HTTP RED/GREEN/reopen preserves all-table metadata digests; independent Standards/Spec review is clear. No new abstraction, UI change or recurring AGENTS.md rule is warranted. [Preview evidence](current-benchmarks.md#no-launch-qualification-preview) records pending retained regression coverage and separate resource-budget/narrator/authentication/full-parity handoffs.
 
 - The current Performance journey uses existing internal-runtime mutation/health/rollback owners, not invented UI buttons or automatic Play effects. Separate fixture ownership and read-only review correct only exact last-instance selection and Managed-branch health validation. Apply/reapply/remove/explicit rollback/final remove pass with14 independently hashed files, zero checked durable obligations and exact original ten-report/Content preservation; API exit0/reopen retains full captured final state. No production abstraction, namespace churn, safety waiver or new AGENTS.md rule is warranted. [Cycle evidence](performance-ui.md#actual-nonempty-bundle-cycle) keeps gameplay, interruption, benchmarks, native/installed and narrator/authentication handoffs open.
 
