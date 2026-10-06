@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-06. Scope: recorded managed-file removal recovery after `f0f1bb01`, locally installed ARM64 Vanilla at `318e7ede`, and Performance effect-intent recovery at `3f30c777` on `main`. This is not a release or full-parity certificate.
+Updated 2026-10-06. Scope: recorded managed-file removal recovery after `f0f1bb01`, locally installed ARM64 Vanilla at `318e7ede`, Performance effect-intent recovery at `3f30c777`, and Linux AppImage at `c471e96d` on `main`. This is not a release or full-parity certificate.
 
 ## Ownership
 
@@ -27,12 +27,15 @@ Prior [exact recorded-metadata recovery](forge-loader.md#exact-recorded-metadata
 
 [Performance effect-intent recovery](performance-ui.md#effect-intent-remove-preserves-the-bundle) uses the existing checkpoint and recovery owner, with no production change or duplicate test. Actual diagnostic exit43 precedes file removal; ordinary recovery fails the same command and preserves the complete nonempty bundle/internal tree through Quit/reopen. The bounded witness's restoration-only directory link-count premise is corrected to the exact observed transition; every later file proof remains exact. Independent Standards/Spec reviews are clear. Existing filesystem-fixture rules suffice; no AGENTS.md addition is needed.
 
+[Linux package inspection](linux-package.md) uses the existing target lease, ordinary bundle configuration and unchanged frontend verifier. Transfer-only AppleDouble correction introduces no product abstraction, verifier waiver or UI change. Real optimized build joins0 and404 extracted payload entries match staged bytes/types/modes/links; expected marker/RUNPATH transformations remain separately qualified. Exact container stop follows child/copy joins and retains inputs/evidence; its idle PID1 exit137 is not application settlement. Independent Standards, Spec and architecture reviews are clear. Existing fixture/evidence rules suffice, with no AGENTS.md addition. No installation, credential, trust or runtime workaround follows.
+
 ## Unresolved handoffs
 
 - [Accounts/startup](native-auth.md): the earlier Invalid session and paint failures remain undiagnosed despite later passing controls; Java-window access and authenticated distinct-build continuity remain open. No further password or permission experiment is required by this review.
 - [Forge](forge-loader.md): other retained-era recorded-byte/failure matrices and gameplay remain open.
 - [Performance](performance-ui.md), [benchmarks](current-benchmarks.md), [Content](pack-files.md) and [library lifecycle](library-lifecycle.md) retain their documented qualification/recovery limits. Passing retries do not diagnose historical Busy, no-child, timeout or hosted failures.
 - [Integration](integration.md) owns native switching, playable world/save, installed-platform and trusted update/restart gates. No deployment, publication, signing or credential-permission change follows.
+- [Linux package](linux-package.md) owns X11/media, absolute icon-link and wrapped-executable permission handoffs. Payload equality and host session presence do not prove an ordinary native launch or portable runtime.
 
 ## Prior reviews
 
