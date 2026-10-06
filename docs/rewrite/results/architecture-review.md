@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-06. Latest changed-scope review from `3a6d886f` on `main`: one existing Content crash test and qualified native NeoForge evidence. Earlier reviewed scopes remain below; they are not new verification. This is not a parity or release certificate. Detailed history belongs in [integration evidence](integration.md), [Content evidence](pack-files.md) and Git.
+Updated 2026-10-06. Latest changed-scope review from `95e2dca7` on `main`: actual nonempty Performance cycle and API reopen evidence. Earlier reviewed scopes remain below; they are not new verification. This is not a parity or release certificate. Detailed history belongs in [integration evidence](integration.md), [Content evidence](pack-files.md) and Git.
 
 ## Scope and ownership
 
@@ -17,6 +17,8 @@ The next changed scope is tests-only: the existing post-move crash fixture cover
 The following native Performance scope changes only evidence. Root owns UI/processes and records; separate owners prepare a bounded before-mutation witness, review its reused settlement verifier and inspect the observed preparation delay read-only. No new product abstraction, configuration or UI control is introduced.
 
 ## Findings and corrections
+
+- The current Performance journey uses existing internal-runtime mutation/health/rollback owners, not invented UI buttons or automatic Play effects. Separate fixture ownership and read-only review correct only exact last-instance selection and Managed-branch health validation. Apply/reapply/remove/explicit rollback/final remove pass with14 independently hashed files, zero checked durable obligations and exact original ten-report/Content preservation; API exit0/reopen retains full captured final state. No production abstraction, namespace churn, safety waiver or new AGENTS.md rule is warranted. [Cycle evidence](performance-ui.md#actual-nonempty-bundle-cycle) keeps gameplay, interruption, benchmarks, native/installed and narrator/authentication handoffs open.
 
 - Restoration extends the existing bounded checkpoint and exact receipt CAS. It reserves the complete future restored proof before effects, preserves immutable original/publication evidence, freezes fresh restoration evidence once and requires durable acknowledgement before private cleanup. Optional omission is not acknowledgement.
 - A valid near-limit receipt could prevent proof-free cleanup from running. Pass zero proof capacity to the existing native reconciliation on Capacity; ordinary cleanup proceeds, but required restoration still refuses without room for its proof. The actual public-mutation child reproduced the stall after its cleanup canary was removed.
