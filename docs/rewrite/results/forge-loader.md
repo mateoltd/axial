@@ -1,6 +1,23 @@
 # Forge loader
 
-Status: modern Forge47.4.10/Minecraft1.20.1 and legacy-FML Forge14.23.5.2860/Minecraft1.12.2 have qualified real install/startup/Stop/reopen evidence. This is not all-era or gameplay parity. Current runtime-slice verification passes **980 Minecraft /768 app /105 API /79 desktop tests**. Earlier handoff details below are historical; current composed evidence is in [integration](integration.md).
+Status: modern Forge47.4.10/Minecraft1.20.1 and legacy-FML Forge14.23.5.2860/Minecraft1.12.2 have qualified real install/startup/Stop/reopen evidence. Earliest client/universal ZIP routes now have real install/entry-content/preservation/reopen evidence, not launch acceptance. This is not all-era or gameplay parity. Earlier handoff details and test counts below are historical; current composed evidence is in [integration](integration.md).
+
+## Earliest client and universal overlays
+
+2026-10-06, exact `10befcc8` API executable SHA256 `eb928ad5419f62212cfcc941cf8c2aa1b097a076c459e79c2d8aa9a9dc8f8bbc` completes both ordinary Forge Create/install workflows in fresh generated `/private/tmp/forge-overlay.uTpBMLqt/profile`. Offline OverlayParity, Vanilla Performance,2048/512MiB, auto-optimize/telemetry/Discord off. Capture each installed Vanilla base before submitting its single Forge creation; do not replay accepted writes. Each loader queue reaches succeeded/Final child activation, not merely a base checkpoint.
+
+| Minecraft / Forge | Official archive | Child installation / operation | Entry comparison |
+| --- | --- | --- | --- |
+| 1.2.5 /3.4.9.171 | [client ZIP](https://maven.minecraftforge.net/net/minecraftforge/forge/1.2.5-3.4.9.171/forge-1.2.5-3.4.9.171-client.zip),841570bytes, SHA1 `65fe624282d24b03e2a35212f9ab6c5e3e10a5e0` | `e67e7865-7883-4af0-93df-6c46452277f8` / `792e1af2-9217-4291-ba0a-6e895ae9d624` | 1524 base/298 overlay/1695 child;124 replaced/174 introduced/3 signatures removed |
+| 1.4.7 /6.6.2.534 | [universal ZIP](https://maven.minecraftforge.net/net/minecraftforge/forge/1.4.7-6.6.2.534/forge-1.4.7-6.6.2.534-universal.zip),1778669bytes, SHA1 `bd0f40a78c18140265ff042a96d73f01c4f60906` | `0a3eab53-1201-4286-9cf8-59d6e8319966` / `f714daeb-3826-451e-8b3e-4950a970d722` | 1933 base/746 overlay/2429 child;245 replaced/501 introduced/5 signatures removed |
+
+Instances are `def5e8c5-3e61-4be1-bdda-16f0026d0549` and `bf03873d-88c3-4812-a839-5fe7e1f1d9d7`. Independent official downloads match their `.sha1` sidecars; the comparison re-pins each source's size/SHA1 on the same opened descriptor before reading entries. Complete child entry maps match retained base plus official overlay, excluding only the leaf's exact manifest/signature policy. It performs no extraction or execution and requires nonempty replacement/introduction sets. These separate downloads are not falsely described as retained queue-source bytes. Source selection chooses client before1.3 and universal through1.4; neither uses an installer JVM.
+
+The independently reviewed bounded collector verifies all four ready recorded inventories (1920 entries,486 unique files,67788462 deduplicated bytes), exact SHA1/size/native identities, queue/operation/Final contract bindings, child materialization/inheritance and derived client digest. Each base's recorded file descriptors/incarnations, JAR and JSON remain exact after its child. The second base also preserves the first tuple's complete captured rows. Selected base activation metadata legitimately rebinds to its loader install; unchanged base **files** do not mean an unchanged base activation row. Account/settings/selection hashes, profile marker and sibling canary stay exact. No launch, benchmark, Content or Performance history/effects are introduced; checked queue/creation obligations are zero and SQLite quick_check is OK.
+
+API71467 and reopened81200 both exit0 on ordinary SIGINT. Complete child/closed/reopened/final evidence is byte-identical, SHA256 `c7788ddf60237ebde0996735358dddaff590c96ce0119b675df8d5e590de340f`. Actual detail reads on reopen preserve both exact tuples but remain blocked: “Java 8 update 312 or newer is required.” No runtime override/floor waiver or game launch occurs. Native access remains unavailable; narrator, gameplay, older-version startup, interruption and installed-platform gates remain open.
+
+Evidence is `forge-overlay-*`. The helper initially uses invalid catalog source `forge`, then an overlong synthetic username; both400 refusals precede their intended effects, and failed logs remain. Correct only those test inputs. Review also adds bounded HTTP bodies and same-descriptor official archive binding; readiness output is observation, not an exit-code-based success claim. The actual immutable inventory collector and entry comparator pass; no production/UI change or new architecture rule is warranted.
 
 ## Current ordinary native lifecycle
 
