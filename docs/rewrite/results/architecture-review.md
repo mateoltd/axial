@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-06. Current scope: measured ordinary Ready-read latency from `5f7f7cc2`, the focused managed-file batch simplification `f460df92`, and unchanged-source native visibility diagnosis at `e4d5ace8`. This is not a parity or release certificate.
+Updated 2026-10-06. Current scope: measured ordinary Ready-read latency from `5f7f7cc2`, the focused managed-file batch simplification `f460df92`, unchanged-source native visibility diagnosis at `e4d5ace8`, and exact-source Linux verification at `1f1dbc85`. This is not a parity or release certificate.
 
 ## Scope and ownership
 
@@ -23,6 +23,8 @@ The new before-third-game witness has independent review and one actual passing 
 [Measured API evidence](performance-ui.md#measured-ordinary-read-validation-cost) records optimized old→changed→old with the same bounded helper and fixed generated fixture. All nine reads are strict Ready. Median10,973ms→8,439ms→11,193ms supports about23% lower elapsed time in this comparison, not a general latency guarantee. The10-second feedback budget is observational, not an SLO; debug and profiled reads are separate. Eight seconds remains substantial.
 
 Existing16 batch, one inventory-integrity and10 preflight checks pass, followed by all1,012 retained Minecraft tests, grouped readiness and the composed external install/Launch/Stop/reopen test (fake Java, not gameplay); scoped formatting/diff checks and optimized build pass. Both changed/restored runtimes exit0 on ordinary SIGINT and are absent. The final bounded preservation witness exactly matches the retained external-launch snapshot; this is captured final-state equality, not whole-profile or no-transient-effect proof. No game, credential or native action occurs in the timing comparison. Prior [external launch](library-lifecycle.md#real-external-library-launch-and-report-reopen), [native probe](native-auth.md#controlled-probe-launch-and-preserved-reopen) and [root restoration](library-lifecycle.md#real-provider-external-installation-and-reopen) evidence remain separately scoped.
+
+[Exact-source Linux selection](performance-ui.md#current-source-linux-verification) now passes all six libraries:2,311 checks,14 existing ignores, zero failures. Matching Docker exec events prove wrapper exit0 despite the SSH handle's broken pipe. Source/generation hashes verify; no source change or test relaxation follows. The settled disposable container is stopped with evidence retained and unrelated services unchanged. Independent Standards/Spec review is clear on native Unix/Windows ancestry and retained managed fences. No new architectural pattern or AGENTS.md rule is warranted; installed/native and user-reported failures remain open.
 
 ## Unresolved handoffs
 
