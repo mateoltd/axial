@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-06. Scope: recorded managed-file removal recovery after `f0f1bb01` on `main`. This is not a release or full-parity certificate.
+Updated 2026-10-06. Scope: recorded managed-file removal recovery after `f0f1bb01` and the locally installed ARM64 Vanilla control at `318e7ede` on `main`. This is not a release or full-parity certificate.
 
 ## Ownership
 
@@ -21,9 +21,11 @@ The public-owner removal crash/Resume test has a meaningful Pending RED after sa
 
 Prior [exact recorded-metadata recovery](forge-loader.md#exact-recorded-metadata-recovery), [game-directory fix](forge-loader.md#legacy-game-directory-binding) and [unlocked paint control](native-auth.md#fresh-unlocked-paint-control) retain their bounded evidence. Their runtime artifacts predate this slice; no new installed or visual acceptance is inherited.
 
+[Current-source installed Vanilla](native-auth.md#current-source-installed-vanilla-journey) independently binds its actual app/DMG and fresh profile. Native onboarding/install, Playing/output, Busy Quit refusal, acknowledged Stop and ordinary Quit/reopen pass locally. A fresh post-game logical database and all24 saved-world file hashes remain exact. Menu/world entry/save are human-reported; the launcher lists the saved world. A second reload/settlement is pending. No product abstraction, UI or speculative visibility/authentication workaround is introduced. The existing evidence rules suffice.
+
 ## Unresolved handoffs
 
-- [Accounts/startup](native-auth.md): narrator Continue → Invalid session, normal Startup versus Inspector paint, Java-window access and authenticated distinct-build continuity remain open. No further password or permission experiment is required by this review.
+- [Accounts/startup](native-auth.md): the earlier Invalid session and paint failures remain undiagnosed despite later passing controls; Java-window access and authenticated distinct-build continuity remain open. No further password or permission experiment is required by this review.
 - [Forge](forge-loader.md): other retained-era recorded-byte/failure matrices and gameplay remain open.
 - [Performance](performance-ui.md), [benchmarks](current-benchmarks.md), [Content](pack-files.md) and [library lifecycle](library-lifecycle.md) retain their documented qualification/recovery limits. Passing retries do not diagnose historical Busy, no-child, timeout or hosted failures.
 - [Integration](integration.md) owns native switching, playable world/save, installed-platform and trusted update/restart gates. No deployment, publication, signing or credential-permission change follows.
