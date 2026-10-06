@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-06. Current scope: isolated Finder launch visibility control, lost benchmark acknowledgement on unchanged `41529878`, accepted Performance Remove continuation, the Fabric1.20.1 dependency fix and its real startup/settlement/reopen evidence. Preceding Linux disk/Content findings remain linked below. This is not a parity or release certificate.
+Updated 2026-10-06. Current scope: composed clean comparison coverage, isolated Finder launch visibility control, lost benchmark acknowledgement on unchanged `41529878`, accepted Performance Remove continuation, the Fabric1.20.1 dependency fix and its real startup/settlement/reopen evidence. Preceding Linux disk/Content findings remain linked below. This is not a parity or release certificate.
 
 ## Scope and ownership
 
@@ -9,6 +9,8 @@ Root owns production integration, generated profile/API actions, witness executi
 Full non-Guardian behavior and the existing UI remain required on `main`. Predecessor import/application upgrades are excluded; current-app persistence, accepted-operation recovery and supported Minecraft/loaders remain required.
 
 ## Findings and fixes
+
+The existing configured-mode and report owners produce a valid canonical Vanilla/Managed comparison without another coordinator. A narrow downloaded-process fixture variation permits natural clean exit; one public HTTP journey covers actual mode override, report production, exact comparison binding and reopen. Default fixtures remain unchanged. Benchmark descriptors are metadata in both launchers; changing them into implicit mode commands would introduce an unrequested policy. No production change, framework, one-use decision model or AGENTS rule is warranted.
 
 Apple's existing launch-environment mechanism permits a Finder-open control without shell activation, default-profile access or product machinery. Keep the copied/plist-modified/ad-hoc-resealed artifact distinct from its preserved source artifact. Loaded accessibility and missing painted content remain an observation, not a diagnosed renderer defect; copying, sealing and launch path changed together. No source/UI change, abstraction, configuration framework or AGENTS rule is justified.
 
@@ -27,6 +29,8 @@ Standards review identifies duplicate subprocess supervision in the load/disk di
 The Content witness uses the existing public-move helper and production recovery/queue owners, not a parallel decision model or recovery implementation. Review corrects aggregate SQL-output charging; the final bounded baseline matches the first byte-for-byte. Ordinary process settlement owns compensation, one fresh uninstall owns its completion, and complete captured state is compared after Quit/reopen. Neither a409 alone nor a terminal queue label substitutes for exact receipt/file/metadata checks. Existing budget and commit-boundary rules cover this witness correction; no additional anecdotal rule is needed.
 
 ## Validation
+
+[Configured comparison evidence](current-benchmarks.md#configured-clean-comparison-through-http) records first-run pass and all116 API checks/eight existing helpers ignored, normal wrapper0. Public session/report settlement and exact complete report reopen pass; independent Standards/Spec and scoped formatting checks are clear. This is real fixture-process composition, not real-JVM performance, exact managed installation or native acceptance.
 
 [Finder visibility evidence](native-auth.md#finder-launch-visibility-control) binds the copied executable, exact fresh profile/metadata and listener. Ordinary menu Quit leaves PID/listener absent and complete logical database unchanged; all checked work tables stay empty and SQLite is OK. Onboarding accessibility loads, but captured pixels remain incomplete. Physical foreground visibility and cause are unverified; there is no joined application exit code or narrator/gameplay acceptance.
 
