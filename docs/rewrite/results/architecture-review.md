@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-06. Current scope: measured ordinary Ready-read latency from `5f7f7cc2` and the focused managed-file batch simplification `f460df92`. This is not a parity or release certificate.
+Updated 2026-10-06. Current scope: measured ordinary Ready-read latency from `5f7f7cc2`, the focused managed-file batch simplification `f460df92`, and unchanged-source native visibility diagnosis at `e4d5ace8`. This is not a parity or release certificate.
 
 ## Scope and ownership
 
@@ -13,6 +13,10 @@ Full non-Guardian behavior and the existing UI remain required on `main`. Predec
 The actual detail GET performs fresh installed-artifact verification before Java selection. Optimized reads remain about11s; a five-second CPU sample lands in nested retained-directory/absolute-binding checks. Native directory revision primitives already validate retained ancestry, while managed wrappers repeat that work. Reuse those native primitives only inside the existing batch, removing the duplicate wrappers and one redundant initial leaf check. Retain every child managed check, final managed settlement/admission, exact-name refresh and original child identity, leaf namespace/revision, outer operation fences, hashes and the final inventory revision pass. Empty-parent and absent-leaf paths still end in managed validation.
 
 No readiness cache, interface, coordinator, schema, UI or global validator change is added. Independent safety and simplicity reviews are clear. Existing AGENTS.md single-owner/direct-implementation and required-safety rules cover this finding; no new anecdotal rule is needed.
+
+The separate [native visibility probe](native-auth.md#current-source-native-visibility-probe) observes a hidden document and pending entrance animation, not a proved layout failure or the normal artifact's cause. Keep diagnostic builds separate; do not add CSS/activation machinery from a blank capture alone. The collector refuses the historical full-settings digest after ordinary navigation/Quit without a captured field-level baseline. Retain that refusal and prepare fresh actual projections before further mutations; do not manufacture retrospective preservation. No product fix or additional architecture rule follows from this diagnosis.
+
+The new before-third-game witness has independent review and one actual passing bounded capture, not acceptance of its unexecuted Stop/reopen phases. Review corrects a tree budget charged from an earlier stat instead of the actual validated read; observed Quilt caches require a measured32MiB/file/64MiB/tree capacity, retaining the failed smaller-budget capture and all guards. Existing total-batch-budget guidance already covers the accounting finding. Evidence review also removes unproved physical-occlusion, normal-artifact-cause and no-automatic-credential-read claims. No new state owner or source/UI change follows.
 
 ## Validation
 
