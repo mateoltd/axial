@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-07. Changed scope: Linux packaging/toolchain correction over `93ae02b0` on `main`. This is not a release or full-parity certificate.
+Updated 2026-10-07. Changed scope: benchmark continuation and Intel installed-package acceptance at unchanged `5d06ec9b` on `main`, following the recorded Linux packaging correction. This is not a release or full-parity certificate.
 
 ## Ownership
 
@@ -11,10 +11,13 @@ Root owns integration, evidence, profiles and serialized builds. Independent Sta
 - Correct the observed EGL/media packaging boundary through the released CLI2.12.0, matching existing toolchain/CI pins, the existing Linux media overlay and explicit base/good GStreamer build prerequisites. Runtime crates, product Rust, frontend generation and UI remain unchanged.
 - No shipped preload/backend override, private bundler, codec implementation, new state owner, wrapper extension or speculative abstraction. Diagnostic controls stay private. Released tooling also produces a relative working icon link and0755 wrapper; do not manually patch the package.
 - No new redundant naming/layer or recurring pattern warrants another simplification or AGENTS.md rule. Existing ownership, real-boundary testing and evidence rules cover this slice.
+- Continue the original two-run suite through its existing Tick/intent/session/report owners, without a replacement driver or journal. Correct only the private witness's normalized-path sorting and require exact accepted/current bindings; do not refresh changed evidence or reinterpret labels as settlement.
 
 ## Validation
 
-Standards: no documented violations or actionable smells. Spec: no source-scope/implementation findings; installed acceptance remains incomplete. The focused delivery/dependency/generation selection passes60/0 in0.97s; whitespace checks pass.
+Earlier Linux source reviews: Standards has no documented violations/actionable smells; Spec has no source-scope/implementation findings. Its focused delivery/dependency/generation selection passes60/0 in0.97s. Current additions are private fixtures and acceptance documentation; independent evidence review corrects two overbroad summary phrases. Whitespace checks pass; installed acceptance remains incomplete.
+
+[Benchmark continuation](current-benchmarks.md#completing-the-retained-two-run-suite) preserves all prior histories and protected files, plus the original intents, through real boot/Stop/completion/cold reopen/final normal exit. Independent helper/evidence review is clear; its initial refused fixture comparison is retained. [Intel installed evidence](native-auth.md#installed-intel-package-under-rosetta) uses the released pinned CLI, existing macOS overlay and a fresh isolated copy/profile, with no source, signing-policy, UI or extra runtime path. Logical preservation is not whole-profile identity; Rosetta is not physical Intel, and boot is not gameplay.
 
 [Linux evidence](linux-package.md#released-packager-and-media-correction) binds the joined0 media build, unchanged raw executable, verified generation and all1345 staged/extracted payload entries. Ordinary no-override startup no longer shows the original EGL abort or missing media elements in its bounded control. Matched tools load the actual extracted plugins on Fedora and decode the retained sound sprite to a fakesink. Diagnostic termination143 is not normal Quit; decoding is not audible playback. No other-platform, credential, trust or full-parity claim follows.
 
