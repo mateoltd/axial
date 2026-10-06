@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-06. Current scope: accepted Performance Remove continuation on unchanged `ed3c7b60`, the missing Fabric1.20.1 bundle dependency, its real startup/settlement/reopen evidence and post-build executable-binding refusal. Preceding Linux disk/Content findings remain linked below. This is not a parity or release certificate.
+Updated 2026-10-06. Current scope: lost benchmark acknowledgement on unchanged `41529878`, accepted Performance Remove continuation, the Fabric1.20.1 dependency fix and its real startup/settlement/reopen evidence. Preceding Linux disk/Content findings remain linked below. This is not a parity or release certificate.
 
 ## Scope and ownership
 
@@ -9,6 +9,8 @@ Root owns production integration, generated profile/API actions, witness executi
 Full non-Guardian behavior and the existing UI remain required on `main`. Predecessor import/application upgrades are excluded; current-app persistence, accepted-operation recovery and supported Minecraft/loaders remain required.
 
 ## Findings and fixes
+
+The existing benchmark suite/intent/session owners reconcile a discarded success response without another launch. A narrow disposable relay validates the genuine acknowledgement before withholding it; GET-only inspection and one identity-bound Stop then establish actual settlement. Keep the pure GET's historical Running label separate from process/report proof; do not Tick merely to refresh it because that can start the next planned run. The only correction is a copied Vanilla expectation in the diagnostic helper, caught before admission and bound to the actual typed Fabric identity/configuration. No production/UI change, second coordinator or AGENTS rule is warranted.
 
 The missing runtime gate is evidence, not an established product defect: the existing Prepared seam and production recovery owner suffice for accepted Remove continuation. One queued Remove survives a diagnostic exit42; ordinary startup completes the same durable command without another mutation. The read-only witness keeps directory receipts opaque, binds the complete pending proof and checks actual files plus bounded rollback retention, not terminal labels alone. No new recovery owner, journal, product/UI code or AGENTS rule is warranted.
 
@@ -23,6 +25,8 @@ Standards review identifies duplicate subprocess supervision in the load/disk di
 The Content witness uses the existing public-move helper and production recovery/queue owners, not a parallel decision model or recovery implementation. Review corrects aggregate SQL-output charging; the final bounded baseline matches the first byte-for-byte. Ordinary process settlement owns compensation, one fresh uninstall owns its completion, and complete captured state is compared after Quit/reopen. Neither a409 alone nor a terminal queue label substitutes for exact receipt/file/metadata checks. Existing budget and commit-boundary rules cover this witness correction; no additional anecdotal rule is needed.
 
 ## Validation
+
+[Benchmark acknowledgement evidence](current-benchmarks.md#lost-first-run-acknowledgement) binds the one dropped response, later observed real child/boot, acknowledged stopped report, unreserved second intent and exact retained histories/files. Settled capture remains identical through normal Quit/reopen/final Quit with owned PIDs/listeners absent. A wrong-intent negative refuses. This is completed-acceptance response loss, not request-waiter cancellation or comparable measurements. The normal foreground-launch visibility control remains unperformed: the supported macOS computer-use API exposes background selection but no foreground-launch operation; no CLI activation workaround or default-profile launch follows.
 
 [Remove continuation evidence](performance-ui.md#prepared-remove-restart-continuation) records correct/wrong-ID witnesses, ordinary completion and exact15-file snapshot retention. Complete captured settlement stays identical through normal Quit/reopen/final Quit; both ordinary APIs exit0 and owned PIDs/listeners are absent. Prior13 histories/seven commands and protected state remain exact. This is the before-target-effects boundary, not arbitrary mid-effect recovery. Supported native selection in a separate empty generated profile still reports Mac locked; idle test termination is not ordinary Quit or native acceptance.
 
