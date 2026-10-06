@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-06. Scope: recorded managed-file removal recovery after `f0f1bb01` and the locally installed ARM64 Vanilla control at `318e7ede` on `main`. This is not a release or full-parity certificate.
+Updated 2026-10-06. Scope: recorded managed-file removal recovery after `f0f1bb01`, locally installed ARM64 Vanilla at `318e7ede`, and Performance effect-intent recovery at `3f30c777` on `main`. This is not a release or full-parity certificate.
 
 ## Ownership
 
@@ -21,7 +21,9 @@ The public-owner removal crash/Resume test has a meaningful Pending RED after sa
 
 Prior [exact recorded-metadata recovery](forge-loader.md#exact-recorded-metadata-recovery), [game-directory fix](forge-loader.md#legacy-game-directory-binding) and [unlocked paint control](native-auth.md#fresh-unlocked-paint-control) retain their bounded evidence. Their runtime artifacts predate this slice; no new installed or visual acceptance is inherited.
 
-[Current-source installed Vanilla](native-auth.md#current-source-installed-vanilla-journey) independently binds its actual app/DMG and fresh profile. Native onboarding/install, Playing/output, Busy Quit refusal, acknowledged Stop and ordinary Quit/reopen pass locally. A fresh post-game logical database and all24 saved-world file hashes remain exact. Menu/world entry/save are human-reported; the launcher lists the saved world. A second reload/settlement is pending. No product abstraction, UI or speculative visibility/authentication workaround is introduced. The existing evidence rules suffice.
+[Current-source installed Vanilla](native-auth.md#current-source-installed-vanilla-journey) independently binds its actual app/DMG and fresh profile. Native onboarding/install, Playing/output, Busy Quit refusal, acknowledged Stops and ordinary Quit/reopen pass locally. A fresh post-game logical database and all24 saved-world file hashes remain exact; native backup produces a byte-identical real-world copy. Menu/world entry/save are human-reported; the launcher lists the saved world. The unanswered second gameplay-reload handoff is retired without acceptance; all owned native/game processes are closed. No product abstraction, UI or speculative visibility/authentication workaround is introduced. The existing evidence rules suffice.
+
+[Performance effect-intent recovery](performance-ui.md#effect-intent-remove-preserves-the-bundle) uses the existing checkpoint and recovery owner, with no production change or duplicate test. Actual diagnostic exit43 precedes file removal; ordinary recovery fails the same command and preserves the complete nonempty bundle/internal tree through Quit/reopen. The bounded witness's restoration-only directory link-count premise is corrected to the exact observed transition; every later file proof remains exact. Independent Standards/Spec reviews are clear. Existing filesystem-fixture rules suffice; no AGENTS.md addition is needed.
 
 ## Unresolved handoffs
 
