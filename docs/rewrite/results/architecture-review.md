@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-06. Current scope: the missing Fabric1.20.1 bundle dependency after `9bf8e8ab`, its real startup/settlement/reopen evidence and post-build executable-binding refusal. Preceding Linux disk/Content findings remain linked below. This is not a parity or release certificate.
+Updated 2026-10-06. Current scope: accepted Performance Remove continuation on unchanged `ed3c7b60`, the missing Fabric1.20.1 bundle dependency, its real startup/settlement/reopen evidence and post-build executable-binding refusal. Preceding Linux disk/Content findings remain linked below. This is not a parity or release certificate.
 
 ## Scope and ownership
 
@@ -9,6 +9,8 @@ Root owns production integration, generated profile/API actions, witness executi
 Full non-Guardian behavior and the existing UI remain required on `main`. Predecessor import/application upgrades are excluded; current-app persistence, accepted-operation recovery and supported Minecraft/loaders remain required.
 
 ## Findings and fixes
+
+The missing runtime gate is evidence, not an established product defect: the existing Prepared seam and production recovery owner suffice for accepted Remove continuation. One queued Remove survives a diagnostic exit42; ordinary startup completes the same durable command without another mutation. The read-only witness keeps directory receipts opaque, binds the complete pending proof and checks actual files plus bounded rollback retention, not terminal labels alone. No new recovery owner, journal, product/UI code or AGENTS rule is warranted.
 
 The actual bundled launch waits in Fabric's error-window process because More Culling requires Cloth Config while provider metadata omits that dependency. Two declarative catalog entries add the evidenced1.20.1 root in the existing composition owner. No resolver, wrapper, cache, Cargo dependency, schema, UI or other state owner is added. Adjacent1.20 remains unchanged. Standards/Spec review is clear; no recurring new rule warrants expanding AGENTS.md.
 
@@ -21,6 +23,8 @@ Standards review identifies duplicate subprocess supervision in the load/disk di
 The Content witness uses the existing public-move helper and production recovery/queue owners, not a parallel decision model or recovery implementation. Review corrects aggregate SQL-output charging; the final bounded baseline matches the first byte-for-byte. Ordinary process settlement owns compensation, one fresh uninstall owns its completion, and complete captured state is compared after Quit/reopen. Neither a409 alone nor a terminal queue label substitutes for exact receipt/file/metadata checks. Existing budget and commit-boundary rules cover this witness correction; no additional anecdotal rule is needed.
 
 ## Validation
+
+[Remove continuation evidence](performance-ui.md#prepared-remove-restart-continuation) records correct/wrong-ID witnesses, ordinary completion and exact15-file snapshot retention. Complete captured settlement stays identical through normal Quit/reopen/final Quit; both ordinary APIs exit0 and owned PIDs/listeners are absent. Prior13 histories/seven commands and protected state remain exact. This is the before-target-effects boundary, not arbitrary mid-effect recovery. Supported native selection in a separate empty generated profile still reports Mac locked; idle test termination is not ordinary Quit or native acceptance.
 
 [Loaded-bundle evidence](performance-ui.md#loaded-bundle-startup-and-required-dependency) records planner RED101/GREEN0,1,058 macOS consumer passes/16 ignores, build/format checks and independent review. One actual15-file bundle startup records boot/renderer assets and acknowledged Stop with the explicit optional warning; complete captured state survives normal API Quit/reopen/final Quit. The failed no-boot trial and every prior captured history/file/settings proof remain intact. This is not warning-free compatibility or gameplay. [Empty-profile native control](native-auth.md#empty-profile-visibility-control) remains an undiagnosed capture/visibility observation; locked-Mac test termination is not ordinary Quit.
 
