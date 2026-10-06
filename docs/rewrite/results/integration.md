@@ -647,6 +647,12 @@ An earlier package (`5c8b127e3ddd`) launched as PID 23113 against a freshly gene
 
 Earlier native game-window interaction was also unavailable: the running Java application was not selectable through the application inventory, and its JRE bundle was not registered for opening. Gameplay remains unverified; it is not inferred from logs or process liveness.
 
+## Recorded managed-file removal recovery
+
+2026-10-06, after `f0f1bb01`: [Content](pack-files.md#recorded-managed-file-removal-recovery) now records ordinary managed-file removal through the existing exact backup/acknowledged rollback owner. Public-owner Remove → real process exit → cold Resume restores the original v1/tree and clean reopen. This fixture journey is not HTTP or installed-process acceptance. Native mixed/conflict/codec controls pass; all62 transaction checks and825 app checks/eight existing ignores pass under serialized verification. Independent Standards/Spec reviews are clear; no public contract or UI change.
+
+The first default-parallel app run fails an existing two-second preflight marker wait despite eventual launchable readiness. Its isolated pass and bounded full-suite pass do not diagnose that timing failure. No timeout changes or installed-process, credential, gameplay or full-parity claims follow.
+
 ## Active release blockers and next work
 
 - Current native settings persistence and Quit/reopen have bounded isolated macOS ARM64 debug evidence; ordinary Reset has earlier evidence. Interrupted Reset's explicit Preserve-files choice now passes the bounded current fixture in [native reset](native-reset.md); other interruption boundaries and installed-release persistence remain open. The OAuth window selects a fresh nonpersistent macOS store because WKWebView ignores its configured directory; real sign-in/cookie isolation remain unverified. Intentional tradeoff: new macOS sign-in windows do not reuse browser cookies; durable account/refresh credentials are unchanged. Windows/Linux keep their profile directories.

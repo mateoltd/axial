@@ -1,25 +1,25 @@
 # Architecture review
 
-Updated 2026-10-06. Scope: exact recorded-metadata recovery changes after `064e4ab2` on `main`. This is not a release or full-parity certificate.
+Updated 2026-10-06. Scope: recorded managed-file removal recovery after `f0f1bb01` on `main`. This is not a release or full-parity certificate.
 
 ## Ownership
 
-Root owns queue/export integration, evidence and serialized shared verification. The reconstruction owner supplies leaf changes; independent Standards/Spec reviewers inspect frozen source and controls without operating profiles or builds. Preserve non-Guardian behavior, current UI, filesystem authority and current-app recovery. Predecessor imports/schema upgrades remain excluded.
+Root owns integration, evidence, profiles and serialized shared verification. Separate native and application-fixture owners edit their exclusive files; independent Standards/Spec reviewers inspect frozen source and controls without operating profiles or builds. Preserve non-Guardian behavior, current UI, filesystem authority and current-app recovery. Predecessor imports/schema upgrades remain excluded.
 
 ## Findings and fixes
 
-- Canonical serialization fixes future materialization, not already recorded arbitrary-order JSON. The existing committed lease or registered inventory supplies bounded exact bytes through an opaque immutable input. Authenticated semantic derivation and the complete recorded activation contract still decide acceptance. No guessed permutations, digest waiver, new lease, journal, schema or UI change.
-- Independent review catches ACK-before-Ready: native acknowledgement clears the marker while the activation row remains `activating`. The queue now admits `activating` and `ready` only under the same library/version/contract/install identity. This supplies reconstruction input without granting readiness.
-- Missing committed metadata refuses before reconstruction and retains the same evidence, native fence and exclusion. Native controls preserve foreign bytes, reject changed members and replaced markers, then restore/acknowledge before assertions. Registered reconstruction preserves full inventory and retained raw metadata; a wrong full contract is refused.
-- Changes remain feature-owned. Unrelated formatting is restored; a local bounded-read closure removes repeated test boilerplate. Existing owner-composition and recorded-contract rules already cover the finding, so AGENTS.md needs no additional rule.
+- The existing checkpoint records Downloads but omits ordinary managed-file Remove after its actual backup move. Extend that same bounded codec/rollback owner to complete removal proofs, rather than introducing another recovery path.
+- A download requires its index/proof pair; a removal requires neither and an exact original backup. Require complete distinct mutation/payload coverage. Schema1 download encoding, public contracts and already-absent no-op commits remain unchanged.
+- Removal destinations remain fenced by absence; changed or replaced backups and new public files refuse before restoration. Retained guarded retries and restored-proof acknowledgement still precede cleanup. Unsaved ambiguity remains preserved.
+- `PublishedChange` names the broadened private responsibility. Shared subprocess fixtures avoid duplication. No journal, schema, coordinator, application production path, UI change or speculative credential fix. Existing exact-proof/owner rules cover the finding; AGENTS.md needs no added rule.
 
 ## Validation
 
-The historical-order regression and ACK-before-Ready test have meaningful REDs after safe settlement/teardown. Focused GREENs pass; all33 queue checks pass in18.37s and all1020 Minecraft library checks pass in239.28s. Consumers pass824 app/eight ignored in204.03s,118 API/eight ignored in91.49s and82 desktop/one ignored in6.16s; serialized wrappers0. Native and registered controls pass1/0.30s and1/0.77s. Independent source/control Standards and Spec reviews are clear. Changed-region formatting and whitespace checks pass; whole-file formatting still flags unrelated existing regions.
+The public-owner removal crash/Resume test has a meaningful Pending RED after safe teardown, then GREEN1/0.34s with complete proof and another reopen. Existing replacement/unsaved control passes1/0.85s. Native publication controls pass16/2.71s and all62 transaction checks pass40.62s. All825 app checks pass with eight threads/eight ignores in66.55s. Independent Standards/Spec reviews and scoped formatting/whitespace checks are clear.
 
-[Forge evidence](forge-loader.md#exact-recorded-metadata-recovery) owns commands, hashes, controls and qualifications. The correction covers earliest-Forge raw-byte reconstruction, not the public fixed-provider rebuild entrypoint, a complete cancellation/process-exit matrix or other-era serialization.
+[Content evidence](pack-files.md#recorded-managed-file-removal-recovery) owns commands, hashes and qualifications. The default-parallel app run fails the existing two-second preflight marker rendezvous despite eventual Ready; isolated GREEN does not diagnose it. No timeout change follows. Mixed removal tests cover cold recovery plus live post-move retry and cold restored-proof replay, not every crash boundary or installed-process removal.
 
-The earlier [game-directory fix](forge-loader.md#legacy-game-directory-binding) has real1.4.7 boot/Stop/reopen evidence with exact preservation and joined exits. That frozen runtime predates this recovery slice; no new native or installed acceptance is claimed. A [fresh unlocked control](native-auth.md#fresh-unlocked-paint-control) now observes complete onboarding in both unchanged retained Startup/Inspector artifacts, two normal exits0 and exact empty-profile logical preservation. The earlier rendering failure is unreproduced, not fixed; no speculative UI change follows.
+Prior [exact recorded-metadata recovery](forge-loader.md#exact-recorded-metadata-recovery), [game-directory fix](forge-loader.md#legacy-game-directory-binding) and [unlocked paint control](native-auth.md#fresh-unlocked-paint-control) retain their bounded evidence. Their runtime artifacts predate this slice; no new installed or visual acceptance is inherited.
 
 ## Unresolved handoffs
 
@@ -30,6 +30,6 @@ The earlier [game-directory fix](forge-loader.md#legacy-game-directory-binding) 
 
 ## Prior reviews
 
-Detailed chronology remains in the linked feature reports and Git history: `git show 064e4ab2:docs/rewrite/results/architecture-review.md`. Read-contract/codec corrections remain in [wire parity](wire-parity-review.md) and [benchmark persistence](current-benchmarks.md).
+Detailed chronology remains in the linked feature reports and Git history: `git show f0f1bb01:docs/rewrite/results/architecture-review.md`. Read-contract/codec corrections remain in [wire parity](wire-parity-review.md) and [benchmark persistence](current-benchmarks.md).
 
 The full-parity goal remains active; this review neither replaces nor resets it.
