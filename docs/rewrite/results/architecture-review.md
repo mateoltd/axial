@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-07. Current review covers working recoverable default-runtime readiness against `805fb325`; provisioning and artifact aggregation retain their respective `17340bea`/`21adb150` baselines. Earlier evidence retains its recorded checkpoints. Full non-Guardian parity remains active; this review is not an installed-release certificate.
+Updated 2026-10-07. Current review covers browser runtime recovery at product `391bd32f` and its readiness implementation against `805fb325`; provisioning and artifact aggregation retain their respective `17340bea`/`21adb150` baselines. Earlier evidence retains its recorded checkpoints. Full non-Guardian parity remains active; this review is not an installed-release certificate.
 
 ## Ownership and findings
 
@@ -15,13 +15,15 @@ The committed [artifact aggregation](wire-parity-review.md#observed-simultaneous
 
 ## Validation
 
-The [read-only runtime slice](wire-parity-review.md#recoverable-default-runtime-readiness) keeps absence evidence in the native cache, readiness in the existing preflight owner and one concrete option validator. No duplicate provisioning policy, scanner, journal, frontend state or public-contract rename is justified. Review corrects a fixture's expectation of raw JVM arguments in public responses: use the actual registry for private restoration proof and preserve public redaction. Corrected HTTP passes after joined cleanup; the initial fixture-only failure remains recorded. Final Standards: no documented violation or actionable smell. Final Spec: no concrete finding across ten frozen source/generated files. Native139, launch136/two helper ignores, typed frontend531/one TODO, generated equality and scoped formatting pass, joined0. Detailed pins/logs and genuine readiness RED/GREEN remain in the feature record. No recurring new pattern warrants an AGENTS rule. Actual browser/installed Play and remaining lifecycle gates stay open; preceding full-library/desktop evidence is not reassigned.
+At product `391bd32f`, [browser runtime recovery](wire-parity-review.md#actual-browser-default-runtime-recovery) verifies real-provider missing-Java reacquisition through the actual retained Launch/Stop controls and cold reopen, with joined owners and bounded immutable game-file preservation. Review corrects a helper's null-versus-omitted expectation and reconciles the existing instance without replay. No product/UI change. Exact hosted run37599483279 is green; native/gameplay/installed/full-parity scope stays open.
+
+The [read-only runtime slice](wire-parity-review.md#recoverable-default-runtime-readiness) keeps absence evidence in the native cache, readiness in the existing preflight owner and one concrete option validator. No duplicate provisioning policy, scanner, journal, frontend state or public-contract rename is justified. Review corrects a fixture's expectation of raw JVM arguments in public responses: use the actual registry for private restoration proof and preserve public redaction. Corrected HTTP passes after joined cleanup; the initial fixture-only failure remains recorded. Final Standards: no documented violation or actionable smell. Final Spec: no concrete finding across ten frozen source/generated files. Native139, launch136/two helper ignores, typed frontend531/one TODO, generated equality and scoped formatting pass, joined0. Detailed pins/logs and genuine readiness RED/GREEN remain in the feature record. No recurring new pattern warrants an AGENTS rule. Native/installed/gameplay and remaining lifecycle gates stay open; preceding full-library/desktop evidence is not reassigned.
 
 Earlier deletion acknowledgement-loss/keep-files journeys retain their bounded process, protected-state and cold-reopen evidence in [Library UI](library-ui.md). Library/index/logging readiness and their exact hosted CI checkpoints remain in [wire parity](wire-parity-review.md). No result is reassigned to later source or broader recovery.
 
 Hosted [run37595072272](https://github.com/mateoltd/axial/actions/runs/37595072272) passes both jobs at exact `805fb325`, with joined watch and matching independent SHA/job query. It verifies committed backend provisioning, not the working read-only slice or native/installed parity.
 
-Fresh serialized affected-library verification for the working read-only slice passes2,003 parent checks, zero failures and18 existing helper ignores, joined0. Desktop composition passes83/one helper ignore, joined0. Actual browser acceptance remains pending; detailed counts and logs stay in the feature record.
+Fresh serialized affected-library verification for the read-only slice at `391bd32f` passes2,003 parent checks, zero failures and18 existing helper ignores, joined0. Desktop composition passes83/one helper ignore, joined0. Native/installed/gameplay acceptance remains pending; detailed counts and logs stay in the feature record.
 
 ## Unresolved owner handoffs
 
