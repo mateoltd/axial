@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-07. Current scheduled review covers the working aggregation verifier, queue adapter, launch coordinator, native observations, exports and HTTP tracer against `21adb150`. Earlier evidence retains its recorded checkpoints. Full non-Guardian parity remains active; this review is not an installed-release certificate.
+Updated 2026-10-07. Current review covers working default-runtime provisioning against `17340bea`; artifact aggregation retains its `21adb150` baseline. Earlier evidence retains its recorded checkpoints. Full non-Guardian parity remains active; this review is not an installed-release certificate.
 
 ## Ownership and findings
 
@@ -17,6 +17,8 @@ The [simultaneous artifact damage](wire-parity-review.md#observed-simultaneous-a
 
 Standards: no remaining documented breach or actionable smell across the six frozen files. Spec: no remaining concrete finding; ordinary launch refusal, no repair, generic evidence refusal and retained fences are preserved. No new scanner, coordination/state owner, schema, wire or UI change. Existing AGENTS rules already cover retained admission and fixture revision preconditions; no additional rule is justified. Both generations have one instance-addressed standalone preflight endpoint: global/instance are settings origins and component is a runtime value, not additional endpoints. Remaining negative controls stay explicit in the readiness ledger.
 
+The [default-runtime provisioning](wire-parity-review.md#ordinary-default-runtime-provisioning) backend slice has genuine HTTP409 RED and GREEN with fresh provider acquisition and an actual fixture child/Stop. It reuses the existing runtime owner, component lease, staging/publication and cancellation control; missing-only mode cannot displace a canonical or rotate quarantine. Structured source causes stay bounded, move-attempt failures remain effects, and native obligations stay cache-root-owned until joined shutdown. Final Standards: no breach/actionable smell. Final Spec: no concrete backend blocker across nine frozen source files. HTTP corrupt-existing and explicit-component guards pass; the native runtime suite passes134 checks, including conflict preservation, concurrent reuse and preclaim cancellation. Full affected libraries pass1,998 parent checks/18 existing helper ignores; desktop passes83/one ignore, generated equality,531 frontend/one TODO, typing and scoped formatting/diff-check pass, joined0. Detailed source pins/logs retain their feature scope. No architectural simplification, second journal, coordinator, UI change or AGENTS addition is justified. Read-only recoverable readiness/visible Play, publication-time conflict injection, postclaim cancellation and native/installed acceptance remain open; raw POST success does not close them.
+
 ## Validation
 
 Earlier [actual frontend deletion loss](library-ui.md#actual-frontend-deletion-acknowledgement-loss), [two-instance keep-files](library-ui.md#browser-affirmative-bulk-keep-files-and-reopen) and [ordinary-process deletion loss](library-ui.md#ordinary-process-deletion-acknowledgement-loss) retain distinct confirmation, response-loss, protected-state and cold-reopen evidence on their recorded executable. For acknowledgement loss, exact operation reads converge without replay. Owners join and separate process/listener checks pass. Preserve historical creation-row bounds and the initial bulk-helper refusal without a latency diagnosis or timeout change. These journeys do not prove mid-deletion interruption, arbitrary loss or unavailable-status recovery.
@@ -26,6 +28,8 @@ Earlier [actual frontend deletion loss](library-ui.md#actual-frontend-deletion-a
 Hosted [run37577763103](https://github.com/mateoltd/axial/actions/runs/37577763103) at `10e99d7e`, [run37578695240](https://github.com/mateoltd/axial/actions/runs/37578695240) at `879ca1dc`, [run37580471844](https://github.com/mateoltd/axial/actions/runs/37580471844) at `40cafa58` and [run37581643137](https://github.com/mateoltd/axial/actions/runs/37581643137) at `25ad13f2` pass both jobs, with joined watches and matching SHA/job queries. They cover their respective library/index checkpoints, not subsequent logging changes or native/installed parity.
 
 Hosted [run37583223808](https://github.com/mateoltd/axial/actions/runs/37583223808) also passes both jobs at exact `21adb150`, with joined watch and matching independent SHA/job query. That verifies logging, not the working aggregation leaf or native/installed parity.
+
+Hosted [run37590030543](https://github.com/mateoltd/axial/actions/runs/37590030543) passes both jobs at exact `17340bea`, confirmed by joined watch and independent SHA/job query. It verifies committed artifact aggregation, not later runtime provisioning or native/installed parity.
 
 ## Unresolved owner handoffs
 
