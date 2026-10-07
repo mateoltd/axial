@@ -1,5 +1,19 @@
 # Retained UI wire parity review
 
+## Observed client-file readiness
+
+2026-10-07, frozen working changes against `8edd5bcf` on `main`. Missing/corrupt client reasons originate in the existing installed-inventory verifier: exact admitted client absence or measured size/hash mismatch, respectively. Read/admission errors, unsafe symlinks and malformed recorded digests remain generic refusals. The scheduled review reproduces a nonhex recorded digest falsely classified as corrupt, then corrects only that verifier: decode the recorded SHA1 into20 bytes, require its existing canonical lowercase representation, and compare observed digest bytes. No second scanner, stored schema or public validation layer.
+
+Standalone negative facts share the successful diagnostic constructor and resource sampler. Captured account/settings revisions, bundle revalidation and final instance/exclusion/settings fences remain; capture failure retains the installation refusal without fabricated facts. Completed observation retains `status:"ready"`, blocking `client_jar_missing`/`client_jar_corrupt`, top-level `launchable:false` and `install_unavailable`. Ordinary/bulk errors and install HTTP409 remain unchanged. Rust-generated reason aliases replace unused handwritten mirrors; no UI change.
+
+Actual HTTP missing and same-size corruption regressions go RED then GREEN (`preflight-client-{missing,corrupt}-{red,green}.log`). The combined tracer first proves installed Ready, then checks corruption, an external-canary symlink and absence through serialized responses; it joins shutdown before checking unchanged bytes/canary, reports, queue and sessions. The public installed-read regression independently goes RED with `ClientJarCorrupt` for a malformed reference, then GREEN with `NotReady` and unchanged client bytes (`preflight-client-digest-{red,green}.log`, wrappers101/0). Final generated export/equality and project-edition formatting pass (`preflight-client-final-wire-{generate,check}.log`, `preflight-client-review-format-2024.log`). Independent Standards and Spec reviews are clear for final verifier hash `46c72fcb…5dc36d`. These are source/fixture checks, not native/installed acceptance; other negative/runtime facts and full parity remain open.
+
+Final review verification passes 90 selected install checks, nine prefix-selected preflight guards, the separate exact missing-ownership guard and the combined HTTP tracer (`preflight-client-review-{install,guards,ownership,http}.log`, normal wrappers0). Canonical frontend source/test checking runs under the available Node24.19.0:531 pass, zero failures, one existing TODO; production formatting and build also pass, generation unchanged `239a78614d6e` (`preflight-client-review-{frontend,frontend-format,build}.log`). This is not the pinned CI runtime or a full current-source library suite. Broader integration remains root's handoff.
+
+Subsequent frozen-source integration passes830 application/122 API library tests, zero failures and ten/eight existing helper ignores, normal wrapper0 (`preflight-client-integration-libraries.log`). The nested child helper is not counted twice. Pinned Node24.13.1 source/test checking passes531/zero failures/one existing TODO, build remains `239a78614d6e`, and independent generation verification passes unchanged budgets (`preflight-client-integration-{frontend-pinned,build-pinned,generation}.log`). Semantic checks cover289 files with no fixes; asset policy passes. These source checks do not establish native credential persistence, installed rendering or full parity.
+
+The serialized desktop consumer suite also passes83/zero failures/one existing child-helper ignore, wrapper0 (`preflight-client-integration-desktop.log`). This verifies current native source composition, not a new packaged/interactive native journey.
+
 ## Launch diagnostics and terminal convergence
 
 2026-10-07, changes against `640fc7fa` on `main`. Standalone successful preflight now retains safe effective memory/clamp, captured global/instance override origins, ready status and all nine resource-budget facts. Inheritance owns origins; the existing preflight projection owns diagnostics after its final account/settings/instance/filesystem fences. Shared host input is sampled once, and bulk setup avoids unused per-row budget sampling. Actual serialization preserves omitted origins and explicit nullable estimates. Rust-generated contracts replace implemented frontend mirrors through the existing exporter; early-refusal diagnostics and typed negative readiness remain pending.
@@ -13,6 +27,8 @@ Verification uses real HTTP preflight and the existing exported frontend launch/
 - Canonical typed frontend checks pass531/zero failures/one existing TODO; serialized libraries pass829 application and121 API/zero failures, with ten/eight existing helper ignores (`launch-contract-{frontend,libraries}.log`). Nested child results are not counted twice. Ordinary frontend build publishes `239a78614d6e`; scoped production Prettier/rustfmt and whitespace checks pass (`launch-contract-{build,format,rustfmt}.log`). Wrappers join0. Existing engine/compiler warnings remain retained.
 
 Independent Standards and Spec reviews report zero remaining actionable source findings in each bounded slice. Native/installed verification, real API-reopen convergence, detailed negative preflight facts and full parity remain open; the build and fixture passes do not close them.
+
+The subsequent serialized desktop consumer suite at exact `8edd5bcf` passes83/zero failures/one existing child-helper ignore, wrapper0 (`launch-contract-desktop.log`). This verifies native source composition, not a packaged or interactive native journey.
 
 ## Verified read-contract corrections
 
