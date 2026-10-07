@@ -1,12 +1,12 @@
 # Architecture review
 
-Updated 2026-10-07. Scheduled review covers Java-override preflight changes against `9b50bd2d` and the pending private browser-reopen witnesses at `bd270792` on `main`. No later production diff is present. Full non-Guardian parity remains active; this is not an installed-release certificate.
+Updated 2026-10-07. Review covers Java-override preflight changes against `9b50bd2d` and actual retained-browser API-reopen evidence on unchanged product `bd270792`, with documentation-only `853eef87` on `main`. No later production diff is present. Full non-Guardian parity remains active; this is not an installed-release certificate.
 
 ## Ownership and scope
 
 Root owns production changes, generated integration, evidence and serialized verification. The HTTP fixture owner relinquished edits before root's final typed-match correction; independent Standards and Spec reviews cover all four frozen source files. Review excludes legacy profiles, user installations, signing, credentials and deployment. Preserve the existing UI, filesystem authority and current-app recovery.
 
-Private proxy and persisted-witness authors have separate exclusive files under `.rewrite-logs/`; root owns actual browser execution and observations. Independent review precedes execution. These disposable helpers are not production state or recovery owners.
+Private proxy and persisted-witness authors relinquished their separate files under `.rewrite-logs/` before root execution. Independent Standards/Spec review and evidence audit are complete; root owns actual browser/UI/process observations and shared verification. These disposable helpers are not production state or recovery owners.
 
 ## Findings and fixes
 
@@ -15,7 +15,7 @@ Private proxy and persisted-witness authors have separate exclusive files under 
 - Reuse the current diagnostic constructor/resource sampler. Retain bundle revalidation, captured account/config revisions and final instance/exclusion/settings fences; failed capture preserves the original runtime refusal. Bulk and implicit managed runtime do not acquire unused or mislabeled facts.
 - The HTTP fixture shares assertions for the two applicable refusals, rather than duplicating setup or adding a test framework. Its genuinely installed Ready and exact failed-interpreter control prove the intended boundary, followed by settled no-effect/privacy assertions.
 - Generated reason contracts remain Rust-owned. No new namespace, wrapper directory, pass-through layer, configuration or UI change is justified. Existing typed-error/evidence rules already cover this pattern; no additional AGENTS.md rule is warranted.
-- Private browser witnesses now require the complete Fabric fixture target tree unchanged: its synthetic child has no justified file writes. They count mutation attempts before transport refusal, recognize document requests beyond `/`, accept a genuine observed zero boot duration, and preserve opaque native receipts instead of duplicating their private encoding. Original admission authenticates native authority; cold reads validate persisted terminal evidence. Compare observed live/cold revisions, not an assumed zero; the cold owner currently starts at1. Forwarded responses are not browser-consumption proof. Existing AGENTS.md rules cover these findings without another rule or framework.
+- Private browser witnesses require the entire Fabric fixture target tree unchanged, count mutation attempts before refusal and recognize document requests beyond `/`. They accept genuine observed zero boot duration and preserve opaque receipts instead of duplicating the native codec. Original admission authenticates native authority; cold reads validate persisted terminal evidence. An executed refusal exposes one incorrect fixture premise: successful launch updates last-instance selection atomically with recency. Permit only singleton1/captured target, retaining exact settled-state equality. Preserve the failed witness; do not replay the launch or loosen production behavior. Existing AGENTS.md rules cover these findings without another rule or framework.
 
 ## Validation
 
@@ -23,11 +23,11 @@ Detailed RED/GREEN and source hashes stay in [runtime evidence](wire-parity-revi
 
 The runtime slice's [hosted run37565859463](https://github.com/mateoltd/axial/actions/runs/37565859463) passes both jobs at exact `bd270792b81b84daa0a3e4b2540e906c8e48064a`; retained terminal watch and SHA/job query agree. The preceding client-file slice's detailed checks remain [client-file evidence](wire-parity-review.md#observed-client-file-readiness). The private overlapping watch probe passes after correcting its copy inventory, but does not reproduce or diagnose the historical timeout; no shipped debug code, deadline or guard change.
 
-Private helper syntax checks pass; independent Standards and Spec rereview find no remaining code-level findings, followed by Spec closure of the cold-authentication wording. Frozen proxy `43661554` and witness `5ddaf48a` are under `.rewrite-logs/browser-reopen-{proxy,proof}.mjs`; root's syntax logs are `browser-reopen-{proxy,proof}-syntax-review.log`. These checks do not establish process settlement, filesystem preservation, retained-document convergence or absence of replay. No browser journey has run with these helpers.
+Actual browser Playing/live4 survives the gated normal API restart, then genuine401/bootstrap/typed404/original-intent terminal1 clears Playing/Stop and restores Ready without reload or mutation replay. Frozen proxy `43661554` and corrected witness `e784ce16` pass syntax and independent review; independent audit authenticates all captured reference hashes, five full trees,3,640 recorded files, prior histories and exact settled/reopened/final state. Both APIs/proxy join0 and separate absence checks pass. [Browser evidence](wire-parity-review.md#actual-retained-browser-api-reopen) owns exact logs, the retained helper failure, fresh post-join capture, actual UI observations and limitations. This is synthetic-process browser acceptance, not native/installed/gameplay or full parity.
 
 ## Unresolved handoffs
 
-- Launch: other artifact/runtime/early-refusal facts, global/component-origin coverage and actual retained-browser API-reopen acceptance remain pending. Source fixtures do not establish installed convergence or gameplay.
+- Launch: other artifact/runtime/early-refusal facts and global/component-origin coverage remain pending. The bounded retained-browser case does not establish every reconnect failure, native/installed convergence or gameplay.
 - [Updates](updates.md): channel policy, snapshot hydration and deferred intent have source/fixture evidence, not trusted installed-update acceptance. Keep asset-watch diagnosis open.
 - [Accounts](native-auth.md): verify the current noninteractive credential adapter across distinct builds under the intended authorized stable signing identity. Earlier signed test binaries predate that adapter.
 - [Linux](linux-package.md): visible UI, HTTP/media/SSE, audible playback and ordinary Quit/reopen remain open. Process survival and fakesink decoding do not prove them; retain graphics/protocol failures.
@@ -36,4 +36,4 @@ Private helper syntax checks pass; independent Standards and Spec rereview find 
 
 ## Earlier evidence
 
-Detailed evidence stays with its feature owner: [telemetry](telemetry.md), [capacity and benchmark continuation](current-benchmarks.md), [World backup](world-files.md), [managed historical rollback](performance-ui.md), [retained wire audit](wire-parity-review.md), [native acceptance](native-auth.md) and [released Linux packaging](linux-package.md). Prior client-file review remains recoverable in `git show 9b50bd2d:docs/rewrite/results/architecture-review.md`; earlier history is linked there. Those scopes are not acceptance for later edits.
+Detailed evidence stays with its feature owner: [telemetry](telemetry.md), [capacity and benchmark continuation](current-benchmarks.md), [World backup](world-files.md), [managed historical rollback](performance-ui.md), [retained wire audit](wire-parity-review.md), [native acceptance](native-auth.md) and [released Linux packaging](linux-package.md). Initial browser-helper review remains in `git show 853eef87:docs/rewrite/results/architecture-review.md`; prior client-file review is at `9b50bd2d`, with earlier history linked there. Those scopes are not acceptance for later edits.
