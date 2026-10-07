@@ -1,10 +1,12 @@
 # Architecture review
 
-Updated 2026-10-07. Latest changed scope: macOS capacity observation after `280bf02f` on `main`. Earlier typed Forge, benchmark continuation and installed-package evidence retain their linked scopes. This is not a release or full-parity certificate.
+Updated 2026-10-07. Latest changed scope: interrupted World backup acceptance after `1f097877` on `main`. Earlier capacity observation, typed Forge, benchmark continuation and installed-package evidence retain their linked scopes. This is not a release or full-parity certificate.
 
 Prior review from `d18ea16a` through `280bf02f`: only integration evidence and private [Family C control](current-benchmarks.md#composed-family-c-qualification)/[real startup](current-benchmarks.md#real-family-c-managed-startup) changed; production code, UI and public contracts were unchanged. Use existing Duplicate/CAS/Tick/Apply/intent/session owners, protected-target admission and no mutation replay. Correct only the fixture's native-path count assumption and bounded executable read; retain failed history. Fixture Ready qualification and subsequent genuine managed-mod boot/Stop preserve their distinct proof scopes through exact cold reopen. Neither proves gameplay, useful performance or a completed suite. Witnesses cover prior rows, registered trees and managed files, not every shared payload or game-writable target file. No additional abstraction, simplification or AGENTS.md rule is warranted.
 
 [macOS capacity](current-benchmarks.md#macos-capacity-observation) stays in the existing resource owner and CoreFoundation dependency, preserving canonical mount selection and reclaimable-capacity semantics. Direct checked observations replace library defaults; no cache, coordinator, schema, UI or configuration is added. Review narrows the malformed-type fixture to its exact native query. Existing observation-validity guidance already covers the recurring pattern; no additional AGENTS.md rule is needed. Windows validity and excluded-mount attribution remain unresolved.
+
+[World backup](world-files.md#interrupted-copied-stage-backup) adds only fault-injection seams and composed disk-backed acceptance in existing owners. Reuse the current fixture composition and actual copy/publication path; preserve the unknown stage without a new journal or cleanup/adoption policy. Independent review is clear. The fully copied-stage boundary is not mid-copy or power-loss proof; registered-record equality is not all-metadata preservation. Existing exact-boundary/fixture guidance covers this slice, with no new AGENTS.md rule warranted.
 
 ## Ownership
 
@@ -19,6 +21,8 @@ Root owns integration, evidence, profiles and serialized builds. Independent Sta
 - Correct qualification's literal comparison of encoded installed-loader IDs through the existing typed decoder, projecting only Forge to its Minecraft coordinate. Keep selection/fallback at the qualification owner, with explicit non-Forge scenario refusal; no new parser, state, layer, schema or UI path. Existing typed-contract guidance covers this finding; no additional AGENTS.md rule is needed.
 
 ## Validation
+
+The latest World case passes focused1 and full serialized macOS829 application/1032 Minecraft/118 API checks, zero failures/ten app and eight API helper ignores, normal wrapper0 (`world-backup-interrupted-{focused,libraries,api}.log`). The child helper is not double-counted. Independent source/evidence review and scoped formatting/whitespace pass. No product defect or broader native/recovery acceptance is inferred from this added case.
 
 The latest macOS sampler has two meaningful missing-property REDs and nine final native capture/serialization GREENs. Complete macOS libraries pass828 application/118 API with zero failures/nine and eight helper ignores respectively, normal wrapper0 (`capacity-consumers.log`); desktop binary checks pass82/one ignore, normal0 (`capacity-desktop.log`). Nested helper summaries are not counted twice. Final independent source/fixture review is clear after narrowing malformed-value injection. Existing valid-zero/reclaimable/fallback behavior remains covered; no native artifact or other-platform verification is inferred.
 
