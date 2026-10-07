@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-07. Current review covers browser runtime recovery at product `391bd32f` and its readiness implementation against `805fb325`; provisioning and artifact aggregation retain their respective `17340bea`/`21adb150` baselines. Earlier evidence retains its recorded checkpoints. Full non-Guardian parity remains active; this review is not an installed-release certificate.
+Updated 2026-10-07. Current review covers publication-read diagnostics against `9da0128c`; browser recovery stays bound to product `391bd32f` and readiness to its `805fb325` baseline. Provisioning and artifact aggregation retain their respective `17340bea`/`21adb150` baselines. Earlier evidence retains its recorded checkpoints. Full non-Guardian parity remains active; this review is not an installed-release certificate.
 
 ## Ownership and findings
 
@@ -14,6 +14,8 @@ Root owns integration, result records, actual UI/process observations and serial
 The committed [artifact aggregation](wire-parity-review.md#observed-simultaneous-artifact-damage) and [runtime provisioning](wire-parity-review.md#ordinary-default-runtime-provisioning) slices retain separate source pins, genuine HTTP RED/GREEN, clear Standards/Spec reviews, full-library/desktop results and historical failure evidence in their feature records. Provisioning reuses the component lease and publication owner; missing-only mode cannot displace canonical data or rotate quarantine. These checkpoints do not establish the later read-only slice, visible Play, publication-time conflict injection, postclaim cancellation or native/installed acceptance.
 
 ## Validation
+
+The [publication-read slice](wire-parity-review.md#publication-read-refusal-diagnostics) keeps native acquisition classification in the existing preflight owner and reuses its post-fence diagnostic projection. Refusal codes and exact authority remain intact; an unrelated target exclusion cannot become a publication reason. Standards and Spec clear three frozen source/generated files. Review moves preservation/recovery assertions before the intended RED and after joined cleanup, and retains failures without replay. Genuine contention/unsafe-lane RED/GREEN, full libraries2,004, desktop83 and frontend531 pass with recorded ignores/TODO; typing/semantic lint/generated equality/formatting/build pass, joined0. No recurring new rule or abstraction is justified. Whole-library scan/create/ordinary-launch gating and cached/bulk revalidation remain distinct open work.
 
 At product `391bd32f`, [browser runtime recovery](wire-parity-review.md#actual-browser-default-runtime-recovery) verifies real-provider missing-Java reacquisition through the actual retained Launch/Stop controls and cold reopen, with joined owners and bounded immutable game-file preservation. Review corrects a helper's null-versus-omitted expectation and reconciles the existing instance without replay. No product/UI change. Exact hosted run37599483279 is green; native/gameplay/installed/full-parity scope stays open.
 
