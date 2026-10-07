@@ -1,5 +1,19 @@
 # Retained UI wire parity review
 
+## Launch diagnostics and terminal convergence
+
+2026-10-07, changes against `640fc7fa` on `main`. Standalone successful preflight now retains safe effective memory/clamp, captured global/instance override origins, ready status and all nine resource-budget facts. Inheritance owns origins; the existing preflight projection owns diagnostics after its final account/settings/instance/filesystem fences. Shared host input is sampled once, and bulk setup avoids unused per-row budget sampling. Actual serialization preserves omitted origins and explicit nullable estimates. Rust-generated contracts replace implemented frontend mirrors through the existing exporter; early-refusal diagnostics and typed negative readiness remain pending.
+
+Browser sessions retain their original accepted intent. A typed missing live-session response may query that exact intent, but only exact instance/session/start identity and complete authenticated tree/output settlement can clear Playing. Cold proof does not reset live revision ordering. The existing completion owner publishes terminal state before final-log drainage; its existing fence prevents delayed SSE, successful Stop and refused/lost Stop responses from restoring nonterminal state. No process adoption, mutation replay, journal, new lifecycle owner or layout change.
+
+Verification uses real HTTP preflight and the existing exported frontend launch/actions/decoder workflow at its request boundary:
+
+- `launch-preflight-diagnostics-red.log` fails the actual successful response's missing status; GREEN passes the same journey. All ten existing preflight guard cases pass (`launch-preflight-owner.log`). Generation and equality checks pass (`launch-preflight-wire-{generate,check}.log`). Reports, queue and sessions remain unchanged in the read-only journey.
+- Four meaningful frontend RED/GREEN boundaries cover cold accepted proof, pending-log terminal publication, late live SSE and pending Stop. Final focused selection passes101/101 (`launch-cold-intent-*.log`), including refused/malformed/unsettled/wrong-binding and replacement controls. This is source workflow acceptance, not an actual retained-browser API-reopen journey.
+- Canonical typed frontend checks pass531/zero failures/one existing TODO; serialized libraries pass829 application and121 API/zero failures, with ten/eight existing helper ignores (`launch-contract-{frontend,libraries}.log`). Nested child results are not counted twice. Ordinary frontend build publishes `239a78614d6e`; scoped production Prettier/rustfmt and whitespace checks pass (`launch-contract-{build,format,rustfmt}.log`). Wrappers join0. Existing engine/compiler warnings remain retained.
+
+Independent Standards and Spec reviews report zero remaining actionable source findings in each bounded slice. Native/installed verification, real API-reopen convergence, detailed negative preflight facts and full parity remain open; the build and fixture passes do not close them.
+
 ## Verified read-contract corrections
 
 2026-10-06, changes after `db0baf50`. Three retained contracts have meaningful HTTP RED/GREEN checks:
