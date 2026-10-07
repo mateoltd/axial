@@ -1,5 +1,11 @@
 # Native sign-in
 
+## Current cross-build fixture preparation
+
+2026-10-07, test-only changes against `d3afc108`. The existing ignored signed-process fixture accepts an absolute `AXIAL_TEST_KEYCHAIN_REOPEN_EXECUTABLE` reader, defaulting to its writer. Both executables must expose the exact one-test inventory before synthetic credential publication. Inventory reads and child settlement are bounded; inherited fixture selectors are removed. Existing public save/load, noninteractive access, exact cleanup and unresolved-child preservation remain unchanged. No production adapter, permissions, signing or UI change.
+
+Independent Standards/Spec review is clear before formatting; final fixture source SHA256 is `90473fec785dfafd3446da18cc10097344aa906cb65a942e3fa912987bb83f0b`. The16 nonignored credential checks pass, with both native helpers ignored (`credential-reader-owner.log`, wrapper exit0). Actual `/usr/bin/true` reader inventory refuses with the fixed `Reader inventory: "Inventory"` category, selecting one parent fixture and exiting101 (`credential-reader-zero-inventory.log`). Store construction and inventory checks precede credential I/O; the negative control executes no native credential publication/read/cleanup. This prevents zero-test false success, not signed cross-build success. Two distinct current builds under the intended authorized stable signing identity, actual readback/cleanup and authenticated continuity remain required; the TDD positive native cycle is deferred to those prerequisites.
+
 ## Noninteractive credential access
 
 2026-10-05, changed scope after `d87aa306`. The user reports repeated macOS Keychain dialogs blocking both startup and Close. Root terminates only the exact prompting Account test launcher PID93153, preserving its profile and credential items. No human password, Keychain unlock, ACL change or credential deletion is requested. The independent offline launcher and game remain untouched.
