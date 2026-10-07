@@ -32,6 +32,7 @@ Earlier Linux no-init settlement/zombie, worker-admission and additional Java-pr
 ## Unresolved owner handoffs
 
 - [Readiness and wire parity](wire-parity-review.md#remaining-readiness-requirements): loader/provider I/O, generation switch, cancellation, cached/bulk publication, runtime postclaim cancellation, parent/origin/negative inheritance and managed-component selection. Vanilla coverage does not close loader or native gates.
+- Source reinspection at `551ac506` identifies an uncancellable second provider acquisition for not-Ready automatic loader targets in Setup → InstallQueue → native build resolution. Root owns the [public held-response follow-up](wire-parity-review.md#loader-acquisition-cancellation); Ready-target controls bypass it. No runtime failure or fix is inferred, and postcommit creation must remain preserved. Current source otherwise matches the reviewed pins; no new abstraction, naming churn or AGENTS rule is warranted.
 - [Integration](integration.md): actual saved-world reload and installed-platform matrix; ordinary test/CI passes are not full parity.
 - [Accounts](native-auth.md): noninteractive credential persistence across distinct builds under the intended authorized stable signing identity.
 - [Updates](updates.md): trusted signed installed update; retain unresolved frontend-watch failure.
