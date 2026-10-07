@@ -19,4 +19,14 @@ Independent Spec review catches the mock entrypoint's missing snapshot route. It
 
 ## Remaining acceptance
 
-The inherited deferred “Update & restart” intent still needs a separate regression and correction when games/downloads block readiness. Trusted signed artifacts, actual installed download/staging/apply/restart/failure and applicable platform WebViews remain open. Native inventory reports a locked Mac; no signing, Keychain, credential, host policy or installation action occurs. Fixture checks and a frontend build do not close those gates or the full-parity goal.
+Trusted signed artifacts, actual installed download/staging/apply/restart/failure and applicable platform WebViews remain open. Native inventory reports a locked Mac; no signing, Keychain, credential, host policy or installation action occurs. Fixture checks and a frontend build do not close those gates or the full-parity goal.
+
+## Deferred install after activity
+
+Changes after `09bfaced` correct the inherited “Update & restart” promise: Ready previously cleared the requested install intent while games/downloads were active, then stopped polling. Retain that intent in the existing owner and reuse its poll until activity permits Apply. Consume intent only at request admission, before awaiting the result; uncertain responses remain read-only reconciliation, never a replay. Announcements remain transition-only; Ready snapshot hydration still cannot initiate Apply. No new observer, timer owner, state, wire contract or UI layout.
+
+The actual public workflow goes RED when its Ready polling disappears (`update-deferred-red.log`). GREEN passes21 focused checks, including game, active-download and queue controls: no Apply while busy, exactly one after idle, no repeated waiting notice, and restart only after installation. Final scoped Prettier/whitespace and frontend build pass, normal0; generation `9ab22a994e57` (`update-deferred-{green,format-final,build-final}.log`). Independent Standards/Spec source reviews are clear.
+
+The initial full run passes499/zero failures/one existing TODO. A repeat while a separate ordinary frontend build ran hits one unrelated five-second asset-watch timeout (498 passes/one failure/one TODO), retained in `update-deferred-frontend-final.log`. The unchanged generation contract then passes25/25 alone, and a full run without concurrent build passes499/zero failures/one TODO (`update-deferred-generation-control.log`, `update-deferred-frontend-serial.log`, wrappers0). Those passes do not diagnose the timeout; its watcher/event/readiness investigation remains open, with no deadline or guard change.
+
+Hosted [run37558179919](https://github.com/mateoltd/axial/actions/runs/37558179919) passes both jobs at exact `09bfacedf6da5b44d59b2ca878bbcf26f0b53377`, before this deferred correction. The prior `ff4dbbe1` hosted failure matches the corrected stale composition assertion. Watch and exact final query join0 (`update-recovery-{prior-ci-failure.log,ci-watch.log,ci-complete.json}`). This is source-checkpoint verification, not the later source or installed/full-parity acceptance.
