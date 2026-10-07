@@ -132,6 +132,8 @@ Both review axes catch the same fixture gap: error/view assertions alone could b
 
 Standards and Spec have no remaining findings at final Setup `bd64e09d`, queue `657d3858`, native query `ef6a876c`, index/loader exports `afaf8238`/`5ddf84c5` and fixture `e80ddec7`. Each independently proves the only post-full-run fixture delta is the request assertion; production/seam files remain byte-identical. No new AGENTS rule is needed: the existing intended-failure-boundary rule covers this finding. These checks are not serialized HTTP transport, held-body cancellation, cold reopen, native/installed or full-parity acceptance. Postcommit provider cancellation remains a separate requirement; deletion of the redundant precommit request does not prove it.
 
+Hosted [run37656886361](https://github.com/mateoltd/axial/actions/runs/37656886361) completes both jobs successfully at exact `ae350a1b1ccbe7d76d484bb6d26a8cd60f669c4f`. Watch joins0; independent assertions bind the SHA, completed run and both completed successful jobs (`automatic-resolution-ci-{watch.log,current.json,confirmation.log}`).
+
 ## Actual parent-metadata readiness
 
 2026-10-07, the same reviewed working Rust source builds the normal API, joined0/31.68s (`parent-readiness-api-build.log`). Its separately copied executable SHA256 is `59621ebfa17608c9f6ae1461dd6e69d04ccff7c30231001bbf03a0967796c04b`, matching the build output. No test-support provider override or game launch is requested. The genuine generated Fabric1.20.1/0.19.5 profile at `/private/tmp/axial-native-gameplay.E56Jhx/profile` already contains `NativeWorldRenamed`; all three instance trees are protected, not empty fixtures. Target `6798b0fc-ff87-44bf-b7cd-b3adf6442662` remains its recorded revision14.

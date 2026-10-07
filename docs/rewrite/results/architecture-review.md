@@ -28,6 +28,8 @@ Supported-version controls and API129/app844/Minecraft1052 pass2025 parent check
 
 Current automatic-selection control passes after genuine RED. API129/app845/Minecraft1052 pass2026 parent checks/18 existing ignores, joined0, before only the request-assertion refinement; final public1 and full app845/ten ignores then pass. Three native resolver controls, desktop compilation and scoped formatting/diff checks pass; Cargo.lock is unchanged. Final pins and narrow coverage limits belong to the feature record; no installed/full-parity claim follows.
 
+Hosted [run37656886361](https://github.com/mateoltd/axial/actions/runs/37656886361) passes both jobs at exact `ae350a1b`, with joined watch0 and independent SHA/completed-job assertions. Source reinspection matches all reviewed pins; no additional drift or AGENTS rule is evidenced.
+
 The earlier [run37624283183](https://github.com/mateoltd/axial/actions/runs/37624283183), at `e99dff08`, fails at a45-second cold-reopen Kill acknowledgement timeout. Private Linux instrumentation now passes API128/eight ignores with three complete HTTP200 acknowledgement traces in0–1ms, then restores originals and removes its build outputs. This nonrecurrence does not locate or fix the historical cause; exact diagnostic scope remains in [wire parity](wire-parity-review.md#original-admission-across-provider-io).
 
 Earlier Linux no-init settlement/zombie, worker-admission and additional Java-probe failures remain separately qualified in [the diagnosis](wire-parity-review.md#launch-copy-fixture-budget-isolation). Root owns unresolved cause investigation; passing init comparisons and isolated fixtures do not repair Kill acknowledgement.
