@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-07. Current source review covers required-library corruption against `10e99d7e`, following the absence slice against `810346fa`; prior frontend deletion evidence stays scoped to unchanged `86eac6a0`. Full non-Guardian parity remains active; this review is not an installed-release certificate.
+Updated 2026-10-07. Current source review covers asset-index absence against `879ca1dc`; required-library corruption remains reviewed against `10e99d7e`, following absence against `810346fa`. Prior frontend deletion evidence stays scoped to unchanged `86eac6a0`. Full non-Guardian parity remains active; this review is not an installed-release certificate.
 
 ## Ownership and findings
 
@@ -10,6 +10,8 @@ Root owns integration, result records, actual UI/process observations and serial
 - Preserve a historical witness's recorded scope. The fresh deletion baseline authenticates protected identities and current metadata without inventing unavailable historical creation-row hashes. Complete creation-table preservation begins after Duplicate. Keep native receipts opaque and bound aggregate reads, not only individual calls.
 - Required-library absence and corruption belong to the existing installed-file verifier: validate recorded checksum/path/namespace before measuring absence or mismatch, then carry typed errors through the existing preflight constructor and HTTP409 mapping. Invalid evidence, admission/symlink/read errors remain generic. The HTTP tracer installs a genuine provider JAR before removing or damaging it; no-repair/settlement controls precede each intended RED, and privacy assertions pass in GREEN. No scanner, provider expansion, decision model, persistence owner or UI change.
 - Existing AGENTS.md rules cover the observed patterns. No additional rule or style-only rename is justified. This record replaces repeated chronology with feature-owned evidence and Git history.
+
+The [asset-index absence slice](wire-parity-review.md#observed-asset-index-absence) passes genuine HTTP RED/GREEN. Canonical index classification reuses the portable-name codec and existing flag parsing; missing ordinary objects and symlink/admission failures remain generic. Standards: no breach or actionable smell. Spec: retained blocking fact and safety/refusal contracts match. Six frozen source/test/generated files are clear; no scanner, state/schema/UI change or new AGENTS rule. Full app/API checks pass 831/124; the later mistaken desktop library-target invocation is retained separately, and corrected binary checks pass 83. Frontend531/one TODO, typing, semantic lint, generation/equality, formatting and unchanged build/budgets pass. Index corruption and full runtime parity remain open.
 
 ## Validation
 
@@ -21,12 +23,12 @@ Root owns integration, result records, actual UI/process observations and serial
 
 The subsequent [corruption slice](wire-parity-review.md#observed-required-library-corruption) has separate same-size damage RED/GREEN and both review clearances. Its focused90 install/Content,44 launch-coordinator/one ignore, three route,83 desktop/one ignore and531 typed frontend/one TODO checks pass, joined0; generated equality/formatting and unchanged build/budgets pass. Earlier full-suite counts are not reassigned to this source. No architecture expansion is warranted.
 
-Hosted [run37577763103](https://github.com/mateoltd/axial/actions/runs/37577763103) passes both jobs at exact `10e99d7e`, with joined watch and matching SHA/job query. These are source checks for the absence checkpoint, not the subsequent corruption source or installed/runtime acceptance.
+Hosted [run37577763103](https://github.com/mateoltd/axial/actions/runs/37577763103) at exact `10e99d7e` and [run37578695240](https://github.com/mateoltd/axial/actions/runs/37578695240) at exact `879ca1dc` pass both jobs, with joined watches and matching SHA/job queries. These source checks cover their respective library checkpoints, not subsequent asset changes or installed/runtime acceptance.
 
 ## Unresolved owner handoffs
 
 - Library: busy, partial failure, interruption and unavailable-status recovery.
-- Launch: assets, logging configuration, other artifact/runtime/early-refusal facts and global/component-origin coverage. The bounded library cases do not close these distinct requirements.
+- Launch: [named remaining readiness gates](wire-parity-review.md#remaining-readiness-requirements), including asset-index corruption, logging configuration, publication/runtime facts, parent applicability, simultaneous failures and global/component origins. The bounded absence/library cases do not close them.
 - [Accounts](native-auth.md): current noninteractive credential persistence across distinct builds under the intended authorized stable signing identity.
 - [Updates](updates.md): trusted signed installed-update acceptance; retain the unresolved asset-watch diagnosis.
 - [Linux](linux-package.md): visible UI, HTTP/media/SSE, audible playback and ordinary Quit/reopen. Process survival and fakesink decoding are insufficient; preserve graphics/protocol failures.
