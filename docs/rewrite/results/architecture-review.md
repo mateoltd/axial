@@ -1,25 +1,28 @@
 # Architecture review
 
-Updated 2026-10-07. Working branch: `main`. Full non-Guardian parity remains active; this record is not a release certificate. Historical results belong to their recorded source checkpoints, not later edits.
+Updated 2026-10-08. Working branch: `main`. Full non-Guardian parity remains active; this record is not a release certificate. Historical results belong to their recorded source checkpoints, not later edits.
 
 ## Reviewed scope and ownership
 
-Current scope is [preserve-only external admission](library-lifecycle.md#preserve-only-exit-after-unresolved-external-admission) against `42da27ab`. Root owns integration, evidence and serialized verification; the private author relinquishes source before integration. Standards and Spec independently clear lifecycle `85548376` and API tests `66e97da3`. Earlier [materialization shutdown/reopen](wire-parity-review.md#materialization-shutdown-and-file-backed-reopen), Vanilla and diagnostic source pins retain their recorded evidence in the feature record. The private Java-inheritance handoff is not integrated in this slice.
+Current scope is [negative Java inheritance](wire-parity-review.md#negative-java-override-inheritance) and [ordinary executable preservation](library-lifecycle.md#ordinary-executable-startup-preservation) at product `519ab1a8`. Root owns integration, evidence and serialized verification; private authors relinquish before integration. Independent axes clear test `e160dfbb` and witness `f509b404`. Earlier preservation, materialization, Vanilla and diagnostic source pins retain their recorded evidence in feature records.
 
 UI, wire contracts, native proof checks, credentials and signing are unchanged. Earlier evidence applies only to its recorded source and admission scope.
 
 ## Findings and corrections
 
-- The existing preservation owner unconditionally refused an unresolved external-root acquisition without attempting its native preserve acknowledgement. Genuine composed startup RED confirms the exit dead end. The minimal correction acknowledges through the retained native owner and restores its exact obligation on refusal; replaced-binding refusal/retry and both lease releases are verified. Destructive guards remain intact. Existing AGENTS rules already require preserve-only exit after destructive refusal; no duplicate rule or new coordinator is needed.
+- Java inheritance coverage uses existing HTTP/settings/runtime owners and independent wire literals, not another decision model. Its selected-file reader now has one shared allocation/read budget across both snapshots; failures assert only after joined cleanup. No fixture framework or production change follows. Existing AGENTS rules suffice.
+- The committed preservation correction delegates to the retained native obligation, restoring it on refusal. Original RED and binding/refusal/retry checks confirm the ownership defect and correction; destructive guards remain intact. Existing AGENTS rules already cover preserve-only exit, so no coordinator or duplicate rule is added.
 - The temporary bounded four-event Stop probe retains its test-only scope, unchanged deadlines and removal obligation. Capture loss is distinct from HTTP/process completion; no speculative Stop fix or parallel owner follows. Detailed source pins and limits remain in [wire parity](wire-parity-review.md#temporary-hosted-acknowledgement-capture).
 - Materialization coverage reuses existing HTTP/queue/task/file-backed owners. Review closes retry-masked gate expiry, client teardown and reopened-negative gaps before execution. One default-off provider gate and bounded cleanup avoid a fixture framework; existing AGENTS rules suffice.
-- Earlier [Vanilla acquisition](wire-parity-review.md#vanilla-metadata-acquisition-cancellation) and [accepted loader acquisition](wire-parity-review.md#accepted-worker-provider-cancellation) retain effects outside cancellation races and remove duplicated resolvers/tree inspection. Their RED/GREEN, source pins and detailed acceptance limits remain feature-owned. Other historical corrections and checkpoint chronology stay in [wire parity](wire-parity-review.md) and Git history.
+- Earlier [Vanilla](wire-parity-review.md#vanilla-metadata-acquisition-cancellation) and [loader acquisition](wire-parity-review.md#accepted-worker-provider-cancellation) keep effects outside cancellation races and share existing resolution/inspection owners. Historical pins, RED/GREEN and limits remain feature-owned and in Git history.
 
 ## Validation and limits
 
-Current preservation RED fails at its intended assertion0.05s, joined101; minimal GREEN passes0.08s. Final binding control1/0.11s, lifecycle26/0.99s, native preservation1/0.01s and full API131/eight existing helper ignores/46.73s pass, joined0. Source reviews, scoped formatting and diff checks pass. This is same-process composed startup/preservation, not executable-process/native-dialog or arbitrary interruption acceptance. Detailed fixture retention and preservation evidence remain feature-owned.
+Current inheritance control1/6.22s and full API131/eight existing helper ignores/47.51s pass, joined0, with independent parent/source assertions. Reviews, scoped formatting and diff checks pass. Expected-green HTTP coverage is not a product fix or native/installed proof. Earlier composed-preservation evidence retains its separate scope.
 
-Materialization commit `42da27ab` hosted [run37689125297](https://github.com/mateoltd/axial/actions/runs/37689125297), attempt1, completes both jobs successfully with exact SHA/job assertions. The original watch ends on a transport error, not CI failure; its resumed observer joins0. That checkpoint does not validate this later preservation correction. Its same-process file-backed reopen is not cold-process or whole-profile proof.
+Ordinary binary preservation passes one fresh normal shutdown0 and two cold natural refusal exits1/signalnull in34.86/35.69ms, with exact stopped payloads/namespace and no forced cleanup. Root's separate outcome/PID/group/snapshot assertions pass; witness joins0/1.62s. Only application native lease content is excluded. This is Mac API-process acceptance, not repair, general interruption or native/installed proof.
+
+Preservation checkpoint `519ab1a8` hosted [run37692662681](https://github.com/mateoltd/axial/actions/runs/37692662681), attempt1, completes both jobs successfully; watch joins0 and final detail/SHA/job assertions agree. It predates the Java extension and does not establish the separate executable witness. Earlier `42da27ab` hosted success retains its transport-error/resumed-observer distinction and narrower same-process reopen scope in [integration](integration.md).
 
 Diagnostic commit `859c1ad7` hosted run37675584447 completes all three capped attempts successfully with joined watches0 and exact assertions. Tails omit the API trace; recorded rerun delivery success is not fresh execution. This completed nonrecurrence campaign does not diagnose Kill failures or certify later edits. The earlier Vanilla run remains cancelled, not a hosted pass or failure.
 
@@ -27,7 +30,7 @@ Original local and [hosted45s Kill acknowledgement failures](wire-parity-review.
 
 ## Unresolved owner handoffs
 
-- [Readiness and wire parity](wire-parity-review.md#remaining-readiness-requirements): loader/provider I/O, generation switch, cancellation, cached/bulk publication, runtime postclaim cancellation, parent/origin/negative inheritance and managed-component selection. Vanilla coverage does not close loader or native gates.
+- [Readiness and wire parity](wire-parity-review.md#remaining-readiness-requirements): loader/provider I/O, generation switch, cancellation, cached/bulk publication, runtime postclaim cancellation and remaining parent/origin/runtime-selection variants. The current negative-inheritance control closes only its recorded path; Vanilla coverage does not close loader or native gates.
 - Root owns recurring Kill acknowledgement diagnosis. The new held-client control verifies one postmetadata refusal/joined-success/file-backed-reopen path, not arbitrary interruption or write-failure recovery. Legacy/current Downloads has no active Cancel button; the extra internal endpoint is starting-only, so a held-body active-Cancel success is not a retained parity gate. Pre-admission lookup alone is not a retained-effect shutdown defect.
 - [Integration](integration.md): actual saved-world reload and installed-platform matrix; ordinary test/CI passes are not full parity.
 - [Accounts](native-auth.md): noninteractive credential persistence across distinct builds under the intended authorized stable signing identity.
