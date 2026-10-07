@@ -4,7 +4,7 @@ Updated 2026-10-08. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Reviewed scope and ownership
 
-Current scope is [runtime publication conflicts](wire-parity-review.md#runtime-publication-conflicts) against `409ac872`, exact hosted postclaim completion and the [native selection admission limit](native-auth.md#later-native-selection-admission-limit). Root owns integration, evidence and serialized verification; private authors relinquish before integration. Independent source axes clear runtime test `cc25fbb1`. Earlier checkpoints retain their evidence in feature records.
+Current scope is [runtime publication conflicts](wire-parity-review.md#runtime-publication-conflicts) against `409ac872`, hosted completion at `d41aead3` and [current native reload setup](native-auth.md#current-native-world-reload-setup). Root owns integration, evidence and serialized verification; private authors relinquish before integration. Independent source axes clear runtime test `cc25fbb1`. Earlier checkpoints retain their evidence in feature records.
 
 UI, wire contracts, native proof checks, credentials and signing are unchanged. Earlier evidence applies only to its recorded source and admission scope.
 
@@ -21,9 +21,9 @@ Current missing-runtime controls5/1.26s and full Minecraft with `test-support`1,
 
 Earlier [ordinary binary preservation](library-lifecycle.md#ordinary-executable-startup-preservation) verifies normal shutdown and two natural refusal exits with exact stopped payloads, excluding only native lease content. It is Mac API-process acceptance, not repair, general interruption or native/installed proof.
 
-Postclaim checkpoint `409ac872` hosted [run37696465545](https://github.com/mateoltd/axial/actions/runs/37696465545), attempt1, completes both jobs successfully; watch and independent final run/SHA/job assertions join0. An unrelated branch-only listing is not admission evidence. This predates conflict coverage; earlier hosted successes retain their scopes in [integration](integration.md).
+Conflict checkpoint `d41aead3` hosted [run37698696917](https://github.com/mateoltd/axial/actions/runs/37698696917), attempt1, completes both jobs successfully; watch and independent final run/SHA/job assertions join0. Earlier hosted successes retain their scopes in [integration](integration.md).
 
-Computer-use selection auto-launches an older installed executable without explicit test-profile binding. Its startup refusal and actual Quit/PID absence are witnessed, but selected-root preservation, process exit code and current-source regression are not. No repair or credential action follows. Future native acceptance must explicitly launch the frozen executable against the recorded test profile before selection; actual saved-world reload remains open.
+The older unbound native selection supplies no current regression or preservation proof. Current source explicitly launches the frozen ARM64 executable against the recorded valid profile before selection and creates a separate Vanilla target through ordinary UI. Both axes correct private sampler/copier accounting; the existing AGENTS total-work rule now explicitly includes verification, probes and exclusive creations before I/O. Exact copied bytes/distinct identities and original-world/backup comparison pass. Actual native Launch reaches Playing; game-window automation, gameplay reload and final closure/preservation remain open. No production fix or credential action follows.
 
 The completed three-attempt diagnostic campaign at `859c1ad7` captures no hosted API trace. Delivery success is not fresh execution; nonrecurrence does not diagnose Kill failures or certify later edits. The earlier Vanilla run remains cancelled, not a hosted pass or failure.
 
