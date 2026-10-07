@@ -1,8 +1,10 @@
 # Architecture review
 
-Updated 2026-10-07. Current review covers degraded-library loader picking against `76d3aba1`; whole-library creation retains its `f6e14ada` baseline, Play its `289d23d4` baseline, read readiness its `9d19a8b3` baseline and publication diagnostics their `9da0128c` baseline. Browser recovery stays bound to product `391bd32f` and readiness to its `805fb325` baseline. Earlier evidence retains its recorded checkpoints. Full non-Guardian parity remains active; this review is not an installed-release certificate.
+Updated 2026-10-07. Current review covers the restored-library creation control against `412a63f9`; degraded-library loader picking retains its `76d3aba1` baseline, whole-library creation its `f6e14ada` baseline, Play its `289d23d4` baseline, read readiness its `9d19a8b3` baseline and publication diagnostics their `9da0128c` baseline. Browser recovery stays bound to product `391bd32f` and readiness to its `805fb325` baseline. Earlier evidence retains its recorded checkpoints. Full non-Guardian parity remains active; this review is not an installed-release certificate.
 
 ## Ownership and findings
+
+Current scheduled scope: test-only restored-library creation control against `412a63f9`. The [control](wire-parity-review.md#restored-library-creation-control) exercises the existing resolve/create interface without production changes or new abstractions. Standards review finds an unbounded observer join after shutdown refusal; root bounds it, retains timeout failure and preserves the fixture without aborting accepted work. Both final review axes clear fixture `4af1296d`; all90 instance checks pass, joined0. Original-proof refusal, no publication and fresh same-name creation are verified; provider-await/switch/cancellation and native gates remain separate. Existing AGENTS ownership rules suffice.
 
 Root owns integration, result records, actual UI/process observations and serialized shared verification. Fixture authors relinquished their files before execution. Independent Standards/Spec reviews cover changed production, tests and generated contracts; retained helper/capture reviews remain linked below. Native credentials, signing, deployment, legacy profiles and user installations are outside this review.
 
@@ -24,6 +26,8 @@ Unchanged frontend asset-watch publication times out once; the exact-file contro
 The committed [artifact aggregation](wire-parity-review.md#observed-simultaneous-artifact-damage) and [runtime provisioning](wire-parity-review.md#ordinary-default-runtime-provisioning) slices retain separate source pins, genuine HTTP RED/GREEN, clear Standards/Spec reviews, full-library/desktop results and historical failure evidence in their feature records. Provisioning reuses the component lease and publication owner; missing-only mode cannot displace canonical data or rotate quarantine. These checkpoints do not establish the later read-only slice, visible Play, publication-time conflict injection, postclaim cancellation or native/installed acceptance.
 
 ## Validation
+
+Hosted [run37622205170](https://github.com/mateoltd/axial/actions/runs/37622205170) passes both jobs at picker commit `412a63f98028517583a9264ffd95a4b3cd4f12fb`; retained watch joins0 and independent exact SHA/job confirmation agrees. This does not verify the later test-only control or diagnose historical intermittent failures.
 
 Hosted [run37620439994](https://github.com/mateoltd/axial/actions/runs/37620439994) passes both jobs at creation commit `76d3aba1aaca9e7aae7aeee30c7128fdd1728f92`; watch joins0 and independent exact SHA/job confirmation agrees. This does not validate later picker source or diagnose earlier intermittent failures.
 
