@@ -1,6 +1,6 @@
 # Architecture review
 
-Updated 2026-10-07. Current source review covers the required-library absence slice against `810346fa`; prior frontend deletion evidence stays scoped to unchanged `86eac6a0`. Full non-Guardian parity remains active; this review is not an installed-release certificate.
+Updated 2026-10-07. Current source review covers required-library corruption against `10e99d7e`, following the absence slice against `810346fa`; prior frontend deletion evidence stays scoped to unchanged `86eac6a0`. Full non-Guardian parity remains active; this review is not an installed-release certificate.
 
 ## Ownership and findings
 
@@ -8,7 +8,7 @@ Root owns integration, result records, actual UI/process observations and serial
 
 - No redundant naming, needless layering, duplicate state or speculative abstraction warrants a production change. The existing deletion owner already reconciles an unknown acknowledgement through exact operation status; adding a client journal or replay would duplicate authority.
 - Preserve a historical witness's recorded scope. The fresh deletion baseline authenticates protected identities and current metadata without inventing unavailable historical creation-row hashes. Complete creation-table preservation begins after Duplicate. Keep native receipts opaque and bound aggregate reads, not only individual calls.
-- Required-library absence belongs to the existing installed-file verifier: validate its recorded checksum/path/namespace before measuring absence, then carry a typed error through the existing preflight constructor and HTTP409 mapping. Admission/symlink errors and corrupt non-client bytes remain generic. The HTTP tracer installs a genuine provider JAR before removing it; symlink/no-repair controls precede the intended RED, and privacy assertions pass in GREEN. No scanner, provider expansion, decision model, persistence owner or UI change.
+- Required-library absence and corruption belong to the existing installed-file verifier: validate recorded checksum/path/namespace before measuring absence or mismatch, then carry typed errors through the existing preflight constructor and HTTP409 mapping. Invalid evidence, admission/symlink/read errors remain generic. The HTTP tracer installs a genuine provider JAR before removing or damaging it; no-repair/settlement controls precede each intended RED, and privacy assertions pass in GREEN. No scanner, provider expansion, decision model, persistence owner or UI change.
 - Existing AGENTS.md rules cover the observed patterns. No additional rule or style-only rename is justified. This record replaces repeated chronology with feature-owned evidence and Git history.
 
 ## Validation
@@ -19,12 +19,14 @@ Root owns integration, result records, actual UI/process observations and serial
 
 [Required-library evidence](wire-parity-review.md#observed-required-library-absence) records meaningful HTTP RED/GREEN, Rust-owned contract generation/equality and independent Standards/Spec clearance for the six source/test/generated files. Full app/API checks pass831/124 with zero failures and ten/eight existing helper ignores, joined0; the API result precedes the final one-line409 mapping. Final three install-route checks, exact HTTP tracer,83 desktop/one helper ignore and531 frontend/one TODO pass, joined0. Scoped formatting, whitespace, TypeScript and semantic lint pass. No native credential/signing or deployment action occurs.
 
-Hosted [run37571493792](https://github.com/mateoltd/axial/actions/runs/37571493792) passes both jobs at exact `36646cb3`, with joined watch and matching SHA/job query. It does not certify later source or runtime journeys.
+The subsequent [corruption slice](wire-parity-review.md#observed-required-library-corruption) has separate same-size damage RED/GREEN and both review clearances. Its focused90 install/Content,44 launch-coordinator/one ignore, three route,83 desktop/one ignore and531 typed frontend/one TODO checks pass, joined0; generated equality/formatting and unchanged build/budgets pass. Earlier full-suite counts are not reassigned to this source. No architecture expansion is warranted.
+
+Hosted [run37577763103](https://github.com/mateoltd/axial/actions/runs/37577763103) passes both jobs at exact `10e99d7e`, with joined watch and matching SHA/job query. These are source checks for the absence checkpoint, not the subsequent corruption source or installed/runtime acceptance.
 
 ## Unresolved owner handoffs
 
 - Library: busy, partial failure, interruption and unavailable-status recovery.
-- Launch: library corruption, other artifact/runtime/early-refusal facts and global/component-origin coverage. Required-library absence does not close these distinct cases.
+- Launch: assets, logging configuration, other artifact/runtime/early-refusal facts and global/component-origin coverage. The bounded library cases do not close these distinct requirements.
 - [Accounts](native-auth.md): current noninteractive credential persistence across distinct builds under the intended authorized stable signing identity.
 - [Updates](updates.md): trusted signed installed-update acceptance; retain the unresolved asset-watch diagnosis.
 - [Linux](linux-package.md): visible UI, HTTP/media/SSE, audible playback and ordinary Quit/reopen. Process survival and fakesink decoding are insufficient; preserve graphics/protocol failures.
