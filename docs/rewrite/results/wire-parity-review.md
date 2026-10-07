@@ -98,6 +98,8 @@ The genuine paired HTTP control passes1/0.20s; four native controls pass/0.16s, 
 
 Desktop composition also checks successfully, joined0/39.10s (`loader-cancellation-desktop-check.log`); no native app or credential prompt is invoked. This compile check is not installed-runtime acceptance.
 
+Committed as `36bd5263548e36c9f994d2b2c638ece4f37a5005`. Hosted [run37644863596](https://github.com/mateoltd/axial/actions/runs/37644863596) completes successfully for both application and delivery-contracts jobs; watch joins0 and independent exact-SHA/completed-job assertions agree (`loader-cancellation-ci-{watch.log,current.json,confirmation.log}`). Individual step metadata remains stale and supplies no step-level claim. Scheduled source reinspection finds no new actionable drift; this does not close the remaining cancellation or native/full-parity gates.
+
 ## Actual parent-metadata readiness
 
 2026-10-07, the same reviewed working Rust source builds the normal API, joined0/31.68s (`parent-readiness-api-build.log`). Its separately copied executable SHA256 is `59621ebfa17608c9f6ae1461dd6e69d04ccff7c30231001bbf03a0967796c04b`, matching the build output. No test-support provider override or game launch is requested. The genuine generated Fabric1.20.1/0.19.5 profile at `/private/tmp/axial-native-gameplay.E56Jhx/profile` already contains `NativeWorldRenamed`; all three instance trees are protected, not empty fixtures. Target `6798b0fc-ff87-44bf-b7cd-b3adf6442662` remains its recorded revision14.
