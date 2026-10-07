@@ -4,6 +4,8 @@ Updated 2026-10-07. Current review covers the restored-library creation control 
 
 ## Ownership and findings
 
+The [provider-await control](wire-parity-review.md#original-admission-across-provider-io) against `e99dff08` extends the existing test-only HTTP fixture, not production interfaces. Root adds an unchanged-library live-response case to exclude cache publication as the negative case's cause. Both final review axes clear catalog `e628fa79`/setup fixture `0fb0a0ff`; focused1, catalog21/one ignore and instance91 pass, joined0. Existing ownership, bounded cleanup and exact revision rules suffice; no new AGENTS rule or abstraction is justified. Loader I/O and the separate switch/cancellation/handoff/native gates stay open.
+
 Current scheduled scope: test-only restored-library creation control against `412a63f9`. The [control](wire-parity-review.md#restored-library-creation-control) exercises the existing resolve/create interface without production changes or new abstractions. Standards review finds an unbounded observer join after shutdown refusal; root bounds it, retains timeout failure and preserves the fixture without aborting accepted work. Both final review axes clear fixture `4af1296d`; all90 instance checks pass, joined0. Original-proof refusal, no publication and fresh same-name creation are verified; provider-await/switch/cancellation and native gates remain separate. Existing AGENTS ownership rules suffice.
 
 Root owns integration, result records, actual UI/process observations and serialized shared verification. Fixture authors relinquished their files before execution. Independent Standards/Spec reviews cover changed production, tests and generated contracts; retained helper/capture reviews remain linked below. Native credentials, signing, deployment, legacy profiles and user installations are outside this review.
@@ -26,6 +28,8 @@ Unchanged frontend asset-watch publication times out once; the exact-file contro
 The committed [artifact aggregation](wire-parity-review.md#observed-simultaneous-artifact-damage) and [runtime provisioning](wire-parity-review.md#ordinary-default-runtime-provisioning) slices retain separate source pins, genuine HTTP RED/GREEN, clear Standards/Spec reviews, full-library/desktop results and historical failure evidence in their feature records. Provisioning reuses the component lease and publication owner; missing-only mode cannot displace canonical data or rotate quarantine. These checkpoints do not establish the later read-only slice, visible Play, publication-time conflict injection, postclaim cancellation or native/installed acceptance.
 
 ## Validation
+
+Hosted [run37624283183](https://github.com/mateoltd/axial/actions/runs/37624283183) fails application verification at exact `e99dff08`; watch joins1, independent SHA/job assertion and retained full test artifact agree. API127/one/eight ignores reports a45-second external-library cold-reopen Kill request timeout; benchmark continuation passes. The synchronous adapter does not wait for settlement, so acceptance/cause remains unknown. Later library checks do not run. Root owns the distinct Linux reproduction/diagnostic handoff; no speculative policy or timeout change follows from local passes.
 
 Hosted [run37622205170](https://github.com/mateoltd/axial/actions/runs/37622205170) passes both jobs at picker commit `412a63f98028517583a9264ffd95a4b3cd4f12fb`; retained watch joins0 and independent exact SHA/job confirmation agrees. This does not verify the later test-only control or diagnose historical intermittent failures.
 
