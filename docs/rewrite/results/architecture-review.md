@@ -4,7 +4,7 @@ Updated 2026-10-08. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Reviewed scope and ownership
 
-Current scope is the committed six-file diagnostic/evidence diff against `62b24932` and subsequent private watch receipts. Maintained source is unchanged at `075df91f`; no additional architectural simplification is justified. Root owns integration, evidence and serialized verification. Independent source reviews clear final queue/test pins `9cb76996`/`c008996e`; the staged-content witness remains privately owned and unexecuted.
+Current scope is the committed diagnostic/evidence diff against `62b24932`, subsequent private watch receipts and [staged Discover creation/reopen](pack-files.md#actual-staged-discover-creation-and-cold-reopen). Maintained source is unchanged at `075df91f`; only evidence changes after `9d4cc650`. No additional architectural simplification is justified. Root owns integration, evidence and serialized verification. Independent source reviews clear final queue/test pins `9cb76996`/`c008996e`; the staged witness retains existing owners and no production dependency.
 
 Current [queued Fabric503](fabric-loader.md#queued-artifact-failure-diagnostics) composes real acquisition/publication owners. Two intended REDs drive bounded safe target/status retention in the existing warning owner. Review keeps executor/provider/services/root together on unknown fixture cleanup. No new state owner, schema, classification or UI change; existing rules suffice.
 
@@ -23,6 +23,8 @@ Native world reload remains live/untouched. Earlier [Accounts](native-auth.md#br
 ## Validation and limits
 
 The current diagnostic correction passes focused1/7.72s and final full API132/twelve existing helper ignores/48.90s, original joins0. Shipped app/API library checking joins0/5.66s; scoped formatting/diff checks pass. [Fabric](fabric-loader.md#queued-artifact-failure-diagnostics) records both REDs, final pins, bounded capture and preservation. Unknown-join fixture retention is source-reviewed, not executed fault coverage.
+
+[Staged creation](pack-files.md#actual-staged-discover-creation-and-cold-reopen) reaches actual automatic Ready/Mods2 and cold persistence with five bounded preservation receipts and direct-exec final joins0. First wrappers exit1, incomplete cold trace and slow debug reads remain qualified. No gameplay, native/installed or responsiveness pass follows; no new AGENTS rule is needed.
 
 [Settings](settings.md#redacted-java-selection-and-stale-edits) retains actual stale-edit/cold-persistence evidence; mock process-memory navigation is not native persistence. [Mixed Mods Delete](mod-files.md#actual-mixed-managedlocal-deletion) retains partial refusal, survivor continuation and cold persistence with named preservation. Witness review corrects identity/budgets, not production behavior.
 
