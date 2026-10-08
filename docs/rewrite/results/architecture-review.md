@@ -4,11 +4,13 @@ Updated 2026-10-08. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Reviewed scope and ownership
 
-Reviewed scope is committed `6d373156...3f11441e`, including the explicit-refresh caller-loss correction. Independent Standards/Spec source reviews find no documented breach, actionable smell or scope error after the corrections below. The scheduled recheck finds no further drift requiring changes. Root owns integration, evidence and serialized verification; private authors relinquish before integration. Earlier runtime, screenshot and native checkpoints retain their evidence in feature records.
+Reviewed scope is committed `6d373156...a77a3866` and the working music evidence, including the explicit-refresh caller-loss correction. Independent Standards/Spec reviews find no documented breach, actionable smell or scope error after the corrections below. The scheduled recheck finds no further drift requiring changes. Root owns integration, evidence and serialized verification; private authors relinquish before integration. Earlier runtime, screenshot and native checkpoints retain their evidence in feature records.
 
 The [offline-account browser journey](native-auth.md#browser-offline-identity-lifecycle) passes both evidence axes and bounded assertions. Three API/frontend pairs join0 and separately disappear. Retained requests are not an exhaustive census; the last witness precedes final shutdown. The native world-reload launcher/JVM remain live and untouched.
 
 UI, wire schemas, native proof checks, credentials and signing are unchanged. The rules adapter restores retained HTTP refusal contracts. Earlier evidence applies only to its recorded source and admission scope.
+
+The unchanged-source [browser music journey](system-music.md#browser-launch-suppression-and-resume) exercises existing music/launch/settings owners. Review adds exact selected-target and stored-account-projection prerequisites to private witnesses; a refused first trial remains retained. No production drift or new owner is justified. Eight fresh phases and both ordinary process-pair exits preserve their declared scope; audio/native/full-parity limits remain open.
 
 ## Findings and corrections
 
@@ -24,7 +26,7 @@ Provider RED409-versus502 becomes GREEN; Unconfigured, app rules, full API and d
 
 Earlier [ordinary binary preservation](library-lifecycle.md#ordinary-executable-startup-preservation) and [native reload setup/busy refusal](native-auth.md#current-native-world-reload-setup) retain their source pins and preservation scopes. Expected-green controls, explicit refusals and Playing do not establish arbitrary interruption, gameplay reload, final native closure, whole-profile immutability or installed parity. Older unbound native selection supplies no current regression/preservation proof.
 
-Exact `3f11441e` hosted [run37718966091](https://github.com/mateoltd/axial/actions/runs/37718966091) completes both jobs successfully; its original watch, terminal query and independent terminal run/SHA/two-job assertions join0 (`rules-waiter-loss-ci-{terminal.json,terminal-assertions.log}`). This verifies the committed caller-loss correction, supplies no runtime/full-parity certificate and does not diagnose the local watch failure. Earlier hosted results remain in [integration](integration.md).
+Exact `a77a3866` hosted [run37719818182](https://github.com/mateoltd/axial/actions/runs/37719818182) completes both jobs successfully; its original watch, terminal query and independent terminal run/SHA/two-job assertions join0 (`caller-loss-evidence-ci-{terminal.json,terminal-assertions.log}`). This supplies no music runtime/full-parity certificate and does not diagnose the local watch failure. Earlier hosted results remain in [integration](integration.md).
 
 The completed three-attempt campaign at `859c1ad7` captures no hosted API trace; the earlier Vanilla run remains cancelled. Original local and [hosted45s Kill acknowledgement failures](wire-parity-review.md#accepted-worker-provider-cancellation), Linux no-init settlement, Java/worker admission and frontend-watch failures remain unresolved with preservation/cleanup evidence retained. The Kill acknowledgement failures are not later tree-settlement timeouts. Delivery success/nonrecurrence neither diagnoses them nor certifies later edits; no speculative Stop fix or deadline increase follows.
 
