@@ -2,6 +2,16 @@
 
 Status: scoped adaptation, isolated behavior checks and bounded browser/native mode, settlement and reopen checks pass. Native preparation/readiness latency, full Performance and installed desktop parity remain unverified.
 
+## Unconfigured rules-refresh refusal
+
+2026-10-08, working changes against `6d373156`: the retained internal refresh endpoint collapsed the leaf's typed `Unconfigured` error into a generic failure, publishing a warning and returning409. Legacy explicitly returns400 with `{"error":"performance remote rules url is not configured"}`. Preserve that one safe cause in the existing Performance workflow and map it at the HTTP adapter. The existing `mutation_allowed()` guard still runs first; other errors, publication, persistence and revision behavior remain unchanged. No UI, wire schema, configuration, state owner or abstraction is added.
+
+The real authenticated HTTP regression compares complete serialized rules/configuration responses before refusal, afterward and after reopening the same fresh profile. Both service lifetimes settle and drop before assertions. Provider configuration is isolated in a bounded child; canonical fixtures, bounded responses/output, exact helper selection and failed-fixture preservation remain. The first null-versus-false failure was a mistaken nested-status fixture assumption, corrected through the owning flattened DTO; it is not product RED.
+
+The corrected regression genuinely fails409-versus400 in0.22s, then passes unchanged after the fix in0.39s. All nine app rules controls pass in0.12s, including cached-rules trust refusal with absent URL/key. The final full API suite passes132/zero failures/nine helper ignores in50.67s, all verification handles joined; no suite is rerun for documentation. Logs are `rules-refusal-{red,red-final,green,rules,api,format,final-assertions}.log`. Final source SHA256 pins: API test `1bd70c4eb7f8b10c5e146ab5b83990829c4f979ade2568f8b92f2a8935fbba67`, HTTP adapter `959fb6e35299e00337f681f98f07af2d2641c5b478faae2898e20d796a5dbbe9`, workflow `a2d39fbd6cee6b5293e4c58212e21d082ee3e3357ce455bcbbd017f863872c89`. Independent Standards/Spec rechecks and root source/summary assertions are clear; scoped formatting and whitespace checks pass.
+
+This closes only unconfigured-refresh refusal and observable state preservation. Other provider-error classifications, crash/process/native/installed acceptance and full Performance/full-launcher parity remain open. Existing typed-contract and safe-error rules in AGENTS.md suffice; no duplicate rule follows.
+
 ## Measured ordinary-read validation cost
 
 2026-10-06, source baseline `5f7f7cc2` and correction `f460df92`: one changed file, `core/minecraft/src/managed_fs.rs` (SHA256 `ade3d16df3045fe750bd920f5746a2e313b905c925fa5ee7eb003ab373e4affc`). The unchanged generated [external-library fixture](library-lifecycle.md#real-external-library-launch-and-report-reopen) has Vanilla1.20.1, offline ExternalParity and profile-owned Java17. No game or human credential action occurs during this timing comparison.
