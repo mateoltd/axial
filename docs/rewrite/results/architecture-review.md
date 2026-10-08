@@ -4,7 +4,7 @@ Updated 2026-10-08. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Reviewed scope and ownership
 
-Reviewed scope is committed `6d373156...ac0f4fe2` plus the unintegrated Fabric tweaker correction. Root owns integration, evidence and serialized verification; the loader author relinquished the five-file slice and both independent source reviews clear its final pins. Earlier checkpoints retain their evidence in feature records.
+Reviewed scope is committed `6d373156...7ff856a2`. Root owns integration, evidence and serialized verification; the loader author relinquished the five-file slice and both independent source reviews clear its final pins. Earlier checkpoints retain their evidence in feature records.
 
 The [offline-account browser journey](native-auth.md#browser-offline-identity-lifecycle) passes both evidence axes and bounded assertions. Three API/frontend pairs join0 and separately disappear. Retained requests are not an exhaustive census; the last witness precedes final shutdown. The native world-reload launcher/JVM remain live and untouched.
 
@@ -32,7 +32,7 @@ Earlier [ordinary binary preservation](library-lifecycle.md#ordinary-executable-
 
 Earlier hosted checkpoints and the corrected pre-join assertion remain in [integration](integration.md); they do not qualify later diagnostics, native/full parity or watch diagnosis.
 
-Exact `ac0f4fe2` hosted [run37741187849](https://github.com/mateoltd/axial/actions/runs/37741187849) completes both jobs; terminal query and exact run/SHA/two-job assertion join0. This qualifies the Maven checkpoint, not the subsequent tweaker correction or real launch.
+Exact `7ff856a2` hosted [run37745875582](https://github.com/mateoltd/axial/actions/runs/37745875582) completes both jobs; original watch/detail and bounded exact run/SHA/two-job assertion join0. This qualifies the tweaker checkpoint, not gameplay or subsequent Settings edits. Earlier hosted results remain in [integration](integration.md).
 
 The completed three-attempt campaign at `859c1ad7` captures no hosted API trace; the earlier Vanilla run remains cancelled. Original local and [hosted45s Kill acknowledgement failures](wire-parity-review.md#accepted-worker-provider-cancellation), Linux no-init settlement, Java/worker admission and frontend-watch failures remain unresolved with preservation/cleanup evidence retained. The Kill acknowledgement failures are not later tree-settlement timeouts. Delivery success/nonrecurrence neither diagnoses them nor certifies later edits; no speculative Stop fix or deadline increase follows.
 
