@@ -4,7 +4,7 @@ Updated 2026-10-08. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Reviewed scope and ownership
 
-Reviewed scope is committed `6d373156...092b575f` and its follow-up generated-naming/mock-startup diff, including generated output and current-wire fixtures. Root owns integration, evidence and serialized verification; feature authors relinquished their slices. Independent source reviews clear the current pins. Earlier checkpoints retain their evidence in feature records.
+Reviewed scope is committed `6d373156...d38a6f55`, including generated output/current-wire fixtures, and the supplemental mixed-mod witness. Root owns integration, evidence and serialized verification; feature authors relinquished their slices. Independent source reviews clear current pins. Earlier checkpoints retain their evidence in feature records.
 
 The Java-selection correction adds owner-derived presentation metadata and fixes the observed selector; native proofs, credential storage and signing remain unchanged. The native world-reload launcher/JVM remain live and untouched. Earlier account/music witnesses, source checkpoints and preservation limits remain in [Accounts](native-auth.md#browser-offline-identity-lifecycle) and [Music](system-music.md#browser-volume-persistence), not acceptance of later edits.
 
@@ -19,6 +19,8 @@ The Java-selection correction adds owner-derived presentation metadata and fixes
 ## Validation and limits
 
 Java selection passes app850/API135/contracts, focused39 and final frontend552/one existing TODO with original joins0. Actual browser Reset409 preserves Component10; rapid saves remain ordered, and fresh Reset/replacement plus two cold restarts retain component then Custom14/1920×1080. Three normal pairs join0/disappear and preserve named original projections. [Settings](settings.md#redacted-java-selection-and-stale-edits) retains pins, REDs and limits. The [follow-up](settings.md#mock-startup-and-generated-chunk-naming) passes unchanged-budget build/verification224431/224726, frontend553/one TODO and focused mock control. Actual mock Settings supports Custom/remount/Reset; its process-memory projection is not native persistence. Both source axes clear; full parity remains open.
+
+[Mixed managed/local Mods Delete](mod-files.md#actual-mixed-managedlocal-deletion) passes actual partial409, selected-survivor continuation and cold persistence at unchanged product. Existing owners need no correction. Review strengthens only witness identity/budgets and distinguishes optional request version from resolved provenance. Both process pairs join0/disappear; named preservation holds. Existing typed-contract/budget rules suffice. Exact `d38a6f55` CI completes both jobs; native/installed/full parity remains open.
 
 The [tweaker correction](fabric-loader.md#historical-client-tweaker-correction) passes Minecraft1050/app848/ten existing ignores and ordinary API build with original joins0. Real installation/correct primary Java8 tweaker pass; boot then ends in a separate null GLFW monitor-buffer crash. Joined normal closure/cold reopen preserve captured reports/proof, not menu/gameplay acceptance. Exact `7ff856a2` hosted [run37745875582](https://github.com/mateoltd/axial/actions/runs/37745875582) completes both jobs with joined watch/detail and exact assertions; it does not qualify subsequent Settings edits.
 
