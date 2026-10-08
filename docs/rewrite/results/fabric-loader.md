@@ -84,6 +84,16 @@ Cancellation remains owned by the accepted installation task. The adapter does n
 
 No user profile, baseline mutable library, legacy source, Cargo manifest, module registration, or generated file was modified by this package.
 
+## Unlocked historical launch comparison
+
+One ordinary API launch repeats the original historical instance at revision4 using the same `/private/tmp/fabric-launch.CAfOxDUw/api-client-tweaker` (SHA256 `41cdf726`) and profile, not a rebuilt current binary. Native automation is available; World Reload remains untouched. Original prior-report/settlement hashes, client proof `be3251b0`, Java8 bytes `fe5b3930` and the separate revision14 copy are admitted before execution. A new intent is sent once; no mutation replay or command injection occurs.
+
+The private native observer at `/private/tmp/argv-observer.93MAqo/observe.c` (`e7a774ab`, compiled binary `20844a73`) passes source/privacy review, warning-clean compilation and calibration against two disposable Node processes, both joined. It samples native argument count, exact literal flag count and stable PID/parent/birth/path identity, never raw arguments/environment. Unavailable observations omit counts. The sampler does not prove option position, JVM interpretation or loaded binary bytes.
+
+Root's launch witness `522d61a8` joins0 on original handle23526. Session `9f31ea4c-a68f-4c44-adee-63f0ddd362db`, intent `b20961dd-c61c-4706-a449-b2774e5bbc95`, uses JVM1422 under API82749. Actual sampling succeeds with argc50 and exactly one `-XstartOnFirstThread`; boot is observed and the30-second bounded observation ends Running. A later read-only sample at12:08:13UTC remains Running/live. This weakens the missing-flag hypothesis; it does not establish display causation, successful menu/gameplay or current-build acceptance. The122 requests reserve255,852,544 cumulative response-allocation bytes as an estimate, not a hard transport heap cap.
+
+`historical-unlocked-{launch,status-later,before-terminal,before-child,preserved-before,preserved-running,prior-terminal-running}.log` retains structured evidence. Exact running-stage comparisons preserve accounts/selection/settings, all installation records/version metadata, the separate copy and the prior failure/acknowledgement; this is named metadata preservation, not whole-profile immutability. API handle13624 and the game remain root-owned while visible-menu confirmation is pending. Ordinary Stop/shutdown, new terminal acknowledgement and cold reopen are not yet verified. No production/UI/credential/signing correction is made; full parity remains open.
+
 ## Queued provider-fixture composition
 
 Against `5be187d1`, endpoint-only `test-support` wiring extends the existing `InstallTestEndpoints` from Vanilla to Fabric index, profile proof and profile body acquisition. One shared installation body retains independently fetched live-record equality and install-flight checks. The existing continuation carries endpoints through base success, publication failure and activation; no fixture receipt, Ready state, global override, persisted configuration or new recovery owner is introduced. Literal-loopback admission and bounded no-proxy/no-redirect HTTP reuse the existing owners. Ordinary production signatures, failure causes, logging, retries and settlement classification remain unchanged.
