@@ -2,6 +2,8 @@
 
 Updated 2026-10-08. Implementation is in progress, not release-ready. Passing checks apply to their recorded source checkpoint, not to later edits or untested runtime parity. Logs below are under `.rewrite-logs/`.
 
+The [single-file watch reduction](updates.md#watch-minimization-controls) reproduces the sole asset timeout in44 files on its first attempt. Original handle78828 joins1; bounded assertions join0 and confirm the same complete missing-callback trace and settled cleanup. The removed generation cross-owner test is unnecessary for this observed failure. Shipped watcher behavior is unchanged; cause, fix and full parity remain open.
+
 Against `5be187d1`, [queued Fabric provider-fixture composition](fabric-loader.md#queued-provider-fixture-composition) extends existing endpoint support through the real lookup/base/proof/profile owners and retained continuation, behind `test-support`. Independent source review and shipped/test-feature compilation pass; three existing native controls pass with original joins0. No diagnostic correction or new queued503 execution is claimed. Native saved-world gameplay, installed acceptance and full parity remain open.
 
 Exact composition commit `ec5bfe7e853b81775c930edf4420f67f77e37a28` hosted [run37767791332](https://github.com/mateoltd/axial/actions/runs/37767791332) completes both jobs successfully. The original terminal query and exact run/SHA/two-job assertions join0 (`fabric-endpoints-ci-resumed-later.json`, `fabric-endpoints-ci-resumed-assertions.log`). This verifies that committed checkpoint, not the pending queued503, native gameplay or installed/full-parity gates.
