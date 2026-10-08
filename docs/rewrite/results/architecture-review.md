@@ -4,7 +4,7 @@ Updated 2026-10-08. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Reviewed scope and ownership
 
-Current scope is runtime conflict coverage, [native reload setup and busy refusal](native-auth.md#current-native-world-reload-setup), and [browser screenshot bulk/partial deletion/reopen](screenshot-files.md#browser-partial-deletion-and-cold-reopen). Root owns integration, evidence and serialized verification; private authors relinquish before integration. Independent axes clear runtime test `cc25fbb1` and private screenshot witnesses `49e39e53`/`9453cd2d`. Earlier checkpoints retain their evidence in feature records.
+Current scope is runtime conflict coverage, [native reload setup and busy refusal](native-auth.md#current-native-world-reload-setup), [browser screenshot bulk/partial deletion/reopen](screenshot-files.md#browser-partial-deletion-and-cold-reopen), and [full-run watch capture](updates.md#current-full-run-watch-capture). Root owns integration, evidence and serialized verification; private authors relinquish before integration. Independent axes clear runtime test `cc25fbb1`, screenshot witnesses `49e39e53`/`9453cd2d` and the private watch observer. Earlier checkpoints retain their evidence in feature records.
 
 UI, wire contracts, native proof checks, credentials and signing are unchanged. Earlier evidence applies only to its recorded source and admission scope.
 
@@ -13,6 +13,7 @@ UI, wire contracts, native proof checks, credentials and signing are unchanged. 
 - Runtime conflict controls reuse the existing postclaim gate and materializer. One concrete64-byte reader replaces duplicated readers: prior cancellation sampling stays192bytes; both new fixtures total384bytes and four namespace entries. Exact foreign-directory refusals retain preservation and joined settlement. Unknown joins retain the running executor and native owners. No workflow framework, stricter matching-canonical reuse policy or duplicate AGENTS rule follows.
 - The temporary bounded four-event Stop probe retains its test-only scope, unchanged deadlines and removal obligation. Capture loss is distinct from HTTP/process completion; no speculative Stop fix or parallel owner follows. Detailed source pins and limits remain in [wire parity](wire-parity-review.md#temporary-hosted-acknowledgement-capture).
 - Screenshot acceptance uses existing resource actions and ordinary process lifetimes. Private witness review reserves cleanup before I/O and requires explicit SQLite heap-cap readback before profile sampling. The retained unsupported-cap refusal is observer evidence, not a product defect. Existing budget rules suffice; no new production abstraction or AGENTS rule follows.
+- Watch-observer review corrects aggregate archive/verification/creation reservations and admits only the exact benign legacy attributes blob. Original runner/process owners, temp placement and five-second assertion remain; trace writes follow original cleanup. The completed ten-run capture reproduces missing raw callback delivery with complete traces, not a cause or fix. Root owns minimization; existing budget rules suffice.
 
 ## Validation and limits
 
@@ -20,7 +21,7 @@ Current missing-runtime controls5/1.26s and full Minecraft with `test-support`1,
 
 Earlier [ordinary binary preservation](library-lifecycle.md#ordinary-executable-startup-preservation) verifies normal shutdown and two natural refusal exits with exact stopped payloads, excluding only native lease content. It is Mac API-process acceptance, not repair, general interruption or native/installed proof.
 
-Exact `99daa535` hosted [run37704903473](https://github.com/mateoltd/axial/actions/runs/37704903473) completes both jobs successfully; watch and independent final run/SHA/job assertions join0. It predates the partial-deletion record. Earlier hosted successes retain their scopes in [integration](integration.md).
+Exact `3d0eeb9c` hosted [run37705868853](https://github.com/mateoltd/axial/actions/runs/37705868853) completes both jobs successfully; watch and independent final run/SHA/job assertions join0. It does not diagnose the separate local watch failure. Earlier hosted successes retain their scopes in [integration](integration.md).
 
 Actual browser bulk Delete completes two200/ok responses and clears selection. A separate two-document stale-name batch reaches one200/ok, one404/not-found and no third DELETE; its UI reports1of3 and retains only the untouched third selection. Five bulk and six partial phases verify exact protected trees/all22 metadata tables through ordinary shutdown/cold reopen/final shutdown, allowing only declared file effects and parent namespace/metadata changes. Both journeys' API/frontend pairs join0; final PIDs/listeners/openers are absent. Explicit refusal is not unknown-outcome recovery; interruption, native/installed acceptance and whole-profile immutability remain unproved.
 
