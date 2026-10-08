@@ -4,11 +4,11 @@ Updated 2026-10-08. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Reviewed scope and ownership
 
-Current scope is the six-file diagnostic/evidence diff against `62b24932`; earlier reviewed checkpoints remain in linked feature records. Root owns integration, evidence and serialized verification. Feature authors relinquished their slices; independent source reviews clear final queue/test pins `9cb76996`/`c008996e`.
+Current scope is the committed six-file diagnostic/evidence diff against `62b24932` and subsequent private watch receipts. Maintained source is unchanged at `075df91f`; no additional architectural simplification is justified. Root owns integration, evidence and serialized verification. Independent source reviews clear final queue/test pins `9cb76996`/`c008996e`; the staged-content witness remains privately owned and unexecuted.
 
 Current [queued Fabric503](fabric-loader.md#queued-artifact-failure-diagnostics) composes real acquisition/publication owners. Two intended REDs drive bounded safe target/status retention in the existing warning owner. Review keeps executor/provider/services/root together on unknown fixture cleanup. No new state owner, schema, classification or UI change; existing rules suffice.
 
-Exact `62b24932` hosted [run37780416641](https://github.com/mateoltd/axial/actions/runs/37780416641) completes both jobs with joined terminal query/assertions. It qualifies that checkpoint, not the subsequent diagnostic correction/private29-file campaign or any remaining parity gate. Earlier hosted results remain in [integration](integration.md) and their feature records.
+Exact `075df91f` hosted [run37784275228](https://github.com/mateoltd/axial/actions/runs/37784275228) completes both jobs with joined terminal query/assertions. It qualifies the diagnostic checkpoint, not the private watch investigation or remaining parity gates. Earlier hosted results remain in [integration](integration.md) and their feature records.
 
 Native world reload remains live/untouched. Earlier [Accounts](native-auth.md#browser-offline-identity-lifecycle) and [Music](system-music.md#browser-volume-persistence) witnesses qualify only their recorded checkpoints.
 
@@ -18,7 +18,7 @@ Native world reload remains live/untouched. Earlier [Accounts](native-auth.md#br
 - [Settings](settings.md#redacted-java-selection-and-stale-edits) derives Java presentation through the native codec without private authority. Observed stale Reset/held replies drive captured-revision, own-ack and snapshot fences in existing owners. Mock projections use that same redaction boundary. No parallel store, migration or UI redesign follows.
 - [Historical Fabric](fabric-loader.md#historical-maven-transport-correction) corrects exact Maven Central transport. Its [tweaker correction](fabric-loader.md#historical-client-tweaker-correction) carries the official first-client selection through existing proof/sealing, not launch-time injection or restrictive catalog filtering. Installation/persistence pass; separate launch limits remain recorded.
 - Earlier [Performance](performance-ui.md), [materialization](wire-parity-review.md#runtime-publication-conflicts), [resource](screenshot-files.md) and [Library UI](library-ui.md#separate-reconciliation-survivor-cleanup-and-cold-reopen) corrections retain existing owners. Linked records preserve failed trials, pins, joins and limits; no parallel journal/coordinator/recovery framework follows.
-- [Watch controls](updates.md#watch-minimization-controls) retain original owners/deadlines and trace-after-cleanup. Alternative41 reproduces missing callbacks;29 stops on separate port contention while the watch target passes. Its collector refuses correctly; the competing listener is unknown. Shipped watcher remains unchanged, with no cause/fix/minimality claim.
+- [Watch controls](updates.md#watch-minimization-controls) retain original owners/deadlines and trace-after-cleanup. A single palette-test cut reproduces missing callbacks in40 files; the29-file campaign's separate port contention remains unclassified. Collectors retain exact failure boundaries and joined cleanup. Shipped watcher remains unchanged, with no cause/fix/minimality claim.
 
 ## Validation and limits
 
