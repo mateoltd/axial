@@ -2,6 +2,8 @@
 
 Updated 2026-10-08. Implementation is in progress, not release-ready. Passing checks apply to their recorded source checkpoint, not to later edits or untested runtime parity. Logs below are under `.rewrite-logs/`.
 
+Against `5be187d1`, [queued Fabric provider-fixture composition](fabric-loader.md#queued-provider-fixture-composition) extends existing endpoint support through the real lookup/base/proof/profile owners and retained continuation, behind `test-support`. Independent source review and shipped/test-feature compilation pass; three existing native controls pass with original joins0. No diagnostic correction or new queued503 execution is claimed. Native saved-world gameplay, installed acceptance and full parity remain open.
+
 Exact mixed-mod evidence checkpoint `a88f6b5bbe0c122ac18b77293705ca73c30ea236` hosted [run37763977570](https://github.com/mateoltd/axial/actions/runs/37763977570) completes successfully with both application and delivery-contracts passing. The original terminal query joins0 (`mixed-mod-ci-continuation-later.json`); root verifies its exact run/SHA/job results. Earlier in-progress captures remain retained. This verifies that committed checkpoint, not subsequent fixture wiring, saved-world gameplay, installed acceptance or full parity.
 
 Exact naming/mock-startup commit `d38a6f55bf715a08e15336ec492fc03fdf93dfe8` hosted [run37759989690](https://github.com/mateoltd/axial/actions/runs/37759989690) completes successfully with both application and delivery-contracts passing. The terminal query joins0 (`architecture-heartbeat-ci.json`); it verifies that correction, not subsequent runtime journeys or native/installed/full parity.

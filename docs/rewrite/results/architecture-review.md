@@ -6,6 +6,8 @@ Updated 2026-10-08. Working branch: `main`. Full non-Guardian parity remains act
 
 Reviewed scope is committed `6d373156...d38a6f55`, including generated output/current-wire fixtures, and the supplemental mixed-mod witness. Root owns integration, evidence and serialized verification; feature authors relinquished their slices. Independent source reviews clear current pins. Earlier checkpoints retain their evidence in feature records.
 
+Current [Fabric fixture composition](fabric-loader.md#queued-provider-fixture-composition), against `5be187d1`, reuses endpoint acquisition and the existing continuation behind `test-support`. Review clears the narrow wrappers and retained guards; compilation and three existing native controls pass. No new state/recovery owner, production policy or diagnostic correction appears. Actual queued503 reachability remains unverified; existing owner/fixture rules suffice.
+
 The Java-selection correction adds owner-derived presentation metadata and fixes the observed selector; native proofs, credential storage and signing remain unchanged. The native world-reload launcher/JVM remain live and untouched. Earlier account/music witnesses, source checkpoints and preservation limits remain in [Accounts](native-auth.md#browser-offline-identity-lifecycle) and [Music](system-music.md#browser-volume-persistence), not acceptance of later edits.
 
 ## Findings and corrections
