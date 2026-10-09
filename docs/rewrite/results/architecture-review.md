@@ -4,7 +4,7 @@ Updated 2026-10-09. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Scope and ownership
 
-Against `7fa14af4`, root owns the [postcommit creation service-reopen control](performance-ui.md#postcommit-creation-capacity-control) and evidence edits; retained review is read-only. Reuse the existing real-owner pressure fixture and composition, without production changes or another recovery model. Keep games open only for active bounded checks and serialize shared builds at one compiler job/two test threads; join originals and independently verify absence. Earlier native/inventory-sharing/creation/skin/memory/Kill/capacity/Forge review remains linked below.
+Against `91f8ff04`, root owns [current-production native picker acceptance](native-skins.md#current-production-picker-checkpoint) and evidence edits; retained review is read-only. Reuse frozen46aa ordinary packaging, the disposable skin profile and existing readback proof patterns, without production/UI changes or synthetic drop delivery. Keep apps open only for active bounded checks and serialize shared builds at one compiler job/two test threads; join originals and independently verify absence. Earlier creation/native/inventory-sharing/skin/memory/Kill/capacity/Forge review remains linked below.
 
 ## Findings and corrections
 
@@ -27,6 +27,8 @@ Against `7fa14af4`, root owns the [postcommit creation service-reopen control](p
 - User-reported swap prompted [owner-mediated native test cleanup](native-auth.md#current-recovery-checkpoint-native-continuation). Stop games, Quit/join launchers and verify absence; retain unresolved recovery ownership and named-world evidence. Relaunch only when a check is ready.
 
 ## Validation and limits
+
+[Current-production native picker](native-skins.md#current-production-picker-checkpoint) passes actual preview/Cancel/local Save/cold persistence, checked old/new records, independent PNG dimensions/five pixels and complete logical database equality across reopen/final Quit. Original6446/48602 join0 with separate process/listener/profile-holder absence; no game/build/sign-in or idle test app remains. Review confirms the initial proof's unchanged-pixel expectation contradicted the fixed fixture's retained legacy-shaped normalization; correct the proof, not the product. Finder targeting establishes no delivery, so no style/scaling workaround or new drop machinery follows. Existing explicit-evidence rules suffice; AGENTS is unchanged. Stable signing, trusted update, other platforms, swap and full parity remain open.
 
 [Current-source native settings/lifecycle](native-auth.md#current-inventory-sharing-native-checkpoint) passes ordinary ARM64 app-only packaging11101/0, real Vanilla/1GiB saves, one Launch/Playing/Stop and cold readback. Both ordinary Quits join0 with separate PID/listener/profile-holder absence; ten bounded named-world comparisons and protected record/account hashes pass. Root retires the game promptly when supported inventory omits Java, rather than waiting for optional manual input. Global tool mismatches and helper/query refusals are corrected locally without product changes or weaker checks. Current native gameplay, report-codec coverage, stable credentials, trusted update, aggregate memory/swap and full parity remain open; no new AGENTS rule is warranted.
 
