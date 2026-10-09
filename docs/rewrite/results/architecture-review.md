@@ -4,7 +4,7 @@ Updated 2026-10-09. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Scope and ownership
 
-Against `c7352653`, root owns the [Forge full-application process control](forge-loader.md#full-application-process-recovery), evidence edits and serialized verification. Retained Standards/Spec reviewers are read-only. Use one compiler job and one test application process at a time; stop/join disposable apps and games after each check. The private control composes existing owners without production layout, guard, wire, schema, parser or framework changes. Earlier inventory/native review remains linked below.
+Against `660be193`, root owns [native public lookup acceptance](native-skins.md#native-public-username-lookup), evidence edits and serialized verification. Retained reviewers are read-only. Reuse the frozen native artifact only where its relevant owners are unchanged; do not certify a current whole-application build. Use one compiler job and one test application process at a time; stop/join disposable apps and games after each check. Current acceptance needs no compiler or game. Earlier Forge/inventory/native review remains linked below.
 
 ## Findings and corrections
 
@@ -21,6 +21,8 @@ Against `c7352653`, root owns the [Forge full-application process control](forge
 - User-reported swap prompted [owner-mediated native test cleanup](native-auth.md#current-recovery-checkpoint-native-continuation). Stop games, Quit/join launchers and verify absence; retain unresolved recovery ownership and named-world evidence. Relaunch only when a check is ready.
 
 ## Validation and limits
+
+[Native public lookup](native-skins.md#native-public-username-lookup) passes actual rendered Preview/Dismiss, local Save and cold reopen, scoped durable comparisons, ordinary joined Quits and independent process/listener/profile-holder absence. The bounded private witness reuses existing persistence owners; it is not another production model or an atomic full-profile proof. An extra startup-error process is separately closed, without claiming its uncaptured profile binding or original exit. Older default-profile migration SQL is consistent with a refusal but not conclusive attribution; do not add compatibility or reset data to make this acceptance pass. No new production drift or recurring rule is evidenced, so AGENTS is unchanged.
 
 The [Forge process control](forge-loader.md#full-application-process-recovery) passes both final source axes, final one-job compilation and corrected original supervisor52818 joined0. Original children exit78/0/0; the two recovered incarnations each pass one test and normal shutdown. Exact identity/proof, strict Ready, release, source-restoration and independent PID/group/listener/metadata-holder absence assertions pass. Retain the pre-runtime missing-import compilation refusal and initial passing campaign's post-execution timer-ordering qualification. All temporary production-tree changes are removed; no game or test application remains. This is a controlled complete API-composition interruption, not native desktop restart, power loss, all-era recovery or full parity.
 
