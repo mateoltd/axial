@@ -4,7 +4,7 @@ Updated 2026-10-09. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Scope and ownership
 
-Against `5471180f`, root owns the [bulk acknowledgement-loss correction](world-files.md#bulk-acknowledgement-loss), tests and evidence; independent review is read-only. Keep apps open only for active bounded checks and serialize shared builds at one compiler job/two test threads; join originals and independently verify absence. The existing AGENTS process-cleanup rule already covers the user's memory constraint; keep one rule rather than duplicating it. Earlier feature review remains in the linked evidence and Git.
+Root owns the [bulk acknowledgement-loss correction](world-files.md#bulk-acknowledgement-loss), against `5471180f`, and its [actual browser/API acceptance](world-files.md#browser-deletion-response-loss-and-cold-reopen) on frozen `b80bbfbb`; independent review is read-only. Keep apps open only for active bounded checks and serialize shared builds at one compiler job/two test threads; join originals and independently verify absence. The existing AGENTS process-cleanup rule already covers the user's memory constraint; keep one rule rather than duplicating it. Earlier feature review remains in the linked evidence and Git.
 
 ## Findings and corrections
 
@@ -15,6 +15,8 @@ Against `5471180f`, root owns the [bulk acknowledgement-loss correction](world-f
 ## Validation and limits
 
 Both independent source axes clear the final change. The public-action regression goes RED then GREEN; final canonical frontend52042 joins0/559 passes/one existing TODO, including the corrected caller assertion and notice check. Types, affected production semantic lint, scoped formatting/whitespace, normal build and independent generation verification pass at `159c5c18f6c8`/eight budgets. The broader preexisting fixture-format warning is not claimed resolved. No game/app is launched. This is frontend behavior and build evidence, not real HTTP/filesystem loss, native rendering, measured heap/swap improvement or full parity. Earlier [watch evidence](updates.md#sibling-test-cut-and-startup-probe) retains its original RED and unresolved cause; finite later passes do not waive it.
+
+The subsequent frozen-product browser/API check observes genuine completed deletion before ConnectionReset delivery loss, one DELETE only, correct confirmation wording, refreshed survivors and exact cold persistence. It reuses existing duplication/resource/shutdown owners without a new journal, production fault hook or architecture. All original build/server commands join0; tab, listeners and profile holders close promptly. No game is launched. This adds real first-response browser/file acceptance, not native, other-callers, whole-profile or heap/swap proof; detailed evidence and tool-usage qualifications remain in the linked feature record.
 
 Historical checks certify only their recorded checkpoints and scopes. Original joins, retained failures and noncausal later passes remain authoritative in the feature records; this compact index does not promote them to current-build or native acceptance.
 
