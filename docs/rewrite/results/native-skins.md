@@ -1,5 +1,11 @@
 # Native skins
 
+## Current Finder delivery limitation
+
+2026-10-10, against `2f8749a0`, use the frozen `ee2277ff` native artifact from [Java acceptance](settings.md#current-native-java-selection-and-cold-persistence) with the existing isolated DropParity profile. Both persisted Library cards render. Finder's actual209-byte `first.png` is selected through a verified screenshot-coordinate hit, then only the test windows are moved/tiled on the built-in display. One cross-window gesture still establishes neither OS delivery nor hover/preview; destination geometry is inferred from tiling, not independently captured desktop geometry. No picker, Save or synthetic native event substitutes for delivery. Do not repeat these window-targeting gestures without a changed supported delivery path or a manual participant.
+
+Before/after-attempt/after-Quit logical database proofs match the prior25,351-byte dump/hash `d7d3550e37641fe3c279b4a7b5141c0d65214229195d94ab07fdf31b117be3e5`; fixture hash, both record summaries, seven empty work/applied counts and quick-check remain exact. Bounded dump output/time is not SQLite-internal or whole-filesystem proof. Only the temporary Finder window closes; the existing user window is preserved. Original launcher2164/PID55176 joins0; independent PID/port58734/profile-holder checks pass. No game, credential action or owned idle app remains. Evidence: `finder-current-{runtime.log,proof.mjs,before.json,after-attempt.json,final.json}` and cleanup assertions in `native-reset-assertions.log`. Finder delivery remains open, not a demonstrated product failure.
+
 2026-10-04. Bounded unsigned macOS ARM64 debug acceptance, not provider-account or installed-release parity. Generated profile `/private/tmp/axial-native-current.YwnWYB/profile`; unchanged frontend generation `dcb70bac0468`.
 
 ## Correction and verification
