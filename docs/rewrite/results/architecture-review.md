@@ -4,7 +4,7 @@ Updated 2026-10-09. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Scope and ownership
 
-Against `bb912ef6`, root owns [native inventory sharing](performance-ui.md#native-preparation-inventory-sharing), its local extraction control and evidence edits; retained review is read-only. Reuse the existing immutable receipt and native worker, without a cache, new quota, production hook or framework. Keep apps/games closed and shared verification serialized at one compiler job/two test threads; join originals and independently verify absence. Earlier creation/skin/memory/Kill/capacity/Forge/inventory/native review remains linked below.
+Against `46aa04fb`, root owns [current native acceptance](native-auth.md#current-inventory-sharing-native-checkpoint), ordinary pinned packaging and evidence edits; retained review is read-only. Reuse the existing instance/settings/session/native lifecycle owners, without hooks, injected obligations or production changes. Keep games open only for active bounded checks and serialize shared builds at one compiler job/two test threads; join originals and independently verify absence. Earlier inventory-sharing/creation/skin/memory/Kill/capacity/Forge/native review remains linked below.
 
 ## Findings and corrections
 
@@ -26,6 +26,8 @@ Against `bb912ef6`, root owns [native inventory sharing](performance-ui.md#nativ
 - User-reported swap prompted [owner-mediated native test cleanup](native-auth.md#current-recovery-checkpoint-native-continuation). Stop games, Quit/join launchers and verify absence; retain unresolved recovery ownership and named-world evidence. Relaunch only when a check is ready.
 
 ## Validation and limits
+
+[Current-source native settings/lifecycle](native-auth.md#current-inventory-sharing-native-checkpoint) passes ordinary ARM64 app-only packaging11101/0, real Vanilla/1GiB saves, one Launch/Playing/Stop and cold readback. Both ordinary Quits join0 with separate PID/listener/profile-holder absence; ten bounded named-world comparisons and protected record/account hashes pass. Root retires the game promptly when supported inventory omits Java, rather than waiting for optional manual input. Global tool mismatches and helper/query refusals are corrected locally without product changes or weaker checks. Current native gameplay, report-codec coverage, stable credentials, trusted update, aggregate memory/swap and full parity remain open; no new AGENTS rule is warranted.
 
 [Native inventory sharing](performance-ui.md#native-preparation-inventory-sharing) passes both final source axes after closing panic-masking diagnostics and fallible absence proof. Temporary actual-worker RED/GREEN observes0/5 then5/5 shared pairs; probes are removed. Final composed81171/desktop4592 join0 with1,093 selected parent passes/23 existing ignores on unchanged reviewed pins. Source/count/scoped formatting/whitespace and Axial-owned process/original-PID absence pass; the initially overbroad process check is corrected after attributing another project's compiler, which is untouched. No owned game/app/compiler remains. No new AGENTS rule, native build, aggregate heap, host-swap or full-parity closure follows.
 
