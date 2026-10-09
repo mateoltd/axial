@@ -466,3 +466,24 @@ Three independent read-only designs examine a one-shot borrowed proof set, adjac
 Whole-tree entry/exit checks do not replace the current per-file ancestry checks: an external actor can displace an ancestor during an interior file validation and restore it before group exit. Native admission retains lifecycle, not namespace stability (`core/fs/src/lib.rs`, `validate_file_revision_observation` and `parent_revisions_to`). Retain those per-file checks. Sibling-run namespace drift requires either the original bounded refresh or a replay reserved before I/O; stricter refusal of harmless churn or extra reservation that reduces existing accepted capacity is not parity. Managed grouping must also respect the non-reentrant effect-transition lock and admission-incarnation rebind fences. No new lock, replay allowance or quota is approved.
 
 Root's next investigation must use actual application-admitted roots, not only directory-backed fixtures that omit absolute-admission ancestry. Required controls include ancestor displacement/restoration during a file check, original revision and same-byte replacement refusal, aliases, lease/root displacement, managed rebind/settlement and unrelated namespace churn. Preserve supported depth and capacity. Only verified guard-preserving work reduction followed by materially improved optimized public reads can justify integration; design reviews and lower counters are not runtime acceptance.
+
+### Registry-row minimization
+
+2026-10-09, unchanged production `d4d5dbcc` and frozen `de4b0f2c` API, against documentation checkpoint `dac2f65c`. Original API26235/PID54294 binds generated profile `/private/tmp/axial-browser-current.fAOlVA/profile` and listener60414. Before starting, no profile holders, unacknowledged launch intents, pending queue/setup/creation/deletion, content or Performance rows are found. Non-null historical settlement records are retained evidence, not pending work. Last-instance selection is null. Private `before.sqlite` (`9b873bb8`,1,679,360 bytes) under `instance-minimization.L97qlaET` is evidence only, never launched or restored.
+
+Independent review clears five exact disposable registry cuts through ordinary keep-files deletion, one at a time. Each command joins0 and verifies the submitted UUID, instance identity, keep-files intent and removed status through the response and status owner before measuring. Lost responses would stop as unknown, with no write replay. All five durable journal rows are complete with no park receipt. Target `c79a9540-b3dd-4582-a9d8-f72b90615264` remains StagedContentParity/revision2/Ready/Fabric0.19.5 and Mods2 after every cut.
+
+| Remaining registry rows | List body completion |
+| --- | --- |
+| 6, initial observation | 18.178s |
+| 5 | 16.400s |
+| 4 | 15.541s |
+| 3 | 11.857s |
+| 2 | 10.206s |
+| 1 | 8.597s |
+
+Initial witness76885 and cut witnesses25119/19299/33005/87174/96057 join0. Frozen cut helper `7e6a04d6` is reviewed before mutation. Its later read-only mode (`4c0dc74b`) repeats the one-row read: witness22744 joins0 at8.832s; diagnostic41855 joins1 only at the existing1s gate after correct200/Ready/Mods2, body9.057s. The gate is not a product SLA or request timeout. Eight finite campaigns complete55 HTTP200 responses,64,060 accepted bytes and110 reads, with per-campaign body/read/deadline/output bounds and explicitly estimated, not hard, allocation limits. Saved-response assertions join0.
+
+This reduces registry population, not the physical catalogue or target inventory: both ready version inventories remain at3,630/3,638 entries. Sequential cuts are not randomized causal isolation or a filesystem-minimal fixture. Six payload-directory inode records, target registry/receipt digest and both mod SHA256 records compare unchanged/exit0; this is not whole-payload preservation. Five disposable registry records have no in-app undo; their payload directories and private metadata evidence remain, without a promised restoration workflow. Earlier six-row helpers are now historical and cannot be rerun against this reduced fixture unchanged.
+
+Ordinary SIGINT joins API26235/0. Separate PID/listener/database/root-lease checks are empty/exit1. No source, UI, quota, credential or legacy/user-profile changes follow. Logs: `instance-minimization-{step0..step5,repeat,gate,assertions,runtime,directories-*,target-*,mods-*,pid-absence,listener-absence,holder-absence}.log`; current private helper is repeatable in read-only mode6. Registry minimization is complete, but remaining catalogue/native-validation cost and full parity are not resolved.
