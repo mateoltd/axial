@@ -2,6 +2,16 @@
 
 Status: implementation integrated; bounded browser and native lifecycle/failure evidence below, not full parity verified.
 
+## Rename completion after a later viewer choice
+
+2026-10-10, against `528fb099`. Independent review identified an inherited defect: the pane's Rename completion unconditionally selected the returned filename after the user closed or navigated its lightbox. The existing viewer owner now retains each choice's object identity and only retargets the captured current choice. Successful rename, optimistic inventory update, notice and refresh remain unconditional; no layout, public contract, filesystem admission or Dialog/Modal change is made. Existing AGENTS publication-fence guidance already covers this pattern.
+
+Actual browser/HTTP reproduction uses unchanged supporting API checkpoint `3178819c`, executable SHA256 `f3d4a2712f0ee06c280e68ccdaf29782eeba52a1580fd047da1e831bb95346db`, and only generated profile `/private/tmp/content-removal-process.pfqFGXMd/profile`, disposable instance `452370e7-8d70-411d-9fe0-c708b10d877c`. Two exclusive-created repository-icon copies are image fixtures, not game captures. Hold the genuine PUT200/ok response, click actual Close, then release it unchanged: old source reopens the renamed lightbox. After explicit corrected-document reload, ordinary Rename follows its new filename; the held-response Close case stays closed, and a separate held-success/Previous case retains the neighbour. Each complete, untruncated event census contains exactly one PUT without replay. `screenshot-close-browser.json` is root's observation transcription, not an independent raw trace; three referenced JPEGs retain visible results.
+
+The existing modal regression composes actual ScreenshotsPane, selection, lightbox/actions, mutation, Dialog and Modal owners at the deferred external API boundary. It checks unchanged choice, Close, navigation and close/reopen of the same name, before and after refreshed inventory. The final test against byte-exact baseline production source27447 joins1 with10 passes/three intended stale-choice failures; restored correction33703 joins0/13 passes. Earlier56968 additionally used the wrong navigation direction, and27535 hit a fixture assumption that a retained lightbox component always renders content; these are corrected harness failures, not product diagnoses. Final full frontend34896 joins0/568 passes/one existing TODO. Both independent source-review axes clear unchanged production/test pins. Types63674, affected semantic lint/format, normal production build and independent generation `b6e561241546`/all eight budgets pass.
+
+Before/after witnesses preserve both protected source records/trees and the two named surviving world files. Separate image assertions preserve both PNG identities, sizes and hashes across renames and confirm old names absent; they are not whole-profile proofs. Browser closes, original API67136/frontend39715 join0, and strict independent checks find no owned PIDs, listeners or profile holders. No game starts. Native/installed timing, browser same-name reopen, interrupted rename, cold API restart, heap/swap and full parity remain open. Logs use `screenshot-close-*` and `screenshot-navigation-green.jpg` under `.rewrite-logs/`.
+
 Owned source: `core/app/src/resources/screenshots.rs`.
 
 ## Retained behavior
