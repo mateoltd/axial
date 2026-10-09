@@ -2,6 +2,18 @@
 
 2026-10-04. Real same-driver Resume and completed-history reopen pass. This is current-app lifecycle evidence, not predecessor import, performance comparison, gameplay or installed-release acceptance.
 
+## Resume refusal while the original driver settles
+
+2026-10-09, against `b3207290`. Genuine Start → Stop → immediate Resume on current-thread Tokio reaches the existing retained driver before its first tick. Stop cancels that owner and persists stopped; Resume previously published running before its later same-ID owner check returned Busy. This is an actual refused-command publication defect, not a game Stop timeout or host-swap diagnosis. No legacy runtime equivalence is claimed.
+
+The existing Resume command now checks the original active-driver map under its existing suite admission before publication. It returns Busy without removing or replacing the cancellation owner. Keep the later task admission check, normal stopped/failed/interrupted reopen paths, persisted request, public contract and UI unchanged. No new owner, state, journal, background loop or quota follows.
+
+The real-service regression captures public persisted stopped state, exact driver/request/suite bytes and cancelled membership/task IDs before and after refusal without yielding. Original tasks join before final assertions. Genuine RED78958 joins101/one failure at running-versus-stopped; that first fixture was not retained. Corrected retained RED6061 joins101/one failure0.11s and keeps `.tmpM8AOlV`. First candidate3081 joins101 only because the fixture compares Stop's returned timestamp with the independently stamped persisted value; `.tmppvbUxh` is retained, and this is not a second product defect. Final focused73348 joins0/one pass0.11s after capturing the actual persisted baseline and strengthening owner preservation. Failure reporting becomes best-effort after fixture retention. Both final source-review axes are clear.
+
+Full serialized application/API85231 joins0:874 application passes/ten existing ignores and138 API passes/twelve existing ignores, zero failures. The1012 parent passes exclude nested subprocess summaries and overlapping focused results. Existing real HTTP benchmark Stop/Resume and lost-response/restart journeys pass. Final source/count assertions, scoped formatting/whitespace and independent test/compiler/game-process and retained-fixture metadata-holder absence pass. All original commands are joined; no native launcher or real Minecraft game is started or left idle.
+
+Evidence uses `.rewrite-logs/benchmark-resume-refusal-{red,retained-red,green,final-green,consumers,format,format-final,format-check,final-assertions}.log` and `benchmark-resume-refusal-absence.jsonl`. Final product SHA256 `66b2c3c9ead5600594442960e223570cf9dd138cc4afd437c9b30b4ceafbdc3b`; test `5298c517d0907315404a9f84dcc80606be95ebe1c54929c92fe9a48696a25dce`. This establishes the retained-original refusal boundary, not HTTP/native rapid Resume, all task-admission failures, arbitrary concurrent controls, memory/swap or full parity. Existing AGENTS refusal/retention rules already cover the lesson.
+
 ## macOS capacity observation
 
 2026-10-07, changes after `280bf02f`. An isolated native test-process interposer removes only the two capacity properties from real CoreFoundation dictionaries, retaining the disk's eligibility and all other metadata. Actual production capture twice reports `Some(0)` instead of absent capacity (`capacity-probe-{boundary,repeat}-red.log`); the valid-zero, preferred reclaimable-capacity and ordinary fallback controls pass. The initial hook's recursive symbol lookup caused a stack abort; that private fixture error is retained separately, not claimed as product RED.
