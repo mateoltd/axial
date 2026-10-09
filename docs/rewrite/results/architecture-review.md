@@ -4,7 +4,7 @@ Updated 2026-10-09. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Scope and ownership
 
-Against `f0c2e1c2`, root owns [native refused-memory acceptance](native-auth.md#native-refused-memory-display-and-cold-persistence), isolated lifecycle and evidence edits; retained review is read-only. Reuse existing instance/API/UI/persistence owners for a real revision refusal, without mutation replay, SQL fault injection or a new framework. Run one test app only while needed, no game/build; ordinary Quit, join and independently verify absence. Earlier Kill/capacity/Forge/inventory/native review remains linked below.
+Against `3b4e7f4b`, root owns [native skin acceptance](native-skins.md#native-legacy-size-picker-conversion), isolated lifecycle and evidence edits; retained review is read-only. Reuse existing native admission/media/persistence owners and the existing independent decoding proof, without a second normalizer, synthetic drop or speculative scaling fix. Run one test app only while needed, no game/build; ordinary Quit, join and independently verify absence. Earlier memory/Kill/capacity/Forge/inventory/native review remains linked below.
 
 ## Findings and corrections
 
@@ -25,6 +25,8 @@ Against `f0c2e1c2`, root owns [native refused-memory acceptance](native-auth.md#
 - User-reported swap prompted [owner-mediated native test cleanup](native-auth.md#current-recovery-checkpoint-native-continuation). Stop games, Quit/join launchers and verify absence; retain unresolved recovery ownership and named-world evidence. Relaunch only when a check is ready.
 
 ## Validation and limits
+
+[Native picker conversion](native-skins.md#native-legacy-size-picker-conversion) passes actual rendered preview/Cancel/local Save/cold reopen, independent PNG/metadata checks, logical database comparisons and joined ordinary Quits with separate absence checks. The unchanged helper's first host-interpreter dependency refusal remains recorded; bundled Python passes. [Finder continuation](native-skins.md#current-artifact-continuation) gains pre/post logical preservation but still establishes no OS delivery. Source review confirms existing eligibility/wiring and no evidenced scaling defect: do not add machinery to fix an unproven cause. No production/UI/AGENTS change or owned idle process remains. Picker success is not drop, signing, whole-memory/swap or full-parity acceptance.
 
 [Native refused-memory acceptance](native-auth.md#native-refused-memory-display-and-cold-persistence) passes actual rendered refusal/rollback and cold1GiB persistence on the unchanged frozen artifact. The independent API owner advances one no-op window revision; native Right refuses without observed durable advance. API cleanup restores the original2GiB limit, not a claimed native save. Both ordinary Quits and private API helpers join0; independent absence, named metadata and ten scoped world comparisons pass. No production/UI/build/AGENTS change or owned idle process remains. Exact earlier-callback discrimination stays with its real-handler regression; historical Busy cause, all races, current whole-build, swap and full parity remain open.
 
