@@ -4,7 +4,7 @@ Updated 2026-10-09. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Scope and ownership
 
-Against `660be193`, root owns [native public lookup acceptance](native-skins.md#native-public-username-lookup), evidence edits and serialized verification. Retained reviewers are read-only. Reuse the frozen native artifact only where its relevant owners are unchanged; do not certify a current whole-application build. Use one compiler job and one test application process at a time; stop/join disposable apps and games after each check. Current acceptance needs no compiler or game. Earlier Forge/inventory/native review remains linked below.
+Against `d3569c55`, root owns [native default-Java recovery](native-auth.md#native-missing-default-java-recovery), evidence edits and serialized verification. Retained reviewers are read-only. Reuse the frozen native artifact only where its relevant owners are unchanged; do not certify a current whole-application build. Use one compiler job and one test application process at a time; stop/join disposable apps and games after each check. Current acceptance needs no compiler and runs only the disposable2GiB game, promptly stopped after its witness. Earlier Forge/inventory/native review remains linked below.
 
 ## Findings and corrections
 
@@ -21,6 +21,8 @@ Against `660be193`, root owns [native public lookup acceptance](native-skins.md#
 - User-reported swap prompted [owner-mediated native test cleanup](native-auth.md#current-recovery-checkpoint-native-continuation). Stop games, Quit/join launchers and verify absence; retain unresolved recovery ownership and named-world evidence. Relaunch only when a check is ready.
 
 ## Validation and limits
+
+[Native default-Java recovery](native-auth.md#native-missing-default-java-recovery) passes genuine component absence, literal recoverable readiness, one native Launch/reacquisition/Playing, prompt Stop and cold report/runtime persistence. Both ordinary Quits join0; independent absence, ten named-world and scoped other-instance/report comparisons pass. Reuse existing runtime/session/persistence owners without production changes or a new recovery model. Review adds a pre-read attempt cap to the private observer; retain its64-recent-report and multi-GET limits. Park the generated component, never overwrite the acquired one or infer whole-profile preservation. Existing concise rules cover this acceptance; AGENTS is unchanged. No test app/game/compiler remains, and bounded game heap is not a total-memory or swap fix.
 
 [Native public lookup](native-skins.md#native-public-username-lookup) passes actual rendered Preview/Dismiss, local Save and cold reopen, scoped durable comparisons, ordinary joined Quits and independent process/listener/profile-holder absence. The bounded private witness reuses existing persistence owners; it is not another production model or an atomic full-profile proof. An extra startup-error process is separately closed, without claiming its uncaptured profile binding or original exit. Older default-profile migration SQL is consistent with a refusal but not conclusive attribution; do not add compatibility or reset data to make this acceptance pass. No new production drift or recurring rule is evidenced, so AGENTS is unchanged.
 
