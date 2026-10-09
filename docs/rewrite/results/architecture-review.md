@@ -4,7 +4,9 @@ Updated 2026-10-09. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Scope and ownership
 
-Scheduled review against `3813c485`: root owns the wrapper removal and serialized verification; retained Standards/Spec reviewers are read-only. The native handoff remains unchanged, with running package source `1e824c37`.
+Current review against `c1747832` covers [inventory cost splitting](performance-ui.md#inventory-cost-split) and [native test cleanup](native-auth.md#current-recovery-checkpoint-native-continuation). Root remains sole writer/build/runtime owner; retained reviewers are read-only. Temporary probes are removed after joins; no production/UI behavior changes.
+
+Preceding review against `3813c485`: root owns the wrapper removal and serialized verification; retained Standards/Spec reviewers are read-only. Native package source remains `1e824c37`; its later cleanup is qualified above.
 
 Changed-scope review against `72c0c93f` covers [genuine Forge ACK-before-Ready queue recovery](forge-loader.md#genuine-ack-before-ready-queue-recovery). Root is sole writer/build owner; retained review owners remain read-only. Source `ff883ac0` clears Standards and Spec, executes successfully and is removed after the original join; queue source restores byte-exact. No production implementation, public contract, namespace or UI changes.
 
@@ -18,6 +20,8 @@ The preceding [shared retained-root admission](performance-ui.md#shared-retained
 
 ## Findings and corrections
 
+- Cost probes: label the pre-revision walk honestly; it is not completed inspection. Successful numeric counts and actual public Ready qualify the measurement. Per-chunk callbacks are not dominant here; preserve all proofs and investigate the existing observation/revision owners. No speculative fast path follows.
+- Idle test processes: user reports swap pressure. Stop the disposable game through Axial, Quit/join the test app, verify absence and preserve named worlds. Merge a short cleanup rule into AGENTS; retain unresolved recovery ownership and relaunch only for a ready check.
 - Remove unused private `ManagedRootSession::admit_absolute_directory`; both axes clear. Native admission calls, admitted-root rebind refusal and retained-authority validation remain. Existing superseded-path rules suffice; no new abstraction, test seam or AGENTS rule.
 - Forge recovery fixture: bind the accepted queued response to its exact install/operation IDs rather than mistaking `started_install` for an active worker. Use the component owner's canonical wire ID. Retain unresolved owners before fallible failure logging. The initial command stops at compilation because the fallible version-ID constructor was not unwrapped; it exercises no fault or recovery. All corrections stay within the existing test, task and queue owners. Existing canonical-contract and lifetime rules cover these findings; no additional AGENTS rule or abstraction is needed.
 - Forge boundary: public source reconstruction uses a real recorded contract and ordinary providers in an isolated fixture. The proposed extra file rebuild has no current application caller and uses Guardian-purpose publication; retire that draft without execution rather than counting it toward non-Guardian queue recovery. Existing entrypoint/single-owner rules suffice; no new AGENTS rule or production hook is warranted.
@@ -36,6 +40,8 @@ The preceding [shared retained-root admission](performance-ui.md#shared-retained
 - [Inventory-size controls](performance-ui.md#bounded-inventory-size-controls): reuse ordinary provider/install/create and remove temporary probes after original joins. Preserve the failed1,024-object setup. Its40s installation terminal-event wait is not the45s Kill deadline or a measured list failure. Count, byte size and hash-directory distribution change together; no isolated cause or fast path follows.
 
 ## Validation and limits
+
+Cost-split original requests/APIs and standalone world-preservation checks join; detailed source pins/counts/limits are in the linked records. Normal source restores byte-exact. Native Stop/Quit is observed, not saved-world gameplay or cold reopen; no latency, memory-pressure or full-parity closure is inferred.
 
 Wrapper removal `dec295a1`:133 `managed_fs::` tests pass, original20982 joined0/47.21s; scoped formatting/whitespace pass (`architecture-unused-root-wrapper-{managed-fs,format}.log`). Earlier5383 joins0 but selects zero tests: compilation only. UI, live game/profile and unresolved handoffs are untouched; no latency or parity closure.
 
