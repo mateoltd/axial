@@ -10,6 +10,8 @@ Five temporary existing-owner aggregate probes have both source axes clear at pi
 
 Normal SIGINT joins original API25116/PID81300/port52083 with0; separate PID/listener/metadata-and-lease absence checks pass. Installed-record digest stays identical, not a whole-profile preservation certificate. After original joins, all five sources restore byte-exact against `7e57a599`; no product change or latency fix is introduced. Private instrumentation patch, source/binary pins, build/runtime/gate/holder/record logs and exact stage-count/restoration assertions remain in `list-cost-*`. Original slow reads, historical failures, native/installed gates and full parity remain open.
 
+After final test verification, normal optimized rebuild41660 joins0/2m34s. Default `target/release/axial-api` restores SHA256 `a70ff84bc642727df74d4c18d43268e7223d0bb8bf823afdb5f53a4e317dcc7a`, byte-identical to the frozen normal baseline; instrumentation remains only in its explicitly named private binary. Logs: `list-cost-normal-release-restored{,-binary}.log`. This is build-output restoration, not additional runtime acceptance.
+
 ## Cold parent entry ownership
 
 Against `e989394d`, batch observation and original-revision validation duplicated operation admission immediately before cold `managed_directory()` construction. Let the existing private parent-preparation function own entry: cold construction retains its original check, while cache hits check explicitly. Only typed-path splitting, comparison and cursor clearing precede admission. Refusals still clear the cursor; missing proofs, native/ancestor/file checks, final fences and retained lifetimes are unchanged. No interface, flag, cache, framework or UI change is introduced.
