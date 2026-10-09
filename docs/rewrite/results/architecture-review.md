@@ -4,6 +4,8 @@ Updated 2026-10-09. Working branch: `main`. Full non-Guardian parity remains act
 
 ## Scope and ownership
 
+Scheduled review against `3813c485`: root owns the wrapper removal and serialized verification; retained Standards/Spec reviewers are read-only. The native handoff remains unchanged, with running package source `1e824c37`.
+
 Changed-scope review against `72c0c93f` covers [genuine Forge ACK-before-Ready queue recovery](forge-loader.md#genuine-ack-before-ready-queue-recovery). Root is sole writer/build owner; retained review owners remain read-only. Source `ff883ac0` clears Standards and Spec, executes successfully and is removed after the original join; queue source restores byte-exact. No production implementation, public contract, namespace or UI changes.
 
 Changed-scope review against `b36b9e84` covers [public recorded-contract reconstruction](forge-loader.md#public-recorded-contract-reconstruction). Root remains sole writer/build owner; retained workers are read-only. Both axes clear temporary fixture `2a460e15`, whose source restores byte-exact after the original join. Copy immutable metadata, not inode-bound authority; do not open a new managed authority on the acceptance root. The preceding [Fabric Retry/reopen](fabric-loader.md#queued-retry-across-service-reopen) and [original-profile list attribution](performance-ui.md#original-profile-list-attribution) retain their reviewed pins and evidence. No product owner, abstraction, contract or UI change; no latency fix follows.
@@ -16,6 +18,7 @@ The preceding [shared retained-root admission](performance-ui.md#shared-retained
 
 ## Findings and corrections
 
+- Remove unused private `ManagedRootSession::admit_absolute_directory`; both axes clear. Native admission calls, admitted-root rebind refusal and retained-authority validation remain. Existing superseded-path rules suffice; no new abstraction, test seam or AGENTS rule.
 - Forge recovery fixture: bind the accepted queued response to its exact install/operation IDs rather than mistaking `started_install` for an active worker. Use the component owner's canonical wire ID. Retain unresolved owners before fallible failure logging. The initial command stops at compilation because the fallible version-ID constructor was not unwrapped; it exercises no fault or recovery. All corrections stay within the existing test, task and queue owners. Existing canonical-contract and lifetime rules cover these findings; no additional AGENTS rule or abstraction is needed.
 - Forge boundary: public source reconstruction uses a real recorded contract and ordinary providers in an isolated fixture. The proposed extra file rebuild has no current application caller and uses Guardian-purpose publication; retire that draft without execution rather than counting it toward non-Guardian queue recovery. Existing entrypoint/single-owner rules suffice; no new AGENTS rule or production hook is warranted.
 - Fabric Retry evidence: extend the existing fixture/provider, retain whole-budget child isolation and prove settlement before reopen/census. Compare persisted targets with canonical expectations, not each other; retain duplicate-sensitive request vectors through provider join. Snapshot diagnostic state before assertions to avoid mutex poisoning that bypasses evidence retention. Merge this recurring lesson into AGENTS' existing evidence paragraph. No additional workflow owner or product fix is needed.
@@ -33,6 +36,8 @@ The preceding [shared retained-root admission](performance-ui.md#shared-retained
 - [Inventory-size controls](performance-ui.md#bounded-inventory-size-controls): reuse ordinary provider/install/create and remove temporary probes after original joins. Preserve the failed1,024-object setup. Its40s installation terminal-event wait is not the45s Kill deadline or a measured list failure. Count, byte size and hash-directory distribution change together; no isolated cause or fast path follows.
 
 ## Validation and limits
+
+Wrapper removal `dec295a1`:133 `managed_fs::` tests pass, original20982 joined0/47.21s; scoped formatting/whitespace pass (`architecture-unused-root-wrapper-{managed-fs,format}.log`). Earlier5383 joins0 but selects zero tests: compilation only. UI, live game/profile and unresolved handoffs are untouched; no latency or parity closure.
 
 Genuine Forge fixture `ff883ac0` passes one/75.84s, original26757 joined0. Its real Final ACK-before-Ready refusal, public recovery and second settled queue/store reopen preserve the same operation/proofs/metadata; four actual FML sources match pinned sizes/SHA1. Both source axes clear, the temporary patch remains retained and queue source restores exactly after the join. Compile-only refusal, corrected compilation and the existing callback-based control remain separately qualified in [Forge evidence](forge-loader.md#genuine-ack-before-ready-queue-recovery). No process-crash, normal application Quit, gameplay or full-parity claim follows; no historical failure is waived.
 
