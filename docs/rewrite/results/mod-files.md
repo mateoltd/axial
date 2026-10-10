@@ -4,6 +4,10 @@ Status: implementation in progress; no integrated parity claim.
 
 Listing and resource commands: `core/app/src/resources/{mods,service}.rs`. Provenance mutations and their durable recovery fence belong to `core/app/src/content/install.rs`.
 
+## Current native Quilt content journey
+
+[Current native Quilt acceptance](quilt-loader.md#current-native-loader-and-mod-journey) verifies target-bound FerriteCore installation, actual mod loading in a real game process, native Stop settlement and Disable/Enable persistence through separate cold reopens on unchanged `4d5b86bb`. Exact payload/provenance and protected original state pass; no game is retained. This does not close deletion, update, interruption/recovery, gameplay or full mod parity.
+
 ## Retained behavior
 
 The resource list preserves `{name, size, modified_at, enabled}` with UTC RFC 3339 timestamps. It lists regular `.jar` and `.jar.disabled` files, orders them by the portable enabled basename, and rejects ambiguous case/Unicode or enabled/disabled aliases. The baseline scan budget is 50,000 entries and 1 TiB of file sizes.
