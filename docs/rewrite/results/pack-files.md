@@ -1,5 +1,13 @@
 # Pack files
 
+## Current native resource-pack journey
+
+2026-10-10, unchanged pinned `4d5b86bb` artifact/profile from [Vanilla acceptance](native-auth.md#current-packaged-vanilla-save-and-cold-persistence), executable `cb390b85`. Actual native Discover searches Modrinth resource packs, opens Bare Bones and binds Add to the isolated JourneyVanilla1.20.1. Queue `178d9ad1-28f3-4b6b-b701-1a96355ef4e5` succeeds, downloading the compatible `s3lwqPHV` artifact rather than the project's newer incompatible release. `resourcepacks/Bare Bones 1.20.zip` is7,791,662bytes and matches the manifest's SHA512 `2a7b9ab20e5a0437ffddf553087fce5f9163032eed7369a566f5876332ec398dc1ab095f360fdf4d7eb27a77b32982335029ac9bb3843785e9e875e6fae15932`; one enabled provenance entry remains and no Content receipt is pending. A second actual Add succeeds as queue `00957e65-7cce-4e98-975d-5afdb11f2feb` without another download or any manifest/file/options change. Native Versions visibly marks newer releases “Does not fit”; this is a rendered compatibility guard, not a submitted incompatible-write refusal.
+
+Actual More → Open resource packs folder delivers Finder. Its selected ZIP Get Info verifies the exact isolated instance destination and byte count; both test Finder windows close. Ordinary menu Quit and two cold reopens preserve the exact pack/manifest/options and terminal queue records. The existing world and backup inventories remain exact, including previously observed Finder metadata. The pack is installed, not selected or visually verified inside Minecraft; no game starts in this slice. General instance detail deliberately omits resource counts (`counts_available=false`), so its0 is not evidence of absent content. The initial verifier's incorrect count1 assertion and script are retained before correction. That detail read takes12.496s; no responsiveness pass or speedup follows.
+
+Original launcher handles50058/27912/51418 join0, PIDs44053/46258/47785 are independently absent, checked listeners and profile/root-lease openers are absent. The first keyboard Quit attempt has no observed effect; acceptance uses the explicit menu actions, not a shortcut claim. Evidence is under `.rewrite-logs/journey.UyTFoQoJ/content-*`, with final assertion helper `3e7fd7ba` and joined0 `content-assertions.log`. No product/UI change, pack uninstall/update/interruption, gameplay texture, authenticated/signing or full-parity claim follows.
+
 Bounded checkpoint on `main`, 2026-09-28. This record does not establish full pack parity.
 
 ## Findings
