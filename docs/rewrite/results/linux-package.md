@@ -1,5 +1,17 @@
 # Linux AppImage build
 
+## Current installed offline journey
+
+2026-10-11, source `e8b44c20b25a7f4b70c1c1a1839f8a8d00f38aef`. Fresh pinned Node24.13.1/Rust1.93.1 frontend and normal optimized x86_64 AppImage build complete. Frontend generation is `ff71ffab3ae2`; AppImage SHA256 is `118540d3b0de2596a81762b9466426c9a5748d5466be7fc9b75bd9529df23550`. Packaging retries with the actual Fedora GStreamer plugin/helper directories and media-framework bundling; original57796 joins0. The earlier generic bundle failure remains recorded, without an established complete cause. No updater artifacts, signing or publication are produced.
+
+The actual AppImage renders on a temporary authenticated, TCP-disabled software X11 display. Fresh native offline onboarding creates LinuxParity; native Create installs Vanilla1.20.1 with2GiB, Vanilla mode and optimization off. Ready → native Launch opens visible Minecraft. Singleplayer creates LinuxSavedParity in Creative mode, visibly enters the world, creates an actual F2 screenshot, saves to title and quits the game cleanly. Axial lists the22-file/15,917,256-byte world and displays the game screenshot in its native lightbox. Real HTTP and install SSE respond200; media serves379,194 PNG bytes with SHA256 `ba677db7527e5b6b4802ab0049f291c449fb4673d3719a9de3157ca82cdc9d13`, exactly matching the game-created file.
+
+Native window Close joins original3064/0; app/game/listener absence and exact save hashes pass. A normal same-profile cold reopen lists the exact world Ready. One native Launch opens a second game; its Singleplayer list identifies the saved world, and Play Selected World visibly reloads the saved scene. Save/Quit to title and Quit Game settle the second original session; both launch intents have durable terminal acknowledgements. Native Close joins original50600/0, both games/apps and both listeners are absent. Normal gameplay adds save files, so the final28-file/16,425,362-byte state is recorded separately from pre-relaunch exact cold equality.
+
+Compact proof: `.rewrite-logs/linux-current/vanilla-journey-final.json`; exact cold manifest/proof: `world-before-cold.json`, `world-cold-exact.json`; visible outcomes: `world-entry-progress.png`, `native-saved-world-list.png`, `native-game-screenshot-lightbox.png`, `game-cold-world-selector.png`, `saved-world-reloaded.png`; transport/settlement: `native-install-sse.json`, `game-screenshot-http.json`, `game-first-settlement-2.json`, `second-game-settlement.json`. Physical Wayland captures remain blank despite live accessibility; their graphics cause is unresolved. Isolated X11 acceptance does not certify physical graphics, audible playback, other platforms, trusted updates, later source edits or full parity.
+
+## Historical package qualification
+
 2026-10-06, source `c471e96ddf12625376e671fb9433a972c43ebb1e`. A normal optimized x86_64 AppImage builds successfully in an isolated Horizon container. This is a diagnostic package and inspected payload, not installed-runtime, publisher-trust or full-parity acceptance. No production source/UI, host packages, application profiles, signing or publication changed.
 
 ## Inputs and isolation

@@ -4,6 +4,14 @@ Status: current optimized native NeoForge21.1.256 / Minecraft1.21.1 passes the q
 
 The feature module is `core/app/src/loaders/neoforge.rs`. It delegates to the retained `axial-minecraft` leaf instead of duplicating provider parsing, authenticated installer binding, processor execution, or publication. No legacy files were changed by this package.
 
+## Current Linux content and gameplay
+
+2026-10-11, frozen `e8b44c20` ordinary API and AppImage. Fresh offline NeoForgeParity,2GiB, Vanilla mode and optimization off install NeoForge21.1.256 / Minecraft1.21.1 / managed Java21 through one Create. All six processors and final base/child activation succeed. Actual BetterF3 `maXNB1dn` and required Cloth Config `izKINKFg` install with exact official hashes, schema3 provenance and the required dependency edge: two jars/1,645,536 bytes. A normal API shutdown/reopen preserves the complete4,011-file/997,558,634-byte recorded installation and content inventory. Original API25281 and46035 and original cold reader4516 join0; no mutation is replayed.
+
+The normal AppImage opens the same target Ready on isolated software X11. One native Launch opens a visible NeoForge Minecraft menu identifying21.1.256 and four loaded mods; actual game logs identify BetterF3 and Cloth Config. Singleplayer creates NeoForgeSavedParity in Creative mode, visibly enters the world, creates an F2 screenshot and saves/quits to title. Quit Game settles the original session with durable terminal acknowledgement. Axial lists the25-file/17,599,736-byte world. Native Close39329/0, cold reopen and exact world hash equality pass; native Worlds lists the saved world Ready. Final Close64723/0 leaves no game/app/profile process. Saved-world gameplay reload was not repeated for this loader.
+
+Compact evidence: `.rewrite-logs/neoforge-current/neoforge-cold-boundary-request.json`, `neoforge-content-cold.json`, `native-journey-final.json`, `native-game-settled.json`, `native-world-cold-exact.json`, `game-main-menu-settled.png`, `world-generating.png` and `native-cold-worlds-tree.jsonl`. This closes the qualified current Linux content/gameplay/save/cold boundary, not physical Wayland rendering, all-era loader acceptance, later source edits or full parity.
+
 ## Retained behavior
 
 - Old numbering maps `20.4.239` to `1.20.4`, `21.0.167` to `1.21`, and `21.11.5-beta` to `1.21.11`. Year numbering maps `26.1.0.7-beta` to `26.1` and `26.1.2.7-beta` to `26.1.2`. Zero-prefixed snapshot builds stay excluded from supported Minecraft mappings.
