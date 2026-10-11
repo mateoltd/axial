@@ -2,6 +2,14 @@
 
 Status: modern Forge47.4.10/Minecraft1.20.1 completes current Linux installation, visible gameplay/save, exact cold persistence and saved-world loading. Legacy-FML Forge14.23.5.2860/Minecraft1.12.2, earliest client Forge3.4.9.171/Minecraft1.2.5 and earliest universal Forge6.6.2.534/Minecraft1.4.7 retain qualified real install/boot/Stop/reopen evidence; their current Linux gameplay and all-era parity remain open. Earlier details and test counts below are historical; current composed evidence is in [integration](integration.md).
 
+## Current Linux base-library prerequisite
+
+The current MC1.12.2/Forge14.23.5.2860 Create and one diagnostic Retry settle Failed during base installation. Existing safe diagnostics retain `file_operation`/`Other`, without a target or OS code; concurrent progress counts cannot identify the first selected error. Bounded official acquisition proves that this base plan requires a checksum-correct22-byte canonical empty ZIP as a classpath library, SHA1 `b04f3ee8f5e43fa3b162981b50bb72fe1acabb33`. The real planner selects it, and the current bounded JAR validator deterministically rejects zero entries with the same safe signature. Exact owner reproduction23570 joins101; the historical first selected error remains unproved.
+
+The existing validator now permits only the canonical22-byte single-disk empty ZIP, with zero directory size/offset/comment and exact physical EOF. Directory-only nonempty archives and malformed, prefixed, trailing, multidisk or oversized shapes remain refused. Hash/size authentication, retained capacity, path, runtime-floor, receipt and publication owners stay intact. Original94452 joins0: the authenticated real-plan fixture and existing library-owner guards pass, including the concise normal canonical/malformed regression. The private environment-dependent fixture is removed; subsequent current installed acceptance remains gated. No successful FML install is claimed from the leaf correction.
+
+Evidence: `.rewrite-logs/legacy-linux-current/diagnostic/empty-platform-proof.json`, `owner-fixture-red.log`, `owner-green-and-guards.log` and the retained official leaf receipts. Private acquisition contracts and environment-dependent diagnostic code remain outside committed source.
+
 ## Current Linux compression blocker
 
 2026-10-11, frozen ordinary API `e8b44c20`, fresh Forge47.4.10/Minecraft1.20.1/managed Java17 target. The original Create and one canonical Retry both settle Failed at processor4/6; the installed Vanilla base remains Ready, and the Forge child is not published. The safe leaf diagnostic identifies an output-authority refusal, not successful loader installation. No further full install replay occurs during diagnosis.
