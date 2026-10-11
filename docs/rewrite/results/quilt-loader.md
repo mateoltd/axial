@@ -1,6 +1,14 @@
 # Quilt loader handoff
 
-Status: authenticated-sidecar correction, composed checks, real API lifecycle and current ordinary native create/install/Launch/Stop/Quit/reopen pass. Native gameplay and the representative-version matrix remain incomplete.
+Status: authenticated-sidecar correction, composed checks, real API lifecycle and qualified native gameplay/save/cold listing pass. The representative-version matrix and full release parity remain incomplete.
+
+## Current Linux content and gameplay
+
+2026-10-11, frozen Java-cause-fix API SHA256 `a0f2b06ca31bbccbe473a47409996473ee6fe53ed993d76ba9a58e2e8c70757b`, then unchanged `e8b44c20` AppImage SHA256 `118540d3b0de2596a81762b9466426c9a5748d5466be7fc9b75bd9529df23550`. Fresh offline QuiltParity/2GiB/Vanilla mode/optimization off installs Quilt0.30.1/MC1.20.1 with inherited Java17. One ordinary content operation installs Iris1.7.6 plus required Sodium0.5.12-beta.2,3,698,275 exact official bytes with schema3 provenance. Enabled→disabled→enabled and ordinary API cold reopen preserve exact files and receipts. BetterF3's unavailable Quilt-tagged Cloth dependency remains a refused plan; no compatibility bypass or manual jar copy is used. Initial omitted-field, affected-inode and runtime-link fixture assumptions are corrected through read-only reconciliation, without replaying writes.
+
+The normal AppImage opens Ready/2 mods on isolated authenticated software X11. One native Launch visibly opens Minecraft1.20.1/Quilt0.30.1, enters newly created Creative world QuiltSavedParity, takes an F2 screenshot, saves to title and quits the game normally. Original Java3688125 exits0; the one accepted intent has durable terminal acknowledgement. Native Worlds lists the23-file/16,152,250-byte save. Close39924/0, normal native reopen, Ready/world listing and exact world hashes pass. All3,644 original protected files retain their identities, sizes and SHA1/SHA256/SHA512. Final Close5713/0 and display83617/0 leave no game/app/display process; both API originals87453/91592 also join0.
+
+Compact proof: `.rewrite-logs/quilt-current/native-journey-final.json`, `native-game-settlement.json`, `native-cold-exact.json`, `quilt-cold-reopened{,-runtime,-public}.json`; visible evidence: `game-main-menu-visible.png`, `game-world-progress.png`, `game-save-menu.png`, `native-cold-world.png`. This qualifies the named API/native artifacts, not later Forge edits, physical graphics, audible playback, loaded shader packs, a performance comparison or full parity.
 
 ## Current native loader and mod journey
 
