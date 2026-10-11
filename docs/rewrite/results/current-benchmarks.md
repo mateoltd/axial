@@ -1,5 +1,20 @@
 # Current-app benchmark drivers
 
+## Current Linux mode observations
+
+2026-10-11, frozen normal API from `428f71b0`, SHA256 `73f1b26c32e0e231265ca4f5847270b86831619c757d065a5ea4f10fc956d1b7`. Its cold capture exactly matches the prepared account/configuration, installed receipts, shared Java/client/assets, targets and prior acknowledged history. Two direct benchmark launches use the existing launch owner, common `coldish`/`release_validation`, Java17.0.15 and2048/512MiB. No suite labels are substituted for effective mode, and no driver Start/Resume/Tick is submitted.
+
+| Actual target and effective mode | Visible outcome | Recorded boot |
+| --- | --- | --- |
+| Bare Minecraft1.20.1, explicit Vanilla | Main menu, ordinary Quit Game, natural exit0 | 3,193ms |
+| Fabric0.19.5/Minecraft1.20.1, inherited Managed with15 installed jars | Fabric (Modded) main menu, ordinary Quit Game, natural exit0 | 3,894ms |
+
+Both original request commands join0. Their exact accepted intents receive terminal acknowledgements after process-tree settlement/output drain; both Java groups are absent. Prior intent bytes, global account/configuration, installed/shared proofs,33 managed files and all29 saved-world files remain exact. Actual game execution changes C2ME/Indigo configuration files and logs; broader instance-file identity is not claimed. An observation click opens the ordinary offline Realms invalid-session page, which is dismissed without an account action. A premature report GET returns404 before settlement, and a private capture label collision refuses before effect; fresh read-only observations retain those failures and complete without replaying either launch.
+
+These are qualified startup observations. Bare Vanilla and Fabric have different exact installed IDs and game settings; both reports therefore retain `comparison:null`. Stages are empty, so there is no frame-rate, sampled-stage or measured-improvement claim. A bare Fabric target in actual Vanilla mode with the same installed ID is the next executable comparison boundary; existing report guards remain intact. The API owners and later cold/comparison outcomes must be qualified separately.
+
+Evidence: `.rewrite-logs/performance-comparison-current/current-pair-settled.json`, `current-cold-exact.json`, `root-games-durable-before.json`, `vanilla-main-menu.png`, `managed-main-menu.png` and the retained original request/status/report files.
+
 2026-10-04. Real same-driver Resume and completed-history reopen pass. This is current-app lifecycle evidence, not predecessor import, performance comparison, gameplay or installed-release acceptance.
 
 ## Resume refusal while the original driver settles

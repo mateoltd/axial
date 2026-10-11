@@ -1,6 +1,6 @@
 # Forge loader
 
-Status: modern Forge47.4.10/Minecraft1.20.1, legacy-FML Forge14.23.5.2860/Minecraft1.12.2, earliest client Forge3.4.9.171/Minecraft1.2.5 and earliest universal Forge6.6.2.534/Minecraft1.4.7 have qualified real install/boot/Stop/reopen evidence. Visible menu/gameplay, current-app recorded-byte recovery and all-era parity remain separate gates. Earlier handoff details and test counts below are historical; current composed evidence is in [integration](integration.md).
+Status: modern Forge47.4.10/Minecraft1.20.1 completes current Linux installation, visible gameplay/save, exact cold persistence and saved-world loading. Legacy-FML Forge14.23.5.2860/Minecraft1.12.2, earliest client Forge3.4.9.171/Minecraft1.2.5 and earliest universal Forge6.6.2.534/Minecraft1.4.7 retain qualified real install/boot/Stop/reopen evidence; their current Linux gameplay and all-era parity remain open. Earlier details and test counts below are historical; current composed evidence is in [integration](integration.md).
 
 ## Current Linux compression blocker
 
@@ -14,7 +14,17 @@ The full-six diagnostic initially binds its source to the wrong build ID and ref
 
 The existing scratch-output owner now verifies the complete Java output batch before promotion, authenticates scratch rereads by their observed facts and reconstructs only mismatched provider archives with Cargo-owned static classic zlib. Original provider hash and terminal-size checks remain mandatory; root inputs must remain unchanged. No global compression backend, Java environment, persistence, coordinator or trust change is introduced. The concise normal regression17615 and actual process/scratch guard49240 join0; wrong hash/size, changed input, cancellation and exhausted work budget refuse without publication.
 
-Actual full-six original21204 joins0 in28.83s after compilation: steps1–6 and final rescan succeed, slim/extra retain exact provider hashes/sizes, final archive matches `4d8a9a63dc16a45d7fc5c54c627234f601d0cc17`/4,848,366 bytes, typed receipt seals and owners clean up. Evidence: `forge-full-six-repair-facts.json`, `forge-full-six-repair-test.log`, `java-classic-regression-test.log`, `java-output-guards-test.log`. The private fixture and all13 temporary production-limit selections are removed byte-exact; only the concise regression remains in source. Real current installation/gameplay and native cold acceptance remain pending.
+Actual full-six original21204 joins0 in28.83s after compilation: steps1–6 and final rescan succeed, slim/extra retain exact provider hashes/sizes, final archive matches `4d8a9a63dc16a45d7fc5c54c627234f601d0cc17`/4,848,366 bytes, typed receipt seals and owners clean up. Evidence: `forge-full-six-repair-facts.json`, `forge-full-six-repair-test.log`, `java-classic-regression-test.log`, `java-output-guards-test.log`. The private fixture and all13 temporary production-limit selections are removed byte-exact; only the concise regression remains in source.
+
+### Current installed gameplay and saved-world load
+
+Committed `428f71b0` passes [hosted application and delivery verification](https://github.com/mateoltd/axial/actions/runs/38110662917). Its frozen normal API SHA256 `73f1b26c32e0e231265ca4f5847270b86831619c757d065a5ea4f10fc956d1b7` completes one canonical Retry: the original driver joins0, the loader queue succeeds, the exact final provider archive is published under its Final receipt, and the target becomes Ready. Ordinary shutdown/reopen preserves installation, runtime and metadata exactly; both original API owners join0. No failed admission is replayed.
+
+The normal installed AppImage SHA256 `7591ee2a0104f59c94b90e52ee60974938228d5fb9cc3741dee8808fa3e7dfae`, bundled executable `126a1d2912134aca13e19a88e1544732563550ac0aed12d0e8925a68c5607ad7`, completes ordinary native Launch on authenticated isolated software X11. Actual Forge47.4.10 menu shows two loaded mods; creative `ForgeSavedParity` renders, a block interaction and F2 screenshot are observed, and Save and Quit to Title → Quit Game exits naturally0. The existing launch owner records boot, drains/reaps and acknowledges its exact settlement. Native world listing, screenshot lightbox, PNG HTTP byte equality and launch SSE pass.
+
+Cold native reopen preserves all25 save files/15,771,196 bytes,3,698 installed files, managed Java and captured metadata exactly. One ordinary relaunch selects the real saved world and visibly restores the changed block scene; Save/Quit again exits0 with boot and terminal acknowledgement. Both Java process groups are absent and both launcher originals join0 with listener/profile-holder absence. The cold accessibility Close action reports true without exit; its snapshot is retained, and clicking the visible Close control cleanly exits. No cause or product fix is claimed for that automation observation. Physical-session graphics, audible playback, older-tuple gameplay and trusted delivery remain open.
+
+Compact evidence: `.rewrite-logs/forge-installed-current/native-journey-final.json`, `native-cold-exact.json`, `native-screenshot-media.json`, `native-first-sse.json`, `native-second-terminal-safe.json`, `native-first-closed.json`, `native-second-closed.json`; original install/cold proofs remain alongside them.
 
 ## Earliest client and universal overlays
 
