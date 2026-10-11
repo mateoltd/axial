@@ -11,9 +11,19 @@
 
 Both original request commands join0. Their exact accepted intents receive terminal acknowledgements after process-tree settlement/output drain; both Java groups are absent. Prior intent bytes, global account/configuration, installed/shared proofs,33 managed files and all29 saved-world files remain exact. Actual game execution changes C2ME/Indigo configuration files and logs; broader instance-file identity is not claimed. An observation click opens the ordinary offline Realms invalid-session page, which is dismissed without an account action. A premature report GET returns404 before settlement, and a private capture label collision refuses before effect; fresh read-only observations retain those failures and complete without replaying either launch.
 
-These are qualified startup observations. Bare Vanilla and Fabric have different exact installed IDs and game settings; both reports therefore retain `comparison:null`. Stages are empty, so there is no frame-rate, sampled-stage or measured-improvement claim. A bare Fabric target in actual Vanilla mode with the same installed ID is the next executable comparison boundary; existing report guards remain intact. The API owners and later cold/comparison outcomes must be qualified separately.
+These are qualified startup observations. Bare Vanilla and Fabric have different exact installed IDs and game settings; both reports therefore retain `comparison:null`. Stages are empty, so there is no frame-rate, sampled-stage or measured-improvement claim.
 
 Evidence: `.rewrite-logs/performance-comparison-current/current-pair-settled.json`, `current-cold-exact.json`, `root-games-durable-before.json`, `vanilla-main-menu.png`, `managed-main-menu.png` and the retained original request/status/report files.
+
+## Current Linux same-version comparison
+
+The same frozen `428f71b0` API creates a bare Fabric0.19.5/Minecraft1.20.1 target and saves explicit Vanilla mode through the ordinary revision-bound instance owner. Its exact installed ID matches the retained Managed target; Java17.0.15,2048/512MiB, optimization off and `coldish`/`release_validation` tags match. Cold reopen preserves preparation, prior history and protected inputs exactly before either launch.
+
+Each target receives one direct benchmark launch. Both reach visible Fabric (Modded) menus and ordinary Quit Game, naturally exit0, and settle their process trees/output with terminal acknowledgements. Vanilla records6,736ms boot; Managed records4,148ms. The Managed report selects the actual earlier Vanilla session `00439864-a252-441b-b174-1a31fc8c45e2` through the existing comparison owner and records `boot_duration_ms`, delta−2,588ms and−38.42042755344418%. This proves same-version baseline selection and persistence. One observation per mode, first-launch preparation and differing instance settings prevent a controlled performance-improvement claim; both reports have empty stages, so no FPS or sampled-stage result is claimed.
+
+Prior intent/report bytes, account/configuration, installed receipts, sampled shared inputs, all managed mods and saved-world files remain exact. Actual game files outside those protected scopes may change. A subsequent cold reopen preserves the complete metadata/file snapshot and both complete reports, including the comparison, exactly. Original launch requests51781/18362, API owners83898/19145 and display owner42777 join0; exact processes, game groups, listeners and profile holders are absent. No report guard, product code, schema or UI change is needed.
+
+Evidence: `.rewrite-logs/performance-same-id-current/current-same-id-pair-proof.json`, `root-report-cold-proof.json`, `current-pair-all-closed.json`, `vanilla-main-menu-settled.png`, `managed-main-menu.png` and retained original request/status/report snapshots.
 
 2026-10-04. Real same-driver Resume and completed-history reopen pass. This is current-app lifecycle evidence, not predecessor import, performance comparison, gameplay or installed-release acceptance.
 
